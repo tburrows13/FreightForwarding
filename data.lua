@@ -1,0 +1,6 @@
+require "prototypes.greenhouse"
+require "prototypes.recipe"
+require "prototypes.shallow-water"
+require "prototypes.landfill"
+require "prototypes.crating-machine"
+require "prototypes.map-gen-presets"
