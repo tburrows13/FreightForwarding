@@ -28,7 +28,10 @@ presets["x-default"] = {
 }
 
 for _, control in pairs(data.raw["autoplace-control"]) do
-  presets["x-default"].basic_settings.autoplace_controls[control.name] = ore_default
+  local name = control.name
+  if name ~= "trees" and name ~= "enemy-base" then
+    presets["x-default"].basic_settings.autoplace_controls[control.name] = ore_default
+  end
 end
 
 presets["island-start"] = nil
