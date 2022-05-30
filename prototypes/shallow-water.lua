@@ -10,6 +10,12 @@ local shallow_water = data.raw.tile["water-shallow"]
 shallow_water.walking_speed_modifier = 0.7  -- Default 0.8
 shallow_water.vehicle_friction_modifier = 32  -- Default 1
 
+shallow_water.collision_mask = {
+  "water-tile",
+  "floor-layer",
+  "resource-layer",
+  "doodad-layer",  -- Stops decoratives spawning on shallow water
+}
 
 -- max_elevation, influence
 -- Water:     autoplace = make_water_autoplace_settings(0, 100),
