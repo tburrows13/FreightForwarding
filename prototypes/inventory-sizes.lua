@@ -17,7 +17,15 @@ for _, prototype in pairs(data.raw["spider-vehicle"]) do
 end
 
 for _, prototype in pairs(data.raw["container"]) do
-  divide_inventory_size(prototype, 2)
+  -- wood/iron/steel default is 16/32/48
+  -- change to 12/18/24
+  if prototype.name == "wooden-chest" and prototype.inventory_size == 16 then
+    prototype.inventory_size = 12
+  elseif prototype.name == "iron-chest" and prototype.inventory_size == 32 then
+    prototype.inventory_size = 18
+  else
+    divide_inventory_size(prototype, 2)
+  end
 end
 
 for _, prototype in pairs(data.raw["logistic-container"]) do
