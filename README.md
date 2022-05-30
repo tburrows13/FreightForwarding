@@ -84,3 +84,4 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 - Removed starting seed (trees have a 1/50 chance of containing a seed)
 - Tree growth now has a chance of not returning any seeds (but still gains seeds on average) 
 - Renamed recipes and improved recipe icons
+- Increased default chance of trees dropping seeds from 2% to 4% (can still be configured in mod settings)

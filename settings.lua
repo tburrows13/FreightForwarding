@@ -30,3 +30,5 @@ data.raw["bool-setting"]["IslandStart-enabled"].hidden = true
 data.raw["string-setting"]["IslandStart-perimeter-type"].hidden = true
 data.raw["bool-setting"]["IslandStart-place-override"].hidden = true
 
+-- Increase default seed drop probability
+data.raw["double-setting"]["jag-seeds-trees"].default_value = 0.04

@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 30 May 2022
+  Changes:
+    - Increased default chance of trees dropping seeds from 2% to 4%
   Bugfixes:
     - Fixed crash when loading without Canal Builder
 ---------------------------------------------------------------------------------------------------
