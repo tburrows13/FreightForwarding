@@ -1,20 +1,21 @@
 {
     "name": "X-Logistics",
-    "version": "0.1.2",
+    "version": "1.0.0",
     "title": "X-Logistics",
     "author": "Xorimuth",
-    "description": "Adds greater long-distance logistics variety.\nPack intermediate products into crates before transporting them using combinations of trains, ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
+    "description": "Long-distance logistics overhaul.\nPack intermediate products into crates before transporting them using combinations of trains, ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
     "factorio_version": "1.1",
     "dependencies": [
       "base",
       "DeadlockCrating",
       "cargo-ships",
-      "CanalBuilderMAV",
       "SpidertronPatrols",
       "just-another-greenhouse",
       "IslandStart",
+      "? CanalBuilderMAV",
       "? beautiful_bridge_railway_Cargoships",
-      "? underwater-pipes"
+      "? underwater-pipes",
+      "? Hovercrafts"
     ],
     "package": {
       "ignore": ["resources/*", "scenarios/*"]
