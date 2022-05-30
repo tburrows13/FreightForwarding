@@ -80,4 +80,7 @@ table.insert(data.raw.technology["landfill"].effects,
   }
 )
 
-data.raw.item["waterfill-item"].order = "c[landfill]-c[waterfill]"
+local waterfill_item = data.raw.item["waterfill-item"]
+if waterfill_item then
+  waterfill_item.order = "c[landfill]-c[waterfill]"
+end
