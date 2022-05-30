@@ -1,5 +1,4 @@
 require "__X-Logistics__/prototypes/stack-sizes"
-require "__X-Logistics__/prototypes/inventory-sizes"
 
 local wood_rail_recipe = data.raw.recipe["bbr-rail-wood"]
 if wood_rail_recipe then

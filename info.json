@@ -9,7 +9,7 @@
       "base",
       "DeadlockCrating",
       "cargo-ships",
-      "SpidertronPatrols",
+      "SpidertronPatrols >= 2.2.4",
       "just-another-greenhouse",
       "IslandStart",
       "? CanalBuilderMAV",

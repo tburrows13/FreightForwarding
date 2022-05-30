@@ -4,6 +4,7 @@ Date: 31 May 2022
   Bugfixes:
     - Fixed X-Logistics Default map preset unintentionally changing trees and enemy bases
     - Fixed decoratives spawning on shallow water
+    - Fixed crash when a spidertron docks (Spidertron Patrols)
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 30 May 2022
