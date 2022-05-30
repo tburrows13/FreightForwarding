@@ -63,7 +63,7 @@ deep_landfill_recipe.name = "x-deep-landfill"
 deep_landfill_recipe.energy_required = 10
 deep_landfill_recipe.ingredients = {{ "stone", 400 }}
 deep_landfill_recipe.result = "x-deep-landfill"
-deep_landfill_recipe.enabled = true
+deep_landfill_recipe.enabled = false
 
 for _, tile in pairs(data.raw.tile) do
   if tile.name ~= "water" and tile.name ~= "deepwater" and tile.name ~= "water-green" and tile.name ~= "deepwater-green" then
