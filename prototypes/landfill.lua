@@ -29,6 +29,8 @@ Vanilla collision masks:
 
 ]]
 
+if not settings.startup["x-deep-landfill"].value then return end
+
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 -- get_first_unused_layer() doesn't check tiles so cargo ships will be given the same mask,

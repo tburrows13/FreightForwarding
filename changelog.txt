@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: ???
+  Features:
+    - Added setting to disable deep landfill and landfill changes
   Bugfixes:
     - Fixed incorrect map preset warning appearing on every load
 ---------------------------------------------------------------------------------------------------
