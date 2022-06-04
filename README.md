@@ -24,7 +24,7 @@ When starting a game, please use the 'X-Logistics Default' map preset for the in
 - [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): another logistics alternative
 - [Just Another Greenhouse Mod](https://mods.factorio.com/mod/just-another-greenhouse): automatically grow wood for crates and rails (and consequently production science)
 - [Island Start](https://mods.factorio.com/mod/IslandStart): provides island/continent generation to X-Logistics map preset
-- [Robot Attrition](https://mods.factorio.com/mod/robot_attrition): discourages transportation of crates by logistic bots, which is otherwise impossible for X-Logistics to balance _(optional)_
+- [Robot Attrition](https://mods.factorio.com/mod/robot_attrition): discourages transportation of crates by logistic bots, which is otherwise impossible to balance _(optional)_
 
 ---
 
@@ -68,8 +68,8 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 
 ### Landfill
 - Enabled shallow water around the edges of lakes/oceans that can be walked on
-- Normal landfill can only be placed on shallow water (cost 20 stone)
-- Added deep landfill for non-shallow water (cost 400 stone)
+- Normal landfill can only be placed on shallow water (cost 20 stone) _(optional change)_
+- Added deep landfill for non-shallow water (cost 400 stone) _(optional change)_
 
 ### Map generation
 - Added 'X-Mod Default preset' which uses island/continent generation from IslandStart

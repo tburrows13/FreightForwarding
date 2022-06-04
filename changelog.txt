@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
-Date: ???
+Date: 4 June 2022
   Features:
     - Added setting to disable deep landfill and landfill changes
     - Added Robot Attrition as an optional dependency

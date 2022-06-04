@@ -1,6 +1,6 @@
 {
     "name": "X-Logistics",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "title": "X-Logistics",
     "author": "Xorimuth",
     "description": "Long-distance logistics overhaul.\nPack intermediate products into crates before transporting them using combinations of trains, ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
