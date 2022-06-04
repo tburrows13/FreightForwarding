@@ -3,6 +3,7 @@ Version: 1.0.3
 Date: ???
   Features:
     - Added setting to disable deep landfill and landfill changes
+    - Added Robot Attrition as an optional dependency
   Bugfixes:
     - Fixed incorrect map preset warning appearing on every load
 ---------------------------------------------------------------------------------------------------

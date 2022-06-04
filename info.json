@@ -12,6 +12,7 @@
       "SpidertronPatrols >= 2.2.4",
       "just-another-greenhouse",
       "IslandStart",
+      "? robot_attrition",
       "? CanalBuilderMAV",
       "? beautiful_bridge_railway_Cargoships",
       "? underwater-pipes",

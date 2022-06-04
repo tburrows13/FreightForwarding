@@ -18,12 +18,13 @@ When starting a game, please use the 'X-Logistics Default' map preset for the in
 - Water mods
     - [Cargo Ships](https://mods.factorio.com/mod/cargo-ships): large inventories for transport across water; oil rigs for drilling oil in the ocean
     - [Canal Builder Simplified](https://mods.factorio.com/mod/CanalBuilderMAV): allows placing shallow water adjacent to existing water _(optional)_
-    - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships): _(optional)_
-    - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes) _(optional)_
+    - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships) _(optional)_
+    - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes): construct offshore oil rig infrastructure with less landfill _(optional)_
     - [Hovercrafts](https://mods.factorio.com/mod/Hovercrafts): easier navigation across both water and land _(optional)_
 - [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): another logistics alternative
 - [Just Another Greenhouse Mod](https://mods.factorio.com/mod/just-another-greenhouse): automatically grow wood for crates and rails (and consequently production science)
 - [Island Start](https://mods.factorio.com/mod/IslandStart): provides island/continent generation to X-Logistics map preset
+- [Robot Attrition](https://mods.factorio.com/mod/robot_attrition): discourages transportation of crates by logistic bots, which is otherwise impossible for X-Logistics to balance _(optional)_
 
 ---
 
