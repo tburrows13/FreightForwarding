@@ -16,7 +16,8 @@
       "? CanalBuilderMAV",
       "? beautiful_bridge_railway_Cargoships",
       "? underwater-pipes",
-      "? Hovercrafts"
+      "? Hovercrafts",
+      "(?) Transport_Drones"
     ],
     "package": {
       "ignore": ["resources/*", "scenarios/*"]

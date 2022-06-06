@@ -31,11 +31,10 @@ local belt_speed = 15
 
 -- Convert all crates from 5 crates/stack to 0.01 crates/stack
 for _, recipe in pairs(data.raw.recipe) do
-  if recipe.subgroup then
+  if recipe.category and recipe.category == "packing" and recipe.subgroup then
     if recipe.subgroup == "deadlock-crates-pack" then
       local item_name = recipe.ingredients[2][1]
       local item = data.raw.item[item_name]
-
       local stack_size = item.stack_size
       if stack_size >= 50 then
         item.stack_size = stack_size / 10
