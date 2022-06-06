@@ -42,6 +42,11 @@ local landfill_item = data.raw.item["landfill"]
 landfill_item.place_as_tile.condition_size = 1
 landfill_item.place_as_tile.condition = { shallow_water_mask }
 
+local landfill_recipe = data.raw.recipe["landfill"]
+landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
+
+local landfill_tech = data.raw.technology["landfill"]
+
 for _, tile in pairs(data.raw.tile) do
   if tile.name ~= "water-shallow" and tile.name ~= "water-mud" then
     table.insert(tile.collision_mask, shallow_water_mask)
@@ -60,10 +65,10 @@ deep_landfill_item.name = "x-deep-landfill"
 deep_landfill_item.order = "c[landfill]-b[deep]"
 deep_landfill_item.place_as_tile.condition = { water_mask }
 
-local deep_landfill_recipe = table.deepcopy(data.raw.recipe["landfill"])
+local deep_landfill_recipe = table.deepcopy(landfill_recipe)
 deep_landfill_recipe.name = "x-deep-landfill"
 deep_landfill_recipe.energy_required = 10
-deep_landfill_recipe.ingredients = {{ "stone", 400 }}
+deep_landfill_recipe.ingredients = {{ "landfill", 15 }, { "concrete", 15 }, { "iron-stick", 15 }}
 deep_landfill_recipe.result = "x-deep-landfill"
 deep_landfill_recipe.enabled = false
 
@@ -73,14 +78,33 @@ for _, tile in pairs(data.raw.tile) do
   end
 end
 
-data:extend{deep_landfill_item, deep_landfill_recipe}
 
-table.insert(data.raw.technology["landfill"].effects,
-  {
-    type = "unlock-recipe",
-    recipe = "x-deep-landfill"
-  }
-)
+local deep_landfill_tech = table.deepcopy(landfill_tech)
+deep_landfill_tech.name = "x-deep-landfill"
+deep_landfill_tech.effects = {{
+  type = "unlock-recipe",
+  recipe = "x-deep-landfill"
+}}
+deep_landfill_tech.unit = {
+  count = 400,
+  ingredients = {
+    { "automation-science-pack", 1 },
+    { "logistic-science-pack", 1 },
+    { "chemical-science-pack", 1 },
+  },
+  time = 30
+}
+
+deep_landfill_tech.prerequisites = { "chemical-science-pack", "landfill", "concrete" }
+
+data:extend{deep_landfill_item, deep_landfill_recipe, deep_landfill_tech}
+
+-- Don't want deep landfill to inherit the localised names
+landfill_item.localised_name = { "item-name.x-landfill" }
+landfill_item.localised_description = { "item-description.x-landfill" }
+landfill_tech.localised_name = { "technology-name.x-landfill" }
+landfill_tech.localised_description = { "technology-description.x-landfill" }
+
 
 local waterfill_item = data.raw.item["waterfill-item"]
 if waterfill_item then

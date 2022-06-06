@@ -68,8 +68,8 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 
 ### Landfill
 - Enabled shallow water around the edges of lakes/oceans that can be walked on
-- Normal landfill can only be placed on shallow water (cost 20 stone) _(optional change)_
-- Added deep landfill for non-shallow water (cost 400 stone) _(optional change)_
+- Normal landfill can only be placed on shallow water (costs 20 stone and 2 wood) _(optional change)_
+- Added deep landfill for non-shallow water (costs 15 shallow landfill, 15 concrete and 15 iron sticks) _(optional change)_
 
 ### Map generation
 - Added 'X-Mod Default preset' which uses island/continent generation from IslandStart

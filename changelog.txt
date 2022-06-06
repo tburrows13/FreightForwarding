@@ -1,6 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: ???
+  Changes:
+    - Added 2 wood to landfill recipe and renamed to 'Shallow landfill'
+    - Changed deep landfill recipe to 15 shallow landfill, 15 concrete and 15 iron sticks (from 400 stone)
+    - Moved deep landfill to its own technology (requires blue science) 
   Compatibility:
     - Fixed crash on load with Transport Drones
     - Remove ability for transport drone request depots to request packed crates (but balance concerns remain)
