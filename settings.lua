@@ -41,3 +41,7 @@ data.raw["bool-setting"]["IslandStart-place-override"].hidden = true
 
 -- Increase default seed drop probability
 data.raw["double-setting"]["jag-seeds-trees"].default_value = 0.04
+-- Remove starting seeds
+data.raw["int-setting"]["jag-starting-seeds"].allowed_values = { 0 }
+data.raw["int-setting"]["jag-starting-seeds"].default_value = 0
+data.raw["int-setting"]["jag-starting-seeds"].hidden = true

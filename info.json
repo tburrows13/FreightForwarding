@@ -10,7 +10,7 @@
       "DeadlockCrating",
       "cargo-ships",
       "SpidertronPatrols >= 2.2.4",
-      "just-another-greenhouse",
+      "just-another-greenhouse >= 0.1.4",
       "IslandStart",
       "? robot_attrition",
       "? CanalBuilderMAV",
