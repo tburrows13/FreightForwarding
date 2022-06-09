@@ -21,6 +21,7 @@ When starting a game, please use the 'X-Logistics Default' map preset for the in
     - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships) _(optional)_
     - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes): construct offshore oil rig infrastructure with less landfill _(optional)_
     - [Hovercrafts](https://mods.factorio.com/mod/Hovercrafts): easier navigation across both water and land _(optional)_
+    - [AAI Vehicles: Ironclad](https://mods.factorio.com/mod/https://mods.factorio.com/mod/aai-vehicles-ironclad): useful boat for transport or combat _(optional)_
 - [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): another logistics alternative
 - [Just Another Greenhouse Mod](https://mods.factorio.com/mod/just-another-greenhouse): automatically grow wood for crates and rails (and consequently production science)
 - [Island Start](https://mods.factorio.com/mod/IslandStart): provides island/continent generation to X-Logistics map preset
