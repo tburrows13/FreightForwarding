@@ -65,3 +65,16 @@ data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10  -- Was 50
 if mods["Nuclear Fuel"] then
   data.raw.item["breeder-fuel-cell"].stack_size = 10  -- Was 50
 end
+
+-- Increase stack inserter stack sizes
+local stack_bonus_techs = { "stack-inserter", "inserter-capacity-bonus-1", "inserter-capacity-bonus-2", "inserter-capacity-bonus-3", "inserter-capacity-bonus-4", "inserter-capacity-bonus-5", "inserter-capacity-bonus-6", "inserter-capacity-bonus-7", }
+for _, tech_name in pairs(stack_bonus_techs) do
+  local bonus_tech = data.raw.technology[tech_name]
+  if bonus_tech then
+    for _, effect in pairs(bonus_tech.effects) do
+      if effect.type == "stack-inserter-capacity-bonus" then
+        effect.modifier = effect.modifier + 1
+      end
+    end
+  end
+end

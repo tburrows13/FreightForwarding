@@ -12,3 +12,11 @@ script.on_init(
     script.on_nth_tick(300, print_warning)
   end
 )
+
+script.on_configuration_changed(
+  function()
+    for _, force in pairs(game.forces) do
+      force.reset_technology_effects()
+    end
+  end
+)
