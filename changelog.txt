@@ -1,9 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
-Date: ???
+Date: 14 June 2022
   Changes:
     - Stack inserters get an extra capacity bonus at each research level (ending up at 20 capacity rather than 12)
     - Production science recipe now requires 3 rails instead of 30 (to compensate for rails costing 10x as much)
+    - Added AAI Vehicles: Ironclad as an optional dependency
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 7 June 2022

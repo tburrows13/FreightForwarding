@@ -1,9 +1,9 @@
 {
     "name": "X-Logistics",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "title": "X-Logistics",
     "author": "Xorimuth",
-    "description": "Long-distance logistics overhaul.\nPack intermediate products into crates before transporting them using combinations of trains, ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
+    "description": "Long-distance logistics overhaul.\nPack intermediate products into crates before transporting them using combinations of trains, cargo ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
     "factorio_version": "1.1",
     "dependencies": [
       "base",

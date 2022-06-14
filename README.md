@@ -59,6 +59,7 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 - Wooden/Iron/Steel chest sizes decreased from 16/32/48 to 12/18/24
 - All other container inventory sizes divided by 2
 - Burner input inventory sizes multiplied by 3 (to somewhat offset the significant decrease in fuel stack sizes)
+- Stack inserter capacities increased at each research level (from 2 to 3 at base level, 12 to 20 at max level)
 
 ### Crating machine
 - Added crating recipes for seeds, explosives, engines and electric engines
@@ -84,6 +85,4 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 ### Greenhouse
 - Locked greenhouse and wood recipes behind a new technology (only requires red science)
 - Removed starting seed (trees have a 1/50 chance of containing a seed)
-- Tree growth now has a chance of not returning any seeds (but still gains seeds on average) 
-- Renamed recipes and improved recipe icons
 - Increased default chance of trees dropping seeds from 2% to 4% (can still be configured in mod settings)
