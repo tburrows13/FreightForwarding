@@ -1,5 +1,3 @@
-local noise = require("noise")
-
 if mods["alien-biomes"] then return end
 
 local mud_water = data.raw.tile["water-mud"]
