@@ -35,7 +35,7 @@ for _, recipe in pairs(data.raw.recipe) do
     if recipe.subgroup == "deadlock-crates-pack" then
       local item_name = recipe.ingredients[2][1]
       local item = data.raw.item[item_name]
-      local stack_size = item.stack_size
+      local stack_size = tonumber(item.stack_size)
       if stack_size >= 50 then
         item.stack_size = stack_size / 10
       elseif stack_size >= 20 then
@@ -53,7 +53,7 @@ for _, recipe in pairs(data.raw.recipe) do
     elseif recipe.subgroup == "deadlock-crates-unpack" then
       local item_name = recipe.results[2][1]
       local item = data.raw.item[item_name]
-      local items_per_crate = item.stack_size / stacks_per_crate
+      local items_per_crate = tonumber(item.stack_size) / stacks_per_crate
       recipe.results[2][2] = items_per_crate
       recipe.energy_required = items_per_crate / belt_speed
     end
