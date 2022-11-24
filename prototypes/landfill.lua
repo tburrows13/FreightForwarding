@@ -33,10 +33,7 @@ if not settings.startup["x-deep-landfill"].value then return end
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
--- get_first_unused_layer() doesn't check tiles so cargo ships will be given the same mask,
--- which results in resources colliding with ground tiles
---local shallow_water_mask = collision_mask_util.get_first_unused_layer()
-local shallow_water_mask = "layer-48"
+local shallow_water_mask = collision_mask_util.get_first_unused_layer()
 
 local landfill_item = data.raw.item["landfill"]
 landfill_item.place_as_tile.condition_size = 1
@@ -55,8 +52,7 @@ end
 
 data.raw["transport-belt"]["transport-belt"].collision_mask = { shallow_water_mask }
 
---local water_mask = collision_mask_util.get_first_unused_layer()
-local water_mask = "layer-49"
+local water_mask = collision_mask_util.get_first_unused_layer()
 
 data.raw["transport-belt"]["transport-belt"].collision_mask = nil
 
@@ -77,7 +73,6 @@ for _, tile in pairs(data.raw.tile) do
     table.insert(tile.collision_mask, water_mask)
   end
 end
-
 
 local deep_landfill_tech = table.deepcopy(landfill_tech)
 deep_landfill_tech.name = "x-deep-landfill"
