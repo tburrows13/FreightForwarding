@@ -1,6 +1,6 @@
 {
     "name": "X-Logistics",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "title": "X-Logistics",
     "author": "Xorimuth",
     "description": "Long-distance logistics overhaul.\nPack intermediate products into crates before transporting them using combinations of trains, cargo ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
@@ -12,12 +12,12 @@
       "SpidertronPatrols >= 2.2.4",
       "just-another-greenhouse >= 0.1.4",
       "IslandStart",
-      "? robot_attrition",
       "? CanalBuilderMAV",
       "? beautiful_bridge_railway_Cargoships",
       "? underwater-pipes",
       "? Hovercrafts",
       "? aai-vehicles-ironclad",
+      "? robot_attrition",
       "(?) Transport_Drones",
       "(?) bztitanium"
     ],

@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 24 November 2022
+  Changes:
+    - Underwater pipes no longer require titanium when BZ Titanium is installed
+    - Added warnings during map setup directing the player to X-Logistics Default instead
+  Bugfixes:
+    - Fixed tooltips added by Extended Descriptions and Stack Size Tooltip showing incorrect stack sizes
+---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 15 June 2022
   Bugfixes:
