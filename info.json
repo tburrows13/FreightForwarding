@@ -18,7 +18,8 @@
       "? underwater-pipes",
       "? Hovercrafts",
       "? aai-vehicles-ironclad",
-      "(?) Transport_Drones"
+      "(?) Transport_Drones",
+      "(?) bztitanium"
     ],
     "package": {
       "ignore": ["resources/*", "scenarios/*"]
