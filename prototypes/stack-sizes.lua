@@ -26,6 +26,18 @@ for name, tech_name in pairs(raw_materials) do
   deadlock_crating.add_crate(name, tech_name)
 end
 
+local function update_description_stack_size(description, stack_size)
+  if not description then return end
+  if type(description) ~= "table" then return end
+  if description[1] == "description.stack-size" or description[1] = "other.stack-size-description" then
+    -- Extended Descriptions and Stack Size Tooltip
+    description[2] = stack_size
+  end
+  for _, item in pairs(description) do
+    update_description_stack_size(item, stack_size)
+  end
+end
+
 local stacks_per_crate = 0.01
 local belt_speed = 15
 
@@ -41,6 +53,9 @@ for _, recipe in pairs(data.raw.recipe) do
       elseif stack_size >= 20 then
         item.stack_size = stack_size / 4
       end
+
+      -- Update stack size descriptions added by other mods
+      update_description_stack_size(item.localised_description, tostring(item.stack_size))
 
       local items_per_crate = item.stack_size / stacks_per_crate
       recipe.ingredients[2][2] = items_per_crate
