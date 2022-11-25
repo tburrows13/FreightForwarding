@@ -28,6 +28,7 @@ for tier = 1, 3 do
   entity.working_visualisations[1].animation.scale = 1 * SCALE
   entity.working_visualisations[1].animation.hr_version.scale = 0.5 * SCALE
   entity.working_visualisations[1].light.scale = 0.5 * SCALE
+	entity.se_allow_in_space = true
 end
 
 
