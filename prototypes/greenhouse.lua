@@ -66,5 +66,5 @@ recipe_breed.energy_required = 180  -- was 600
 recipe_breed.results = {
   {type = "item", name = "wood", amount = 20},
   {type = "item", name = "jag-seeds", amount = 2},
-  {type = "item", name = "jag-seeds", amount = 1, probability = 0.5},
+  {type = "item", name = "jag-seeds", amount = 1, probability = 0.5},  -- Was 0.4
 }
