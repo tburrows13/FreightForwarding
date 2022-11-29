@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 29 November 2022
+  Changes:
+    - Removed duplicate info icon in mod settings
+    - Wood production increased by ~5x:
+      - Basic tree growth: time required x0.2, seed excess x2
+      - Accelerated tree growth: time required x0.2, water input 110 -> 200, wood output 50 -> 80, 
+      - Tree breeding: time required x0.3, seed excess x1.25
+---------------------------------------------------------------------------------------------------
 Version: 1.0.7
 Date: 24 November 2022
   Changes:
