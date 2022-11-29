@@ -43,13 +43,28 @@ local technology = {
 data:extend{technology}
 
 local recipe_normal = data.raw.recipe["jag-growing-normal"]
+local recipe_fast = data.raw.recipe["jag-growing-fast"]
+local recipe_breed = data.raw.recipe["jag-growing-breed"]
 
--- Decrease normal growth profit
---[[ Default
-{type="item", name="wood", amount=50},
-{type="item", name="jag-seeds", amount=2, probability=0.55},
-]]
+recipe_normal.energy_required = 120  -- was 600
 recipe_normal.results = {
   {type = "item", name = "wood", amount = 50},
-  {type = "item", name = "jag-seeds", amount = 2, probability = 0.525},
+  {type = "item", name = "jag-seeds", amount = 2, probability = 0.55},
+}
+
+recipe_fast.energy_required = 60  -- was 300
+recipe_fast.ingredients = {
+  {type = "item", name = "jag-seeds", amount = 1},
+  {type = "fluid", name = "water", amount = 200},  -- Was 110
+}
+recipe_fast.results = {
+  {type = "item", name = "wood", amount = 80},  -- Was 50
+  {type = "item", name = "jag-seeds", amount = 1, probability = 0.4},
+}
+
+recipe_breed.energy_required = 180  -- was 600
+recipe_breed.results = {
+  {type = "item", name = "wood", amount = 20},
+  {type = "item", name = "jag-seeds", amount = 2},
+  {type = "item", name = "jag-seeds", amount = 1, probability = 0.5},
 }
