@@ -94,12 +94,18 @@ deep_landfill_tech.prerequisites = { "chemical-science-pack", "landfill", "concr
 
 data:extend{deep_landfill_item, deep_landfill_recipe, deep_landfill_tech}
 
--- Don't want deep landfill to inherit the localised names
+-- Don't want deep landfill to inherit the localised names and icon
 landfill_item.localised_name = { "item-name.x-landfill" }
 landfill_item.localised_description = { "item-description.x-landfill" }
 landfill_tech.localised_name = { "technology-name.x-landfill" }
 landfill_tech.localised_description = { "technology-description.x-landfill" }
 
+landfill_item.icon = "__X-Logistics__/graphics/shallow-landfill.png"
+landfill_item.icon_size = 64
+landfill_item.icon_mipmaps = 4
+landfill_tech.icon = "__X-Logistics__/graphics/shallow-landfill-tech.png"
+landfill_tech.icon_size = 256
+landfill_tech.icon_mipmaps = 4
 
 local waterfill_item = data.raw.item["waterfill-item"]
 if waterfill_item then
