@@ -1,4 +1,10 @@
+local inventory_blacklist = {
+  ["broken_droid"] = true,  -- Science droids
+  ["droid_work_station"] = true,
+}
+
 local function divide_inventory_size(prototype, amount)
+  if inventory_blacklist[prototype.name] then return end
   if prototype.inventory_size > 2 then
     prototype.inventory_size = math.max(prototype.inventory_size / amount, 2)
   end
@@ -32,6 +38,9 @@ for _, prototype in pairs(data.raw["logistic-container"]) do
   divide_inventory_size(prototype, 2)
 end
 
+-- Increase inventory size of broken droids from Science Droids so that
+-- they can fit all required materials even though stack sizes are reduced
+data.raw["container"]["broken_droid"].inventory_size = 30
 
 local burner_types = {
   "boiler",
