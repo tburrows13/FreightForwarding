@@ -46,7 +46,7 @@ I'd love to hear any feedback you have, such as suggestions of additions, change
 
 ### Attributions
 Thank you to everyone who's contributed to the mods used in X-Logistics. In particular: Deadlock989, schnurrebutz, robot256, Yehn, and Jakzie.
-Thank you to ElephantInTheRoom for feedback and suggestions.
+Thank you to ElephantInTheRoom and Ray1claw for feedback and suggestions.
 
 ---
 
@@ -76,6 +76,7 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 ### Map generation
 - Added 'X-Mod Default preset' which uses island/continent generation from IslandStart
 - Oil only spawns in water (relevant mod settings have been hidden)
+- Radar scan range increased from 29x29 to 41x41 chunks, to make it easier to discover islands over water
 
 ### Recipe changes
 - Added wood to rail cost and multiplied cost by 10 (cost x5, rails per craft x0.5)
@@ -86,3 +87,4 @@ Thank you to ElephantInTheRoom for feedback and suggestions.
 - Locked greenhouse and wood recipes behind a new technology (only requires red science)
 - Removed starting seed (trees have a 1/50 chance of containing a seed)
 - Increased default chance of trees dropping seeds from 2% to 4% (can still be configured in mod settings)
+- Wood production sped up by around 5x
