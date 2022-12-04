@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 4 December 2022
+  Changes:
+    - Shallow landfill icon changed to use the pre-0.18.27 landfill icon
+    - Radar long range survey scan range increased from 29x29 chunks to 41x41
+    - Radar energy per chunk scan decreased from 10MJ to 4MJ
+  Compatibility:
+    - Compatible with Science droids
+---------------------------------------------------------------------------------------------------
 Version: 1.0.8
 Date: 29 November 2022
   Changes:
