@@ -40,7 +40,10 @@ end
 
 -- Increase inventory size of broken droids from Science Droids so that
 -- they can fit all required materials even though stack sizes are reduced
-data.raw["container"]["broken_droid"].inventory_size = 30
+local broken_droid = data.raw["container"]["broken_droid"]
+if broken_droid then
+  broke_droid.inventory_size = 30
+end
 
 local burner_types = {
   "boiler",
