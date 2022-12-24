@@ -42,7 +42,7 @@ end
 -- they can fit all required materials even though stack sizes are reduced
 local broken_droid = data.raw["container"]["broken_droid"]
 if broken_droid then
-  broke_droid.inventory_size = 30
+  broken_droid.inventory_size = 30
 end
 
 local burner_types = {
