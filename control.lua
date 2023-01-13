@@ -20,3 +20,13 @@ script.on_configuration_changed(
     end
   end
 )
+
+-- Temporary Power Overload fix
+script.on_event(defines.events.on_player_created,
+  function(event)
+    if game.active_mods["PowerOverload"] then
+      local player = game.get_player(event.player_index)
+      player.set_shortcut_toggled("po-auto-connect-poles", true)
+    end
+  end
+)
