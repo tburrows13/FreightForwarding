@@ -33,6 +33,11 @@ data.raw["string-setting"]["oil_richness"].allowed_values = { "good" }
 data.raw["string-setting"]["oil_richness"].default_value = "good"
 data.raw["string-setting"]["oil_richness"].hidden = true
 
+-- Increase oil rig storage to match oil tanker's
+data.raw["int-setting"]["oil_rig_capacity"].allowed_values = { 250 }
+data.raw["int-setting"]["oil_rig_capacity"].default_value = 250
+data.raw["int-setting"]["oil_rig_capacity"].hidden = true
+
 -- Hide legacy IslandStart settings (settings 2 and 3 have no effect when 1 is false)
 data.raw["bool-setting"]["IslandStart-enabled"].forced_value = false
 data.raw["bool-setting"]["IslandStart-enabled"].hidden = true
