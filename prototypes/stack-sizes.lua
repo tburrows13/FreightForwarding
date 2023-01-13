@@ -60,6 +60,10 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
+data.raw.item["wood"].stack_size = 20  -- Was 100, then 10
+data.raw.item["coal"].stack_size = 10  -- Was 50, then 5
+data.raw.item["solid-fuel"].stack_size = 10  -- Was 50, then 5
+
 data.raw.item["uranium-fuel-cell"].stack_size = 10  -- Was 50
 data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10  -- Was 50
 if mods["Nuclear Fuel"] then
