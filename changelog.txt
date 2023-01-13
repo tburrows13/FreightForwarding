@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 13 January 2022
+  Changes:
+    - Wood, coal, and solid fuel stack sizes doubled (crate size remains unchanged)
+    - Oil rig storage increased to 250k to match oil tanker
+  Bugfixes:
+    - Fixed Shift+Enter from boats not exiting onto shallow water
+    - Fixed not being able to select boats over water ways
+    - Fixed some tooltips added by Extended Descriptions and Stack Size Tooltip showing incorrect stack sizes
+    - Fixed another crash on load when using Science droids
+---------------------------------------------------------------------------------------------------
 Version: 1.0.10
 Date: 20 December 2022
   Bugfixes:
