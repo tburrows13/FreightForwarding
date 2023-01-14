@@ -25,7 +25,7 @@ for name, type in pairs({
   ["cargo_ship"] = "cargo-wagon",
   ["oil_tanker"] = "fluid-wagon",
   ["cargo_ship_engine"] = "locomotive"}) do
-    log(name)
-    log(type)
-  data.raw[type][name].selection_priority = 51
+  if data.raw[type][name] then
+    data.raw[type][name].selection_priority = 51
+  end
 end
