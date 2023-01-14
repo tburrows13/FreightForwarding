@@ -53,17 +53,17 @@ Thank you to ElephantInTheRoom and Ray1claw for feedback and suggestions.
 ## Full list of changes
 
 ### Item transport
-- All intermediate resource stack sizes divided by 10
+- All intermediate resource stack sizes divided by 2
 - Cargo wagon (including cargo ships) inventory sizes divided by 10
 - Car and spidertron inventory sizes divided by 5
 - Wooden/Iron/Steel chest sizes decreased from 16/32/48 to 12/18/24
 - All other container inventory sizes divided by 2
-- Burner input inventory sizes multiplied by 3 (to somewhat offset the significant decrease in fuel stack sizes)
+- Burner input inventory sizes multiplied by 2 (to offset the decrease in fuel stack sizes)
 - Stack inserter capacities increased at each research level (from 2 to 3 at base level, 12 to 20 at max level)
 
 ### Crating machine
 - Added crating recipes for seeds, explosives, engines and electric engines
-- All crate sizes increased from 0.2 stacks to 100 stacks
+- All crate sizes increased from 0.2 stacks to 20 stacks
 - Size increased from 3x3 to 4x4
 - Crating machine recipes changed and technology prerequisites fixed so that the first crating machine can be unlocked with green science
 - Crating recipe names changed from 'Iron ore: pack crate' to 'Pack Iron ore crate'

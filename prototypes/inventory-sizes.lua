@@ -73,7 +73,7 @@ end
 -- Increase burner fuel inventory sizes to compensate
 local function increase_fuel_inventory_size(energy_source)
   if energy_source and energy_source.fuel_inventory_size then
-    energy_source.fuel_inventory_size = min(energy_source.fuel_inventory_size * 3, 12)
+    energy_source.fuel_inventory_size = min(energy_source.fuel_inventory_size * 2, 12)
   end
 end
 
@@ -86,5 +86,5 @@ end
 
 -- Increase player inventory size to compensate
 for _, character in pairs(data.raw.character) do
-  character.inventory_size = character.inventory_size * 1.5
+  character.inventory_size = math.floor(character.inventory_size * 1.25)
 end

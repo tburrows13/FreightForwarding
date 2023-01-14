@@ -26,7 +26,7 @@ for name, tech_name in pairs(raw_materials) do
   deadlock_crating.add_crate(name, tech_name)
 end
 
-local stacks_per_crate = 0.01
+local stacks_per_crate = 0.05
 local belt_speed = 15
 
 -- Convert all crates from 5 crates/stack to 0.01 crates/stack
@@ -37,9 +37,7 @@ for _, recipe in pairs(data.raw.recipe) do
       local item = data.raw.item[item_name]
       local stack_size = tonumber(item.stack_size)
       if stack_size >= 50 then
-        item.stack_size = stack_size / 10
-      elseif stack_size >= 20 then
-        item.stack_size = stack_size / 4
+        item.stack_size = stack_size / 2
       end
 
       local items_per_crate = item.stack_size / stacks_per_crate
@@ -59,10 +57,6 @@ for _, recipe in pairs(data.raw.recipe) do
     end
   end
 end
-
-data.raw.item["wood"].stack_size = 20  -- Was 100, then 10
-data.raw.item["coal"].stack_size = 10  -- Was 50, then 5
-data.raw.item["solid-fuel"].stack_size = 10  -- Was 50, then 5
 
 data.raw.item["uranium-fuel-cell"].stack_size = 10  -- Was 50
 data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10  -- Was 50
