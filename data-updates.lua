@@ -21,3 +21,22 @@ if mods["cargo-ships"] then
   end
   table.insert(collision_mask, "train-layer")
 end
+
+-- BZ Lead compatibility - override resource autoplace
+if mods["bzlead"] then
+  -- import custom Resource Autoplace
+  local resource_autoplace = require("resource-autoplace/resource-autoplace")
+
+  -- override BZ's autoplace, but keeping same values for richness
+  data.raw.resource["lead-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
+    name = "lead-ore",
+    order = "b-z",
+    base_density = 6,
+    base_spots_per_km2 = 1,
+    has_starting_area_placement = nil,
+    regular_rq_factor_multiplier = 1.2,
+    starting_rq_factor_multiplier = 1.7,
+    starting_resource_placement_radius = 100,
+    regular_patch_fade_in_distance = 300,
+  }
+end
