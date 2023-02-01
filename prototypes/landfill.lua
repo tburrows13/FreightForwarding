@@ -37,29 +37,20 @@ local shallow_water_mask = collision_mask_util.get_first_unused_layer()
 
 local landfill_item = data.raw.item["landfill"]
 landfill_item.place_as_tile.condition_size = 1
-landfill_item.place_as_tile.condition = { shallow_water_mask }
+landfill_item.place_as_tile.condition = { "player-layer", "ground-tile" }
 
 local landfill_recipe = data.raw.recipe["landfill"]
 landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
 
 local landfill_tech = data.raw.technology["landfill"]
 
-for _, tile in pairs(data.raw.tile) do
-  if tile.name ~= "water-shallow" and tile.name ~= "water-mud" then
-    table.insert(tile.collision_mask, shallow_water_mask)
-  end
-end
-
-data.raw["transport-belt"]["transport-belt"].collision_mask = { shallow_water_mask }
-
-local water_mask = collision_mask_util.get_first_unused_layer()
-
-data.raw["transport-belt"]["transport-belt"].collision_mask = nil
+table.insert(data.raw.tile["water-shallow"].collision_mask, shallow_water_mask)
+table.insert(data.raw.tile["water-mud"].collision_mask, shallow_water_mask)
 
 local deep_landfill_item = table.deepcopy(landfill_item)
 deep_landfill_item.name = "x-deep-landfill"
 deep_landfill_item.order = "c[landfill]-b[deep]"
-deep_landfill_item.place_as_tile.condition = { water_mask }
+deep_landfill_item.place_as_tile.condition = { shallow_water_mask, "ground-tile" }
 
 local deep_landfill_recipe = table.deepcopy(landfill_recipe)
 deep_landfill_recipe.name = "x-deep-landfill"
@@ -67,12 +58,6 @@ deep_landfill_recipe.energy_required = 10
 deep_landfill_recipe.ingredients = {{ "landfill", 15 }, { "concrete", 15 }, { "iron-stick", 15 }}
 deep_landfill_recipe.result = "x-deep-landfill"
 deep_landfill_recipe.enabled = false
-
-for _, tile in pairs(data.raw.tile) do
-  if tile.name ~= "water" and tile.name ~= "deepwater" and tile.name ~= "water-green" and tile.name ~= "deepwater-green" then
-    table.insert(tile.collision_mask, water_mask)
-  end
-end
 
 local deep_landfill_tech = table.deepcopy(landfill_tech)
 deep_landfill_tech.name = "x-deep-landfill"
