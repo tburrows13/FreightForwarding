@@ -153,7 +153,7 @@ local function resource_autoplace_settings(params)
 
   local regular_patch_fade_in_distance = params.regular_patch_fade_in_distance or default.regular_patch_fade_in_distance
   local regular_ns_multiplier_at
-  if (params.has_starting_area_placement or default.has_starting_area_placement) == nil then
+  if (params.has_starting_area_placement) == nil then
     regular_ns_multiplier_at = function(dist) return 1 end
   else
     regular_ns_multiplier_at = function(dist)
@@ -168,7 +168,7 @@ local function resource_autoplace_settings(params)
 
   -- Get distance for purposes of calculating regular ore density, patch size, and richness
   local function size_effective_distance_at(dist)
-    if (params.has_starting_area_placement or default.has_starting_area_placement) == nil then
+    if (params.has_starting_area_placement) == nil then
       return dist
     else
       -- If there's a starting area measure from the edge of the fade-in radius
@@ -210,7 +210,7 @@ local function resource_autoplace_settings(params)
   local regular_spot_quantity_expression = noise.random_between(random_spot_size_minimum, random_spot_size_maximum) * regular_spot_quantity_base_at(distance)
   local regular_spot_radius_expression = noise.min((params.min_radius_expression or default.min_radius_expression), regular_rq_factor * regular_spot_quantity_expression ^ (onethird))
 
-  if (params.has_starting_area_placement or default.has_starting_area_placement) ~= nil then
+  if (params.has_starting_area_placement) ~= nil then
     regular_blob_amplitude_maximum_distance = regular_blob_amplitude_maximum_distance + regular_patch_fade_in_distance
   end
   local function regular_blob_amplitude_at(dist)
@@ -288,7 +288,7 @@ local function resource_autoplace_settings(params)
 
   -- Don't want to distrurb starting_patch_metaset unless we actually need to.
   local starting_patch_set_index = 0
-  if (params.has_starting_area_placement or default.has_starting_area_placement) == true then
+  if (params.has_starting_area_placement) == true then
     starting_patch_set_index = tne(starting_patch_metaset:get_patch_set_index(patch_set_name))
   end
 
@@ -376,9 +376,9 @@ local function resource_autoplace_settings(params)
   local starting_patches = starting_spots + blobs0f * starting_blob_amplitude
 
   local all_patches
-  if (params.has_starting_area_placement or default.has_starting_area_placement) == true then
+  if (params.has_starting_area_placement) == true then
     all_patches = noise.max(starting_patches, regular_patches)
-  elseif (params.has_starting_area_placement or default.has_starting_area_placement) == false then
+  elseif (params.has_starting_area_placement) == false then
     all_patches = regular_patches
   else -- nil or unspecified means just make it uniform everywhere
     all_patches = regular_patches
