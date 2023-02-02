@@ -40,24 +40,12 @@ end
 --add_ingredient("deadlock-large-lamp", { "sng-glass-plate", 6 })
 --add_ingredient("deadlock-floor-lamp", { "sng-glass-plate", 6 })
 
--- Make rails much more expensive
+-- Make rails more expensive
 local recipe = data.raw.recipe["rail"]
 recipe.result_count = 1
 add_ingredient("rail", { "wood", 1 })
-multiply_recipe_ingredients(recipe, 5)
+--multiply_recipe_ingredients(recipe, 2)
 
--- Bridges automatically get ingredients based on "rail" cost and hardcoded setting
-
-if data.raw.recipe["bbr-rail-wood"] then
-  data.raw.recipe["bbr-rail-wood"].result_count = 1
-end
-if data.raw.recipe["bbr-rail-iron"] then
-  data.raw.recipe["bbr-rail-iron"].result_count = 1
-end
-if data.raw.recipe["bbr-rail-brick"] then
-  data.raw.recipe["bbr-rail-brick"].result_count = 1
-end
-
--- Cost 30 rails, but now rails are 10x more expensive (0.5x result_count, 5x ingredient cost, +5 wood)
+-- Cost 30 rails, but now rails are 2x more expensive (0.5x result_count, 1x ingredient cost, +2 wood)
 local science_recipe = data.raw.recipe["production-science-pack"]
-multiply_recipe_ingredients(science_recipe, 0.1, "rail")
+multiply_recipe_ingredients(science_recipe, 0.5, "rail")

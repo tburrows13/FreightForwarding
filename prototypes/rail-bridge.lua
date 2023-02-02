@@ -1,5 +1,5 @@
 -- Modifications to beautiful_bridge_railway_Cargoships
--- Recipe fix is in data-final-fixes
+-- Recipe changes are in data-final-fixes
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
