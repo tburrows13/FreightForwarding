@@ -65,3 +65,13 @@ data.raw.recipe["pipe-to-ground"].enabled = false
 table.insert(data.raw.technology["fluid-handling"].effects, 1, {type = "unlock-recipe", recipe = "pipe-to-ground"})
 
 table.insert(data.raw.lab.lab.inputs, 3, "x-transport-science-pack")
+
+-- Merge deep sea oil with pumpjack tech
+local deep_sea_oil = data.raw.technology["deep_sea_oil_extraction"]
+local oil_processing = data.raw.technology["oil-processing"]
+deep_sea_oil.hidden = true
+oil_processing.icon = deep_sea_oil.icon
+oil_processing.icon_size = deep_sea_oil.icon_size
+oil_processing.icon_mipmaps = deep_sea_oil.icon_mipmaps
+
+table.insert(oil_processing.effects, 2, {type = "unlock-recipe", recipe = "oil_rig"})
