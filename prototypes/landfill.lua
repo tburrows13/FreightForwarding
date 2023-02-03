@@ -34,6 +34,11 @@ if not settings.startup["x-deep-landfill"].value then return end
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 local shallow_water_mask = collision_mask_util.get_first_unused_layer()
+deep_water_mask = collision_mask_util.get_first_unused_layer()
+table.insert(data.raw.tile["water-shallow"].collision_mask, shallow_water_mask)
+table.insert(data.raw.tile["water-mud"].collision_mask, shallow_water_mask)
+table.insert(data.raw.tile["deepwater"].collision_mask, deep_water_mask)
+table.insert(data.raw.tile["deepwater-green"].collision_mask, deep_water_mask)
 
 local landfill_item = data.raw.item["landfill"]
 landfill_item.place_as_tile.condition_size = 1
@@ -44,13 +49,10 @@ landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
 
 local landfill_tech = data.raw.technology["landfill"]
 
-table.insert(data.raw.tile["water-shallow"].collision_mask, shallow_water_mask)
-table.insert(data.raw.tile["water-mud"].collision_mask, shallow_water_mask)
-
 local deep_landfill_item = table.deepcopy(landfill_item)
 deep_landfill_item.name = "x-deep-landfill"
 deep_landfill_item.order = "c[landfill]-b[deep]"
-deep_landfill_item.place_as_tile.condition = { shallow_water_mask, "ground-tile" }
+deep_landfill_item.place_as_tile.condition = { shallow_water_mask, deep_water_mask, "ground-tile" }
 
 local deep_landfill_recipe = table.deepcopy(landfill_recipe)
 deep_landfill_recipe.name = "x-deep-landfill"

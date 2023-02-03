@@ -4,9 +4,6 @@
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 -- Prevent bridges being placed on deep water
-local deep_water_mask = collision_mask_util.get_first_unused_layer()
-table.insert(data.raw.tile["deepwater"].collision_mask, deep_water_mask)
-table.insert(data.raw.tile["deepwater-green"].collision_mask, deep_water_mask)
 
 for _, bridge_type in pairs({"wood", "iron", "brick"}) do
   for _, rail_type in pairs({"straight-rail", "curved-rail"}) do
