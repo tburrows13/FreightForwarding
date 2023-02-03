@@ -25,7 +25,7 @@ data:extend{
       {"big-electric-pole", 1}
     },
     result_count = 3,
-    result = "logistic-science-pack"
+    result = "x-transport-science-pack"
   },
   {
     type = "technology",
