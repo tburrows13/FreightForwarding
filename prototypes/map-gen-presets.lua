@@ -16,7 +16,7 @@ presets["x-default"] = {
     terrain_segmentation = 2,  -- Inverse of Water Scale
     water = 1,  -- Water Coverage
     property_expression_names = {  -- From IslandStart mod
-      elevation = "IS_0_17-islands+continents",
+      elevation = "x-continents",
     },
   },
   advanced_settings = {
@@ -32,7 +32,3 @@ for _, control in pairs(data.raw["autoplace-control"]) do
     presets["x-default"].basic_settings.autoplace_controls[control.name] = ore_default
   end
 end
-
-presets["island-start"] = nil
-presets["island-start-scaled"] = nil
-presets["island-start-ribbon"] = nil

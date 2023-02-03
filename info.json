@@ -9,7 +9,6 @@
     "base > 1.1.60",
     "DeadlockCrating",
     "cargo-ships",
-    "IslandStart",
     "bzlead",
     "bztitanium",
     "CanalBuilderMAV",
@@ -25,7 +24,9 @@
     "? PlutoniumEnergy",
     "? PowerOverload",
     "? robot_attrition",
-    "(?) Transport_Drones"
+    "(?) Transport_Drones",
+    "! alien-biomes",
+    "! IslandStart"
   ],
   "package": {
     "ignore": ["resources/*", "scenarios/*"]

@@ -1,5 +1,3 @@
-if mods["alien-biomes"] then return end
-
 local mud_water = data.raw.tile["water-mud"]
 mud_water.walking_speed_modifier = 0.7  -- Default 0.8
 mud_water.vehicle_friction_modifier = 32
