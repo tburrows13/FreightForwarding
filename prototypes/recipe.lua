@@ -36,6 +36,12 @@ local function multiply_recipe_ingredients(recipe, multiplier, ingredient_name)
   end
 end
 
+local bzutil = require("__bzlead__.data-util");
+
+-- Rails are now used in transport science, so swap them out for uranium
+bzutil.remove_ingredient("production-science-pack", "rail")
+bzutil.add_ingredient("production-science-pack", "uranium-238", 2)
+
 -- Add glass to deadlock lamps
 --add_ingredient("deadlock-large-lamp", { "sng-glass-plate", 6 })
 --add_ingredient("deadlock-floor-lamp", { "sng-glass-plate", 6 })
