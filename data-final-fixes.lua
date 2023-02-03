@@ -1,6 +1,22 @@
 require "__X-Logistics__/prototypes/stack-sizes"
 require "__X-Logistics__/prototypes/transport-drones"
 
+-- Science
+local util = require "__X-Logistics__/prototypes/data-util"
+
+for _, tech in pairs(data.raw.technology) do
+  local ingredients = tech.unit.ingredients
+  if ingredients[3] and ingredients[3][1] == "chemical-science-pack" then
+    table.insert(ingredients, 3, {"x-transport-science-pack", 1})
+  else
+    -- Add to all techs descending from key techs
+    if util.is_descendant_of(tech.name, "fluid-handling") or util.is_descendant_of(tech.name, "water_transport") then
+      table.insert(ingredients, {"x-transport-science-pack", 1})
+    end
+  end
+end
+
+
 local function multiply_ingredients(ingredients, multiplier, ingredient_name)
   local new_ingredients = {}
   for _, ingredient in pairs(ingredients) do
