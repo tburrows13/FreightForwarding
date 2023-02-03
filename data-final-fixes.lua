@@ -57,24 +57,3 @@ if data.raw.recipe["bbr-rail-brick"] then
   data.raw.recipe["bbr-rail-brick"].result_count = 1
   multiply_recipe_ingredients(data.raw.recipe["bbr-rail-brick"], 2)
 end
-
--- Sum duplicate wood costs. Only works if wood isn't included 3 or more times.
-local wood_rail_recipe = data.raw.recipe["bbr-rail-wood"]
-if wood_rail_recipe then
-  local ingredients = wood_rail_recipe.ingredients
-  local to_delete
-  local found = 0
-  for i = 1, #ingredients do
-    if ingredients[i][1] == "wood" then
-      if found > 0 then
-        ingredients[i] = {"wood", ingredients[i][2] + found}
-      else
-        found = ingredients[i][2]
-        to_delete = i
-      end
-    end
-  end
-  if to_delete then
-    table.remove(ingredients, to_delete)
-  end
-end
