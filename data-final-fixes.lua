@@ -10,7 +10,9 @@ for _, tech in pairs(data.raw.technology) do
     table.insert(ingredients, 3, {"x-transport-science-pack", 1})
   else
     -- Add to all techs descending from key techs
-    if util.is_descendant_of(tech.name, "fluid-handling") or util.is_descendant_of(tech.name, "water_transport") then
+    if util.is_descendant_of(tech.name, "fluid-handling") or
+      util.is_descendant_of(tech.name, "water_transport") or
+      util.is_descendant_of(tech.name, "automobilism") then
       table.insert(ingredients, {"x-transport-science-pack", 1})
     end
   end
