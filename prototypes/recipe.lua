@@ -43,7 +43,7 @@ end
 -- Make rails more expensive
 local recipe = data.raw.recipe["rail"]
 recipe.result_count = 1
-add_ingredient("rail", { "wood", 1 })
+--add_ingredient("rail", { "wood", 1 })
 --multiply_recipe_ingredients(recipe, 2)
 
 -- Cost 30 rails, but now rails are 2x more expensive (0.5x result_count, 1x ingredient cost, +2 wood)
