@@ -1,11 +1,11 @@
 -- Setting to enable/disable deep landfill and landfill changes
-local deep_landfill = {
+--[[local deep_landfill = {
   type = "bool-setting",
   name = "x-deep-landfill",
   setting_type = "startup",
   default_value = true,
 }
-data:extend{deep_landfill}
+data:extend{deep_landfill}]]
 
 -- Set the special item cost for each bridge to 20
 if data.raw["int-setting"]["bbr-fix-cost"] then
