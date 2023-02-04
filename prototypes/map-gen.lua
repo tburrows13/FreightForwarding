@@ -201,6 +201,8 @@ local function IS_make_lakes(x, y, tile, map, options)
   local starting_plateau_bias = 20 --default 20.
   local starting_plateau_octaves = 6
 
+  local blotchiness = 2
+
   local roughness = simple_amplitude_corrected_multioctave_noise{
     x = x,
     y = y,
@@ -213,8 +215,8 @@ local function IS_make_lakes(x, y, tile, map, options)
   }
   local persistence = noise.clamp(roughness + 0.3, 0.1, 0.9)
   local roughness_start = simple_amplitude_corrected_multioctave_noise{
-    x = (x - 20000) / map.segmentation_multiplier,
-    y = y / map.segmentation_multiplier,
+    x = (x - 20000) / (blotchiness),
+    y = y / (blotchiness),
     seed0 = map.seed,
     seed1 = 1,
     octave_count = terrain_octaves - 2,
@@ -234,8 +236,8 @@ local function IS_make_lakes(x, y, tile, map, options)
     persistence = persistence
   }
   local starting_plateau_basis = simple_variable_persistence_multioctave_noise{
-    x = (x - 20000) / map.segmentation_multiplier,
-    y = y / map.segmentation_multiplier,
+    x = (x - 20000) / (blotchiness),
+    y = y / (blotchiness),
     seed0 = map.seed,
     seed1 = 2,
     octave_count = starting_plateau_octaves,
@@ -245,8 +247,16 @@ local function IS_make_lakes(x, y, tile, map, options)
     persistence = persistence_start
   }
   -- 10 default. 
-  local starting_plateau = starting_plateau_basis + starting_plateau_bias + map.finite_water_level * IS_wlc_mult - tile.distance / 15
-  return noise.max(lakes + bias, starting_plateau)
+  local island_scale = 1.15
+  local starting_plateau = starting_plateau_basis + starting_plateau_bias + map.finite_water_level * IS_wlc_mult - tile.distance / (island_scale * 15)
+
+  -- Set elevation to -4.5 in a radius around the center so that any generated continents don't merge with the starting island.
+  local empty_radius = 600
+  local avoid_starting_island = function(dist)
+    return noise.clamp((dist - empty_radius) / (empty_radius + 600), 0, 1)
+  end
+
+  return noise.max((lakes + bias + 10) * avoid_starting_island(tile.distance) - 10, starting_plateau)
 end
 
 data:extend{
