@@ -50,7 +50,7 @@ landfill_item.place_as_tile.condition_size = 1
 landfill_item.place_as_tile.condition = { "player-layer", "ground-tile" }
 
 local landfill_recipe = data.raw.recipe["landfill"]
-landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
+landfill_recipe.ingredients = {{ "stone", 10 }, { "wood", 2 }}
 
 local landfill_tech = data.raw.technology["landfill"]
 
@@ -62,7 +62,11 @@ deep_landfill_item.place_as_tile.condition = { shallow_water_mask, deep_water_ma
 local deep_landfill_recipe = table.deepcopy(landfill_recipe)
 deep_landfill_recipe.name = "x-deep-landfill"
 deep_landfill_recipe.energy_required = 10
-deep_landfill_recipe.ingredients = {{ "landfill", 15 }, { "concrete", 15 }, { "iron-stick", 15 }}
+deep_landfill_recipe.ingredients = {
+  { "landfill", 10 },
+  { "concrete", 10 },
+  { "iron-stick", 10 }
+}
 deep_landfill_recipe.result = "x-deep-landfill"
 deep_landfill_recipe.enabled = false
 
