@@ -29,7 +29,7 @@ Vanilla collision masks:
 
 ]]
 
-if not settings.startup["x-deep-landfill"].value then return end
+--if not settings.startup["x-deep-landfill"].value then return end
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
