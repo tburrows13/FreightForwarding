@@ -1,3 +1,5 @@
+local bzutil = require "__bzlead__/data-util";
+
 -- These ones are already added by deadlock crating
 local raw_material_list = {
   [1] = { "wood", "iron-ore", "copper-ore", "stone", "coal", "iron-plate", "copper-plate", "steel-plate", "stone-brick", "lead-ore", "lead-plate" },
@@ -7,9 +9,12 @@ local raw_material_list = {
 
 -- These are checked for existence before being added so it doesn't matter if their mod isn't loaded
 local new_material_list = {
-  [1] = { "jag-seeds", "sng-sand", "sng-glass-plate" },
-  [2] = { "explosives", "engine-unit", "electric-engine-unit" },
-  [3] = { "plutonium" },
+  [1] = { "sand", "glass", "stone-tablet" },  -- AAI Industry
+  [2] = {
+    "explosives", "engine-unit", "electric-engine-unit",  -- Vanilla
+    "motor", "electric-motor", "processed-fuel",  -- AAI Industry
+  },
+  [3] = { "plutonium-238", "plutonium-239" },  -- Plutonium Energy
 }
 
 local raw_materials = {}
@@ -58,10 +63,29 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 
+-- Change uranium stacking to tier 2
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-packrecipe-uranium-ore")
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-unpackrecipe-uranium-ore")
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-packrecipe-uranium-235")
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-unpackrecipe-uranium-235")
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-packrecipe-uranium-238")
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-unpackrecipe-uranium-238")
+
+bzutil.add_unlock("deadlock-crating-2", "deadlock-packrecipe-uranium-ore")
+bzutil.add_unlock("deadlock-crating-2", "deadlock-unpackrecipe-uranium-ore")
+bzutil.add_unlock("deadlock-crating-2", "deadlock-packrecipe-uranium-235")
+bzutil.add_unlock("deadlock-crating-2", "deadlock-unpackrecipe-uranium-235")
+bzutil.add_unlock("deadlock-crating-2", "deadlock-packrecipe-uranium-238")
+bzutil.add_unlock("deadlock-crating-2", "deadlock-unpackrecipe-uranium-238")
+
+
 data.raw.item["uranium-fuel-cell"].stack_size = 10  -- Was 50
 data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10  -- Was 50
-if mods["Nuclear Fuel"] then
-  data.raw.item["breeder-fuel-cell"].stack_size = 10  -- Was 50
+if mods["PlutoniumEnergy"] then
+  data.raw.item["MOX-fuel"].stack_size = 10  -- Was 50
+  data.raw.item["breeder-fuel-cell"].stack_size = 5  -- Was 20
+  data.raw.item["used-up-MOX-fuel"].stack_size = 10  -- Was 50
+  data.raw.item["used-up-breeder-fuel-cell"].stack_size = 5  -- Was 20
 end
 
 -- Increase stack inserter stack sizes
