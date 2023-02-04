@@ -34,9 +34,14 @@ if not settings.startup["x-deep-landfill"].value then return end
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 local shallow_water_mask = collision_mask_util.get_first_unused_layer()
-deep_water_mask = collision_mask_util.get_first_unused_layer()
 table.insert(data.raw.tile["water-shallow"].collision_mask, shallow_water_mask)
 table.insert(data.raw.tile["water-mud"].collision_mask, shallow_water_mask)
+
+local regular_water_mask = collision_mask_util.get_first_unused_layer()
+table.insert(data.raw.tile["water"].collision_mask, regular_water_mask)
+table.insert(data.raw.tile["water-green"].collision_mask, regular_water_mask)
+
+deep_water_mask = collision_mask_util.get_first_unused_layer()
 table.insert(data.raw.tile["deepwater"].collision_mask, deep_water_mask)
 table.insert(data.raw.tile["deepwater-green"].collision_mask, deep_water_mask)
 
@@ -98,3 +103,12 @@ local waterfill_item = data.raw.item["waterfill-item"]
 if waterfill_item then
   waterfill_item.order = "c[landfill]-c[waterfill]"
 end
+
+-- Add collision masks to crude oil to stop it showing on land and non-deep water in preview
+local crude_oil = data.raw.resource["crude-oil"]
+local collision_mask = collision_mask_util.get_mask(crude_oil)
+collision_mask_util.add_layer(collision_mask, shallow_water_mask)
+collision_mask_util.add_layer(collision_mask, regular_water_mask)
+collision_mask_util.add_layer(collision_mask, "ground-tile")
+
+crude_oil.collision_mask = collision_mask
