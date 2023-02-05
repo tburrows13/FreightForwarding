@@ -37,7 +37,7 @@ data.raw.resource["stone"].autoplace = resource_autoplace.resource_autoplace_set
   starting_rq_factor_multiplier = 1.1
 }
 
-local empty_radius = 600
+local empty_radius = 500
 
 data.raw.resource["uranium-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "uranium-ore",
@@ -77,7 +77,7 @@ if mods["bztitanium"] then
     order = "b-z",
     base_density = 3,
     has_starting_area_placement = false,
-    regular_rq_factor_multiplier = 0.8,
+    regular_rq_factor_multiplier = 1,
     regular_patch_fade_in_distance_start = empty_radius,
     regular_patch_fade_in_distance = empty_radius + 100,
   }
