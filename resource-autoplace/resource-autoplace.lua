@@ -155,12 +155,13 @@ local function resource_autoplace_settings(params)
   -- - nil   - place everywhere as if there is no starting area
 
   local regular_patch_fade_in_distance = params.regular_patch_fade_in_distance or default.regular_patch_fade_in_distance
+  local regular_patch_fade_in_distance_start = params.regular_patch_fade_in_distance_start or default.regular_patch_fade_in_distance_start
   local regular_ns_multiplier_at
   if (params.has_starting_area_placement) == nil then
     regular_ns_multiplier_at = function(dist) return 1 end
   else
     regular_ns_multiplier_at = function(dist)
-      return noise.clamp((dist - starting_resource_placement_radius) / regular_patch_fade_in_distance, 0, 1)
+      return noise.clamp((dist - regular_patch_fade_in_distance_start) / regular_patch_fade_in_distance, 0, 1)
     end
   end
   local double_density_distance = params.double_density_distance or default.double_density_distance -- distance at which patches have twice as much stuff in them

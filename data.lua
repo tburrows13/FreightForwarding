@@ -4,6 +4,7 @@ require "__X-Logistics__/prototypes/landfill"
 require "__X-Logistics__/prototypes/rail-bridge"
 require "__X-Logistics__/prototypes/crating-machine"
 require "__X-Logistics__/prototypes/transport-science"
+require "__X-Logistics__/prototypes/resources"
 require "__X-Logistics__/prototypes/map-gen"
 require "__X-Logistics__/prototypes/map-gen-presets"
 
