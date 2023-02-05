@@ -13,11 +13,11 @@
     "bztitanium",
     "CanalBuilderMAV",
     "underwater-pipes",
-    "auto-track-laying",
-    "? beautiful_bridge_railway_Cargoships",
+    "beautiful_bridge_railway_Cargoships",
+    "Hovercrafts",
+    "? auto-track-laying",
     "? SpidertronPatrols >= 2.2.4",
     "? Long_Range_Delivery_Drones",
-    "? Hovercrafts",
     "? aai-vehicles-ironclad",
     "? wret-beacon-rebalance-mod",
     "? DeadlockLargerLamp",
@@ -25,7 +25,6 @@
     "? PowerOverload",
     "? robot_attrition",
     "(?) Transport_Drones",
-    "! alien-biomes",
     "! IslandStart"
   ],
   "package": {
