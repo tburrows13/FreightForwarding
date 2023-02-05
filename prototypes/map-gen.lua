@@ -247,7 +247,7 @@ local function IS_make_lakes(x, y, tile, map, options)
     persistence = persistence_start
   }
   -- 10 default. 
-  local island_scale = 1.15
+  local island_scale = 1.1
   local starting_plateau = starting_plateau_basis + starting_plateau_bias + map.finite_water_level * IS_wlc_mult - tile.distance / (island_scale * 15)
 
   -- Set elevation to -4.5 in a radius around the center so that any generated continents don't merge with the starting island.

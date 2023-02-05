@@ -145,6 +145,9 @@ local function resource_autoplace_settings(params)
   -- > that ignores the setting.
   -- Twinsen, August 2018
   local starting_resource_placement_radius = params.starting_resource_placement_radius or default.starting_resource_placement_radius --120
+
+  -- Dictates whether to spawn the starting resource in a ring around the starting position
+  local starting_resource_placement_ring_radius = params.starting_resource_placement_ring_radius
   local regular_modulation
   -- has_starting_area_placement values:
   -- - true  - place in starting area and outside starting area independently
@@ -292,6 +295,26 @@ local function resource_autoplace_settings(params)
     starting_patch_set_index = tne(starting_patch_metaset:get_patch_set_index(patch_set_name))
   end
 
+  local spot_favorability_expression
+  if starting_resource_placement_ring_radius then
+    --[[spot_favorability_expression = noise.if_else_chain{
+      distance < tne(200), litexp(0),
+      distance > tne(300), litexp(0),
+      litexp(1)
+    }]]
+    spot_favorability_expression = litexp(
+      starting_feasibility * 10 *
+      (-((-distance + starting_resource_placement_ring_radius) / 4)^4 + 1) +
+      noise.random(0.5)
+    )
+  else
+    spot_favorability_expression = litexp(
+      starting_feasibility * 2 -
+      1 * distance / starting_resource_placement_radius +
+      noise.random(0.5)
+    )
+  end
+
   -- If you change starting area region size,
   -- also change the default starting area position in MapGenSettings
   local starting_spots = tne{
@@ -306,17 +329,13 @@ local function resource_autoplace_settings(params)
       skip_span = noise.var("starting-resource-patch-set-count"),
       skip_offset = starting_patch_set_index,
       region_size = tne(starting_resource_placement_radius * 2),
-      candidate_spot_count = tne(32),
-      minimum_candidate_point_spacing = tne(32),
+      candidate_spot_count = tne(starting_resource_placement_ring_radius and 128 or 32),
+      suggested_minimum_candidate_point_spacing = tne(32),
       density_expression = litexp(starting_density * starting_modulation),
       spot_quantity_expression = litexp(starting_area_spot_quantity),
       hard_region_target_quantity = tne(true), -- Since there's [usually] only one spot, clamp its quantity to the target quantity
       spot_radius_expression = litexp(starting_rq_factor * starting_area_spot_quantity ^ (onethird)),
-      spot_favorability_expression = litexp(
-        starting_feasibility * 2 -
-        1 * distance / starting_resource_placement_radius +
-        noise.random(0.5)
-      ),
+      spot_favorability_expression = spot_favorability_expression,
       basement_value = basement_value,
       maximum_spot_basement_radius = tne(128) -- does making this huge make a difference?
     }

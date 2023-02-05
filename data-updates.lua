@@ -27,11 +27,12 @@ if mods["bzlead"] then
     order = "b-z",
     base_density = 6,
     base_spots_per_km2 = 1,
-    has_starting_area_placement = false,
+    has_starting_area_placement = true,
     regular_rq_factor_multiplier = 1.2,
     starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_radius = 300,
-    regular_patch_fade_in_distance = 315,
+    starting_resource_placement_ring_radius = 280,
+    starting_resource_placement_radius = 400,
+    regular_patch_fade_in_distance = 500,
   }
 end
 
