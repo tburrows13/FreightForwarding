@@ -18,9 +18,10 @@ for _, prototype in pairs(data.raw["car"]) do
   divide_inventory_size(prototype, 5)
 end
 
-for _, prototype in pairs(data.raw["spider-vehicle"]) do
-  divide_inventory_size(prototype, 5)
-end
+-- Automated loading of containers into spider-vehicles is prohibited
+--for _, prototype in pairs(data.raw["spider-vehicle"]) do
+--  divide_inventory_size(prototype, 1)
+--end
 
 for _, prototype in pairs(data.raw["container"]) do
   -- wood/iron/steel default is 16/32/48
@@ -73,7 +74,7 @@ end
 -- Increase burner fuel inventory sizes to compensate
 local function increase_fuel_inventory_size(energy_source)
   if energy_source and energy_source.fuel_inventory_size then
-    energy_source.fuel_inventory_size = min(energy_source.fuel_inventory_size * 2, 12)
+    energy_source.fuel_inventory_size = min(energy_source.fuel_inventory_size * 2, 10)
   end
 end
 
