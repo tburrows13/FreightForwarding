@@ -21,3 +21,7 @@ Vanilla radar:
   max_distance_of_nearby_sector_revealed = 3
   energy_per_nearby_scan = "250kJ"
 ]]
+
+data.raw["spider-vehicle"]["lex-flying-gunship"].torso_bob_speed = 0.7
+data.raw["spider-vehicle"]["lex-flying-cargo"].torso_bob_speed = 0.3
+data.raw["spider-vehicle"]["lex-flying-heavyship"].torso_bob_speed = 0.45
