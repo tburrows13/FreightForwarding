@@ -35,9 +35,10 @@ for _, prototype in pairs(data.raw["container"]) do
   end
 end
 
-for _, prototype in pairs(data.raw["logistic-container"]) do
-  divide_inventory_size(prototype, 2)
-end
+-- Logistic chests are unlikely to be holding containers
+--for _, prototype in pairs(data.raw["logistic-container"]) do
+--  divide_inventory_size(prototype, 2)
+--end
 
 -- Increase inventory size of broken droids from Science Droids so that
 -- they can fit all required materials even though stack sizes are reduced
