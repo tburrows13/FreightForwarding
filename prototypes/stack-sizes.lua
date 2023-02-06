@@ -16,8 +16,9 @@ local new_material_list = {
     "motor", "electric-motor", "processed-fuel",  -- AAI Industry
   },
   [3] = {
+    "flying-robot-frame", "rocket-control-unit", "low-density-structure", "rocket-fuel", "nuclear-fuel",  -- Vanilla
     "production-science-pack", "utility-science-pack", "space-science-pack",  -- Vanilla
-    "plutonium-238", "plutonium-239" },  -- Plutonium Energy
+    "plutonium-238", "plutonium-239", "plutonium-fuel" },  -- Plutonium Energy
 }
 
 local raw_materials = {}
