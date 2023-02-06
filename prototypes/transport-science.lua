@@ -1,11 +1,11 @@
-local util = require "__X-Logistics__/prototypes/data-util"
+local util = require "__FreightForwarding__/prototypes/data-util"
 
 data:extend{
   {
     type = "tool",
     name = "x-transport-science-pack",
     localised_description = {"item-description.science-pack"},
-    icon = "__X-Logistics__/graphics/transport-science-pack-item.png",
+    icon = "__FreightForwarding__/graphics/transport-science-pack-item.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "science-pack",
     order = "b[logistic-science-pack]-a[transport-science-pack]",
@@ -33,7 +33,7 @@ data:extend{
     localised_name = {"technology-name.x-transport-science-pack"},
     localised_description = {"technology-description.x-transport-science-pack"},
     icon_size = 256, icon_mipmaps = 4,
-    icon = "__X-Logistics__/graphics/transport-science-pack-technology.png",
+    icon = "__FreightForwarding__/graphics/transport-science-pack-technology.png",
     prerequisites = {"railway", "electric-energy-distribution-1"},
     effects =
     {

@@ -1,4 +1,4 @@
-local util = require "__X-Logistics__/prototypes/data-util"
+local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require("__bzlead__/data-util")
 
 -- Hide light gunship

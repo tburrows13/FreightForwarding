@@ -1,4 +1,4 @@
-local util = require "__X-Logistics__/prototypes/data-util"
+local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require "__bzlead__/data-util"
 
 -- Revert bzlead's changes to early game things that need to be built before lead is accessible

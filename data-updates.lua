@@ -1,2 +1,2 @@
-require "__X-Logistics__/prototypes/inventory-sizes"
-require "__X-Logistics__/prototypes/recipe-updates"
+require "__FreightForwarding__/prototypes/inventory-sizes"
+require "__FreightForwarding__/prototypes/recipe-updates"

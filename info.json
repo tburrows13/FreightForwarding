@@ -1,7 +1,7 @@
 {
-  "name": "X-Logistics",
+  "name": "FreightForwarding",
   "version": "1.0.12",
-  "title": "X-Logistics",
+  "title": "Freight Forwarding",
   "author": "Xorimuth",
   "description": "Long-distance logistics overhaul.\nPack intermediate products into crates before transporting them using combinations of trains, cargo ships, and even spidertrons!\nAlso includes island/continent terrain generation, shallow water, and an expensive variant of landfill for deeper water.",
   "factorio_version": "1.1",

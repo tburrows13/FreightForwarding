@@ -1,9 +1,9 @@
-require "__X-Logistics__/prototypes/stack-sizes"
-require "__X-Logistics__/prototypes/transport-drones"
-require "__X-Logistics__/prototypes/crating-items"
+require "__FreightForwarding__/prototypes/stack-sizes"
+require "__FreightForwarding__/prototypes/transport-drones"
+require "__FreightForwarding__/prototypes/crating-items"
 
 -- Science
-local util = require "__X-Logistics__/prototypes/data-util"
+local util = require "__FreightForwarding__/prototypes/data-util"
 
 for _, tech in pairs(data.raw.technology) do
   local ingredients = tech.unit.ingredients

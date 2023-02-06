@@ -96,10 +96,10 @@ landfill_item.localised_description = { "item-description.x-landfill" }
 landfill_tech.localised_name = { "technology-name.x-landfill" }
 landfill_tech.localised_description = { "technology-description.x-landfill" }
 
-landfill_item.icon = "__X-Logistics__/graphics/shallow-landfill.png"
+landfill_item.icon = "__FreightForwarding__/graphics/shallow-landfill.png"
 landfill_item.icon_size = 64
 landfill_item.icon_mipmaps = 4
-landfill_tech.icon = "__X-Logistics__/graphics/shallow-landfill-tech.png"
+landfill_tech.icon = "__FreightForwarding__/graphics/shallow-landfill-tech.png"
 landfill_tech.icon_size = 256
 landfill_tech.icon_mipmaps = 4
 
