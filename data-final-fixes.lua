@@ -1,5 +1,6 @@
 require "__X-Logistics__/prototypes/stack-sizes"
 require "__X-Logistics__/prototypes/transport-drones"
+require "__X-Logistics__/prototypes/crating-items"
 
 -- Science
 local util = require "__X-Logistics__/prototypes/data-util"

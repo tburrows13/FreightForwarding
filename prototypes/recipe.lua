@@ -1,4 +1,4 @@
-local bzutil = require("__bzlead__.data-util");
+local bzutil = require("__bzlead__/data-util");
 
 -- Rails are now used in transport science, so swap them out for uranium
 bzutil.remove_ingredient("production-science-pack", "rail")
