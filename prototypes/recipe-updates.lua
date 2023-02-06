@@ -1,5 +1,5 @@
 local util = require "__X-Logistics__/prototypes/data-util"
-local bzutil = require "__bzlead__/data-util";
+local bzutil = require "__bzlead__/data-util"
 
 -- Revert bzlead's changes to early game things that need to be built before lead is accessible
 bzutil.replace_ingredient("pipe", "lead-plate", "iron-plate")
