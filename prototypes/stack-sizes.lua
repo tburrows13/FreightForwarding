@@ -11,16 +11,27 @@ local raw_material_list = {
 local new_material_list = {
   [1] = { "sand", "glass", "stone-tablet" },  -- AAI Industry
   [2] = {
+    "automation-science-pack", "logistic-science-pack", "x-transport-science-pack", "chemical-science-pack", "military-science-pack",  -- Vanilla
     "explosives", "engine-unit", "electric-engine-unit",  -- Vanilla
     "motor", "electric-motor", "processed-fuel",  -- AAI Industry
   },
-  [3] = { "plutonium-238", "plutonium-239" },  -- Plutonium Energy
+  [3] = {
+    "production-science-pack", "utility-science-pack", "space-science-pack",  -- Vanilla
+    "plutonium-238", "plutonium-239" },  -- Plutonium Energy
 }
 
 local raw_materials = {}
 for tier, material_list in pairs(new_material_list) do
   local tech_name = "deadlock-crating-" .. tier
   for _, name in pairs(material_list) do
+    if data.raw.tool[name] then
+      -- Hack to make science packs work with DCM's code, which only expects items in data.raw.item
+      local item = data.raw.tool[name]
+      item.tool = true
+      item.type = "item"
+      data:extend{item}
+      data.raw.tool[name] = nil
+    end
     if data.raw.item[name] then
       raw_materials[name] = tech_name
     end
@@ -116,4 +127,15 @@ end
 for _, item in pairs(data.raw.item) do
   -- Update stack size descriptions added by other mods because we run in data-final-fixes
   update_description_stack_size(item.localised_description, tostring(item.stack_size))
+end
+
+for name, _ in pairs(raw_materials) do
+  -- Put back the science packs into "tool" type
+  if data.raw.item[name].tool then
+    local item = data.raw.item[name]
+    item.tool = nil
+    item.type = "tool"
+    data:extend{item}
+    data.raw.item[name] = nil
+  end
 end
