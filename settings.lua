@@ -37,3 +37,7 @@ data.raw["string-setting"]["oil_richness"].hidden = true
 data.raw["int-setting"]["oil_rig_capacity"].allowed_values = { 250 }
 data.raw["int-setting"]["oil_rig_capacity"].default_value = 250
 data.raw["int-setting"]["oil_rig_capacity"].hidden = true
+
+-- Remove military science from spiderling and patrol technologies
+data.raw["bool-setting"]["sp-remove-military-requirement"].forced_value = true
+data.raw["bool-setting"]["sp-remove-military-requirement"].hidden = true

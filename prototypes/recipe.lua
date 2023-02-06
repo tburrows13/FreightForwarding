@@ -28,25 +28,8 @@ bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-heavyship", "steel-plate", "titanium-plate")
 
--- Move lex aicraft to lategame
-util.add_prerequisite("lex-jet-engine", "hcraft-tech")
-util.add_prerequisite("lex-jet-engine", "utility-science-pack")
-util.remove_prerequisite("lex-jet-engine", "automobilism")
-util.remove_prerequisite("lex-jet-engine", "robotics")
-
-util.add_research_ingredient("lex-jet-engine", "utility-science-pack")
-data.raw.technology["lex-jet-engine"].unit.count = 500  -- 350
-
-util.add_research_ingredient("lex-flying-gunship-ships", "utility-science-pack")
-data.raw.technology["lex-flying-gunship-ships"].unit.count = 1000  -- 500
-util.add_prerequisite("lex-flying-gunship-ships", "mcraft-tech")
-
-util.add_research_ingredient("lex-flying-cargo-ships", "utility-science-pack")
-data.raw.technology["lex-flying-cargo-ships"].unit.count = 1000  -- 500
-util.add_prerequisite("lex-flying-cargo-ships", "sp-spidertron-automation")
-
-util.add_prerequisite("lex-flying-heavyship-ships", "production-science-pack")
-bzutil.remove_recipe_effect("lex-flying-heavyship-ships", "spidertron-remote")
+-- Gets removed by Spidertron Patrols 'peaceful mode'
+util.add_research_ingredient("spidertron", "military-science-pack")
 
 -- Make rails more expensive
 local recipe = data.raw.recipe["rail"]
