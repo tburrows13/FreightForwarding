@@ -28,9 +28,6 @@ bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-heavyship", "steel-plate", "titanium-plate")
 
--- Gets removed by Spidertron Patrols 'peaceful mode'
-util.add_research_ingredient("spidertron", "military-science-pack")
-
 -- Make rails more expensive
 local recipe = data.raw.recipe["rail"]
 recipe.result_count = 1

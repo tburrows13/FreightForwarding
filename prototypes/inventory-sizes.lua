@@ -18,10 +18,11 @@ for _, prototype in pairs(data.raw["car"]) do
   divide_inventory_size(prototype, 5)
 end
 
--- Automated loading of containers into spider-vehicles is prohibited
---for _, prototype in pairs(data.raw["spider-vehicle"]) do
---  divide_inventory_size(prototype, 1)
---end
+-- Automated loading of containers into spider-vehicles is prohibited, so don't need to decrease by much,
+-- only enough to discourage using them for non-containerized intermediate products
+for _, prototype in pairs(data.raw["spider-vehicle"]) do
+  divide_inventory_size(prototype, 2)
+end
 
 for _, prototype in pairs(data.raw["container"]) do
   -- wood/iron/steel default is 16/32/48
