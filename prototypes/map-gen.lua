@@ -1,4 +1,4 @@
--- Code taken from IslandStart mod
+-- Code taken from IslandStart mod by Yehn, modified by Xorimuth
 
 local noise = require("noise")
 local util = require("util")
@@ -138,7 +138,7 @@ end
 
 local standard_starting_lake_elevation_expression = noise.define_noise_function( function(x,y,tile,map)
   local starting_lake_distance = noise.distance_from(x, y, noise.var("starting_lake_positions"), 1024)
-  local minimal_starting_lake_depth = 4
+  local minimal_starting_lake_depth = 7
   local minimal_starting_lake_bottom =
     starting_lake_distance / 4 - minimal_starting_lake_depth +
     make_basis_noise_function(map.seed, 123, 1.5, 1/8)(x,y)
@@ -187,7 +187,7 @@ end
 
 local function IS_finish_elevation(elevation, map)
   local elevation = IS_water_level_correct(elevation, map)
-  elevation = elevation / map.segmentation_multiplier
+  --elevation = elevation / map.segmentation_multiplier
   elevation = noise.min(elevation, standard_starting_lake_elevation_expression)
   return elevation
 end
@@ -231,10 +231,11 @@ local function IS_make_lakes(x, y, tile, map, options)
     seed0 = map.seed,
     seed1 = 1,
     octave_count = terrain_octaves,
-    octave0_input_scale = 1/2,
+    octave0_input_scale = (1/2) * 1.7,  -- Higher number means more islands
     octave0_output_scale = amplitude_multiplier,
     persistence = persistence
   }
+
   local starting_plateau_basis = simple_variable_persistence_multioctave_noise{
     x = (x - 20000) / (blotchiness),
     y = y / (blotchiness),
@@ -247,16 +248,16 @@ local function IS_make_lakes(x, y, tile, map, options)
     persistence = persistence_start
   }
   -- 10 default. 
-  local island_scale = 1.1
+  local island_scale = 1.25
   local starting_plateau = starting_plateau_basis + starting_plateau_bias + map.finite_water_level * IS_wlc_mult - tile.distance / (island_scale * 15)
 
   -- Set elevation to -4.5 in a radius around the center so that any generated continents don't merge with the starting island.
-  local empty_radius = 600
+  local empty_radius = 700
   local avoid_starting_island = function(dist)
     return noise.clamp((dist - empty_radius) / (empty_radius + 600), 0, 1)
   end
-
-  return noise.max((lakes + bias + 10) * avoid_starting_island(tile.distance) - 10, starting_plateau)
+  --return noise.max((lakes + bias) / 4, starting_plateau)
+  return noise.max(((lakes + bias + 40) * avoid_starting_island(tile.distance) - 40) / 4, starting_plateau)
 end
 
 data:extend{
@@ -266,11 +267,11 @@ data:extend{
     name = "x-continents",
     intended_property = "elevation",
     expression = noise.define_noise_function( function(x,y,tile,map)
-      x = x * map.segmentation_multiplier + 20000 -- Move the point where 'fractal similarity' is obvious off into the boonies
-      y = y * map.segmentation_multiplier
+      x = x + 20000 -- Move the point where 'fractal similarity' is obvious off into the boonies
+      y = y
       options =
       {
-        bias = -100,
+        bias = -90,
         terrain_octaves = 10
       }
       return IS_finish_elevation(IS_make_lakes(x, y, tile, map, options), map)

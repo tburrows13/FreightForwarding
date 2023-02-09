@@ -21,7 +21,6 @@ end
 -- Increase selection priority of vehicles so that they can be selected over bridges
 for _, type in pairs({"car", "locomotive", "cargo-wagon", "fluid-wagon", "artillery-wagon", "spider-vehicle"}) do
   for _, prototype in pairs(data.raw[type]) do
-    log(prototype.name)
     if not prototype.selection_priority or prototype.selection_priority == 50 then
       prototype.selection_priority = 51
     end

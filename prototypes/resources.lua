@@ -37,7 +37,7 @@ data.raw.resource["stone"].autoplace = resource_autoplace.resource_autoplace_set
   starting_rq_factor_multiplier = 1.1
 }
 
-local empty_radius = 500
+local empty_radius = 700
 
 data.raw.resource["uranium-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "uranium-ore",
@@ -63,10 +63,10 @@ if mods["bzlead"] then
     has_starting_area_placement = true,
     regular_rq_factor_multiplier = 1.2,
     starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_ring_radius = 280,  -- Spawns the starting patch somewhere at distance 280 from the center
-    starting_resource_placement_radius = 400,  -- Keep it reasonably above starting_resource_placement_ring_radius?
-    regular_patch_fade_in_distance_start = 400,
-    regular_patch_fade_in_distance = 500,
+    starting_resource_placement_ring_radius = 370,  -- Spawns the starting patch somewhere at distance 280 from the center
+    starting_resource_placement_radius = 500,  -- Keep it reasonably above starting_resource_placement_ring_radius?
+    regular_patch_fade_in_distance_start = 500,
+    regular_patch_fade_in_distance = 600,
   }
 end
 
@@ -77,7 +77,7 @@ if mods["bztitanium"] then
     order = "b-z",
     base_density = 3,
     has_starting_area_placement = false,
-    regular_rq_factor_multiplier = 1,
+    regular_rq_factor_multiplier = 0.95,
     regular_patch_fade_in_distance_start = empty_radius,
     regular_patch_fade_in_distance = empty_radius + 100,
   }

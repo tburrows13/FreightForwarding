@@ -271,8 +271,8 @@ local function resource_autoplace_settings(params)
     function_name = "spot-noise",
     arguments =
     {
-      x = noise.var("x"),
-      y = noise.var("y"),
+      x = noise.var("x") / 2,  -- Make resources more spread out but bigger
+      y = noise.var("y") / 2,
       seed0 = noise.var("map_seed"),
       seed1 = tne(seed1),
       region_size = tne(1024),

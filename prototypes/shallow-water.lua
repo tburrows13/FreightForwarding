@@ -20,5 +20,5 @@ shallow_water.collision_mask = {
 
 data.raw["tile"]["water-shallow"].autoplace = make_water_autoplace_settings(0, 25)
 -- data.raw["tile"]["water-mud"].autoplace = make_water_autoplace_settings(-2, 50)
-data.raw["tile"]["water"].autoplace = make_water_autoplace_settings(-1, 100)
-data.raw["tile"]["deepwater"].autoplace = make_water_autoplace_settings(-4, 200)
+data.raw["tile"]["water"].autoplace = make_water_autoplace_settings(-4, 100)
+data.raw["tile"]["deepwater"].autoplace = make_water_autoplace_settings(-8, 200)
