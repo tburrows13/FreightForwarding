@@ -31,13 +31,13 @@ Vanilla collision masks:
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
-local shallow_water_mask = collision_mask_util.get_first_unused_layer()
-table.insert(data.raw.tile["water-shallow"].collision_mask, shallow_water_mask)
-table.insert(data.raw.tile["water-mud"].collision_mask, shallow_water_mask)
+local non_deep_water_mask = collision_mask_util.get_first_unused_layer()
+table.insert(data.raw.tile["water-shallow"].collision_mask, non_deep_water_mask)
+table.insert(data.raw.tile["water-mud"].collision_mask, non_deep_water_mask)
 
-local regular_water_mask = collision_mask_util.get_first_unused_layer()
-table.insert(data.raw.tile["water"].collision_mask, regular_water_mask)
-table.insert(data.raw.tile["water-green"].collision_mask, regular_water_mask)
+--local regular_water_mask = collision_mask_util.get_first_unused_layer()
+table.insert(data.raw.tile["water"].collision_mask, non_deep_water_mask)
+table.insert(data.raw.tile["water-green"].collision_mask, non_deep_water_mask)
 
 deep_water_mask = collision_mask_util.get_first_unused_layer()
 table.insert(data.raw.tile["deepwater"].collision_mask, deep_water_mask)
@@ -45,61 +45,10 @@ table.insert(data.raw.tile["deepwater-green"].collision_mask, deep_water_mask)
 
 local landfill_item = data.raw.item["landfill"]
 landfill_item.place_as_tile.condition_size = 1
-landfill_item.place_as_tile.condition = { "player-layer", "ground-tile" }
+landfill_item.place_as_tile.condition = { deep_water_mask, "ground-tile" }
 
 local landfill_recipe = data.raw.recipe["landfill"]
-landfill_recipe.ingredients = {{ "stone", 10 }, { "wood", 2 }}
-
-local landfill_tech = data.raw.technology["landfill"]
-
-local deep_landfill_item = table.deepcopy(landfill_item)
-deep_landfill_item.name = "x-deep-landfill"
-deep_landfill_item.order = "c[landfill]-b[deep]"
-deep_landfill_item.place_as_tile.condition = { shallow_water_mask, deep_water_mask, "ground-tile" }
-
-local deep_landfill_recipe = table.deepcopy(landfill_recipe)
-deep_landfill_recipe.name = "x-deep-landfill"
-deep_landfill_recipe.energy_required = 10
-deep_landfill_recipe.ingredients = {
-  { "landfill", 10 },
-  { "concrete", 10 },
-  { "iron-stick", 10 }
-}
-deep_landfill_recipe.result = "x-deep-landfill"
-deep_landfill_recipe.enabled = false
-
-local deep_landfill_tech = table.deepcopy(landfill_tech)
-deep_landfill_tech.name = "x-deep-landfill"
-deep_landfill_tech.effects = {{
-  type = "unlock-recipe",
-  recipe = "x-deep-landfill"
-}}
-deep_landfill_tech.unit = {
-  count = 400,
-  ingredients = {
-    { "automation-science-pack", 1 },
-    { "logistic-science-pack", 1 },
-    { "chemical-science-pack", 1 },
-  },
-  time = 30
-}
-
-deep_landfill_tech.prerequisites = { "chemical-science-pack", "landfill", "concrete" }
-
-data:extend{deep_landfill_item, deep_landfill_recipe, deep_landfill_tech}
-
--- Don't want deep landfill to inherit the localised names and icon
-landfill_item.localised_name = { "item-name.x-landfill" }
-landfill_item.localised_description = { "item-description.x-landfill" }
-landfill_tech.localised_name = { "technology-name.x-landfill" }
-landfill_tech.localised_description = { "technology-description.x-landfill" }
-
-landfill_item.icon = "__FreightForwarding__/graphics/shallow-landfill.png"
-landfill_item.icon_size = 64
-landfill_item.icon_mipmaps = 4
-landfill_tech.icon = "__FreightForwarding__/graphics/shallow-landfill-tech.png"
-landfill_tech.icon_size = 256
-landfill_tech.icon_mipmaps = 4
+landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
 
 local waterfill_item = data.raw.item["waterfill-item"]
 if waterfill_item then
@@ -109,8 +58,7 @@ end
 -- Add collision masks to crude oil to stop it showing on land and non-deep water in preview
 local crude_oil = data.raw.resource["crude-oil"]
 local collision_mask = collision_mask_util.get_mask(crude_oil)
-collision_mask_util.add_layer(collision_mask, shallow_water_mask)
-collision_mask_util.add_layer(collision_mask, regular_water_mask)
+collision_mask_util.add_layer(collision_mask, non_deep_water_mask)
 collision_mask_util.add_layer(collision_mask, "ground-tile")
 
 crude_oil.collision_mask = collision_mask
