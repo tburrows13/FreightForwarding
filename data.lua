@@ -1,6 +1,8 @@
 require "__FreightForwarding__/prototypes/recipe"
 require "__FreightForwarding__/prototypes/shallow-water"
 require "__FreightForwarding__/prototypes/landfill"
+require "__FreightForwarding__/prototypes/titansteel"
+require "__FreightForwarding__/prototypes/lava-pool"
 require "__FreightForwarding__/prototypes/rail-bridge"
 require "__FreightForwarding__/prototypes/lex-aircraft"
 require "__FreightForwarding__/prototypes/crating-machine"
