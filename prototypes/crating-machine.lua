@@ -54,6 +54,10 @@ local technology1 = data.raw.technology["deadlock-crating-1"]
 technology1.prerequisites = {"engine", "fast-inserter"}
 technology1.unit.count = 100
 
+table.insert(technology1.effects, 2, {
+  type = "unlock-recipe",
+  recipe = "ff-container",
+})
 
 local item2 = data.raw.item["deadlock-crating-machine-2"]
 item2.order = "d-b[crating-machine-2]"
@@ -99,3 +103,22 @@ local technology3 = data.raw.technology["deadlock-crating-3"]
 -- Original: {"automation-3", "deadlock-crating-2"}
 technology3.prerequisites = {"automation-3", "deadlock-crating-2"}
 technology3.unit.count = 300
+
+data:extend{
+  {
+    type = "item",
+    name = "ff-container",
+    icon = "__base__/graphics/icons/steel-chest.png",
+    icon_size = 64, icon_mipmaps = 4,
+    subgroup = "storage",
+    order = "a[items]-z[steel-chest]",
+    stack_size = 10
+  },
+  {
+    type = "recipe",
+    name = "ff-container",
+    enabled = false,
+    ingredients = {{"steel-plate", 8}},
+    result = "ff-container"
+  },
+}
