@@ -57,7 +57,7 @@ data:extend{
     results = {
       {name = "ff-hot-titansteel-plate", amount = 1},
     },
-    energy_required = 2.5,
+    energy_required = 10,
   },
   {
     type = "recipe",
@@ -67,13 +67,13 @@ data:extend{
     enabled = false,
     ingredients = {
       {name = "ff-hot-titansteel-plate", amount = 1},
-      {type = "fluid", name="water", amount = 20, catalyst_amount = 5},
+      {type = "fluid", name="water", amount = 20},  -- TODO add catalyst_amount?
     },
     results = {
       {name = "ff-titansteel-plate", amount = 1},
-      {type = "fluid", name="steam", amount = 20, temperature = 500, catalyst_amount = 4},
+      {type = "fluid", name="steam", amount = 20, temperature = 500},  -- TODO add catalyst_amount?
     },
-    energy_required = 5,
+    energy_required = 20,
   },
   {
     type = "item",
@@ -86,7 +86,7 @@ data:extend{
       },
     },
     icon_size = 64, icon_mipmaps = 4,
-    pictures =  -- Need separate pictures for glow effect
+    pictures =  -- Separate pictures definition for glow effect
     {
       {
         layers =
