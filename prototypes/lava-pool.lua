@@ -57,10 +57,20 @@ data:extend{
     show_recipe_icon = false,
     crafting_speed = 1,
     energy_source = {type = "void"},
-    energy_usage = "10W",
+    energy_usage = "1W",
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     vehicle_impact_sound = sounds.generic_impact,
+    created_effect = {
+      type = "direct",
+      action_delivery = {
+        type = "instant",
+        target_effects = {
+          type = "create-entity",
+          entity_name = "ff-lava-light",
+        }
+      }
+    }
     --[[working_sound =
     {
       sound =
@@ -98,4 +108,20 @@ data:extend{
       direction_out = empty_sprite,
     }
   },]]
+  {
+    type = "lamp",
+    name = "ff-lava-light",
+    energy_source = {type = "void"},
+    energy_usage_per_tick = "1W",
+    always_on = true,
+    picture_on = empty_sprite,
+    picture_off = empty_sprite,
+    flags = {"hidden", "not-on-map", "placeable-off-grid"},
+    light =
+    {
+      intensity = 1,
+      size = 14,
+      color = {r = 255, g = 80, b = 0},
+    },
+  },
 }

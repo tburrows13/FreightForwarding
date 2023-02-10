@@ -86,6 +86,30 @@ data:extend{
       },
     },
     icon_size = 64, icon_mipmaps = 4,
+    pictures =  -- Need separate pictures for glow effect
+    {
+      {
+        layers =
+        {
+          {
+            filename = "__base__/graphics/icons/steel-plate.png",
+            tint = { b = 0, g = 0, r = 0.8 },
+            size = 64,
+            scale = 0.25,
+            mipmap_count = 4
+          },
+          {
+            filename = "__base__/graphics/icons/steel-plate.png",
+            blend_mode = "additive",
+            draw_as_light = true,
+            tint = {r = 0.8, g = 0.8, b = 0.8, a = 0.4},
+            size = 64,
+            scale = 0.25,
+            mipmap_count = 4
+          },
+        }
+      },
+    },
     subgroup = "raw-material",
     order = "e[titansteel-plate]-a",
     stack_size = 1
