@@ -50,6 +50,33 @@ landfill_item.place_as_tile.condition = { deep_water_mask, "ground-tile" }
 local landfill_recipe = data.raw.recipe["landfill"]
 landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
 
+data.raw.tile["landfill"].walking_speed_modifier = 1.2  -- It can't be concreted, so give it a bit of a boost anyway
+
+-- Make landfill minable
+landfill_item.minable = {
+	mining_time = 0.1, result = "landfill", count = 1,
+}
+landfill_item.mined_sound = {
+  {
+    filename = "__core__/sound/landfill-small.ogg"
+  },
+  {
+    filename = "__core__/sound/landfill-small-1.ogg"
+  },
+  {
+    filename = "__core__/sound/landfill-small-2.ogg"
+  },
+  {
+    filename = "__core__/sound/landfill-small-3.ogg"
+  },
+  {
+    filename = "__core__/sound/landfill-small-4.ogg"
+  },
+  {
+    filename = "__core__/sound/landfill-small-5.ogg"
+  }
+}
+
 local waterfill_item = data.raw.item["waterfill-item"]
 if waterfill_item then
   waterfill_item.order = "c[landfill]-c[waterfill]"
