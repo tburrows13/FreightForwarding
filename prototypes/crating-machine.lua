@@ -28,6 +28,7 @@ for tier = 1, 3 do
   entity.working_visualisations[1].animation.scale = 1 * SCALE
   entity.working_visualisations[1].animation.hr_version.scale = 0.5 * SCALE
   entity.working_visualisations[1].light.scale = 0.5 * SCALE
+  entity.scale_entity_info_icon = true
   entity.se_allow_in_space = true
 end
 
@@ -108,11 +109,18 @@ data:extend{
   {
     type = "item",
     name = "ff-container",
-    icon = "__base__/graphics/icons/steel-chest.png",
+    icon = "__FreightForwarding__/graphics/container.png",
     icon_size = 64, icon_mipmaps = 4,
-    subgroup = "storage",
-    order = "a[items]-z[steel-chest]",
-    stack_size = 10
+    subgroup = "intermediate-product",
+    order = "[first-in-order]",
+    stack_size = 10,
+    pictures = {  -- Oversized on oversized on belts and ground 
+      {
+        filename = "__FreightForwarding__/graphics/container.png",
+        size = 64,
+        scale = 0.5,
+      },
+    },
   },
   {
     type = "recipe",
