@@ -284,7 +284,7 @@ local function resource_autoplace_settings(params)
       spot_quantity_expression = litexp(regular_spot_quantity_expression), -- used to figure out where spots go
       hard_region_target_quantity = tne(false), -- it's fine for large spots to push region quantity past the target
       spot_radius_expression = litexp(regular_spot_radius_expression),
-      spot_favorability_expression = litexp(1),
+      spot_favorability_expression = params.avoid_coast and litexp(noise.clamp((elevation - 20)/4, 0, 1)) or litexp(1),  -- not sure how effective avoid_coasts really is
       basement_value = basement_value,
       maximum_spot_basement_radius = tne(128)
     }

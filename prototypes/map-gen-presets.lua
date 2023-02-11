@@ -1,6 +1,6 @@
 local presets = data.raw["map-gen-presets"]["default"]
 
-local ore_default = { frequency = 0.5, size = 2, richness = 2 }
+local ore_default = { frequency = 0.5, size = 1, richness = 2 }
 
 presets["x-default"] = {
   order = ".",

@@ -210,7 +210,7 @@ local function IS_make_lakes(x, y, tile, map, options)
     seed1 = 1,
     octave_count = terrain_octaves - 2,
     amplitude = 1/2,
-    octave0_input_scale = 1/2,
+    octave0_input_scale = (1/2) * 1.8,
     persistence = roughness_persistence
   }
   local persistence = noise.clamp(roughness + 0.3, 0.1, 0.9)
@@ -231,7 +231,7 @@ local function IS_make_lakes(x, y, tile, map, options)
     seed0 = map.seed,
     seed1 = 1,
     octave_count = terrain_octaves,
-    octave0_input_scale = (1/2) * 1.7,  -- Higher number means more islands
+    octave0_input_scale = (1/2) * 2,  -- Higher number means more islands
     octave0_output_scale = amplitude_multiplier,
     persistence = persistence
   }
@@ -271,7 +271,7 @@ data:extend{
       y = y
       options =
       {
-        bias = -90,
+        bias = -80,  -- Higher number (closer to 0) means water level is higher so islands are smaller
         terrain_octaves = 10
       }
       return IS_finish_elevation(IS_make_lakes(x, y, tile, map, options), map)

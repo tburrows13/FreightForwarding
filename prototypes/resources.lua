@@ -82,3 +82,35 @@ if mods["bztitanium"] then
     regular_patch_fade_in_distance = empty_radius + 100,
   }
 end
+
+
+-- Lava pools
+
+data:extend{
+  {
+    type = "autoplace-control",
+    name = "ff-lava-pool",
+    localised_name = {"", "[entity=ff-lava-pool] ", {"entity-name.ff-lava-pool"}},
+    richness = false,
+    order = "z-a",
+    category = "resource"
+  },
+}
+
+data.raw["assembling-machine"]["ff-lava-pool"].autoplace = resource_autoplace.resource_autoplace_settings
+{
+  name = "ff-lava-pool",
+  order = "a", -- Other resources are "b"; lava will override if something else is already there.
+  base_density = 8.2,
+  base_spots_per_km2 = 2,
+  random_probability = 1/128,
+  random_spot_size_minimum = 0.75,
+  random_spot_size_maximum = 1.25,
+  size_multiplier_coefficient = 3,
+  has_starting_area_placement = false,
+  regular_rq_factor_multiplier = 1,
+  starting_resource_placement_radius = 1000,
+  regular_patch_fade_in_distance_start = 1000,
+  regular_patch_fade_in_distance = 1000,
+  avoid_coast = true,
+}

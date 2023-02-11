@@ -52,6 +52,7 @@ data:extend{
         },
       }
     },
+    map_color = {1, 0.4, 0},
     crafting_categories = {"ff-lava-smelting"},
     fixed_recipe = "ff-titansteel-smelting",
     show_recipe_icon = false,
@@ -70,7 +71,7 @@ data:extend{
           entity_name = "ff-lava-light",
         }
       }
-    }
+    },
     --[[working_sound =
     {
       sound =
