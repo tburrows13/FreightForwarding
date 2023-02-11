@@ -65,12 +65,14 @@ local function scale_icon(icon, scale)
   icon.scale = (icon.scale or 1) * scale
 end
 
+local item_scale = 0.5
+
 for _, recipe in pairs(data.raw.recipe) do
   if recipe.category and recipe.category == "packing" and recipe.subgroup then
     if recipe.subgroup == "deadlock-crates-pack" then
       recipe.ingredients[1][1] = "ff-container"
       recipe.icons[1] = table.deepcopy(right_corner_layer)
-      scale_icon(recipe.icons[2], 1.05)
+      scale_icon(recipe.icons[2], 1.05 * item_scale)
       shift_icon(recipe.icons[2], -4.5, -4.5)
       recipe.icons[3] = table.deepcopy(arrow_layer)
       scale_icon(recipe.icons[3], 0.8)
@@ -86,9 +88,9 @@ for _, recipe in pairs(data.raw.recipe) do
       shift_icon(crate_item.icons[2], 0, -10)
       shift_icon(crate_item.icons[3], 0, -4.5)
       shift_icon(crate_item.icons[4], 0, 1)
-      scale_icon(crate_item.icons[2], 0.85)
-      scale_icon(crate_item.icons[3], 0.85)
-      scale_icon(crate_item.icons[4], 0.85)
+      scale_icon(crate_item.icons[2], 0.85 * item_scale)
+      scale_icon(crate_item.icons[3], 0.85 * item_scale)
+      scale_icon(crate_item.icons[4], 0.85 * item_scale)
 
       crate_item.icons[5] = table.deepcopy(top_icon_layer)
 
@@ -108,7 +110,7 @@ for _, recipe in pairs(data.raw.recipe) do
     elseif recipe.subgroup == "deadlock-crates-unpack" then
       recipe.results[1] = {type = "item", name = "ff-container", amount = 1, probability = 0.99}
       recipe.icons[1] = table.deepcopy(left_corner_layer)
-      scale_icon(recipe.icons[2], 1.05)
+      scale_icon(recipe.icons[2], 1.05 * item_scale)
       shift_icon(recipe.icons[2], 4.5, -4.5)
       recipe.icons[3] = table.deepcopy(arrow_up_layer)
       scale_icon(recipe.icons[3], 0.8)
