@@ -28,3 +28,5 @@ Vanilla radar:
 data.raw["spider-vehicle"]["lex-flying-gunship"].torso_bob_speed = 0.7
 data.raw["spider-vehicle"]["lex-flying-cargo"].torso_bob_speed = 0.3
 data.raw["spider-vehicle"]["lex-flying-heavyship"].torso_bob_speed = 0.45
+data.raw["spider-vehicle"]["lex-flying-cargo"].chunk_exploration_radius = 6
+data.raw["spider-vehicle"]["lex-flying-heavyship"].chunk_exploration_radius = 6
