@@ -4,7 +4,11 @@ local bzutil = require "__bzlead__/data-util"
 data:extend{
   {
     type = "recipe-category",
-    name = "ff-lava-smelting"
+    name = "ff-lava-smelting",  -- Big lava pool
+  },
+  {
+    type = "recipe-category",
+    name = "ff-lava-heating",  -- Small lava pool
   },
   {
     type = "technology",
@@ -25,8 +29,12 @@ data:extend{
       },
       {
         type = "unlock-recipe",
+        recipe = "ff-titansteel-heating"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "ff-titansteel-cooling"
-      }
+      },
     },
     prerequisites = {"production-science-pack", "utility-science-pack"},
     unit =
@@ -58,6 +66,25 @@ data:extend{
       {name = "ff-hot-titansteel-plate", amount = 1},
     },
     energy_required = 10,
+    always_show_made_in = true,
+    order = "e[titansteel-plate]-a",
+  },
+  {
+    type = "recipe",
+    name = "ff-titansteel-heating",
+    category = "ff-lava-heating",
+    enabled = false,
+    ingredients = {
+      {name = "ff-titansteel-plate", amount = 1},
+    },
+    results = {
+      {name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99},
+    },
+    energy_required = 2,
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    order = "e[titansteel-plate]-b",
   },
   {
     type = "recipe",
@@ -126,7 +153,7 @@ data:extend{
     },
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
-    order = "e[titansteel-plate]-b",
+    order = "e[titansteel-plate]-c",
     stack_size = 50  -- Will be halved in stack-sizes.lua
   },
 }

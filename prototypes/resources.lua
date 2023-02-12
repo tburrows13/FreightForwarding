@@ -97,7 +97,8 @@ data:extend{
   },
 }
 
-data.raw["assembling-machine"]["ff-lava-pool"].autoplace = resource_autoplace.resource_autoplace_settings
+resource_autoplace.initialize_patch_set("ff-lava-pool-resource", false)  -- No idea what it does but it says to call it before resource_autoplace_settings
+data.raw.resource["ff-lava-pool-resource"].autoplace = resource_autoplace.resource_autoplace_settings
 {
   name = "ff-lava-pool",
   order = "a", -- Other resources are "b"; lava will override if something else is already there.
