@@ -1,6 +1,7 @@
 require "__FreightForwarding__/prototypes/stack-sizes"
 require "__FreightForwarding__/prototypes/transport-drones"
 require "__FreightForwarding__/prototypes/crating-items"
+require "__FreightForwarding__/prototypes/item-subgroups"
 
 -- Science
 local util = require "__FreightForwarding__/prototypes/data-util"

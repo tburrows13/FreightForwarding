@@ -71,7 +71,6 @@ for _, recipe in pairs(data.raw.recipe) do
   if recipe.category and recipe.category == "packing" and recipe.subgroup then
     if recipe.subgroup == "deadlock-crates-pack" then
       recipe.ingredients[1][1] = "ff-container"
-      recipe.hide_from_player_crafting = true
 
       recipe.icons[1] = table.deepcopy(right_corner_layer)
       scale_icon(recipe.icons[2], 1.05 * item_scale)
@@ -111,7 +110,6 @@ for _, recipe in pairs(data.raw.recipe) do
 
     elseif recipe.subgroup == "deadlock-crates-unpack" then
       recipe.results[1] = {type = "item", name = "ff-container", amount = 1, probability = 0.99}
-      recipe.hide_from_player_crafting = true
       recipe.icons[1] = table.deepcopy(left_corner_layer)
       scale_icon(recipe.icons[2], 1.05 * item_scale)
       shift_icon(recipe.icons[2], 4.5, -4.5)
