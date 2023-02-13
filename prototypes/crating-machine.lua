@@ -130,3 +130,11 @@ data:extend{
     result = "ff-container"
   },
 }
+
+-- Undo change from DCM
+-- table.insert(data.raw["character"]["character"].crafting_categories, "packing")
+for i, category in pairs(data.raw["character"]["character"].crafting_categories) do
+  if category == "packing" then
+    table.remove(data.raw["character"]["character"].crafting_categories, i)
+  end
+end
