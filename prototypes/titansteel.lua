@@ -105,37 +105,26 @@ data:extend{
   {
     type = "item",
     name = "ff-hot-titansteel-plate",
-    --icon = "__base__/graphics/icons/steel-plate.png",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/steel-plate.png",
-        tint = { b = 0, g = 0, r = 0.8 }
-      },
-    },
+    icon = "__FreightForwarding__/graphics/hot-titansteel.png",
     icon_size = 64, icon_mipmaps = 4,
-    pictures =  -- Separate pictures definition for glow effect
-    {
-      {
-        layers =
-        {
-          {
-            filename = "__base__/graphics/icons/steel-plate.png",
-            tint = { b = 0, g = 0, r = 0.8 },
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
-          {
-            filename = "__base__/graphics/icons/steel-plate.png",
-            blend_mode = "additive",
-            draw_as_light = true,
-            tint = {r = 0.8, g = 0.8, b = 0.8, a = 0.4},
-            size = 64,
-            scale = 0.25,
-            mipmap_count = 4
-          },
+    pictures = {
+        layers = {
+            {
+              filename = "__FreightForwarding__/graphics/hot-titansteel.png",
+              mipmap_count = 4,
+              scale = 0.25,
+              size = 64
+            },
+            {
+              draw_as_light = true,
+              filename = "__FreightForwarding__/graphics/hot-titansteel-light.png",
+              -- blend_mode = "additive",
+              flags = { "light" },
+              mipmap_count = 4,
+              scale = 0.25,
+              size = 64
+            }
         }
-      },
     },
     subgroup = "raw-material",
     order = "e[titansteel-plate]-a",
