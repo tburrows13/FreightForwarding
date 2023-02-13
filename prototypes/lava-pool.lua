@@ -116,8 +116,8 @@ data:extend{
       },
     },
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"placeable-neutral"},
-    collision_box = {{-2, -2}, {2, 2}},
+    flags = {"placeable-player"},
+    collision_box = {{-1.8, -1.8}, {1.8, 1.8}},
     selection_box = {{-2, -2}, {2, 2}},
     animation =
     {
@@ -191,8 +191,8 @@ data:extend{
       },
     },
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"placeable-neutral"},
-    collision_box = {{-1, -1}, {1, 1}},
+    flags = {"placeable-player"},
+    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
     selection_box = {{-1, -1}, {1, 1}},
     animation =
     {
