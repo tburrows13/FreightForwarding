@@ -108,23 +108,23 @@ data:extend{
     icon = "__FreightForwarding__/graphics/hot-titansteel.png",
     icon_size = 64, icon_mipmaps = 4,
     pictures = {
-        layers = {
-            {
-              filename = "__FreightForwarding__/graphics/hot-titansteel.png",
-              mipmap_count = 4,
-              scale = 0.25,
-              size = 64
-            },
-            {
-              draw_as_light = true,
-              filename = "__FreightForwarding__/graphics/hot-titansteel-light.png",
-              -- blend_mode = "additive",
-              flags = { "light" },
-              mipmap_count = 4,
-              scale = 0.25,
-              size = 64
-            }
+      layers = {
+        {
+          filename = "__FreightForwarding__/graphics/hot-titansteel.png",
+          mipmap_count = 4,
+          scale = 0.25,
+          size = 64
+        },
+        {
+          draw_as_light = true,
+          filename = "__FreightForwarding__/graphics/hot-titansteel-light.png",
+          -- blend_mode = "additive",
+          flags = { "light" },
+          mipmap_count = 4,
+          scale = 0.25,
+          size = 64
         }
+      }
     },
     subgroup = "raw-material",
     order = "e[titansteel-plate]-a",
