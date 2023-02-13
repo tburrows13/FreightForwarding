@@ -6,13 +6,13 @@ local function lava_pool_created(lava_pool)
   local position = lava_pool.position
   local created = false
   if math.random() > 0.4 then
-    if surface.can_place_entity{name = "ff-lava-pool", position = position, force = "neutral"} then
-      created = surface.create_entity{name = "ff-lava-pool", position = position, force = "neutral", false}
+    if surface.can_place_entity{name = "ff-lava-pool", position = position, force = "player"} then
+      created = surface.create_entity{name = "ff-lava-pool", position = position, force = "player", false}
     end
   end
   if not created then
-    if surface.can_place_entity{name = "ff-lava-pool-small", position = position, force = "neutral"} then
-      created = surface.create_entity{name = "ff-lava-pool-small", position = position, force = "neutral", false}
+    if surface.can_place_entity{name = "ff-lava-pool-small", position = position, force = "player"} then
+      created = surface.create_entity{name = "ff-lava-pool-small", position = position, force = "player", false}
     end
   end
   if not created then
