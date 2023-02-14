@@ -1,4 +1,4 @@
-require "scripts.container-logistic-bots"
+require "scripts.container-limitations"
 
 local function lava_pool_created(lava_pool)
   lava_pool.amount = 1
