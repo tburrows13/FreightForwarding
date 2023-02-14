@@ -29,6 +29,15 @@ function data_util.add_research_ingredient(tech_name, ingredient)
   table.insert(technology.unit.ingredients, {ingredient, 1})
 end
 
+function data_util.remove_research_ingredient(tech_name, ingredient)
+  local technology = data.raw.technology[tech_name]
+  for i, name in pairs(technology.unit.ingredients) do
+    if name[1] == ingredient then
+      table.remove(technology.unit.ingredients, i)
+    end
+  end
+end
+
 function data_util.contains_research_ingredient(tech_name, ingredient)
   local technology = data.raw.technology[tech_name]
   for _, name in pairs(technology.unit.ingredients) do

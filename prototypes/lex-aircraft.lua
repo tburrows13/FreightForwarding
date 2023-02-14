@@ -39,3 +39,8 @@ util.add_prerequisite("lex-flying-heavyship-ships", "mcraft-tech")
 util.add_prerequisite("lex-flying-heavyship-ships", "lex-jet-engine")
 util.remove_prerequisite("lex-flying-heavyship-ships", "lex-flying-cargo-ships")
 bzutil.remove_recipe_effect("lex-flying-heavyship-ships", "spidertron-remote")
+
+-- Make spidertron slightly earlier since it is weaker than lex heavy ship
+util.remove_prerequisite("effectivity-module-3", "production-science-pack")
+util.remove_research_ingredient("effectivity-module-3", "production-science-pack")
+util.remove_research_ingredient("spidertron", "production-science-pack")
