@@ -138,6 +138,7 @@ local function resource_autoplace_settings(params)
 
   local elevation = noise.var("elevation")
   local distance  = noise.var("distance")
+  local aux = noise.var("resource-spread")
 
   -- > I just realized because of the new rule of "keep ores outside the
   -- > starting area", the starting area size setting should not affect ore
@@ -266,13 +267,23 @@ local function resource_autoplace_settings(params)
   local basement_value = noise.min(-6 * regular_blob_amplitude_maximum,
                                    -6 * starting_blob_amplitude)
 
+  local spot_favorability_expression = litexp(1)
+  if params.ideal_aux then
+    local aux_range = params.aux_range or 0.1
+    spot_favorability_expression = litexp(noise.if_else_chain(
+      noise.less_than(aux, params.ideal_aux - aux_range), 0,
+      noise.less_than(params.ideal_aux + aux_range, aux), 0,
+      1
+    ))
+  end
+
   local regular_spots = tne{
     type = "function-application",
     function_name = "spot-noise",
     arguments =
     {
-      x = noise.var("x") / 2,  -- Make resources more spread out but bigger
-      y = noise.var("y") / 2,
+      x = noise.var("x") / 1.4,  -- Make resources more spread out but bigger
+      y = noise.var("y") / 1.4,
       seed0 = noise.var("map_seed"),
       seed1 = tne(seed1),
       region_size = tne(1024),
@@ -284,7 +295,7 @@ local function resource_autoplace_settings(params)
       spot_quantity_expression = litexp(regular_spot_quantity_expression), -- used to figure out where spots go
       hard_region_target_quantity = tne(false), -- it's fine for large spots to push region quantity past the target
       spot_radius_expression = litexp(regular_spot_radius_expression),
-      spot_favorability_expression = params.avoid_coast and litexp(noise.clamp((elevation - 20)/4, 0, 1)) or litexp(1),  -- not sure how effective avoid_coasts really is
+      spot_favorability_expression = spot_favorability_expression,
       basement_value = basement_value,
       maximum_spot_basement_radius = tne(128)
     }
@@ -296,20 +307,20 @@ local function resource_autoplace_settings(params)
     starting_patch_set_index = tne(starting_patch_metaset:get_patch_set_index(patch_set_name))
   end
 
-  local spot_favorability_expression
+  local starting_spot_favorability_expression
   if starting_resource_placement_ring_radius then
     --[[spot_favorability_expression = noise.if_else_chain{
       distance < tne(200), litexp(0),
       distance > tne(300), litexp(0),
       litexp(1)
     }]]
-    spot_favorability_expression = litexp(
+    starting_spot_favorability_expression = litexp(
       starting_feasibility * 10 *
       (-((-distance + starting_resource_placement_ring_radius) / 4)^4 + 1) +
       noise.random(0.5)
     )
   else
-    spot_favorability_expression = litexp(
+    starting_spot_favorability_expression = litexp(
       starting_feasibility * 2 -
       1 * distance / starting_resource_placement_radius +
       noise.random(0.5)
@@ -336,7 +347,7 @@ local function resource_autoplace_settings(params)
       spot_quantity_expression = litexp(starting_area_spot_quantity),
       hard_region_target_quantity = tne(true), -- Since there's [usually] only one spot, clamp its quantity to the target quantity
       spot_radius_expression = litexp(starting_rq_factor * starting_area_spot_quantity ^ (onethird)),
-      spot_favorability_expression = spot_favorability_expression,
+      spot_favorability_expression = starting_spot_favorability_expression,
       basement_value = basement_value,
       maximum_spot_basement_radius = tne(128) -- does making this huge make a difference?
     }

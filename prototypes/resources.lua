@@ -1,5 +1,51 @@
 -- import custom Resource Autoplace
 local resource_autoplace = require("resource-autoplace/resource-autoplace")
+local noise = require("noise")
+local tne = noise.to_noise_expression
+
+local function make_multioctave_noise_function(seed0,seed1,octaves,octave_output_scale_multiplier,octave_input_scale_multiplier,output_scale0,input_scale0)
+  octave_output_scale_multiplier = octave_output_scale_multiplier or 2
+  octave_input_scale_multiplier = octave_input_scale_multiplier or (1 / octave_output_scale_multiplier)
+  return function(x,y,inscale,outscale)
+    return tne{
+      type = "function-application",
+      function_name = "factorio-quick-multioctave-noise",
+      arguments =
+      {
+        x = tne(x),
+        y = tne(y),
+        seed0 = tne(seed0),
+        seed1 = tne(seed1),
+        input_scale = tne((inscale or 1) * (input_scale0 or 1)),
+        output_scale = tne((outscale or 1) * (output_scale0 or 1)),
+        octaves = tne(octaves),
+        octave_output_scale_multiplier = tne(octave_output_scale_multiplier),
+        octave_input_scale_multiplier = tne(octave_input_scale_multiplier)
+      }
+    }
+  end
+end
+
+local function clamp_aux(raw_aux)
+  return noise.clamp(raw_aux, 0, 1)
+end
+
+-- Create a new expression based on vanilla's aux
+data:extend{
+  {
+    type = "noise-expression",
+    name = "resource-spread",
+    --intended_property = "aux",
+    expression = noise.define_noise_function( function(x,y,tile,map)
+      x = x + 20000 -- Move the point where 'fractal similarity' is obvious off into the boonies
+      y = y
+      local raw_aux =
+        0.5 +
+        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.65)(x,y,1/2048,1/4)  -- 0.75 affects size of features. Smaller number means bigger 'islands'
+      return noise.ident(clamp_aux(raw_aux))
+    end)
+  },
+}
 
 -- Redefine base resources here so that they pick up modified defaults from config.lua (starting_resource_placement_radius)
 data.raw.resource["iron-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
@@ -10,6 +56,8 @@ data.raw.resource["iron-ore"].autoplace = resource_autoplace.resource_autoplace_
   regular_rq_factor_multiplier = 1.10,
   starting_rq_factor_multiplier = 1.5,
   candidate_spot_count = 22, -- To match 0.17.50 placement
+  ideal_aux = 0.15,
+  aux_range = 0.15,
 }
 data.raw.resource["copper-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "copper-ore",
@@ -19,6 +67,8 @@ data.raw.resource["copper-ore"].autoplace = resource_autoplace.resource_autoplac
   regular_rq_factor_multiplier = 1.10,
   starting_rq_factor_multiplier = 1.2,
   candidate_spot_count = 22, -- To match 0.17.50 placement
+  ideal_aux = 0.8,
+  aux_range = 0.15,
 }
 data.raw.resource["coal"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "coal",
@@ -26,7 +76,8 @@ data.raw.resource["coal"].autoplace = resource_autoplace.resource_autoplace_sett
   base_density = 8,
   has_starting_area_placement = true,
   regular_rq_factor_multiplier = 1.0,
-  starting_rq_factor_multiplier = 1.1
+  starting_rq_factor_multiplier = 1.1,
+  ideal_aux = 0.4,
 }
 data.raw.resource["stone"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "stone",
@@ -34,7 +85,8 @@ data.raw.resource["stone"].autoplace = resource_autoplace.resource_autoplace_set
   base_density = 4,
   has_starting_area_placement = true,
   regular_rq_factor_multiplier = 1.0,
-  starting_rq_factor_multiplier = 1.1
+  starting_rq_factor_multiplier = 1.1,
+  ideal_aux = 0.6,
 }
 
 local empty_radius = 700
@@ -50,6 +102,7 @@ data.raw.resource["uranium-ore"].autoplace = resource_autoplace.resource_autopla
   regular_rq_factor_multiplier = 1,
   regular_patch_fade_in_distance_start = empty_radius,
   regular_patch_fade_in_distance = empty_radius + 100,
+  ideal_aux = 0.3,
 }
 
 
@@ -67,6 +120,7 @@ if mods["bzlead"] then
     starting_resource_placement_radius = 500,  -- Keep it reasonably above starting_resource_placement_ring_radius?
     regular_patch_fade_in_distance_start = 500,
     regular_patch_fade_in_distance = 600,
+    ideal_aux = 0.7,
   }
 end
 
@@ -80,6 +134,8 @@ if mods["bztitanium"] then
     regular_rq_factor_multiplier = 0.95,
     regular_patch_fade_in_distance_start = empty_radius,
     regular_patch_fade_in_distance = empty_radius + 100,
+    ideal_aux = 0.5,
+    aux_range = 0.1,
   }
 end
 
@@ -114,4 +170,6 @@ data.raw.resource["ff-lava-pool-resource"].autoplace = resource_autoplace.resour
   regular_patch_fade_in_distance_start = 1000,
   regular_patch_fade_in_distance = 1000,
   avoid_coast = true,
+  ideal_aux = 0.85,
+  aux_range = 0.15,
 }
