@@ -131,7 +131,7 @@ data:extend{
           frame_count = 1,
           --line_length = 8,
           --shift = util.by_pixel(0, 2),
-          scale = 1.2,
+          scale = 1.25,
           tint = {b = 0, g = 0, r = 0.7},
           hr_version =
           {
@@ -140,7 +140,7 @@ data:extend{
             width = 148,
             height = 120,
             frame_count = 1.1,
-            scale = 1.2,
+            scale = 1.25,
             tint = {b = 0, g = 0, r = 0.7},
           }
         },
@@ -206,7 +206,7 @@ data:extend{
           frame_count = 1,
           --line_length = 8,
           --shift = util.by_pixel(0, 2),
-          scale = 0.6,
+          scale = 0.65,
           tint = {b = 0, g = 0, r = 0.7},
           hr_version =
           {
@@ -215,7 +215,7 @@ data:extend{
             width = 148,
             height = 120,
             frame_count = 1.1,
-            scale = 0.6,
+            scale = 0.65,
             tint = {b = 0, g = 0, r = 0.7},
           }
         },
