@@ -41,7 +41,7 @@ data:extend{
       y = y
       local raw_aux =
         0.5 +
-        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.65)(x,y,1/2048,1/4)  -- 0.75 affects size of features. Smaller number means bigger 'islands'
+        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.6)(x,y,1/2048,1/4)  -- 0.6 affects size of features. Smaller number means bigger 'islands'
       return noise.ident(clamp_aux(raw_aux))
     end)
   },
