@@ -94,13 +94,13 @@ data:extend{
     enabled = false,
     ingredients = {
       {name = "ff-hot-titansteel-plate", amount = 1},
-      {type = "fluid", name="water", amount = 20},  -- TODO add catalyst_amount?
+      {type = "fluid", name="water", amount = 500},
     },
     results = {
       {name = "ff-titansteel-plate", amount = 1},
-      {type = "fluid", name="steam", amount = 20, temperature = 500},  -- TODO add catalyst_amount?
+      {type = "fluid", name="steam", amount = 500, temperature = 500},
     },
-    energy_required = 20,
+    energy_required = 5,
   },
   {
     type = "item",
