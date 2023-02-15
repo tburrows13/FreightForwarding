@@ -144,7 +144,7 @@ script.on_event(defines.events.on_tick,
   function(event)
     for _, player in pairs(game.players) do
       local entity = player.opened
-      if entity then
+      if entity and entity.object_name == "LuaEntity" then
         if entity.type == "logistic-container" then
           if check_requester_slots(entity) then
             player.create_local_flying_text{
