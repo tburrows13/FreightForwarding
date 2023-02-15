@@ -41,7 +41,7 @@ data:extend{
       y = y
       local raw_aux =
         0.5 +
-        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.6)(x,y,1/2048,1/4)  -- 0.6 affects size of features. Smaller number means bigger 'islands'
+        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.55)(x,y,1/2048,1/4)  -- 0.55 affects size of features. Smaller number means bigger 'islands'
       return noise.ident(clamp_aux(raw_aux))
     end)
   },
@@ -116,9 +116,9 @@ if mods["bzlead"] then
     has_starting_area_placement = true,
     regular_rq_factor_multiplier = 1.2,
     starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_ring_radius = 370,  -- Spawns the starting patch somewhere at distance 280 from the center
-    starting_resource_placement_radius = 500,  -- Keep it reasonably above starting_resource_placement_ring_radius?
-    regular_patch_fade_in_distance_start = 500,
+    starting_resource_placement_ring_radius = 390,  -- Spawns the starting patch somewhere at distance from the center
+    starting_resource_placement_radius = 600,  -- Keep it reasonably above starting_resource_placement_ring_radius?
+    regular_patch_fade_in_distance_start = 600,
     regular_patch_fade_in_distance = 600,
     ideal_aux = 0.7,
   }
@@ -160,16 +160,14 @@ data.raw.resource["ff-lava-pool-resource"].autoplace = resource_autoplace.resour
   order = "a", -- Other resources are "b"; lava will override if something else is already there.
   base_density = 8.2,
   base_spots_per_km2 = 2,
-  random_probability = 1/96,
-  random_spot_size_minimum = 0.75,
-  random_spot_size_maximum = 1.25,
-  size_multiplier_coefficient = 3,
+  random_probability = 1/48,
+  random_spot_size_minimum = 0.8,
+  random_spot_size_maximum = 1.2,
+  size_multiplier_coefficient = 4,
   has_starting_area_placement = false,
   regular_rq_factor_multiplier = 1,
-  starting_resource_placement_radius = 1000,
-  regular_patch_fade_in_distance_start = 1000,
-  regular_patch_fade_in_distance = 1000,
-  avoid_coast = true,
-  ideal_aux = 0.85,
-  aux_range = 0.15,
+  starting_resource_placement_radius = 1800,
+  regular_patch_fade_in_distance_start = 1800,
+  regular_patch_fade_in_distance = 1800,
+  ideal_aux = 0.9,
 }

@@ -250,7 +250,7 @@ local function resource_autoplace_settings(params)
   -- Quantity will automatically be clamped by the spot noise function
   -- and radius will be automatically adjusted, too,
   -- so it's fine for the spot quantity to be more than the region target quantity.
-  local minimum_favorability_for_full_placement = 1/2
+  local minimum_favorability_for_full_placement = 1/4
   local starting_spot_count = frequency_multiplier
   local starting_area_spot_quantity = starting_amount / minimum_favorability_for_full_placement / starting_spot_count
   local starting_spot_height = starting_area_spot_quantity ^ (1/3) / ((math.pi/3) * starting_rq_factor^2)
@@ -309,11 +309,6 @@ local function resource_autoplace_settings(params)
 
   local starting_spot_favorability_expression
   if starting_resource_placement_ring_radius then
-    --[[spot_favorability_expression = noise.if_else_chain{
-      distance < tne(200), litexp(0),
-      distance > tne(300), litexp(0),
-      litexp(1)
-    }]]
     starting_spot_favorability_expression = litexp(
       starting_feasibility * 10 *
       (-((-distance + starting_resource_placement_ring_radius) / 4)^4 + 1) +
@@ -343,7 +338,7 @@ local function resource_autoplace_settings(params)
       region_size = tne(starting_resource_placement_radius * 2),
       candidate_spot_count = tne(starting_resource_placement_ring_radius and 128 or 32),
       suggested_minimum_candidate_point_spacing = tne(32),
-      density_expression = litexp(starting_density * starting_modulation),
+      density_expression = litexp(3 * starting_density * starting_modulation),
       spot_quantity_expression = litexp(starting_area_spot_quantity),
       hard_region_target_quantity = tne(true), -- Since there's [usually] only one spot, clamp its quantity to the target quantity
       spot_radius_expression = litexp(starting_rq_factor * starting_area_spot_quantity ^ (onethird)),
