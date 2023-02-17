@@ -26,7 +26,13 @@
     "? PowerOverload",
     "? robot_attrition",
     "(?) Transport_Drones",
-    "! IslandStart"
+    "! IslandStart",
+    "! rso-mod",
+    "! Krastorio2",
+    "! space-exploration",
+    "! IndustrialRevolution3",
+    "! nullius",
+    "! pypostprocessing"
   ],
   "package": {
     "ignore": ["resources/*", "scenarios/*"]
