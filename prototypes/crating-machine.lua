@@ -110,7 +110,7 @@ data:extend{
     type = "item",
     name = "ff-container",
     icon = "__FreightForwarding__/graphics/container.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64, icon_mipmaps = 1,
     subgroup = "intermediate-product",
     order = "[first-in-order]",
     stack_size = 10,

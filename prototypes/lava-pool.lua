@@ -124,24 +124,24 @@ data:extend{
       layers =
       {
         {
-          filename = "__base__/graphics/entity/crude-oil/hr-crude-oil.png",
-          priority="high",
-          width = 148,
-          height = 120,
+          filename = "__FreightForwarding__/graphics/lava-pool.png",
+          priority = "high",
+          width = 512,
+          height = 512,
           frame_count = 1,
           --line_length = 8,
           --shift = util.by_pixel(0, 2),
-          scale = 1.25,
-          tint = {b = 0, g = 0, r = 0.7},
+          scale = 0.275,
           hr_version =
           {
-            filename = "__base__/graphics/entity/crude-oil/hr-crude-oil.png",
-            priority="high",
-            width = 148,
-            height = 120,
-            frame_count = 1.1,
-            scale = 1.25,
-            tint = {b = 0, g = 0, r = 0.7},
+            filename = "__FreightForwarding__/graphics/lava-pool.png",
+            priority = "high",
+            width = 512,
+            height = 512,
+            frame_count = 1,
+            --line_length = 8,
+            --shift = util.by_pixel(0, 2),
+            scale = 0.275,
           }
         },
       }
@@ -199,24 +199,24 @@ data:extend{
       layers =
       {
         {
-          filename = "__base__/graphics/entity/crude-oil/hr-crude-oil.png",
-          priority="high",
-          width = 148,
-          height = 120,
+          filename = "__FreightForwarding__/graphics/small-lava-pool.png",
+          priority = "high",
+          width = 200,
+          height = 200,
           frame_count = 1,
           --line_length = 8,
           --shift = util.by_pixel(0, 2),
-          scale = 0.65,
-          tint = {b = 0, g = 0, r = 0.7},
+          scale = 0.6,
           hr_version =
           {
-            filename = "__base__/graphics/entity/crude-oil/hr-crude-oil.png",
-            priority="high",
-            width = 148,
-            height = 120,
-            frame_count = 1.1,
-            scale = 0.65,
-            tint = {b = 0, g = 0, r = 0.7},
+            filename = "__FreightForwarding__/graphics/small-lava-pool.png",
+            priority = "high",
+            width = 200,
+            height = 200,
+            frame_count = 1,
+            --line_length = 8,
+            --shift = util.by_pixel(0, 2),
+            scale = 0.6,
           }
         },
       }
