@@ -18,7 +18,7 @@ data:extend{
     icons = {
       {
         icon = "__base__/graphics/technology/steel-processing.png",
-        tint = { b = 0.3, g = 0.3, r = 0.3 }
+        tint = { b = 0.4, g = 0.4, r = 0.4 }
       },
     },
     effects =
@@ -137,7 +137,7 @@ data:extend{
     icons = {
       {
         icon = "__base__/graphics/icons/steel-plate.png",
-        tint = { b = 0.3, g = 0.3, r = 0.3 }
+        tint = { b = 0.32, g = 0.32, r = 0.32 }
       },
     },
     icon_size = 64, icon_mipmaps = 4,

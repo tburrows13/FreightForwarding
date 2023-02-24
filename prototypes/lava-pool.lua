@@ -108,14 +108,8 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ff-lava-pool",
-    --icon = "__base__/graphics/icons/assembling-machine-1.png",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/crude-oil-resource.png",
-        tint = {b = 0, g = 0, r = 0.7},
-      },
-    },
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__FreightForwarding__/graphics/lava-pool-icon.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-player"},
     collision_box = {{-1.8, -1.8}, {1.8, 1.8}},
     selection_box = {{-2, -2}, {2, 2}},
@@ -183,14 +177,8 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ff-lava-pool-small",
-    --icon = "__base__/graphics/icons/assembling-machine-1.png",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/crude-oil-resource.png",
-        tint = {b = 0, g = 0, r = 0.7},
-      },
-    },
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__FreightForwarding__/graphics/small-lava-pool-icon.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-player"},
     collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
     selection_box = {{-1, -1}, {1, 1}},
