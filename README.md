@@ -1,90 +1,103 @@
-X-Logistics adds much greater variety to long-distance logistics.
+Freight Forwarding is a small overhaul with a focus on long-distance logistics variety.
 
-The central changes revolve around the transportation of intermediate resources, which have all had their stack sizes reduced by 90%. In addition, trains and ships have lost 90% of their inventory space. Instead, resources must be put into crates using a crating machine: each crate can hold 100 regular stacks of that item.
+Technology progression is carefully balanced around the custom island map generation and resource placement. For effective transport, items must now be loaded into containers before travel, but since items are being transported so compactly, transfer from trains to ships is much more straightforward.
 
-Train -> cargo ship -> train logistics is strongly encouraged by the following balance changes:
+## Progression
 
-- Regular landfill can only be used on shallow water and deep landfill (that can fill any water) is extremely expensive. Rails are 10x more expensive, and bridges even more so.
-- Since items are being transported so compactly, transfer from trains to ships is much more straightforward.
-- Map generation features large islands/continents, with plenty of opportunity for cargo ships in between or around them.
+### Start
 
-When starting a game, please use the 'X-Logistics Default' map preset for the intended experience (a notification will appear in-game if you forget).
+Use the basic resources (iron, copper, stone, and coal) to produce Automation and Logistics sciences.
+**Unlocks**:
+- Trains
+- Container loading
+- Lead processing
 
----
+### Transport Science
+
+Lead ore is required for Transport science and always spawns at the edge of your starting island, so trains are required to access it. Explore containerization of resources before loading them onto trains.
+**Unlocks**:
+- Ships
+- Basic oil processing
+
+### Chemical Science
+
+Oil only spawns in large offshore patches at sea, so you'll need to use oil rigs and tanker ships to retrieve it.
+**Unlocks**:
+- Titanium processing
+- Uranium processing
+
+### Advanced resources
+
+Titanium and Uranium only spawn on other continents, so you will load them into containers at their mines and transport the containers using combinations of ships and trains.
+**Unlocks**:
+- Spidertron automation
+- Hovercrafts
+
+### Production / Utility sciences
+
+Expansion onto other continents for larger patches of basic resources will be required.
+**Unlocks**:
+- Aircraft
+- Titansteel processing
+
+### Rocket launch
+
+Rocket parts require Titansteel, which can only be forged in naturally-occuring lava pools using steel and titanium plates for the ultimate logistics challenge! Combat aircraft have a very large radar area, so can be used to explore large areas of the map using remotes.
+
+## Other features
+
+### Containers
+- Stack sizes of all raw and intermediate resources has been halved compared to vanilla
+- One container holds 20 stacks (10x density compared to vanilla)
+- Inventory sizes have been reduced to compensate, so trains and ships have had their inventory sizes divided by 10
+- Other vehicles and containers have had their inventory sizes divided by 2
+- Containers are very heavy, so transporting them by logistic robots is prohibited
+- Empty containers can be loaded into spidertrons using docks, but spidertrons also cannot carry loaded containers
+
+### Landfill
+- Landfill and rail bridges cannot be placed on deep water
+- Landfill can now be removed by right-clicking on it whilst holding a tile in hand
+- Stone bricks and concrete cannot be placed on landfill
+
+### Map generation
+- Custom map generation originally based on [Island Start](https://mods.factorio.com/mod/IslandStart) featuring a completely isolated starting island surrounded by larger islands and continents
+- Resource patches are larger but further apart
+- Resource spawning is based on invisible 'regions' so certain resources will often spawn near each other and even larger continents won't feature too many different resource types
+- Oil only spawns in water
 
 ## Included Mods
 
-- [Deadlock's Crating Machine](https://mods.factorio.com/mod/DeadlockCrating)
+Some of Freight Forwarding's functionality is provided by other, required, mods. Many things from these mods have been changed to fit into the overall balance and progression, so if you find a bug in them, please confirm that it still occurs without Freight Forwarding enabled before reporting it to that mod's owner, or report it to me and I can let you know whether it's my bug or not.
+
+- [Deadlock's Crating Machine](https://mods.factorio.com/mod/DeadlockCrating): provides graphics and basic functionality for loading containers, although all recipes and icons have been replaced
 - Water mods
     - [Cargo Ships](https://mods.factorio.com/mod/cargo-ships): large inventories for transport across water; oil rigs for drilling oil in the ocean
-    - [Canal Builder Simplified](https://mods.factorio.com/mod/CanalBuilderMAV): allows placing shallow water adjacent to existing water _(optional)_
-    - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships) _(optional)_
-    - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes): construct offshore oil rig infrastructure with less landfill _(optional)_
-    - [Hovercrafts](https://mods.factorio.com/mod/Hovercrafts): easier navigation across both water and land _(optional)_
-    - [AAI Vehicles: Ironclad](https://mods.factorio.com/mod/https://mods.factorio.com/mod/aai-vehicles-ironclad): useful boat for transport or combat _(optional)_
-- [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): another logistics alternative
-- [Just Another Greenhouse Mod](https://mods.factorio.com/mod/just-another-greenhouse): automatically grow wood for crates and rails (and consequently production science)
-- [Island Start](https://mods.factorio.com/mod/IslandStart): provides island/continent generation to X-Logistics map preset
-- [Robot Attrition](https://mods.factorio.com/mod/robot_attrition): discourages transportation of crates by logistic bots, which is otherwise impossible to balance _(optional)_
+    - [Canal Builder Simplified](https://mods.factorio.com/mod/CanalBuilderMAV): allows placing shallow water adjacent to existing water
+    - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships)
+    - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes): construct offshore oil rig infrastructure without landfill
+    - [Hovercrafts](https://mods.factorio.com/mod/Hovercrafts): easier navigation across both water and land
+- [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): useful for transporting items which can't be loaded into containers
+- [Lex's Aircraft](https://mods.factorio.com/mod/lex-aircraft): late-game alternative to spidertrons, for automation of product logistics over land and sea
+- [BZ Lead](https://mods.factorio.com/mod/bzlead)
+- [BZ Titanium](https://mods.factorio.com/mod/bztitanium)
 
 ---
 
 ## Information
 
 ### Other mods
-I'd recommend playing with my modpack [X-Mod](https://mods.factorio.com/mod/X-Mod), which provides a few extra challenges to vanilla gameplay and makes for a great 'Vanilla Plus' experience.
+I'd recommend installing [Freight Forwarding Pack](https://mods.factorio.com/mod/FreightForwardingPack), which provides a few extra challenges in other areas of gameplay.
 
-X-Logistics is not currently balanced to work with any overhaul mods (such as Bob's+Angel's, Krastorio2 and Space Exploration).
+Enemy difficulty has not been changed, but because of the island/continent-based map generation, enemies may be easier than normal. I'd recommend [Armoured Biters](https://mods.factorio.com/mod/ArmouredBiters) (make sure to enable custom nests in mod settings), [Explosive Biters](https://mods.factorio.com/mod/Explosive_biters), and [Frost Biters](https://mods.factorio.com/mod/Cold_biters) if you want an extra challenge.
 
-Other small-to-medium mods will probably work, although may break the intended balance.
+Compatible with [AAI Industry](https://mods.factorio.com/mod/aai-industry). For additional complexity, you can try installing other [BZ Ores](https://brevven.github.io/bz/), although I haven't tested them so they don't have the custom resource spawning and there may be tech/progression softlocks.
+Not compatible any other overhaul mods (such as Bob's+Angel's, Krastorio2 and Space Exploration). Maybe in the future I will add compatibility with some overhauls, perhaps Krastorio, Industrial Revolution, or Exotic Industries, but this is unlikely to ever happen. Let me know if you'd be interested in any particular overhaul compatibility.
 
-### Bugs
-X-Logistics adds, removes, and changes many things in the above mods, so if you find a bug in them, please confirm that it still occurs without X-Logistics present before reporting it to that mod's owner, or report it to me and I can let you know whether it's my bug or not.
+For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
-### Feedback
-I'd love to hear any feedback you have, such as suggestions of additions, changes, or removals that you think would improve the mod.
+Other small-to-medium mods will probably work, although may break the intended balance/progression.
 
 ### Attributions
-Thank you to everyone who's contributed to the mods used in X-Logistics. In particular: Deadlock989, schnurrebutz, robot256, Yehn, and Jakzie.
-Thank you to ElephantInTheRoom and Ray1claw for feedback and suggestions.
-
----
-
-## Full list of changes
-
-### Item transport
-- All intermediate resource stack sizes divided by 2
-- Cargo wagon (including cargo ships) inventory sizes divided by 10
-- Car and spidertron inventory sizes divided by 5
-- Wooden/Iron/Steel chest sizes decreased from 16/32/48 to 12/18/24
-- All other container inventory sizes divided by 2
-- Burner input inventory sizes multiplied by 2 (to offset the decrease in fuel stack sizes)
-- Stack inserter capacities increased at each research level (from 2 to 3 at base level, 12 to 20 at max level)
-
-### Crating machine
-- Added crating recipes for seeds, explosives, engines and electric engines
-- All crate sizes increased from 0.2 stacks to 20 stacks
-- Size increased from 3x3 to 4x4
-- Crating machine recipes changed and technology prerequisites fixed so that the first crating machine can be unlocked with green science
-- Crating recipe names changed from 'Iron ore: pack crate' to 'Pack Iron ore crate'
-
-### Landfill
-- Enabled shallow water around the edges of lakes/oceans that can be walked on
-- Normal landfill can only be placed on shallow water (costs 20 stone and 2 wood) _(optional change)_
-- Added deep landfill for non-shallow water (costs 15 shallow landfill, 15 concrete and 15 iron sticks) _(optional change)_
-
-### Map generation
-- Added 'X-Mod Default preset' which uses island/continent generation from IslandStart
-- Oil only spawns in water (relevant mod settings have been hidden)
-- Radar scan range increased from 29x29 to 41x41 chunks, to make it easier to discover islands over water
-
-### Recipe changes
-- Added wood to rail cost and multiplied cost by 10 (cost x5, rails per craft x0.5)
-- Production science costs 3 rails instead of 30 to compensate
-- Bridges' extra material multiplied by 40 (if installed)
-
-### Greenhouse
-- Locked greenhouse and wood recipes behind a new technology (only requires red science)
-- Removed starting seed (trees have a 1/50 chance of containing a seed)
-- Increased default chance of trees dropping seeds from 2% to 4% (can still be configured in mod settings)
-- Wood production sped up by around 5x
+Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, brevven, and lexsus.
+Thank you in particular to Yehn for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
+Thank you to RedRafe, Ray1claw, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for feedback and suggestions.
