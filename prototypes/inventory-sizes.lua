@@ -15,7 +15,7 @@ for _, prototype in pairs(data.raw["cargo-wagon"]) do
 end
 
 for _, prototype in pairs(data.raw["car"]) do
-  divide_inventory_size(prototype, 5)
+  divide_inventory_size(prototype, 2)
 end
 
 -- Automated loading of containers into spider-vehicles is prohibited, so don't need to decrease by much,
