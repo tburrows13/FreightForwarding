@@ -2,7 +2,7 @@ Freight Forwarding is a small overhaul with a focus on long-distance logistics v
 
 Technology progression is carefully balanced around the custom island map generation and resource placement. For effective transport, items must now be loaded into containers before travel, but since items are being transported so compactly, transfer from trains to ships is much more straightforward.
 
-## Progression
+# Progression
 
 ### Start
 
@@ -12,14 +12,14 @@ Use the basic resources (iron, copper, stone, and coal) to produce Automation an
 - Container loading
 - Lead processing
 
-### Transport Science
+### Transport science
 
 Lead ore is required for Transport science and always spawns at the edge of your starting island, so trains are required to access it. Explore containerization of resources before loading them onto trains.
 **Unlocks**:
 - Ships
 - Basic oil processing
 
-### Chemical Science
+### Chemical science
 
 Oil only spawns in large offshore patches at sea, so you'll need to use oil rigs and tanker ships to retrieve it.
 **Unlocks**:
@@ -44,7 +44,9 @@ Expansion onto other continents for larger patches of basic resources will be re
 
 Rocket parts require Titansteel, which can only be forged in naturally-occuring lava pools using steel and titanium plates for the ultimate logistics challenge! Combat aircraft have a very large radar area, so can be used to explore large areas of the map using remotes.
 
-## Other features
+---
+
+# Other features
 
 ### Containers
 - Stack sizes of all raw and intermediate resources has been halved compared to vanilla
@@ -65,7 +67,9 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 - Resource spawning is based on invisible 'regions' so certain resources will often spawn near each other and even larger continents won't feature too many different resource types
 - Oil only spawns in water
 
-## Included Mods
+---
+
+# Included Mods
 
 Some of Freight Forwarding's functionality is provided by other, required, mods. Many things from these mods have been changed to fit into the overall balance and progression, so if you find a bug in them, please confirm that it still occurs without Freight Forwarding enabled before reporting it to that mod's owner, or report it to me and I can let you know whether it's my bug or not.
 
@@ -83,21 +87,22 @@ Some of Freight Forwarding's functionality is provided by other, required, mods.
 
 ---
 
-## Information
+# Information
 
 ### Other mods
 I'd recommend installing [Freight Forwarding Pack](https://mods.factorio.com/mod/FreightForwardingPack), which provides a few extra challenges in other areas of gameplay.
 
-Enemy difficulty has not been changed, but because of the island/continent-based map generation, enemies may be easier than normal. I'd recommend [Armoured Biters](https://mods.factorio.com/mod/ArmouredBiters) (make sure to enable custom nests in mod settings), [Explosive Biters](https://mods.factorio.com/mod/Explosive_biters), and [Frost Biters](https://mods.factorio.com/mod/Cold_biters) if you want an extra challenge.
+Enemy difficulty has not been changed, but because of the island/continent-based map generation, enemies may be easier than normal. I'd recommend [Armoured Biters](https://mods.factorio.com/mod/ArmouredBiters) (make sure to enable custom nests in mod settings), [Explosive Biters](https://mods.factorio.com/mod/Explosive_biters), [Frost Biters](https://mods.factorio.com/mod/Cold_biters), and [Toxic Biters](https://mods.factorio.com/mod/Toxic_biters) if you want an extra challenge.
 
 Compatible with [AAI Industry](https://mods.factorio.com/mod/aai-industry). For additional complexity, you can try installing other [BZ Ores](https://brevven.github.io/bz/), although I haven't tested them so they don't have the custom resource spawning and there may be tech/progression softlocks.
 Not compatible any other overhaul mods (such as Bob's+Angel's, Krastorio2 and Space Exploration). Maybe in the future I will add compatibility with some overhauls, perhaps Krastorio, Industrial Revolution, or Exotic Industries, but this is unlikely to ever happen. Let me know if you'd be interested in any particular overhaul compatibility.
 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
-Other small-to-medium mods will probably work, although may break the intended balance/progression.
+Other small-to-medium mods will probably work, although may break the intended balance/progression. Fully compatible with [Alien Biomes](https://mods.factorio.com/mod/alien-biomes).
 
 ### Attributions
 Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, brevven, and lexsus.
 Thank you in particular to Yehn for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
 Thank you to RedRafe, Ray1claw, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for feedback and suggestions.
+If anyone would like to contribute better lava pool graphics, please get in touch!
