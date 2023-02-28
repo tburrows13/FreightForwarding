@@ -35,6 +35,10 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ff-titansteel-cooling"
       },
+      {
+        type = "unlock-recipe",
+        recipe = "ff-slag-processing"
+      },
     },
     prerequisites = {"production-science-pack", "utility-science-pack"},
     unit =
@@ -58,12 +62,14 @@ data:extend{
     name = "ff-titansteel-smelting",
     category = "ff-lava-smelting",
     enabled = false,
+    main_product = "ff-hot-titansteel-plate",
     ingredients = {
       {name = "steel-plate", amount = 1},
       {name = "titanium-plate", amount = 1},
     },
     results = {
       {name = "ff-hot-titansteel-plate", amount = 1},
+      {name = "ff-slag", amount = 10},
     },
     energy_required = 10,
     always_show_made_in = true,
@@ -74,11 +80,13 @@ data:extend{
     name = "ff-titansteel-heating",
     category = "ff-lava-heating",
     enabled = false,
+    main_product = "ff-hot-titansteel-plate",
     ingredients = {
       {name = "ff-titansteel-plate", amount = 1},
     },
     results = {
       {name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99},
+      {name = "ff-slag", amount = 1},
     },
     energy_required = 2,
     always_show_made_in = true,
