@@ -17,14 +17,14 @@ local function lava_pool_created(lava_pool)
     end
   end
   if not created then
-    game.print("Lava pool destroyed!")
+    --game.print("Lava pool destroyed!")
     lava_pool.destroy()
   end
 end
 
 script.on_event(defines.events.on_script_trigger_effect,
   function(event)
-    game.print("Lava pool created!")
+    --game.print("Lava pool created!")
     if event.effect_id == "ff-lava-pool-created" then
       local lava_pool = event.target_entity
       lava_pool_created(lava_pool)
