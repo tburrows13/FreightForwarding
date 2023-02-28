@@ -111,17 +111,17 @@ data:extend{
     },
     icon_size = 64, icon_mipmaps = 4,
     ingredients = {
-      {type = "item", name = "ff-slag", amount = 5},
-      {type = "fluid", name = "sulfuric-acid", amount = 2},
+      {type = "item", name = "ff-slag", amount = 6},
+      {type = "fluid", name = "sulfuric-acid", amount = 10},
     },
     results = {
-      {type = "item", name = "stone", amount = 1, probability = 0.1},
-      {type = "item", name = "iron-ore", amount = 1, probability = 0.1},
+      {type = "item", name = "stone", amount = 1, probability = 0.25},
+      {type = "item", name = "iron-ore", amount = 1, probability = 0.25},
     },
     subgroup = "raw-material",
     order = "e[titansteel-plate]-d",
-    energy_required = 5,
-    crafting_machine_tint =
+    energy_required = 10,  -- 3 lava pools : 5 chemical plants
+    crafting_machine_tint =  -- Taken from base game's sulfuric acid recipe
     {
       primary = {r = 1.000, g = 0.958, b = 0.000, a = 1.000}, -- #fff400ff
       secondary = {r = 1.000, g = 0.852, b = 0.172, a = 1.000}, -- #ffd92bff
