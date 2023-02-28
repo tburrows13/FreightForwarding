@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 28 February 2023
+  Changes:
+    - Added slag as a byproduct of titansteel smelting in lava pools
+    - Tweaked titansteel smelting/cooling balance
+    - Oil rigs now have a larger electricity supply area around them
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 27 February 2023
   Bugfixes:
