@@ -16,11 +16,3 @@ for name, item in pairs(data.raw.item) do
     collision_mask_util.add_layer(item.place_as_tile.condition, landfill_collision_mask)
   end
 end
-
--- Cargo ships patches
-
-table.insert(data.raw["generator"]["or_power"].flags, "placeable-off-grid")
-table.insert(data.raw["electric-pole"]["or_pole"].flags, "placeable-off-grid")
-table.insert(data.raw["radar"]["or_radar"].flags, "placeable-off-grid")
-
-data.raw["electric-pole"]["or_pole"].supply_area_distance = 7.5  -- 4.5
