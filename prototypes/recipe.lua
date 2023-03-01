@@ -20,8 +20,10 @@ if data.raw.recipe["ironclad"] then
   bzutil.add_ingredient("ironclad", "lead-plate", 30)
 end
 
-bzutil.set_ingredient("big-electric-pole", "lead-plate", 5)  -- From 2
-bzutil.set_ingredient("big-electric-pole", "steel-plate", 3)  -- From 5
+bzutil.set_ingredient("big-electric-pole", "lead-plate", 10)  -- From 2
+bzutil.set_ingredient("big-electric-pole", "steel-plate", 2)  -- From 5
+bzutil.set_ingredient("substation", "lead-plate", 10)  -- From 2
+bzutil.set_ingredient("substation", "steel-plate", 5)  -- From 10
 
 -- Add titanium to lex aircraft
 bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
