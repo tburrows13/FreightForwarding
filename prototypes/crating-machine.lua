@@ -109,14 +109,14 @@ data:extend{
   {
     type = "item",
     name = "ff-container",
-    icon = "__FreightForwarding__/graphics/container.png",
+    icon = "__FreightForwarding__/graphics/container/container.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "intermediate-product",
     order = "[first-in-order]",
     stack_size = 10,
     pictures = {  -- Oversized on oversized on belts and ground 
       {
-        filename = "__FreightForwarding__/graphics/container.png",
+        filename = "__FreightForwarding__/graphics/container/container.png",
         size = 64,
         scale = 0.5,
       },

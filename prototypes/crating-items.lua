@@ -1,56 +1,56 @@
 local bzutil = require "__bzlead__/data-util";
 
 local base_icon_layer = {
-  icon = "__FreightForwarding__/graphics/container.png",
+  icon = "__FreightForwarding__/graphics/container/container.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,  -- Causes them to be oversized when placed in world
 }
 
 local top_icon_layer = {
-  icon = "__FreightForwarding__/graphics/container-top.png",
+  icon = "__FreightForwarding__/graphics/container/container-top.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,
 }
 
 local right_corner_layer = {
-  icon = "__FreightForwarding__/graphics/container-corner-right.png",
+  icon = "__FreightForwarding__/graphics/container/container-corner-right.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,
 }
 
 local left_corner_layer = {
-  icon = "__FreightForwarding__/graphics/container-corner-left.png",
+  icon = "__FreightForwarding__/graphics/container/container-corner-left.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,
 }
 
 local load_base_layer = {
-  icon = "__FreightForwarding__/graphics/load-background.png",
+  icon = "__FreightForwarding__/graphics/container/load-background.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,
 }
 
 local unload_base_layer = {
-  icon = "__FreightForwarding__/graphics/unload-background.png",
+  icon = "__FreightForwarding__/graphics/container/unload-background.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,
 }
 
 local arrow_layer = {
-  icon = "__FreightForwarding__/graphics/arrow.png",
+  icon = "__FreightForwarding__/graphics/container/arrow.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,
 }
 
 local arrow_up_layer = {
-  icon = "__FreightForwarding__/graphics/arrow-up.png",
+  icon = "__FreightForwarding__/graphics/container/arrow-up.png",
   icon_size = 64,
   icon_mipmaps = 1,
   scale = 0.5,

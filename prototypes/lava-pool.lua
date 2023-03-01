@@ -108,7 +108,7 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ff-lava-pool",
-    icon = "__FreightForwarding__/graphics/lava-pool-icon.png",
+    icon = "__FreightForwarding__/graphics/lava-pool/lava-pool-icon.png",
     icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-player"},
     collision_box = {{-1.8, -1.8}, {1.8, 1.8}},
@@ -118,7 +118,7 @@ data:extend{
       layers =
       {
         {
-          filename = "__FreightForwarding__/graphics/lava-pool.png",
+          filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
           priority = "high",
           width = 512,
           height = 512,
@@ -128,7 +128,7 @@ data:extend{
           scale = 0.275,
           hr_version =
           {
-            filename = "__FreightForwarding__/graphics/lava-pool.png",
+            filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
             priority = "high",
             width = 512,
             height = 512,
@@ -177,7 +177,7 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ff-lava-pool-small",
-    icon = "__FreightForwarding__/graphics/small-lava-pool-icon.png",
+    icon = "__FreightForwarding__/graphics/lava-pool/small-lava-pool-icon.png",
     icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-player"},
     collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
@@ -187,7 +187,7 @@ data:extend{
       layers =
       {
         {
-          filename = "__FreightForwarding__/graphics/small-lava-pool.png",
+          filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
           priority = "high",
           width = 200,
           height = 200,
@@ -197,7 +197,7 @@ data:extend{
           scale = 0.6,
           hr_version =
           {
-            filename = "__FreightForwarding__/graphics/small-lava-pool.png",
+            filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
             priority = "high",
             width = 200,
             height = 200,
