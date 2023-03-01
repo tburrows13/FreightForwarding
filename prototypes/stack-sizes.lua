@@ -22,6 +22,12 @@ local new_material_list = {
     "plutonium-238", "plutonium-239", "plutonium-fuel" },  -- Plutonium Energy
 }
 
+stack_size_override = {
+  ["lead-ore"] = 15,
+  ["titanium-ore"] = 15,
+  ["uranium-ore"] = 15,
+}
+
 local raw_materials = {}
 for tier, material_list in pairs(new_material_list) do
   local tech_name = "deadlock-crating-" .. tier
@@ -54,7 +60,9 @@ for _, recipe in pairs(data.raw.recipe) do
       local item_name = recipe.ingredients[2][1]
       local item = data.raw.item[item_name]
       local stack_size = tonumber(item.stack_size)
-      if stack_size >= 50 then
+      if stack_size_override[item_name] then
+        item.stack_size = stack_size_override[item_name]
+      elseif stack_size >= 50 then
         item.stack_size = stack_size / 2
       end
 
