@@ -78,6 +78,19 @@ data:extend{
   {
     type = "recipe",
     name = "ff-titansteel-heating",
+    icons = {
+      {
+        icon = "__FreightForwarding__/graphics/hot-titansteel.png",
+        icon_size = 64, icon_mipmaps = 4,
+      },
+      {
+        icon = "__base__/graphics/icons/steel-plate.png",
+        tint = { b = 0.32, g = 0.32, r = 0.32 },
+        icon_size = 64, icon_mipmaps = 4,
+        scale = 0.32,
+        shift = {-8, -8},
+      },
+    },
     category = "ff-lava-heating",
     enabled = false,
     main_product = "ff-hot-titansteel-plate",
