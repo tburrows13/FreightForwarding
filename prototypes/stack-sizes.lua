@@ -13,6 +13,7 @@ local new_material_list = {
   [2] = {
     "automation-science-pack", "logistic-science-pack", "x-transport-science-pack", "chemical-science-pack", "military-science-pack",  -- Vanilla
     "explosives", "engine-unit", "electric-engine-unit",  -- Vanilla
+    "ff-charged-battery",  -- Freight Forwarding
     "motor", "electric-motor", "processed-fuel",  -- AAI Industry
   },
   [3] = {
@@ -98,6 +99,13 @@ bzutil.add_unlock("deadlock-crating-2", "deadlock-packrecipe-uranium-235")
 bzutil.add_unlock("deadlock-crating-2", "deadlock-unpackrecipe-uranium-235")
 bzutil.add_unlock("deadlock-crating-2", "deadlock-packrecipe-uranium-238")
 bzutil.add_unlock("deadlock-crating-2", "deadlock-unpackrecipe-uranium-238")
+
+-- Change battery stacking to tier 2
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-packrecipe-battery")
+bzutil.remove_recipe_effect("deadlock-crating-3", "deadlock-unpackrecipe-battery")
+
+bzutil.add_unlock("deadlock-crating-2", "deadlock-packrecipe-battery")
+bzutil.add_unlock("deadlock-crating-2", "deadlock-unpackrecipe-battery")
 
 
 data.raw.item["uranium-fuel-cell"].stack_size = 10  -- Was 50
