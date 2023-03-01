@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 1 March 2023
+  Features:
+    - Added charged battery transportation
+      - Battery items can be charged at charging stations
+      - Electricity from charged batteries can be released at discharging stations
+      - Charged batteries can be loaded into containers
+      - Charging and discharging stations share the same graphics for now
+  Changes:
+    - Reduced stack size of lead, titanium, and uranium ores from 25 to 15
+    - Removed floating electric pole
+    - Big electric pole and substation recipes now use less steel and more lead
+    - Boat travels slightly faster
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 28 February 2023
   Changes:
