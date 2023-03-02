@@ -67,6 +67,25 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 - Resource spawning is based on invisible 'regions' so certain resources will often spawn near each other and even larger continents won't feature too many different resource types
 - Oil only spawns in water
 
+### Seismic scanner
+- Seismic scanner scans a bigger range than radar, but only through connected landmasses
+- Ideal for scanning the entirety of a newly discovered island
+- Cannot be placed within 16 tiles of water
+
+### Titansteel and Lava pools
+- Lava pools occur naturally in far-away islands
+- Steel plates and titanium plates can be inserted into lava pools to create hot titansteel plates (which also produces slag as a byproduct)
+- Hot titansteel plates can be cooled into Titansteel plates, which produces lots of steam (so doubles up as a power source)
+- Titansteel can be reheated in small lava pools if you want to expand the power production
+- Slag requires sulfuric acid to process, which returns small amounts of iron ore and stone
+- Titansteel is used in rocket construction
+
+### Battery charging
+- Battery items can be charged in the charging station
+- Energy stored in charged batteries can be used in the discharging station
+- Floating power poles (from Cargo Ships) have been removed, so you on each island you will have to setup power production or import electricity using containerized charged batteries
+- Steam cannot be loaded onto tanker ships
+
 ---
 
 # Included Mods
@@ -103,6 +122,8 @@ Other small-to-medium mods will probably work, although may break the intended b
 
 ### Attributions
 Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, brevven, and lexsus.
-Thank you in particular to Yehn for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
+Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the seismic scanner graphics (from [Biter Power](https://mods.factorio.com/mod/biter-power).
+Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the battery charging/discharging station graphics (from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains)).
+Thank you to [Yehn](https://mods.factorio.com/user/Yehn) for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
 Thank you to RedRafe, Ray1claw, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for feedback and suggestions.
 If anyone would like to contribute better lava pool graphics, please get in touch!

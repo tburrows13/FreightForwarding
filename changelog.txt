@@ -7,7 +7,7 @@ Date: 2 March 2023
   Changes:
     - Decreased radar range from 45x45 to 35x35
     - Reduced wood cost of landfill from 2 to 1
-    - Rebalanced battery storage and charging speeds 
+    - Rebalanced battery capacity and charging speeds 
   Bugfixes:
     - Fixed landfill not being minable
 ---------------------------------------------------------------------------------------------------
