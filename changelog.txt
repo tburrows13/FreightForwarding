@@ -3,9 +3,11 @@ Version: 1.3.0
 Date: 2 March 2023
   Features:
     - Added seismic scanner for scanning connected landmasses at a longer range than radar
+    - Added battery pack for storing electricity more densely
   Changes:
     - Decreased radar range from 45x45 to 35x35
     - Reduced wood cost of landfill from 2 to 1
+    - Rebalanced battery storage and charging speeds 
   Bugfixes:
     - Fixed landfill not being minable
 ---------------------------------------------------------------------------------------------------

@@ -2,8 +2,6 @@
 local hit_effects = require("__base__/prototypes/entity/hit-effects")
 local sounds = require("__base__/prototypes/entity/sounds")
 
-local energy_usage = "4MW"
-
 function space_accumulator_picture(tint, repeat_count)
   return {
     layers = {
@@ -89,7 +87,7 @@ end
 
 data:extend{ -- Battery charging interface
   {
-    type = "assembling-machine",
+    type = "furnace",
     name = "ff-charging-station",
     icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
     icon_size = 128,
@@ -115,7 +113,7 @@ data:extend{ -- Battery charging interface
         usage_priority = "primary-input",
         input_flow_limit = "10MW",
         output_flow_limit = "0kW",
-        drain = "500W"
+        drain = "200W"
     },
     fast_replaceable_group = "assembling-machine",
     always_draw_idle_animation = true,
@@ -142,10 +140,11 @@ data:extend{ -- Battery charging interface
 
     water_reflection = accumulator_reflection(),
 
-    energy_usage = energy_usage,
+    energy_usage = "800kW",
     crafting_categories = {"battery"},
     crafting_speed = 1,
-    fixed_recipe = "ff-charge-battery",
+    source_inventory_size = 1,
+    result_inventory_size = 1,
     show_recipe_icon = false,
 
     vehicle_impact_sound = sounds.generic_impact,
@@ -193,7 +192,7 @@ data:extend{ -- Battery charging interface
       usage_priority = "secondary-output",
       drain = "0kW",
     },
-    max_power_output = energy_usage,
+    max_power_output = "4MW",
     burner = {
       emissions_per_minute = 0,
       fuel_category = "battery",
@@ -303,7 +302,7 @@ data:extend{ -- Battery charging interface
         }}
     },]]
     fuel_category = "battery",
-    fuel_value = "40MJ",
+    fuel_value = "4MJ",
     burnt_result = "battery",
     subgroup = "intermediate-product",
     order = "s-a[battery]",
@@ -314,7 +313,7 @@ data:extend{ -- Battery charging interface
     name = "ff-charge-battery",
     category = "battery",
     hidden = true,
-    energy_required = 10,
+    energy_required = 5,
     enabled = false,
     --icon = "__se-space-trains__/graphics/icons/battery.png",
     --icon_size = 128,
@@ -329,7 +328,84 @@ data:extend{ -- Battery charging interface
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-  }
+  },
+  {
+    type = "recipe",
+    name = "ff-battery-pack",
+    category = "chemistry",
+    
+    energy_required = 10,
+    enabled = false,
+    ingredients =
+    {
+      {type="fluid", name="sulfuric-acid", amount=40},
+      {"battery", 3},
+      {"advanced-circuit", 1}
+    },
+    result = "ff-battery-pack",
+    crafting_machine_tint =
+    {
+      primary = {r = 0.965, g = 0.482, b = 0.338, a = 1.000}, -- #f67a56ff
+      secondary = {r = 0.831, g = 0.560, b = 0.222, a = 1.000}, -- #d38e38ff
+      tertiary = {r = 0.728, g = 0.818, b = 0.443, a = 1.000}, -- #b9d070ff
+      quaternary = {r = 0.939, g = 0.763, b = 0.191, a = 1.000}, -- #efc230ff
+    }
+  },
+  {
+    type = "item",
+    name = "ff-battery-pack",
+    icon = "__FreightForwarding__/graphics/charging-station/battery-pack.png",
+    icon_size = 64, icon_mipmaps = 4,
+    subgroup = "raw-material",
+    order = "h[battery]-b",
+    stack_size = 200
+  },
+  {
+    type = "item",
+    name = "ff-charged-battery-pack",
+    icons = {{icon = "__FreightForwarding__/graphics/charging-station/battery-pack.png", tint = {r = 0.3, g = 0.5, b = 0.9, a = 0.8}}},
+    icon_size = 64,
+    --[[pictures = {
+        layers = {{
+            size = 128,
+            filename = "__se-space-trains__/graphics/icons/battery.png",
+            scale = 0.125
+        }, {
+            draw_as_light = true,
+            flags = {"light"},
+            size = 128,
+            filename = "__se-space-trains__/graphics/icons/battery_light.png",
+            scale = 0.125
+        }}
+    },]]
+    fuel_category = "battery",
+    fuel_value = "20MJ",
+    burnt_result = "ff-battery-pack",
+    subgroup = "intermediate-product",
+    order = "s-a[battery]-b",
+    stack_size = 200  -- Will be halved in stack-sizes.lua
+  },
+  {
+    type = "recipe",
+    name = "ff-charge-battery-pack",
+    category = "battery",
+    hidden = true,
+    energy_required = 25,
+    enabled = false,
+    --icon = "__se-space-trains__/graphics/icons/battery.png",
+    --icon_size = 128,
+    subgroup = "intermediate-product",
+    allow_as_intermediate = false,
+    ingredients = {{"ff-battery-pack", 1}},
+    results = {{
+      name = "ff-charged-battery-pack",
+      probability = 0.99,
+      amount = 1
+    }},
+    always_show_made_in = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+  },
 }
 
 data:extend(
@@ -348,3 +424,5 @@ data:extend(
 table.insert(data.raw.technology["electric-energy-accumulators"].effects, {type = "unlock-recipe", recipe = "ff-charging-station"})
 table.insert(data.raw.technology["electric-energy-accumulators"].effects, {type = "unlock-recipe", recipe = "ff-discharging-station"})
 table.insert(data.raw.technology["electric-energy-accumulators"].effects, {type = "unlock-recipe", recipe = "ff-charge-battery"})
+table.insert(data.raw.technology["effect-transmission"].effects, {type = "unlock-recipe", recipe = "ff-battery-pack"})
+table.insert(data.raw.technology["effect-transmission"].effects, {type = "unlock-recipe", recipe = "ff-charge-battery-pack"})
