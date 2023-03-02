@@ -50,13 +50,14 @@ landfill_item.place_as_tile.condition = { deep_water_mask, "ground-tile" }
 local landfill_recipe = data.raw.recipe["landfill"]
 landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 2 }}
 
-data.raw.tile["landfill"].walking_speed_modifier = 1.2  -- It can't be concreted, so give it a bit of a boost anyway
+local landfill = data.raw.tile["landfill"]
+landfill.walking_speed_modifier = 1.2  -- It can't be concreted, so give it a bit of a boost anyway
 
 -- Make landfill minable
-landfill_item.minable = {
+landfill.minable = {
 	mining_time = 0.1, result = "landfill", count = 1,
 }
-landfill_item.mined_sound = {
+landfill.mined_sound = {
   {
     filename = "__core__/sound/landfill-small.ogg"
   },
