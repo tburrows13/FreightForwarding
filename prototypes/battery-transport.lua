@@ -206,26 +206,8 @@ data:extend{ -- Battery charging interface
     },
 
     fast_replaceable_group = "assembling-machine",
-    animation = space_accumulator_picture(),
-    working_visualisations = {{
-        effect = "flicker",
-        fadeout = true,
-        light = {
-            intensity = 0.2,
-            size = 9.9,
-            shift = {0.0, 0.0},
-            color = {
-                r = 0.25,
-                g = 0.25,
-                b = 0.8
-            }
-        }
-    }, {
-        effect = "flicker",
-        fadeout = true,
-        draw_as_light = true,
-        animation = space_accumulator_charge()
-    }},
+    idle_animation = space_accumulator_picture(nil, 30),
+    animation = space_accumulator_charge(),
 
     water_reflection = accumulator_reflection(),
     vehicle_impact_sound = sounds.generic_impact,
@@ -312,7 +294,7 @@ data:extend{ -- Battery charging interface
     type = "recipe",
     name = "ff-charge-battery",
     category = "battery",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 5,
     enabled = false,
     --icon = "__se-space-trains__/graphics/icons/battery.png",
@@ -389,7 +371,7 @@ data:extend{ -- Battery charging interface
     type = "recipe",
     name = "ff-charge-battery-pack",
     category = "battery",
-    hidden = true,
+    hide_from_player_crafting = true,
     energy_required = 25,
     enabled = false,
     --icon = "__se-space-trains__/graphics/icons/battery.png",
