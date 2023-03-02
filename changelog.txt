@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2 March 2023
+  Features:
+    - Added seismic scanner for scanning connected landmasses at a longer range than radar
+  Changes:
+    - Decreased radar range from 45x45 to 35x35
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 1 March 2023
   Features:

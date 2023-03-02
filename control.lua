@@ -1,5 +1,6 @@
 require "scripts.container-limitations"
 require "scripts.milestones"
+require "scripts.seismic-scanning"
 
 local function lava_pool_created(lava_pool)
   lava_pool.amount = 1
