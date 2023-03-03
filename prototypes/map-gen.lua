@@ -1,4 +1,5 @@
--- Code taken from IslandStart mod by Yehn, modified by Xorimuth
+-- Code taken from IslandStart mod by Yehn, which was itself taken from vanilla
+-- Modified by Xorimuth in many places, and not in a particularly understandable way for anyone else other than me...
 
 local noise = require("noise")
 local util = require("util")
@@ -187,7 +188,6 @@ end
 
 local function IS_finish_elevation(elevation, map)
   local elevation = IS_water_level_correct(elevation, map)
-  --elevation = elevation / map.segmentation_multiplier
   elevation = noise.min(elevation, standard_starting_lake_elevation_expression)
   return elevation
 end
@@ -243,21 +243,21 @@ local function IS_make_lakes(x, y, tile, map, options)
     seed1 = 2,
     octave_count = starting_plateau_octaves,
     --octave0_input_scale = 1/2 - map.segmentation_multiplier / 10,
-	octave0_input_scale = 1/2,
+	  octave0_input_scale = 1/2,
     octave0_output_scale = 1/12,
     persistence = persistence_start
   }
   -- 10 default. 
-  local island_scale = 1.25
+  local island_scale = 1.7
   local starting_plateau = starting_plateau_basis + starting_plateau_bias + map.finite_water_level * IS_wlc_mult - tile.distance / (island_scale * 15)
 
   -- Set elevation to -4.5 in a radius around the center so that any generated continents don't merge with the starting island.
   local empty_radius = 700
   local avoid_starting_island = function(dist)
-    return noise.clamp((dist - empty_radius) / (empty_radius + 600), 0, 1)
+    return noise.clamp((dist - empty_radius) / (empty_radius + 400), 0, 1) ^ 3
   end
   --return noise.max((lakes + bias) / 4, starting_plateau)
-  return noise.max(((lakes + bias + 40) * avoid_starting_island(tile.distance) - 40) / 4, starting_plateau)
+  return noise.max((((lakes + bias + 80) * avoid_starting_island(tile.distance) - 80) / 8), starting_plateau)
 end
 
 data:extend{
@@ -271,7 +271,7 @@ data:extend{
       y = y
       options =
       {
-        bias = -80,  -- Higher number (closer to 0) means water level is higher so islands are smaller
+        bias = -60,  -- Higher number (closer to 0) means water level is lower so islands are bigger
         terrain_octaves = 10
       }
       return IS_finish_elevation(IS_make_lakes(x, y, tile, map, options), map)
