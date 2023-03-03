@@ -17,7 +17,9 @@ local function lava_pool_created(lava_pool)
       created = surface.create_entity{name = "ff-lava-pool-small", position = position, force = "player", false}
     end
   end
-  if not created then
+  if created then
+    created.destructible = false
+  else
     --game.print("Lava pool destroyed!")
     lava_pool.destroy()
   end
@@ -60,6 +62,11 @@ script.on_configuration_changed(
   function()
     for _, force in pairs(game.forces) do
       force.reset_technology_effects()
+    end
+    for _, surface in pairs(game.surfaces) do
+      for _, entity in pairs(surface.find_entities_filtered{type = "assembling-machine", name = {"ff-lava-pool", "ff-lava-pool-small"}, force = "player"}) do
+        entity.destructible = false
+      end
     end
   end
 )
