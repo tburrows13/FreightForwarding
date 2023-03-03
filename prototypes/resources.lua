@@ -53,8 +53,8 @@ data.raw.resource["iron-ore"].autoplace = resource_autoplace.resource_autoplace_
   order = "b",
   base_density = 10,
   has_starting_area_placement = true,
-  regular_rq_factor_multiplier = 1.10,
-  starting_rq_factor_multiplier = 1.5,
+  regular_rq_factor_multiplier = 1.1,
+  starting_rq_factor_multiplier = 1.3,
   candidate_spot_count = 22, -- To match 0.17.50 placement
   ideal_aux = 0.15,
   aux_range = 0.1,
@@ -64,7 +64,7 @@ data.raw.resource["copper-ore"].autoplace = resource_autoplace.resource_autoplac
   order = "b",
   base_density = 8,
   has_starting_area_placement = true,
-  regular_rq_factor_multiplier = 1.10,
+  regular_rq_factor_multiplier = 1.1,
   starting_rq_factor_multiplier = 1.2,
   candidate_spot_count = 22, -- To match 0.17.50 placement
   ideal_aux = 0.8,
@@ -76,7 +76,7 @@ data.raw.resource["coal"].autoplace = resource_autoplace.resource_autoplace_sett
   base_density = 8,
   has_starting_area_placement = true,
   regular_rq_factor_multiplier = 1.0,
-  starting_rq_factor_multiplier = 1.1,
+  starting_rq_factor_multiplier = 1.2,
   ideal_aux = 0.4,
 }
 data.raw.resource["stone"].autoplace = resource_autoplace.resource_autoplace_settings{
@@ -89,7 +89,7 @@ data.raw.resource["stone"].autoplace = resource_autoplace.resource_autoplace_set
   ideal_aux = 0.6,
 }
 
-local empty_radius = 700
+local empty_radius = 1500
 
 data.raw.resource["uranium-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "uranium-ore",
@@ -116,10 +116,10 @@ if mods["bzlead"] then
     has_starting_area_placement = true,
     regular_rq_factor_multiplier = 1.2,
     starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_ring_radius = 390,  -- Spawns the starting patch somewhere at distance from the center
-    starting_resource_placement_radius = 600,  -- Keep it reasonably above starting_resource_placement_ring_radius?
-    regular_patch_fade_in_distance_start = 600,
-    regular_patch_fade_in_distance = 600,
+    starting_resource_placement_ring_radius = 550,  -- Spawns the starting patch somewhere at distance from the center
+    starting_resource_placement_radius = 1000,  -- Keep it reasonably above starting_resource_placement_ring_radius?
+    regular_patch_fade_in_distance_start = 1000,
+    regular_patch_fade_in_distance = 1000,
     ideal_aux = 0.7,
   }
 end
@@ -131,7 +131,7 @@ if mods["bztitanium"] then
     order = "b-z",
     base_density = 3,
     has_starting_area_placement = false,
-    regular_rq_factor_multiplier = 0.95,
+    regular_rq_factor_multiplier = 0.7,
     regular_patch_fade_in_distance_start = empty_radius,
     regular_patch_fade_in_distance = empty_radius + 100,
     ideal_aux = 0.5,
@@ -166,8 +166,8 @@ data.raw.resource["ff-lava-pool-resource"].autoplace = resource_autoplace.resour
   size_multiplier_coefficient = 4,
   has_starting_area_placement = false,
   regular_rq_factor_multiplier = 1,
-  starting_resource_placement_radius = 1800,
-  regular_patch_fade_in_distance_start = 1800,
-  regular_patch_fade_in_distance = 1800,
+  starting_resource_placement_radius = 3000,
+  regular_patch_fade_in_distance_start = 3000,
+  regular_patch_fade_in_distance = 3000,
   ideal_aux = 0.9,
 }
