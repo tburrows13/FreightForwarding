@@ -188,6 +188,7 @@ end
 
 local function IS_finish_elevation(elevation, map)
   local elevation = IS_water_level_correct(elevation, map)
+  --elevation = elevation / map.segmentation_multiplier
   elevation = noise.min(elevation, standard_starting_lake_elevation_expression)
   return elevation
 end
