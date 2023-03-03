@@ -61,14 +61,13 @@ local function check_requester_slots(entity)
   end
 
   -- Logistic storage chests
-  for i = 1, entity.filter_slot_count do
-    local name = entity.get_filter(i)
+  if entity.prototype.logistic_mode == "storage" then
+    local name = entity.storage_filter and entity.storage_filter.name
     if name and is_container(name) then
-      entity.set_filter(i, nil)
+      entity.storage_filter = nil
       slots_cleared = true
     end
   end
-
   return slots_cleared
 end
 
