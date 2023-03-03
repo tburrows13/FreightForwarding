@@ -41,7 +41,7 @@ data:extend{
       y = y
       local raw_aux =
         0.5 +
-        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.55)(x,y,1/2048,1/4)  -- 0.55 affects size of features. Smaller number means bigger 'islands'
+        make_multioctave_noise_function(map.seed, 7, 4, 1/2, 3, 1, 0.4)(x,y,1/2048,1/4)  -- 0.4 affects size of features. Smaller number means bigger 'islands'
       return noise.ident(clamp_aux(raw_aux))
     end)
   },
@@ -57,7 +57,7 @@ data.raw.resource["iron-ore"].autoplace = resource_autoplace.resource_autoplace_
   starting_rq_factor_multiplier = 1.5,
   candidate_spot_count = 22, -- To match 0.17.50 placement
   ideal_aux = 0.15,
-  aux_range = 0.15,
+  aux_range = 0.1,
 }
 data.raw.resource["copper-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "copper-ore",
@@ -68,7 +68,7 @@ data.raw.resource["copper-ore"].autoplace = resource_autoplace.resource_autoplac
   starting_rq_factor_multiplier = 1.2,
   candidate_spot_count = 22, -- To match 0.17.50 placement
   ideal_aux = 0.8,
-  aux_range = 0.15,
+  aux_range = 0.1,
 }
 data.raw.resource["coal"].autoplace = resource_autoplace.resource_autoplace_settings{
   name = "coal",

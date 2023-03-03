@@ -269,7 +269,7 @@ local function resource_autoplace_settings(params)
 
   local spot_favorability_expression = litexp(1)
   if params.ideal_aux then
-    local aux_range = params.aux_range or 0.1
+    local aux_range = params.aux_range or 0.05
     spot_favorability_expression = litexp(noise.if_else_chain(
       noise.less_than(aux, params.ideal_aux - aux_range), 0,
       noise.less_than(params.ideal_aux + aux_range, aux), 0,
