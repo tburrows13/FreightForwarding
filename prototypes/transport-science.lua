@@ -18,7 +18,7 @@ data:extend{
     type = "recipe",
     name = "x-transport-science-pack",
     enabled = false,
-    energy_required = 12,
+    energy_required = 14,
     ingredients =
     {
       {"rail", 1},
