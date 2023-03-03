@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 3 March 2023
+  Changes:
+    - Map generation now generates larger islands
+    - Decreased default enemy difficulty and time evolution factor
+    - Increased resource frequency, decreased resource size
+    - Doubled starting resource count
+---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2 March 2023
   Features:
