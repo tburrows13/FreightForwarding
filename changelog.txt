@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.2
 Date: 3 March 2023
+  Changes:
+    - Rails are now half as expensive (so they are now the same as vanilla cost)
   Bugfixes:
     - Fixed lava pools getting destroyed by splash damage attacks
     - Fixed crash on load with Companion Drones

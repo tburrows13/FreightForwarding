@@ -29,7 +29,3 @@ bzutil.set_ingredient("substation", "steel-plate", 5)  -- From 10
 bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-heavyship", "steel-plate", "titanium-plate")
-
--- Make rails more expensive
-local recipe = data.raw.recipe["rail"]
-recipe.result_count = 1
