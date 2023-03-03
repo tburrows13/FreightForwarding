@@ -18,13 +18,13 @@ data:extend{
     type = "recipe",
     name = "x-transport-science-pack",
     enabled = false,
-    energy_required = 15,
+    energy_required = 12,
     ingredients =
     {
       {"rail", 1},
       {"big-electric-pole", 1}
     },
-    result_count = 3,
+    result_count = 2,
     result = "x-transport-science-pack"
   },
   {
