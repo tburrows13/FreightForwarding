@@ -1,12 +1,13 @@
 local inventory_blacklist = {
   ["broken_droid"] = true,  -- Science droids
   ["droid_work_station"] = true,
+  ["companion"] = true,  -- Companion drones
 }
 
 local function divide_inventory_size(prototype, amount)
   if inventory_blacklist[prototype.name] then return end
   if prototype.inventory_size > 2 then
-    prototype.inventory_size = math.max(prototype.inventory_size / amount, 2)
+    prototype.inventory_size = math.max(math.ceil(prototype.inventory_size / amount), 2)
   end
 end
 
