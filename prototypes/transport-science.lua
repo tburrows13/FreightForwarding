@@ -65,6 +65,7 @@ data.raw.recipe["pipe-to-ground"].enabled = false
 table.insert(data.raw.technology["fluid-handling"].effects, 1, {type = "unlock-recipe", recipe = "pipe-to-ground"})
 
 table.insert(data.raw.lab.lab.inputs, 3, "x-transport-science-pack")
+util.allow_productivity("x-transport-science-pack")
 
 -- Merge deep sea oil with pumpjack tech
 local deep_sea_oil = data.raw.technology["deep_sea_oil_extraction"]

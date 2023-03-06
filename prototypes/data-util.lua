@@ -65,5 +65,12 @@ function data_util.is_descendant_of(tech_name, ancestor)
   return false
 end
 
+function data_util.allow_productivity(recipe_name)
+  for _, module in pairs(data.raw.module) do
+    if module.category == "productivity" and module.limitation then
+      table.insert(module.limitation, recipe_name)
+    end
+  end
+end
 
 return data_util
