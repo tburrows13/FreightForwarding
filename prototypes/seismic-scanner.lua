@@ -29,6 +29,7 @@ data:extend{
   {
     type = "recipe",
     name = "ff-seismic-scanner",
+    enabled = false,
     ingredients =
     {
       {"advanced-circuit", 5},
