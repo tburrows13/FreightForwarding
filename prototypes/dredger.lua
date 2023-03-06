@@ -3,6 +3,9 @@
 -- assembling-machine which is placed instead of the mining-drill by script
 -- tile which is placed around the assembling-machine by script
 
+local sounds = require("__base__.prototypes.entity.sounds")
+local hit_effects = require("__base__.prototypes.entity.hit-effects")
+
 data:extend{
   {
     type = "recipe-category",
@@ -68,16 +71,18 @@ data:extend{
   {
     type = "item",
     name = "ff-dredger",
+    localised_name = {"entity-name.ff-dredger"},
     icon = "__base__/graphics/icons/pumpjack.png",
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "extraction-machine",
-    order = "b[fluids]-b[pumpjack]",
+    order = "b[fluids]-d[dredger]",
     place_result = "ff-dredger-place-result",
     stack_size = 5
   },
   {
     type = "mining-drill",
     name = "ff-dredger-place-result",
+    localised_name = {"entity-name.ff-dredger"},
     icon = "__base__/graphics/icons/pumpjack.png",
     icon_size = 64, icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
@@ -92,9 +97,10 @@ data:extend{
     energy_source =
     {
       type = "electric",
-      emissions_per_minute = 10,
+      emissions_per_minute = 200,
       usage_priority = "secondary-input"
     },
+    energy_usage = "800kW",
     output_fluid_box =
     {
       base_area = 10,
@@ -108,7 +114,6 @@ data:extend{
         }
       }
     },
-    energy_usage = "90kW",
     mining_speed = 1,
     resource_searching_radius = 0.49,
     vector_to_place_result = {0, 0},

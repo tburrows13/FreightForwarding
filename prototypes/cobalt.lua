@@ -4,49 +4,58 @@ data:extend{
   {
     type = "item",
     name = "ff-cobalt-ore",
-    icon = "__FreightForwarding__/graphics/item/shale-nodule.png",
+    icon = "__FreightForwarding__/graphics/item/cobalt-ore.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
-    order = "a[nodule]",
+    order = "h[cobalt]-a[cobalt-ore]",
     stack_size = 5,
   },
   {
     type = "item",
     name = "ff-cobalt-concentrate",
-    icon = "__FreightForwarding__/graphics/item/shale-nodule.png",
+    icon = "__FreightForwarding__/graphics/item/cobalt-concentrate.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
-    order = "a[nodule]",
+    order = "h[cobalt]-b[cobalt-concentrate]",
     stack_size = 50,
   },
   {
     type = "item",
     name = "ff-cobalt-blast-blend",
-    icon = "__FreightForwarding__/graphics/item/shale-nodule.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icons = {
+      {
+        icon = "__FreightForwarding__/graphics/item/cobalt-concentrate.png",
+        icon_size = 64, icon_mipmaps = 1,
+      },
+      {
+        icon = "__base__/graphics/icons/explosives.png",
+        icon_size = 64, icon_mipmaps = 4,
+        scale = 0.33,
+      },
+    },
     subgroup = "raw-resource",
-    order = "a[nodule]",
+    order = "h[cobalt]-c[cobalt-blast-blend]",
     stack_size = 1,
   },
   {
     type = "item",
     name = "ff-cobalt-ingot",
-    icon = "__FreightForwarding__/graphics/item/shale-nodule.png",
+    icon = "__FreightForwarding__/graphics/item/cobalt-ingot.png",
     icon_size = 64, icon_mipmaps = 1,
-    subgroup = "raw-resource",
-    order = "a[nodule]",
+    subgroup = "raw-material",
+    order = "e[cobalt-ingot]",
     stack_size = 200,
   },
   {
     type = "fluid",
     name = "ff-tailings-water",
-    icon = "__FreightForwarding__/graphics/item/shale-nodule.png",
+    icon = "__FreightForwarding__/graphics/item/tailings.png",
     icon_size = 64, icon_mipmaps = 1,
-    subgroup = "raw-resource",
+    subgroup = "fluid",
     default_temperature = 15,
-    base_color = {r=0, g=0.34, b=0.6},
+    base_color = {r=0, g=0.34, b=0.6},  -- TODO
     flow_color = {r=0.7, g=0.7, b=0.7},
-    order = "a[nodule]",
+    order = "f[tailings]",
   },
   {
     type = "recipe",
@@ -90,11 +99,27 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ff-tailings-filtering",
+    name = "ff-tailings-filtration",
+    localised_name = {"recipe-name.ff-tailings-filtration"},
     category = "chemistry",
+    subgroup = "fluid-recipes",
+    order = "f[tailings]-a[filtration]",
     enabled = false,
+    icons =
+    {
+      {
+        icon = "__base__/graphics/icons/fluid/water.png",
+        icon_mipmaps = 4,
+      },
+      {
+        icon = "__FreightForwarding__/graphics/item/tailings.png",
+        scale = 0.25,
+        shift = {-8, -8},
+        icon_mipmaps = 1,
+      },
+    },
+    icon_size = 64,
     energy_required = 2,
-    main_product = "water",
     ingredients = {
       {type = "fluid", name = "ff-tailings-water", amount = 10, catalyst_amount = 10},
       {type = "item", name = "coal", amount = 5},
@@ -102,14 +127,40 @@ data:extend{
     results = {
       {type = "fluid", name = "water", amount = 10, catalyst_amount = 10},
     },
+    show_amount_in_title = false,
+    always_show_products = true,
   },
   {
     type = "recipe",
     name = "ff-tailings-evaporation",
     category = "chemistry",
+    subgroup = "fluid-recipes",
+    order = "f[tailings]-b[evaporation]",
     enabled = false,
+    icons =
+    {
+      {
+        icon = "__base__/graphics/icons/fluid/water.png",
+      },
+      {
+        icon = "__FreightForwarding__/graphics/item/tailings.png",
+        scale = 0.25,
+        shift = {-8, -8},
+        icon_mipmaps = 1,
+      },
+      {
+        icon = "__bzlead__/graphics/icons/lead-ore.png",
+        scale = 0.23,
+        shift = {-8, 8},
+      },
+      {
+        icon = "__bztitanium__/graphics/icons/titanium-ore.png",
+        scale = 0.23,
+        shift = {8, 8},
+      },
+    },
+    icon_size = 64, icon_mipmaps = 4,
     energy_required = 2,
-    main_product = "water",
     ingredients = {
       {type = "fluid", name = "ff-tailings-water", amount = 10, catalyst_amount = 10},
     },
@@ -159,7 +210,7 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ff-tailings-filtering"
+        recipe = "ff-tailings-filtration"
       },
       {
         type = "unlock-recipe",
@@ -171,5 +222,5 @@ data:extend{
 
 util.allow_productivity("ff-cobalt-concentrate")
 util.allow_productivity("ff-cobalt-ingot")
-util.allow_productivity("ff-tailings-filtering")
+util.allow_productivity("ff-tailings-filtration")
 util.allow_productivity("ff-tailings-evaporation")

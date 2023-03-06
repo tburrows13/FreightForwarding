@@ -5,7 +5,7 @@ data:extend{
     icon = "__FreightForwarding__/graphics/item/limestone-nodule.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
-    order = "a[nodule]",
+    order = "w[nodule]-a[ferrous]",
     stack_size = 5
   },
   {
@@ -33,7 +33,7 @@ data:extend{
     results = {
       {name = "iron-ore", amount = 5},
       {name = "copper-ore", amount = 1, probability = 0.5},
-      {name = "stone", amount = 1},
+      {name = "stone", amount = 2, probability = 0.5},
       {name = "ff-ferrous-nodule", amount = 1, probability = 0.5},
     },
   },
@@ -43,7 +43,7 @@ data:extend{
     icon = "__FreightForwarding__/graphics/item/shale-nodule.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
-    order = "a[nodule]",
+    order = "w[nodule]-b[cupric]",
     stack_size = 5
   },
   {
@@ -71,7 +71,7 @@ data:extend{
     results = {
       {name = "copper-ore", amount = 5},
       {name = "iron-ore", amount = 1, probability = 0.5},
-      {name = "stone", amount = 1},
+      {name = "stone", amount = 2, probability = 0.5},
       {name = "ff-cupric-nodule", amount = 1, probability = 0.5},
     },
   },
@@ -81,7 +81,7 @@ data:extend{
     icon = "__FreightForwarding__/graphics/item/cobalt-crust.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
-    order = "a[nodule]",
+    order = "w[nodule]-c[cobalt-crust]",
     stack_size = 5
   },
   {
@@ -110,7 +110,7 @@ data:extend{
       {name = "ff-cobalt-ore", amount = 5},
       {name = "iron-ore", amount = 1, probability = 0.5},
       {name = "copper-ore", amount = 1, probability = 0.5},
-      {name = "stone", amount = 1},
+      {name = "stone", amount = 2, probability = 0.5},
       {name = "ff-cobalt-crust", amount = 1, probability = 0.5},
     },
   },
