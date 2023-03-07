@@ -38,7 +38,7 @@ script.on_event(defines.events.on_script_trigger_effect,
 local function print_warning()
   if game.tick > 0 then
     if game.default_map_gen_settings.property_expression_names.elevation ~= "x-continents" then
-      game.print({"x-mod.warn-nondefault-mapgen", {"map-gen-preset-name.x-default"}})
+      game.print({"freight-forwarding.warn-nondefault-mapgen", {"map-gen-preset-name.x-default"}})
     end
     script.on_nth_tick(300, nil)
   end
