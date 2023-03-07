@@ -9,13 +9,13 @@ local util = require "__FreightForwarding__/prototypes/data-util"
 for _, tech in pairs(data.raw.technology) do
   local ingredients = tech.unit.ingredients
   if ingredients[3] and ingredients[3][1] == "chemical-science-pack" then
-    table.insert(ingredients, 3, {"x-transport-science-pack", 1})
+    table.insert(ingredients, 3, {"ff-transport-science-pack", 1})
   else
     -- Add to all techs descending from key techs
     if util.is_descendant_of(tech.name, "fluid-handling") or
       util.is_descendant_of(tech.name, "water_transport") or
       util.is_descendant_of(tech.name, "automobilism") then
-      table.insert(ingredients, {"x-transport-science-pack", 1})
+      table.insert(ingredients, {"ff-transport-science-pack", 1})
     end
   end
 end

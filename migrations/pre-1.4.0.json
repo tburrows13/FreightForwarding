@@ -1,0 +1,17 @@
+{
+  "item":
+  [
+    ["x-transport-science-pack", "ff-transport-science-pack"],
+    ["deadlock-crate-x-transport-science-pack", "deadlock-crate-ff-transport-science-pack"]
+  ],
+  "recipe":
+  [
+    ["x-transport-science-pack", "ff-transport-science-pack"],
+    ["deadlock-packrecipe-x-transport-science-pack", "deadlock-packrecipe-ff-transport-science-pack"],
+    ["deadlock-unpackrecipe-x-transport-science-pack", "deadlock-unpackrecipe-ff-transport-science-pack"]
+  ],
+  "technology":
+  [
+    ["x-transport-science-pack", "ff-transport-science-pack"]
+  ]
+}

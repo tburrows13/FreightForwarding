@@ -11,7 +11,7 @@ local raw_material_list = {
 local new_material_list = {
   [1] = { "sand", "glass", "stone-tablet" },  -- AAI Industry
   [2] = {
-    "automation-science-pack", "logistic-science-pack", "x-transport-science-pack", "chemical-science-pack", "military-science-pack",  -- Vanilla
+    "automation-science-pack", "logistic-science-pack", "ff-transport-science-pack", "chemical-science-pack", "military-science-pack",  -- Vanilla
     "explosives", "engine-unit", "electric-engine-unit",  -- Vanilla
     "ff-charged-battery",  -- Freight Forwarding
     "motor", "electric-motor", "processed-fuel",  -- AAI Industry

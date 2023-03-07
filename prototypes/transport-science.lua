@@ -3,7 +3,7 @@ local util = require "__FreightForwarding__/prototypes/data-util"
 data:extend{
   {
     type = "tool",
-    name = "x-transport-science-pack",
+    name = "ff-transport-science-pack",
     localised_description = {"item-description.science-pack"},
     icon = "__FreightForwarding__/graphics/transport-science-pack-item.png",
     icon_size = 64, icon_mipmaps = 4,
@@ -16,7 +16,7 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "x-transport-science-pack",
+    name = "ff-transport-science-pack",
     enabled = false,
     energy_required = 14,
     ingredients =
@@ -25,13 +25,13 @@ data:extend{
       {"big-electric-pole", 1}
     },
     result_count = 2,
-    result = "x-transport-science-pack"
+    result = "ff-transport-science-pack"
   },
   {
     type = "technology",
-    name = "x-transport-science-pack",
-    localised_name = {"technology-name.x-transport-science-pack"},
-    localised_description = {"technology-description.x-transport-science-pack"},
+    name = "ff-transport-science-pack",
+    localised_name = {"technology-name.ff-transport-science-pack"},
+    localised_description = {"technology-description.ff-transport-science-pack"},
     icon_size = 256, icon_mipmaps = 4,
     icon = "__FreightForwarding__/graphics/transport-science-pack-technology.png",
     prerequisites = {"railway", "electric-energy-distribution-1"},
@@ -39,7 +39,7 @@ data:extend{
     {
       {
         type = "unlock-recipe",
-        recipe = "x-transport-science-pack"
+        recipe = "ff-transport-science-pack"
       }
     },
     unit =
@@ -57,15 +57,15 @@ data:extend{
 
 -- Most tech adjustments are in data-final-fixes.lua
 
-util.add_prerequisite("fluid-handling", "x-transport-science-pack")
-util.add_prerequisite("water_transport", "x-transport-science-pack")
-util.add_prerequisite("automobilism", "x-transport-science-pack")  -- Can't easily drive to lead ore
+util.add_prerequisite("fluid-handling", "ff-transport-science-pack")
+util.add_prerequisite("water_transport", "ff-transport-science-pack")
+util.add_prerequisite("automobilism", "ff-transport-science-pack")  -- Can't easily drive to lead ore
 
 data.raw.recipe["pipe-to-ground"].enabled = false
 table.insert(data.raw.technology["fluid-handling"].effects, 1, {type = "unlock-recipe", recipe = "pipe-to-ground"})
 
-table.insert(data.raw.lab.lab.inputs, 3, "x-transport-science-pack")
-util.allow_productivity("x-transport-science-pack")
+table.insert(data.raw.lab.lab.inputs, 3, "ff-transport-science-pack")
+util.allow_productivity("ff-transport-science-pack")
 
 -- Merge deep sea oil with pumpjack tech
 local deep_sea_oil = data.raw.technology["deep_sea_oil_extraction"]
