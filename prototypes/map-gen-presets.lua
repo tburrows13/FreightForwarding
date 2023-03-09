@@ -32,7 +32,7 @@ presets["x-default"] = {
 
 for _, control in pairs(data.raw["autoplace-control"]) do
   local name = control.name
-  if name ~= "trees" and name ~= "enemy-base" then
+  if name ~= "trees" and name ~= "enemy-base" and name ~= "ff-seamount" then
     presets["x-default"].basic_settings.autoplace_controls[control.name] = ore_default
   end
 end

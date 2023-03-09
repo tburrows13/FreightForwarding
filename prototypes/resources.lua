@@ -139,16 +139,46 @@ if mods["bztitanium"] then
   }
 end
 
+-- Seamounts
+data:extend{
+  {
+    type = "autoplace-control",
+    name = "ff-seamount",
+    localised_name = {"", "[entity=ff-seamount] ", {"entity-name.ff-seamount"}},
+    richness = false,
+    order = "z-a",
+    category = "resource"
+  },
+}
+
+data.raw.resource["ff-seamount"].autoplace = {
+  name = "ff-seamount",
+  order = "c",
+  probability_expression = noise.define_noise_function( function(x, y, tile, map)
+      -- Frequency value from map gen settings
+      local frequency_multiplier = noise.var("control-setting:ff-seamount:frequency:multiplier")
+      local desired_frequency = 1 / (64 * 64^2)
+
+      local elevation = noise.var("elevation")
+      local elevation_multiplier = noise.if_else_chain(
+        noise.less_than(elevation, -20), 1,  -- only spawn at elevation -20 or lower
+        0
+      )
+      return desired_frequency * frequency_multiplier * elevation_multiplier
+    end),
+  richness_expression = noise.define_noise_function( function(x, y, tile, map)
+    return 10  -- Overwritten in control by script trigger
+  end)
+}
 
 -- Lava pools
-
 data:extend{
   {
     type = "autoplace-control",
     name = "ff-lava-pool",
     localised_name = {"", "[entity=ff-lava-pool] ", {"entity-name.ff-lava-pool"}},
     richness = false,
-    order = "z-a",
+    order = "z-b",
     category = "resource"
   },
 }

@@ -36,6 +36,8 @@ script.on_event(defines.events.on_script_trigger_effect,
     elseif event.effect_id == "ff-dredger-created" then
       local dredger = event.target_entity
       dredger_created(dredger)
+    elseif event.effect_id == "ff-seamount-created" then
+      event.target_entity.amount = 1
     end
   end
 )
