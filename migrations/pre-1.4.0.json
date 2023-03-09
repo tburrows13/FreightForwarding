@@ -8,7 +8,8 @@
   [
     ["x-transport-science-pack", "ff-transport-science-pack"],
     ["deadlock-packrecipe-x-transport-science-pack", "deadlock-packrecipe-ff-transport-science-pack"],
-    ["deadlock-unpackrecipe-x-transport-science-pack", "deadlock-unpackrecipe-ff-transport-science-pack"]
+    ["deadlock-unpackrecipe-x-transport-science-pack", "deadlock-unpackrecipe-ff-transport-science-pack"],
+    ["ff-slag-processing", "ff-slag-leaching"]
   ],
   "technology":
   [

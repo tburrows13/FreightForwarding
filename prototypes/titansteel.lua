@@ -37,7 +37,7 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ff-slag-processing"
+        recipe = "ff-slag-leaching"
       },
     },
     prerequisites = {"production-science-pack", "utility-science-pack"},
