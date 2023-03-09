@@ -14,6 +14,7 @@ local empty_sprite = {
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 local lava_pool_layer = collision_mask_util.get_first_unused_layer()
+log("FF lava_pool_layer assigned to " .. lava_pool_layer)
 -- Make lava pool resource collide with trees, rocks, and cliffs
 for _, type in pairs{"tree", "simple-entity", "cliff"} do
   for _, prototype in pairs(data.raw[type]) do
@@ -26,6 +27,8 @@ for _, type in pairs{"tree", "simple-entity", "cliff"} do
 end
 
 local lava_pool_water_tile_layer = collision_mask_util.get_first_unused_layer()
+log("FF lava_pool_water_tile_layer assigned to " .. lava_pool_water_tile_layer)
+
 -- Make lava pool resource collide with trees, rocks, and cliffs
 for _, prototype in pairs(data.raw.tile) do
   local collision_mask = collision_mask_util.get_mask(prototype)

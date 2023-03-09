@@ -6,6 +6,8 @@
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 
+local concrete = table.deepcopy(data.raw["tile"]["concrete"])
+
 data:extend{
   {
     type = "recipe-category",
@@ -13,7 +15,7 @@ data:extend{
   },
   {
     type = "resource-category",
-    name = "ff-nodule-deposit",
+    name = "ff-seamount",
   },
   {
     type = "technology",
@@ -86,12 +88,13 @@ data:extend{
     icon = "__base__/graphics/icons/pumpjack.png",
     icon_size = 64, icon_mipmaps = 4,
     flags = {"placeable-neutral", "player-creation"},
-    resource_categories = {"ff-nodule-deposit"},
+    resource_categories = {"ff-seamount"},
     max_health = 200,
     corpse = "pumpjack-remnants",
     dying_explosion = "pumpjack-explosion",
-    collision_box = {{ -1.5, -1.5}, {1.5, 1.5}},
+    collision_box = {{ -1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{ -1.5, -1.5}, {1.5, 1.5}},
+    collision_mask = {"object-layer", "train-layer"},
     damaged_trigger_effect = hit_effects.entity(),
     drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},
     energy_source =
@@ -101,21 +104,8 @@ data:extend{
       usage_priority = "secondary-input"
     },
     energy_usage = "800kW",
-    output_fluid_box =
-    {
-      base_area = 10,
-      base_level = 1,
-      pipe_covers = pipecoverspictures(),
-      pipe_connections =
-      {
-        {
-          positions = { {1, -2}, {2, -1}, {-1, 2}, {-2, 1} },
-          type = "output"
-        }
-      }
-    },
     mining_speed = 1,
-    resource_searching_radius = 0.49,
+    resource_searching_radius = 4,
     vector_to_place_result = {0, 0},
     module_specification =
     {
@@ -244,6 +234,18 @@ data:extend{
       audible_distance_modifier = 0.6,
       fade_in_ticks = 4,
       fade_out_ticks = 10
+    },
+    created_effect = {
+      type = "direct",
+      action_delivery = {
+        type = "instant",
+        source_effects = {
+          {
+            type = "script",
+            effect_id = "ff-dredger-created",
+          },
+        }
+      }
     },
   },
   {
@@ -390,4 +392,236 @@ data:extend{
       fade_out_ticks = 10
     },
   },
+  {
+    type = "electric-pole",
+    name = "ff-dredger-pole",
+    icon = "__base__/graphics/icons/substation.png",
+    icon_size = 64, icon_mipmaps = 4,
+    flags = {"hidden", "not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"},
+    --collision_box = {{-0.7, -0.7}, {0.7, 0.7}},
+    --selection_box = {{-1, -1}, {1, 1}},
+    maximum_wire_distance = 0,
+    supply_area_distance = 7.5,
+    pictures = util.empty_sprite(),
+    --vehicle_impact_sound = sounds.generic_impact,
+    --open_sound = sounds.electric_network_open,
+    --close_sound = sounds.electric_network_close,
+    working_sound =
+    {
+      sound =
+      {
+        filename = "__base__/sound/substation.ogg",
+        volume = 0.4
+      },
+      max_sounds_per_type = 3,
+      audible_distance_modifier = 0.32,
+      fade_in_ticks = 30,
+      fade_out_ticks = 40,
+      use_doppler_shift = false
+    },
+    connection_points =
+    {
+      {
+        shadow =
+        {
+          copper = util.by_pixel(136, 8),
+          green = util.by_pixel(124, 8),
+          red = util.by_pixel(151, 9)
+        },
+        wire =
+        {
+          copper = util.by_pixel(0, -86),
+          green = util.by_pixel(-21, -82),
+          red = util.by_pixel(22, -81)
+        }
+      },
+    },
+    radius_visualisation_picture =
+    {
+      filename = "__base__/graphics/entity/small-electric-pole/electric-pole-radius-visualization.png",
+      width = 12,
+      height = 12,
+      priority = "extra-high-no-scale"
+    },
+  },
+  {
+    type = "tile",
+    name = "ff-dredging-platform",
+    order = "a[artificial]-b[tier-2]-a[concrete]",
+    needs_correction = false,
+    collision_mask = {"ground-tile"},
+    walking_speed_modifier = 1.4,
+    layer = 61,
+    transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
+    decorative_removal_probability = 0.25,
+    variants =
+    {
+      main =
+      {
+        {
+          picture = "__base__/graphics/terrain/concrete/concrete-dummy.png",
+          count = 1,
+          size = 1
+        },
+        {
+          picture = "__base__/graphics/terrain/concrete/concrete-dummy.png",
+          count = 1,
+          size = 2,
+          probability = 0.39
+        },
+        {
+          picture = "__base__/graphics/terrain/concrete/concrete-dummy.png",
+          count = 1,
+          size = 4,
+          probability = 1
+        }
+      },
+      inner_corner =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-inner-corner.png",
+        count = 16,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-inner-corner.png",
+          count = 16,
+          scale = 0.5
+        }
+      },
+      inner_corner_mask =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
+        count = 16,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-inner-corner-mask.png",
+          count = 16,
+          scale = 0.5
+        }
+      },
+
+      outer_corner =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-outer-corner.png",
+        count = 8,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-outer-corner.png",
+          count = 8,
+          scale = 0.5
+        }
+      },
+      outer_corner_mask =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
+        count = 8,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-outer-corner-mask.png",
+          count = 8,
+          scale = 0.5
+        }
+      },
+
+      side =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-side.png",
+        count = 16,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-side.png",
+          count = 16,
+          scale = 0.5
+        }
+      },
+      side_mask =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
+        count = 16,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-side-mask.png",
+          count = 16,
+          scale = 0.5
+        }
+      },
+
+      u_transition =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-u.png",
+        count = 8,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-u.png",
+          count = 8,
+          scale = 0.5
+        }
+      },
+      u_transition_mask =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
+        count = 8,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-u-mask.png",
+          count = 8,
+          scale = 0.5
+        }
+      },
+
+      o_transition =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-o.png",
+        count = 4,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-o.png",
+          count = 4,
+          scale = 0.5
+        }
+      },
+      o_transition_mask =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
+        count = 4,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete-o-mask.png",
+          count = 4,
+          scale = 0.5
+        }
+      },
+
+      material_background =
+      {
+        picture = "__base__/graphics/terrain/concrete/concrete.png",
+        count = 8,
+        hr_version =
+        {
+          picture = "__base__/graphics/terrain/concrete/hr-concrete.png",
+          count = 8,
+          scale = 0.5
+        }
+      }
+    },
+
+    transitions = concrete.transitions,
+    transitions_between_transitions = concrete.transitions_between_transitions,
+
+    walking_sound = concrete.walking_sound,
+    build_sound = concrete.build_sound,
+    map_color={r=63, g=61, b=59},
+    scorch_mark_color = {r = 0.373, g = 0.307, b = 0.243, a = 1.000},
+    pollution_absorption_per_second = 0,
+    vehicle_friction_modifier = concrete.vehicle_friction_modifier,
+
+    trigger_effect = concrete.trigger_effect,
+  },
 }
+
+local collision_mask_util = require "__core__.lualib.collision-mask-util"
+
+local platform_mask = collision_mask_util.get_first_unused_layer()
+log("FF platform_mask assigned to " .. platform_mask)
+table.insert(data.raw.tile["ff-dredging-platform"].collision_mask, platform_mask)
+table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_mask)
+table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_mask)

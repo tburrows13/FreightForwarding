@@ -1,6 +1,8 @@
 require "scripts.container-limitations"
 require "scripts.milestones"
 require "scripts.seismic-scanning"
+require "scripts.dredging-platform"
+local CollisionTest = require "scripts.collision-test"
 
 local function lava_pool_created(lava_pool)
   lava_pool.amount = 1
@@ -31,6 +33,9 @@ script.on_event(defines.events.on_script_trigger_effect,
     if event.effect_id == "ff-lava-pool-created" then
       local lava_pool = event.target_entity
       lava_pool_created(lava_pool)
+    elseif event.effect_id == "ff-dredger-created" then
+      local dredger = event.target_entity
+      dredger_created(dredger)
     end
   end
 )
@@ -46,6 +51,7 @@ end
 
 script.on_init(
   function()
+    CollisionTest.run()
     script.on_nth_tick(300, print_warning)  -- Probably desyncs if a player joins within 5 seconds
 
     --global.rng = game.create_random_generator()
@@ -60,6 +66,7 @@ script.on_init(
 
 script.on_configuration_changed(
   function()
+    CollisionTest.run()
     for _, force in pairs(game.forces) do
       force.reset_technology_effects()
     end

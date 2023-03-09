@@ -31,7 +31,8 @@ Vanilla collision masks:
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
-local non_deep_water_mask = collision_mask_util.get_first_unused_layer()
+non_deep_water_mask = collision_mask_util.get_first_unused_layer()
+log("FF non_deep_water_mask assigned to " .. non_deep_water_mask)
 table.insert(data.raw.tile["water-shallow"].collision_mask, non_deep_water_mask)
 table.insert(data.raw.tile["water-mud"].collision_mask, non_deep_water_mask)
 
@@ -40,6 +41,7 @@ table.insert(data.raw.tile["water"].collision_mask, non_deep_water_mask)
 table.insert(data.raw.tile["water-green"].collision_mask, non_deep_water_mask)
 
 deep_water_mask = collision_mask_util.get_first_unused_layer()
+log("FF deep_water_mask assigned to " .. deep_water_mask)
 table.insert(data.raw.tile["deepwater"].collision_mask, deep_water_mask)
 table.insert(data.raw.tile["deepwater-green"].collision_mask, deep_water_mask)
 
