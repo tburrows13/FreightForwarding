@@ -8,7 +8,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
     order = "h[cobalt]-a[cobalt-ore]",
-    stack_size = 5,
+    stack_size = 30,
   },
   {
     type = "item",
@@ -17,7 +17,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
     order = "h[cobalt]-b[cobalt-concentrate]",
-    stack_size = 50,
+    stack_size = 30,
   },
   {
     type = "item",
@@ -35,7 +35,7 @@ data:extend{
     },
     subgroup = "raw-resource",
     order = "h[cobalt]-c[cobalt-blast-blend]",
-    stack_size = 1,
+    stack_size = 5,
   },
   {
     type = "item",

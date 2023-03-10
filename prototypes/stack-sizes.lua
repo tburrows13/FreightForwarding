@@ -19,7 +19,7 @@ local new_material_list = {
   [3] = {
     "flying-robot-frame", "rocket-control-unit", "low-density-structure", "rocket-fuel", "nuclear-fuel",  -- Vanilla
     "production-science-pack", "utility-science-pack", "space-science-pack",  -- Vanilla
-    "ff-battery-pack", "ff-charged-battery-pack", "ff-titansteel-plate",  -- Freight Forwarding
+    "ff-battery-pack", "ff-charged-battery-pack", "ff-cobalt-ore", "ff-cobalt-concentrate", "ff-cobalt-ingot", "ff-titansteel-plate",  -- Freight Forwarding
     "plutonium-238", "plutonium-239", "plutonium-fuel" },  -- Plutonium Energy
 }
 
