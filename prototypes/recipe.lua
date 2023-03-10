@@ -43,5 +43,8 @@ util.add_prerequisite("chcs-concentrated-solar-energy", "ff-cobalt-processing")
 util.add_research_ingredient("chcs-concentrated-solar-energy", "utility-science-pack")
 util.add_research_ingredient("chcs-weaponized-solar-energy", "utility-science-pack")
 
+bzutil.replace_ingredient("satellite", "accumulator", "ff-battery-pack")
+util.add_prerequisite("space-science-pack", "ff-battery-pack")
+
 bzutil.add_ingredient("plutonium-atomic-bomb", "ff-titansteel-plate", 1)
 util.add_prerequisite("plutonium-atomic-bomb", "ff-titansteel-processing")

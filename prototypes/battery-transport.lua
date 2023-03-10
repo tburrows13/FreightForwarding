@@ -388,6 +388,72 @@ data:extend{ -- Battery charging interface
     show_amount_in_title = false,
     always_show_products = true,
   },
+  {
+    type = "technology",
+    name = "ff-battery-charging",
+    icon_size = 128, icon_mipmaps = 1,
+    icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ff-charging-station"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ff-discharging-station"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ff-charge-battery"
+      },
+    },
+    prerequisites = {"electric-energy-accumulators"},
+    unit =
+    {
+      count = 1000,
+
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+      },
+      time = 60
+    },
+    order = "a"
+  },
+  {
+    type = "technology",
+    name = "ff-battery-pack",
+    icon_size = 128, icon_mipmaps = 1,
+    icon = "__FreightForwarding__/graphics/charging-station/battery-pack-tech.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "ff-battery-pack"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "ff-charge-battery-pack"
+      },
+    },
+    prerequisites = {"ff-battery-charging", "utility-science-pack", "ff-cobalt-processing"},
+    unit =
+    {
+      count = 1000,
+
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"utility-science-pack", 1}
+      },
+      time = 60
+    },
+    order = "a"
+  },
 }
 
 data:extend(
@@ -401,10 +467,3 @@ data:extend(
     name = "battery"
   }
 })
-
--- Add to accumulator tech
-table.insert(data.raw.technology["electric-energy-accumulators"].effects, {type = "unlock-recipe", recipe = "ff-charging-station"})
-table.insert(data.raw.technology["electric-energy-accumulators"].effects, {type = "unlock-recipe", recipe = "ff-discharging-station"})
-table.insert(data.raw.technology["electric-energy-accumulators"].effects, {type = "unlock-recipe", recipe = "ff-charge-battery"})
-table.insert(data.raw.technology["effect-transmission"].effects, {type = "unlock-recipe", recipe = "ff-battery-pack"})
-table.insert(data.raw.technology["effect-transmission"].effects, {type = "unlock-recipe", recipe = "ff-charge-battery-pack"})

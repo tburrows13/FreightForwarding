@@ -23,7 +23,7 @@ data:extend{
     icon = "__base__/graphics/technology/oil-gathering.png",
     icon_size = 256, icon_mipmaps = 4,
     order = "a",
-    prerequisites = {"chemical-science-pack"},
+    prerequisites = {"chemical-science-pack", "ff-battery-charging"},
     unit = {
       count = 150,
       ingredients = {
