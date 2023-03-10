@@ -111,7 +111,7 @@ data:extend{
     },
     icon_size = 64, icon_mipmaps = 4,
     ingredients = {
-      {type = "item", name = "ff-slag", amount = 6},
+      {type = "item", name = "ff-slag", amount = 8},
       {type = "fluid", name = "sulfuric-acid", amount = 10},
     },
     results = {
