@@ -29,3 +29,19 @@ bzutil.set_ingredient("substation", "steel-plate", 5)  -- From 10
 bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-heavyship", "steel-plate", "titanium-plate")
+
+bzutil.replace_ingredient("big-mining-drill", "steel-plate", "titanium-plate")
+util.add_prerequisite("big-mining-drill", "titanium-processing")
+
+bzutil.add_ingredient("rocket-control-unit", "ff-cobalt-ingot", 1)
+util.add_prerequisite("rocket-control-unit", "ff-cobalt-processing")
+
+bzutil.add_ingredient("chcs-heliostat-mirror", "ff-cobalt-ingot", 1)
+bzutil.add_ingredient("chcs-solar-power-tower", "ff-cobalt-ingot", 50)
+bzutil.add_ingredient("chcs-solar-laser-tower", "ff-cobalt-ingot", 50)
+util.add_prerequisite("chcs-concentrated-solar-energy", "ff-cobalt-processing")
+util.add_research_ingredient("chcs-concentrated-solar-energy", "utility-science-pack")
+util.add_research_ingredient("chcs-weaponized-solar-energy", "utility-science-pack")
+
+bzutil.add_ingredient("plutonium-atomic-bomb", "ff-titansteel-plate", 1)
+util.add_prerequisite("plutonium-atomic-bomb", "ff-titansteel-processing")

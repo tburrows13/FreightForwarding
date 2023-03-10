@@ -40,7 +40,7 @@ data:extend{
         recipe = "ff-slag-leaching"
       },
     },
-    prerequisites = {"production-science-pack", "utility-science-pack"},
+    prerequisites = {"production-science-pack", "utility-science-pack", "ff-cobalt-processing"},
     unit =
     {
       count = 1000,
@@ -66,6 +66,7 @@ data:extend{
     ingredients = {
       {name = "steel-plate", amount = 1},
       {name = "titanium-plate", amount = 1},
+      {name = "ff-cobalt-ingot", amount = 1},
     },
     results = {
       {name = "ff-hot-titansteel-plate", amount = 1},

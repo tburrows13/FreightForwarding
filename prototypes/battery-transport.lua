@@ -315,14 +315,14 @@ data:extend{ -- Battery charging interface
     type = "recipe",
     name = "ff-battery-pack",
     category = "chemistry",
-    
     energy_required = 10,
     enabled = false,
     ingredients =
     {
       {type="fluid", name="sulfuric-acid", amount=40},
       {"battery", 3},
-      {"advanced-circuit", 1}
+      {"advanced-circuit", 1},
+      {"ff-cobalt-ingot", 1},
     },
     result = "ff-battery-pack",
     crafting_machine_tint =

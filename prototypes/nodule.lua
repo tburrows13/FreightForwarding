@@ -25,6 +25,7 @@ data:extend{
     category = "chemistry",
     enabled = false,
     energy_required = 2,
+    allow_decomposition = false,
     main_product = "iron-ore",
     ingredients = {
       {type = "item", name = "ff-ferrous-nodule", amount = 5},
@@ -63,6 +64,7 @@ data:extend{
     category = "chemistry",
     enabled = false,
     energy_required = 2,
+    allow_decomposition = false,
     main_product = "copper-ore",
     ingredients = {
       {type = "item", name = "ff-cupric-nodule", amount = 5},
@@ -101,6 +103,7 @@ data:extend{
     category = "chemistry",
     enabled = false,
     energy_required = 2,
+    allow_decomposition = false,
     main_product = "ff-cobalt-ore",
     ingredients = {
       {type = "item", name = "ff-cobalt-crust", amount = 5},

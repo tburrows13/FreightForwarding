@@ -120,6 +120,7 @@ data:extend{
     },
     icon_size = 64,
     energy_required = 2,
+    allow_decomposition = false,
     ingredients = {
       {type = "fluid", name = "ff-tailings-water", amount = 10, catalyst_amount = 10},
       {type = "item", name = "coal", amount = 5},
@@ -137,6 +138,7 @@ data:extend{
     subgroup = "fluid-recipes",
     order = "f[tailings]-b[evaporation]",
     enabled = false,
+    allow_decomposition = false,
     icons =
     {
       {
@@ -176,14 +178,14 @@ data:extend{
     icon = "__base__/graphics/technology/oil-gathering.png",
     icon_size = 256, icon_mipmaps = 4,
     order = "a",
-    prerequisites = {"production-science-pack", "ff-dredging", "explosives"},
+    prerequisites = {"utility-science-pack", "ff-dredging", "explosives"},
     unit = {
       count = 150,
       ingredients = {
           {"automation-science-pack", 1},
           {"logistic-science-pack", 1},
           {"chemical-science-pack", 1},
-          {"production-science-pack", 1},
+          {"utility-science-pack", 1},
       },
       time = 30
     },
