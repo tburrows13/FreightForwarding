@@ -172,7 +172,7 @@ data:extend{
   },
   {
     type = "technology",
-    name = "ff-cobalt-crust-dredging",
+    name = "ff-cobalt-processing",
     icon = "__base__/graphics/technology/oil-gathering.png",
     icon_size = 256, icon_mipmaps = 4,
     order = "a",
