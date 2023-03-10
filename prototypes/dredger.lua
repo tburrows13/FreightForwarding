@@ -74,8 +74,8 @@ data:extend{
     type = "item",
     name = "ff-dredger",
     localised_name = {"entity-name.ff-dredger"},
-    icon = "__base__/graphics/icons/pumpjack.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__FreightForwarding__/graphics/dredger.png",
+    icon_size = 64, icon_mipmaps = 1,
     subgroup = "extraction-machine",
     order = "b[fluids]-d[dredger]",
     place_result = "ff-dredger-place-result",
@@ -85,8 +85,8 @@ data:extend{
     type = "mining-drill",
     name = "ff-dredger-place-result",
     localised_name = {"entity-name.ff-dredger"},
-    icon = "__base__/graphics/icons/pumpjack.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__FreightForwarding__/graphics/dredger.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-neutral", "player-creation"},
     resource_categories = {"ff-seamount"},
     max_health = 200,
@@ -130,6 +130,7 @@ data:extend{
           width = 131,
           height = 137,
           shift = util.by_pixel(-2.5, -4.5),
+          scale = 1.3,
           hr_version =
           {
             filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
@@ -147,6 +148,7 @@ data:extend{
           height = 111,
           draw_as_shadow = true,
           shift = util.by_pixel(6, 0.5),
+          scale = 1.3,
           hr_version =
           {
             filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
@@ -174,6 +176,7 @@ data:extend{
             frame_count = 40,
             shift = util.by_pixel(-4, -24),
             animation_speed = 0.5,
+            scale = 1.3,
             hr_version =
             {
               priority = "high",
@@ -197,6 +200,7 @@ data:extend{
             height = 41,
             frame_count = 40,
             shift = util.by_pixel(17.5, 14.5),
+            scale = 1.3,
             hr_version =
             {
               priority = "high",
@@ -251,8 +255,8 @@ data:extend{
   {
     type = "assembling-machine",
     name = "ff-dredger",
-    icon = "__base__/graphics/icons/pumpjack.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon = "__FreightForwarding__/graphics/dredger.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-neutral", "player-creation"},
     crafting_categories = {"ff-dredging"},
     max_health = 200,
@@ -286,6 +290,7 @@ data:extend{
           width = 131,
           height = 137,
           shift = util.by_pixel(-2.5, -4.5),
+          scale = 1.3,
           hr_version =
           {
             filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
@@ -303,6 +308,7 @@ data:extend{
           height = 111,
           draw_as_shadow = true,
           shift = util.by_pixel(6, 0.5),
+          scale = 1.3,
           hr_version =
           {
             filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
@@ -330,6 +336,7 @@ data:extend{
             frame_count = 40,
             shift = util.by_pixel(-4, -24),
             animation_speed = 0.5,
+            scale = 1.3,
             hr_version =
             {
               priority = "high",
@@ -353,6 +360,7 @@ data:extend{
             height = 41,
             frame_count = 40,
             shift = util.by_pixel(17.5, 14.5),
+            scale = 1.3,
             hr_version =
             {
               priority = "high",
@@ -620,7 +628,7 @@ data:extend{
 
 local radar = table.deepcopy(data.raw["radar"]["radar"])
 radar.name = "ff-dredger-radar"
-radar.flags = {"not-blueprintable", "not-deconstructable"}
+radar.flags = {"hidden", "not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"}
 radar.selectable_in_game = false
 radar.allow_copy_paste = false
 radar.collision_mask = {}
