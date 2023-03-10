@@ -2,8 +2,24 @@ require "__FreightForwarding__/prototypes/stack-sizes"
 require "__FreightForwarding__/prototypes/transport-drones"
 require "__FreightForwarding__/prototypes/crating-items"
 require "__FreightForwarding__/prototypes/item-subgroups"
+local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 data.raw["resource"]["ff-seamount"].collision_mask = {"resource-layer", non_deep_water_mask, "ground-tile"}
+
+local platform_layer = collision_mask_util.get_first_unused_layer()
+log("FF platform_layer assigned to " .. platform_layer)
+table.insert(data.raw.tile["ff-dredging-platform"].collision_mask, platform_layer)
+local banned_types = {"electric-pole", "underground-belt"}
+for _, type in pairs(banned_types) do
+  for _, prototype in pairs(data.raw[type]) do
+    local mask = collision_mask_util.get_mask(prototype)
+    collision_mask_util.add_layer(mask, platform_layer)
+    prototype.collision_mask = mask
+  end
+end
+table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_layer)
+table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_layer)
+
 
 -- Science
 local util = require "__FreightForwarding__/prototypes/data-util"

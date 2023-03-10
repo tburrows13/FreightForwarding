@@ -449,7 +449,7 @@ data:extend{
     name = "ff-dredging-platform",
     order = "a[artificial]-b[tier-2]-a[concrete]",
     needs_correction = false,
-    collision_mask = {"ground-tile"},
+    collision_mask = {"ground-tile"},  -- Gets added to later
     walking_speed_modifier = 1.4,
     layer = 61,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
@@ -637,11 +637,3 @@ radar.energy_usage = "50kW"
 radar.water_reflection = nil
 radar.working_sound = nil
 data:extend{radar}
-
-local collision_mask_util = require "__core__.lualib.collision-mask-util"
-
-local platform_mask = collision_mask_util.get_first_unused_layer()
-log("FF platform_mask assigned to " .. platform_mask)
-table.insert(data.raw.tile["ff-dredging-platform"].collision_mask, platform_mask)
-table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_mask)
-table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_mask)
