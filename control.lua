@@ -27,6 +27,22 @@ local function lava_pool_created(lava_pool)
   end
 end
 
+local function seamount_created(seamount)
+  seamount.amount = 1
+
+  -- Resources are created centered on a tile, we need to change that, and teleport it to a 2x2-tile position
+  local position = seamount.position
+  local x = math.floor(position.x)
+  local y = math.floor(position.y)
+  if x % 2 == 1 then
+    x = x + 1
+  end
+  if y % 2 == 1 then
+    y = y + 1
+  end
+  seamount.teleport{x = x, y = y}
+end
+
 script.on_event(defines.events.on_script_trigger_effect,
   function(event)
     --game.print("Lava pool created!")
@@ -37,7 +53,8 @@ script.on_event(defines.events.on_script_trigger_effect,
       local dredger = event.target_entity
       dredger_created(dredger)
     elseif event.effect_id == "ff-seamount-created" then
-      event.target_entity.amount = 1
+      local seamount = event.target_entity
+      seamount_created(seamount)
     end
   end
 )

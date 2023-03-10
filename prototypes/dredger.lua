@@ -92,11 +92,11 @@ data:extend{
     max_health = 200,
     corpse = "pumpjack-remnants",
     dying_explosion = "pumpjack-explosion",
-    collision_box = {{ -1.2, -1.2}, {1.2, 1.2}},
-    selection_box = {{ -1.5, -1.5}, {1.5, 1.5}},
+    collision_box = {{ -1.7, -1.7}, {1.7, 1.7}},
+    selection_box = {{ -2, -2}, {2, 2}},
     collision_mask = {"object-layer", "train-layer"},
     damaged_trigger_effect = hit_effects.entity(),
-    drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},
+    drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},  -- TODO update
     energy_source =
     {
       type = "electric",
@@ -105,7 +105,7 @@ data:extend{
     },
     energy_usage = "800kW",
     mining_speed = 1,
-    resource_searching_radius = 4,
+    resource_searching_radius = 0.5,
     vector_to_place_result = {0, 0},
     module_specification =
     {
@@ -137,7 +137,7 @@ data:extend{
             width = 261,
             height = 273,
             shift = util.by_pixel(-2.25, -4.75),
-            scale = 0.5
+            scale = 0.5 * 1.3
           }
         },
         {
@@ -152,7 +152,7 @@ data:extend{
             filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
             width = 220,
             height = 220,
-            scale = 0.5,
+            scale = 0.5 * 1.3,
             draw_as_shadow = true,
             shift = util.by_pixel(6, 0.5)
           }
@@ -179,7 +179,7 @@ data:extend{
               priority = "high",
               filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead.png",
               animation_speed = 0.5,
-              scale = 0.5,
+              scale = 0.5 * 1.3,
               line_length = 8,
               width = 206,
               height = 202,
@@ -207,7 +207,7 @@ data:extend{
               width = 309,
               height = 82,
               frame_count = 40,
-              scale = 0.5,
+              scale = 0.5 * 1.3,
               shift = util.by_pixel(17.75, 14.5)
             }
           }
@@ -258,10 +258,10 @@ data:extend{
     max_health = 200,
     corpse = "pumpjack-remnants",
     dying_explosion = "pumpjack-explosion",
-    collision_box = {{ -1.5, -1.5}, {1.5, 1.5}},
-    selection_box = {{ -1.5, -1.5}, {1.5, 1.5}},
+    collision_box = {{ -1.7, -1.7}, {1.7, 1.7}},
+    selection_box = {{ -2, -2}, {2, 2}},
     damaged_trigger_effect = hit_effects.entity(),
-    drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},
+    drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},  -- TODO update
     energy_source =
     {
       type = "electric",
@@ -293,7 +293,7 @@ data:extend{
             width = 261,
             height = 273,
             shift = util.by_pixel(-2.25, -4.75),
-            scale = 0.5
+            scale = 0.5 * 1.3
           }
         },
         {
@@ -308,7 +308,7 @@ data:extend{
             filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
             width = 220,
             height = 220,
-            scale = 0.5,
+            scale = 0.5 * 1.3,
             draw_as_shadow = true,
             shift = util.by_pixel(6, 0.5)
           }
@@ -335,7 +335,7 @@ data:extend{
               priority = "high",
               filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead.png",
               animation_speed = 0.5,
-              scale = 0.5,
+              scale = 0.5 * 1.3,
               line_length = 8,
               width = 206,
               height = 202,
@@ -363,7 +363,7 @@ data:extend{
               width = 309,
               height = 82,
               frame_count = 40,
-              scale = 0.5,
+              scale = 0.5 * 1.3,
               shift = util.by_pixel(17.75, 14.5)
             }
           }
@@ -401,7 +401,7 @@ data:extend{
     --collision_box = {{-0.7, -0.7}, {0.7, 0.7}},
     --selection_box = {{-1, -1}, {1, 1}},
     maximum_wire_distance = 0,
-    supply_area_distance = 7.5,
+    supply_area_distance = 14,
     pictures = util.empty_sprite(),
     --vehicle_impact_sound = sounds.generic_impact,
     --open_sound = sounds.electric_network_open,
@@ -617,6 +617,26 @@ data:extend{
     trigger_effect = concrete.trigger_effect,
   },
 }
+
+local radar = table.deepcopy(data.raw["radar"]["radar"])
+radar.name = "ff-dredger-radar"
+radar.flags = {"not-blueprintable", "not-deconstructable"}
+radar.selectable_in_game = false
+radar.allow_copy_paste = false
+radar.collision_mask = {}
+radar.collision_box = nil
+radar.selection_box = nil
+radar.fast_replaceable_group = nil
+radar.next_upgrade = nil
+radar.pictures = emptypic
+radar.max_distance_of_sector_revealed = 0
+radar.energy_source = {
+  type = "void"
+}
+radar.energy_usage = "50kW"
+radar.water_reflection = nil
+radar.working_sound = nil
+data:extend{radar}
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 

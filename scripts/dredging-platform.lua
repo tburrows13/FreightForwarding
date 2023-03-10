@@ -20,11 +20,19 @@ function dredger_created(dredger)
   }
   pole.destructible = false
 
+  local radar = surface.create_entity{
+    name = "ff-dredger-radar",
+    position = position,
+    force = "player",
+    create_build_effect_smoke = false,
+  }
+  radar.destructible = false
+
   local x = position.x
   local y = position.y
   local tiles = {}
-  for i = -5, 5 do
-    for j = -5, 5 do
+  for i = -9, 8 do
+    for j = -9, 8 do
       table.insert(tiles, {name = "ff-dredging-platform", position = {x + i, y + j}})
     end
   end

@@ -23,7 +23,7 @@ data:extend{
     name = "ff-seamount",
     icon = "__base__/graphics/icons/crude-oil-resource.png",
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"placeable-neutral"},
+    flags = {"placeable-neutral", "placeable-off-grid"},
     category = "ff-seamount",
     subgroup = "raw-resource",
     order="a-b-a",
@@ -48,8 +48,10 @@ data:extend{
       }
     },
     walking_sound = sounds.oil,
-    collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
-    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    --build_grid_size = 2,
+    tile_height = 4, tile_width = 4,
+    collision_box = {{-1.8, -1.8}, {1.8, 1.8}},
+    selection_box = {{-2, -2}, {2, 2}},
     collision_mask = {"ground-tile", "resource-layer"},  -- Gets overwritten in data-final-fixes
     stage_counts = {0},
     stages =
@@ -63,6 +65,7 @@ data:extend{
         frame_count = 4,
         variation_count = 1,
         shift = util.by_pixel(0, -2),
+        scale = 1.3,
         hr_version =
         {
           filename = "__base__/graphics/entity/crude-oil/hr-crude-oil.png",
@@ -72,7 +75,7 @@ data:extend{
           frame_count = 4,
           variation_count = 1,
           shift = util.by_pixel(0, -2),
-          scale = 0.5
+          scale = 0.5 * 1.3
         }
       }
     },
