@@ -9,7 +9,6 @@ data:extend{
     icons = {
       {
         icon = "__base__/graphics/icons/crude-oil-resource.png",
-        tint = {b = 0, g = 0, r = 0.7},
       },
     },
     icon_size = 64, icon_mipmaps = 4,
@@ -23,7 +22,7 @@ data:extend{
     name = "ff-seamount",
     icon = "__base__/graphics/icons/crude-oil-resource.png",
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"placeable-neutral", "placeable-off-grid"},
+    flags = {"placeable-neutral"},
     category = "ff-seamount",
     subgroup = "raw-resource",
     order="a-b-a",
@@ -58,24 +57,24 @@ data:extend{
     {
       sheet =
       {
-        filename = "__base__/graphics/entity/crude-oil/crude-oil.png",
+        filename = "__FreightForwarding__/graphics/seamount.png",
         priority = "extra-high",
-        width = 74,
-        height = 60,
-        frame_count = 4,
+        width = 200,
+        height = 200,
+        frame_count = 1,
         variation_count = 1,
-        shift = util.by_pixel(0, -2),
-        scale = 1.3,
+        scale = 0.6,
+        tint = {a=0.3, r=0.2,g=0.2,b=0.2},
         hr_version =
         {
-          filename = "__base__/graphics/entity/crude-oil/hr-crude-oil.png",
+          filename = "__FreightForwarding__/graphics/seamount.png",
           priority = "extra-high",
-          width = 148,
-          height = 120,
-          frame_count = 4,
+          width = 200,
+          height = 200,
+          frame_count = 1,
           variation_count = 1,
-          shift = util.by_pixel(0, -2),
-          scale = 0.5 * 1.3
+          tint = {a=0.3, r=0.2,g=0.2,b=0.2},
+          scale = 0.6
         }
       }
     },
