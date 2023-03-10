@@ -20,6 +20,9 @@ if data.raw.recipe["ironclad"] then
   bzutil.add_ingredient("ironclad", "lead-plate", 30)
 end
 
+util.add_prerequisite("oil-processing", "tank_ship")
+util.add_prerequisite("ff-dredging", "cargo_ships")
+
 bzutil.set_ingredient("big-electric-pole", "lead-plate", 10)  -- From 2
 bzutil.set_ingredient("big-electric-pole", "steel-plate", 2)  -- From 5
 bzutil.set_ingredient("substation", "lead-plate", 10)  -- From 2
