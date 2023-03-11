@@ -1,3 +1,11 @@
+local function add_square(x, y, tiles)
+  for i = 0, 1 do
+    for j = 0, 1 do
+      table.insert(tiles, {name = "ff-dredging-platform", position = {x + i, y + j}})
+    end
+  end
+end
+
 function dredger_created(dredger)
   local surface = dredger.surface
   local position = dredger.position
@@ -36,5 +44,13 @@ function dredger_created(dredger)
       table.insert(tiles, {name = "ff-dredging-platform", position = {x + i, y + j}})
     end
   end
+  -- Add 'piers'
+  for _, i in pairs({-9, -1, 7}) do
+    for _, j in pairs({-11, 9}) do
+      add_square(x + i, y + j, tiles)
+      add_square(x + j, y + i, tiles)
+    end
+  end
+
   surface.set_tiles(tiles, true, false)
 end
