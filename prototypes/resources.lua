@@ -144,7 +144,8 @@ data:extend{
   {
     type = "autoplace-control",
     name = "ff-seamount",
-    localised_name = {"", "[entity=ff-seamount] ", {"entity-name.ff-seamount"}},
+    --localised_name = {"", "[entity=ff-seamount] ", {"entity-name.ff-seamount"}},
+    localised_name = {"entity-name.ff-seamount"},
     richness = false,
     order = "z-a",
     category = "resource"
@@ -157,11 +158,11 @@ data.raw.resource["ff-seamount"].autoplace = {
   probability_expression = noise.define_noise_function( function(x, y, tile, map)
       -- Frequency value from map gen settings
       local frequency_multiplier = noise.var("control-setting:ff-seamount:frequency:multiplier")
-      local desired_frequency = 400 / (64 * 64^2)
+      local desired_frequency = 0.8 / (64 * 64^2)
 
       local elevation = noise.var("elevation")
       local elevation_multiplier = noise.if_else_chain(
-        noise.less_than(elevation, -3), 1,  -- only spawn at elevation -20 or lower
+        noise.less_than(elevation, -20), 1,  -- only spawn at elevation -20 or lower
         0
       )
       return desired_frequency * frequency_multiplier * elevation_multiplier

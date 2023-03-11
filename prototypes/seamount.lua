@@ -78,7 +78,7 @@ data:extend{
         }
       }
     },
-    map_color = {0.78, 0.2, 0.77},
+    map_color = {0, 0, 0.1},
     map_grid = false,
     created_effect = {
       type = "direct",
