@@ -113,7 +113,7 @@ data:extend{ -- Battery charging interface
         usage_priority = "primary-input",
         input_flow_limit = "10MW",
         output_flow_limit = "0kW",
-        drain = "200W"
+        drain = "0W"
     },
     fast_replaceable_group = "assembling-machine",
     always_draw_idle_animation = true,
@@ -286,20 +286,20 @@ data:extend{ -- Battery charging interface
     fuel_category = "battery",
     fuel_value = "4MJ",
     burnt_result = "battery",
-    subgroup = "intermediate-product",
-    order = "s-a[battery]",
+    subgroup = "raw-material",
+    order = "h[battery]-c",
     stack_size = 200  -- Will be halved in stack-sizes.lua
   },
   {
     type = "recipe",
     name = "ff-charge-battery",
     category = "battery",
-    hide_from_player_crafting = true,
+    --hide_from_player_crafting = true,
     energy_required = 5,
     enabled = false,
     --icon = "__se-space-trains__/graphics/icons/battery.png",
     --icon_size = 128,
-    subgroup = "intermediate-product",
+    subgroup = "raw-material",
     allow_as_intermediate = false,
     ingredients = {{"battery", 1}},
     results = {{
@@ -319,7 +319,6 @@ data:extend{ -- Battery charging interface
     enabled = false,
     ingredients =
     {
-      {type="fluid", name="sulfuric-acid", amount=40},
       {"battery", 3},
       {"advanced-circuit", 1},
       {"ff-cobalt-ingot", 1},
@@ -361,27 +360,27 @@ data:extend{ -- Battery charging interface
         }}
     },]]
     fuel_category = "battery",
-    fuel_value = "20MJ",
+    fuel_value = "10MJ",
     burnt_result = "ff-battery-pack",
-    subgroup = "intermediate-product",
-    order = "s-a[battery]-b",
-    stack_size = 200  -- Will be halved in stack-sizes.lua
+    subgroup = "raw-material",
+    order = "h[battery]-d",
+    stack_size = 400  -- Will be halved in stack-sizes.lua
   },
   {
     type = "recipe",
     name = "ff-charge-battery-pack",
     category = "battery",
-    hide_from_player_crafting = true,
-    energy_required = 25,
+    --hide_from_player_crafting = true,
+    energy_required = 12.5,
     enabled = false,
     --icon = "__se-space-trains__/graphics/icons/battery.png",
     --icon_size = 128,
-    subgroup = "intermediate-product",
+    subgroup = "raw-material",
     allow_as_intermediate = false,
     ingredients = {{"ff-battery-pack", 1}},
     results = {{
       name = "ff-charged-battery-pack",
-      probability = 0.99,
+      probability = 0.995,
       amount = 1
     }},
     always_show_made_in = true,

@@ -2,7 +2,13 @@
 Version: 1.4.1
 Date: 11 March 2023
   Changes:
+    - Changed battery pack capacity from 20MJ to 10MJ
+    - Changed battery pack stack size from 100 to 200
+    - Removed sulfuric acid from battery pack recipe
+    - Increased battery pack charging success rate from 99% to 99.5%
     - Battery pack recipe now allows productivity
+    - Rocket control unit recipe now requires a charged battery pack instead of cobalt ingot
+    - Satellite recipe now requires charged battery packs instead of uncharged battery packs
 ---------------------------------------------------------------------------------------------------
 Version: 1.4.0
 Date: 11 March 2023
