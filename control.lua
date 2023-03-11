@@ -59,6 +59,26 @@ script.on_event(defines.events.on_script_trigger_effect,
   end
 )
 
+-- Recover empty batteries when mining discharging station
+local function recover_burnt_result(event)
+  local entity = event.entity
+  local buffer = event.buffer
+  if entity and buffer then
+    local burner = entity.burner
+    if burner then
+      local burning = burner.currently_burning
+      if burning then
+        local burnt_result = burning.burnt_result
+        if burnt_result then
+          event.buffer.insert{name=burnt_result.name,count=1}
+        end
+      end
+    end
+  end
+end
+script.on_event(defines.events.on_player_mined_entity, recover_burnt_result)
+script.on_event(defines.events.on_robot_mined_entity, recover_burnt_result)
+
 local function print_warning()
   if game.tick > 0 then
     if game.default_map_gen_settings.property_expression_names.elevation ~= "x-continents" then

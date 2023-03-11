@@ -2,6 +2,7 @@
 Version: 1.4.1
 Date: 11 March 2023
   Changes:
+    - Discharging stations now return the being-used battery when mined
     - Changed battery pack capacity from 20MJ to 10MJ
     - Changed battery pack stack size from 100 to 200
     - Removed sulfuric acid from battery pack recipe
