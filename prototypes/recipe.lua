@@ -38,8 +38,8 @@ if mods["big-mining-drill"] then
   util.add_prerequisite("big-mining-drill", "titanium-processing")
 end
 
-bzutil.add_ingredient("rocket-control-unit", "ff-cobalt-ingot", 1)
-util.add_prerequisite("rocket-control-unit", "ff-cobalt-processing")
+bzutil.add_ingredient("rocket-control-unit", "ff-charged-battery-pack", 1)
+util.add_prerequisite("rocket-control-unit", "ff-battery-pack")
 
 if mods["ch-concentrated-solar"] then
   bzutil.add_ingredient("chcs-heliostat-mirror", "ff-cobalt-ingot", 1)
@@ -50,7 +50,7 @@ if mods["ch-concentrated-solar"] then
   util.add_research_ingredient("chcs-weaponized-solar-energy", "utility-science-pack")
 end
 
-bzutil.replace_ingredient("satellite", "accumulator", "ff-battery-pack")
+bzutil.replace_ingredient("satellite", "accumulator", "ff-charged-battery-pack")
 util.add_prerequisite("space-science-pack", "ff-battery-pack")
 
 if mods["PlutoniumEnergy"] then
