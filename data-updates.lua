@@ -12,7 +12,6 @@ local landfill_collision_mask = collision_mask_util.get_first_unused_layer()
 log("FF landfill_collision_mask assigned to " .. landfill_collision_mask)
 
 collision_mask_util.add_layer(data.raw.tile.landfill.collision_mask, landfill_collision_mask)  -- (tiles much have `collision_mask`)
-collision_mask_util.add_layer(data.raw.tile["ff-dredging-platform"].collision_mask, landfill_collision_mask)  -- (tiles much have `collision_mask`)
 
 for name, item in pairs(data.raw.item) do
   if item.place_as_tile and name ~= "landfill" then

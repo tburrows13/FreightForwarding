@@ -6,8 +6,6 @@
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 
-local concrete = table.deepcopy(data.raw["tile"]["concrete"])
-
 data:extend{
   {
     type = "recipe-category",
@@ -452,6 +450,28 @@ data:extend{
       priority = "extra-high-no-scale"
     },
   },
+}
+
+local concrete = table.deepcopy(data.raw["tile"]["concrete"])
+local tile_variants = {
+  main = concrete.variants.main,
+  inner_corner_mask = concrete.variants.inner_corner_mask,
+  outer_corner_mask = concrete.variants.outer_corner_mask,
+  side_mask = concrete.variants.side_mask,
+  u_transition_mask = concrete.variants.u_transition_mask,
+  o_transition_mask = concrete.variants.o_transition_mask,
+  material_background = {
+    picture = "__FreightForwarding__/graphics/dredging-platform/concrete.png",
+    count = 8,
+    hr_version = {
+      picture = "__FreightForwarding__/graphics/dredging-platform/hr-concrete.png",
+      count = 8,
+      scale = 0.5
+    }
+  }
+}
+
+data:extend{
   {
     type = "tile",
     name = "ff-dredging-platform",
@@ -462,156 +482,7 @@ data:extend{
     layer = 61,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
     decorative_removal_probability = 0.25,
-    variants =
-    {
-      main =
-      {
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-dummy.png",
-          count = 1,
-          size = 1
-        },
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-dummy.png",
-          count = 1,
-          size = 2,
-          probability = 0.39
-        },
-        {
-          picture = "__base__/graphics/terrain/concrete/concrete-dummy.png",
-          count = 1,
-          size = 4,
-          probability = 1
-        }
-      },
-      inner_corner =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-inner-corner.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-inner-corner.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-      inner_corner_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-inner-corner-mask.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-inner-corner-mask.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-
-      outer_corner =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-outer-corner.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-outer-corner.png",
-          count = 8,
-          scale = 0.5
-        }
-      },
-      outer_corner_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-outer-corner-mask.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-outer-corner-mask.png",
-          count = 8,
-          scale = 0.5
-        }
-      },
-
-      side =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-side.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-side.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-      side_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-side-mask.png",
-        count = 16,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-side-mask.png",
-          count = 16,
-          scale = 0.5
-        }
-      },
-
-      u_transition =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-u.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-u.png",
-          count = 8,
-          scale = 0.5
-        }
-      },
-      u_transition_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-u-mask.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-u-mask.png",
-          count = 8,
-          scale = 0.5
-        }
-      },
-
-      o_transition =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-o.png",
-        count = 4,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-o.png",
-          count = 4,
-          scale = 0.5
-        }
-      },
-      o_transition_mask =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete-o-mask.png",
-        count = 4,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete-o-mask.png",
-          count = 4,
-          scale = 0.5
-        }
-      },
-
-      material_background =
-      {
-        picture = "__base__/graphics/terrain/concrete/concrete.png",
-        count = 8,
-        hr_version =
-        {
-          picture = "__base__/graphics/terrain/concrete/hr-concrete.png",
-          count = 8,
-          scale = 0.5
-        }
-      }
-    },
-
+    variants = tile_variants,
     transitions = concrete.transitions,
     transitions_between_transitions = concrete.transitions_between_transitions,
 
