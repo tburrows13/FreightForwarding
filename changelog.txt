@@ -1,4 +1,28 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 11 March 2023
+  Features:
+    - Added seamounts (underwater mountains) which spawn sparsely in deep oceans
+    - Added dredging platforms, which can be placed on seamounts to dredge for polymetallic nodules
+      - Dredging platforms have a fixed size
+      - Underground belts and electric poles cannot be placed on dredging platforms so they should be powered by charged batteries
+      - Polymetallic nodules can be processed on-platform into small, but infinite, sources of iron, copper, and stone
+      - The player can choose which type of nodule to dredge for
+    - Added cobalt ingots, produced from cobalt crust, which can only be obtained by dredging
+      - Cobalt processing produces tailings water as a byproduct, from which lead and titanium ore can be obtained
+    - Added technologies for battery charging and battery pack
+  Changes:
+    - Recipe changes:
+      - Replaced steel with titanium in big mining drill recipe
+      - Added cobalt ingot to battery pack recipe
+      - Added cobalt ingot to rocket control unit recipe
+      - Added cobalt ingot to titansteel recipe
+      - Added titansteel to plutonium atomic bomb recipe
+    - Licence changed from MIT to GPLv3
+  Bugfixes:
+    - Fixed seismic scanner recipe being available from the start of the game
+    - Fixed transport science recipe not allowing productivity
+---------------------------------------------------------------------------------------------------
 Version: 1.3.2
 Date: 3 March 2023
   Changes:

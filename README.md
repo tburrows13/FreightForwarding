@@ -23,6 +23,7 @@ Lead ore is required for Transport science and always spawns at the edge of your
 
 Oil only spawns in large offshore patches at sea, so you'll need to use oil rigs and tanker ships to retrieve it.
 **Unlocks**:
+- Deep sea dredging
 - Titanium processing
 - Uranium processing
 
@@ -38,6 +39,7 @@ Titanium and Uranium only spawn on other continents, so you will load them into 
 Expansion onto other continents for larger patches of basic resources will be required.
 **Unlocks**:
 - Aircraft
+- Cobalt processing
 - Titansteel processing
 
 ### Rocket launch
@@ -71,6 +73,12 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 - Seismic scanner scans a bigger range than radar, but only through connected landmasses
 - Ideal for scanning the entirety of a newly discovered island
 - Cannot be placed within 16 tiles of water
+
+### Deep sea dredging and cobalt
+- Seamounts (underwater mountains) spawn in deep water
+- Place dredging platforms on them, which are limited in size
+- Dredge up ferrous and cupric nodules which can provide infinite supplies of iron, copper, and stone, supplementing your regular resource mines
+- Later, unlock cobalt crust, which can be processed into cobalt ingots on land
 
 ### Titansteel and Lava pools
 - Lava pools occur naturally in far-away islands
@@ -122,8 +130,10 @@ Other small-to-medium mods will probably work, although may break the intended b
 
 ### Attributions
 Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, brevven, and lexsus.
-Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the seismic scanner graphics (from [Biter Power](https://mods.factorio.com/mod/biter-power).
+Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the seismic scanner graphics (from [Biter Power](https://mods.factorio.com/mod/biter-power)).
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the battery charging/discharging station graphics (from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains)).
 Thank you to [Yehn](https://mods.factorio.com/user/Yehn) for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
+Thank you to [PantherX](https://mods.factorio.com/user/PantherX) and [Kirazy](https://mods.factorio.com/user/Kirazy) for the dredging platform tile graphics (from [Dectorio](https://mods.factorio.com/mod/Dectorio)).
+Thank you to [Subnautica](https://unknownworlds.com/subnautica/) for the ferrous nodule, cupric nodule, and cobalt ingot icons.
 Thank you to RedRafe, Ray1claw, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for feedback and suggestions.
-If anyone would like to contribute better lava pool graphics, please get in touch!
+If anyone would like to contribute better graphics, please get in touch!
