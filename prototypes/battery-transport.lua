@@ -467,3 +467,6 @@ data:extend(
     name = "battery"
   }
 })
+
+local util = require "__FreightForwarding__/prototypes/data-util"
+util.allow_productivity("ff-battery-pack")
