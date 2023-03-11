@@ -1,6 +1,6 @@
 Freight Forwarding is a small overhaul with a focus on long-distance logistics variety.
 
-Technology progression is carefully balanced around the custom island map generation and resource placement. For effective transport, items must now be loaded into containers before travel, but since items are being transported so compactly, transfer from trains to ships is much more straightforward.
+Technology progression is carefully balanced around the customised procedural island map generation and resource placement. For effective transport, items must now be loaded into containers before travel, but since items are being transported so compactly, transfer from trains to ships is much more straightforward.
 
 # Progression
 
@@ -64,7 +64,7 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 - Stone bricks and concrete cannot be placed on landfill
 
 ### Map generation
-- Custom map generation originally based on [Island Start](https://mods.factorio.com/mod/IslandStart) featuring a completely isolated starting island surrounded by larger islands and continents
+- Custom procedural map generation originally based on [Island Start](https://mods.factorio.com/mod/IslandStart) featuring a completely isolated starting island surrounded by larger islands and continents
 - Resource patches are larger but further apart
 - Resource spawning is based on invisible 'regions' so certain resources will often spawn near each other and even larger continents won't feature too many different resource types
 - Oil only spawns in water
