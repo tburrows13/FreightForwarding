@@ -21,7 +21,7 @@ data:extend{
     icon = "__base__/graphics/technology/oil-gathering.png",
     icon_size = 256, icon_mipmaps = 4,
     order = "a",
-    prerequisites = {"chemical-science-pack", "ff-battery-charging"},
+    prerequisites = {"chemical-science-pack", "ff-battery-charging", "concrete"},
     unit = {
       count = 150,
       ingredients = {
@@ -34,7 +34,7 @@ data:extend{
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "ff-dredger"
+        recipe = "ff-dredging-platform"
       },
       {
         type = "unlock-recipe",
@@ -56,33 +56,31 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ff-dredger",
+    name = "ff-dredging-platform",
     energy_required = 5,
     ingredients =
     {
       {"pumpjack", 1},
-      {"landfill", 50},
-      {"concrete", 50},
-      {"lead-plate", 10},
+      {"landfill", 100},
+      {"refined-concrete", 200},
+      {"lead-plate", 100},
     },
-    result = "ff-dredger",
+    result = "ff-dredging-platform",
     enabled = false
   },
   {
     type = "item",
-    name = "ff-dredger",
-    localised_name = {"entity-name.ff-dredger"},
+    name = "ff-dredging-platform",
     icon = "__FreightForwarding__/graphics/dredger.png",
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "extraction-machine",
     order = "b[fluids]-d[dredger]",
-    place_result = "ff-dredger-place-result",
+    place_result = "ff-dredging-platform",
     stack_size = 5
   },
   {
     type = "mining-drill",
-    name = "ff-dredger-place-result",
-    localised_name = {"entity-name.ff-dredger"},
+    name = "ff-dredging-platform",
     icon = "__FreightForwarding__/graphics/dredger.png",
     icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-neutral", "player-creation"},
