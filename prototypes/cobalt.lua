@@ -17,7 +17,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
     order = "h[cobalt]-b[cobalt-concentrate]",
-    stack_size = 30,
+    stack_size = 50,
   },
   {
     type = "item",
@@ -44,7 +44,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-material",
     order = "e[cobalt-ingot]",
-    stack_size = 200,
+    stack_size = 100,
   },
   {
     type = "fluid",
