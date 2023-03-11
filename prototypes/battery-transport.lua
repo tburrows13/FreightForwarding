@@ -315,7 +315,7 @@ data:extend{ -- Battery charging interface
     type = "recipe",
     name = "ff-battery-pack",
     category = "chemistry",
-    energy_required = 10,
+    energy_required = 5,
     enabled = false,
     ingredients =
     {
