@@ -115,7 +115,7 @@ data:extend{
       {type = "fluid", name = "sulfuric-acid", amount = 10},
     },
     results = {
-      {type = "item", name = "ff-slag", amount = 2},
+      {type = "item", name = "ff-slag", amount_min = 0, amount_max = 4},
       {type = "item", name = "stone", amount = 1, probability = 0.25},
       {type = "item", name = "iron-ore", amount = 1, probability = 0.25},
     },

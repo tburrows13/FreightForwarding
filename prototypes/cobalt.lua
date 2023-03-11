@@ -62,15 +62,15 @@ data:extend{
     name = "ff-cobalt-concentrate",
     category = "oil-processing",
     enabled = false,
-    energy_required = 2,
+    energy_required = 12,
     main_product = "ff-cobalt-concentrate",
     ingredients = {
-      {type = "item", name = "ff-cobalt-ore", amount = 5},
-      {type = "fluid", name = "water", amount = 10, catalyst_amount = 10},
+      {type = "item", name = "ff-cobalt-ore", amount = 10},
+      {type = "fluid", name = "water", amount = 100, catalyst_amount = 100},
     },
     results = {
       {name = "ff-cobalt-concentrate", amount = 5},
-      {type = "fluid", name = "ff-tailings-water", amount = 10, catalyst_amount = 10},
+      {type = "fluid", name = "ff-tailings-water", amount = 100, catalyst_amount = 100},
     },
   },
   {
@@ -78,14 +78,14 @@ data:extend{
     name = "ff-cobalt-blast-blend",
     category = "crafting",
     enabled = false,
-    energy_required = 2,
+    energy_required = 0.5,
     main_product = "ff-cobalt-blast-blend",
     ingredients = {
-      {type = "item", name = "ff-cobalt-concentrate", amount = 5},
-      {type = "item", name = "explosives", amount = 1},
+      {type = "item", name = "ff-cobalt-concentrate", amount = 4},
+      {type = "item", name = "explosives", amount = 4},
     },
     results = {
-      {name = "ff-cobalt-blast-blend", amount = 5},
+      {name = "ff-cobalt-blast-blend", amount = 4},
     },
   },
   {
@@ -93,8 +93,8 @@ data:extend{
     name = "ff-cobalt-ingot",
     category = "smelting",
     enabled = false,
-    energy_required = 3.2,
-    ingredients = {{"ff-cobalt-blast-blend", 1}},
+    energy_required = 16,
+    ingredients = {{"ff-cobalt-blast-blend", 5}},
     result = "ff-cobalt-ingot"
   },
   {
@@ -119,14 +119,14 @@ data:extend{
       },
     },
     icon_size = 64,
-    energy_required = 2,
+    energy_required = 8,
     allow_decomposition = false,
     ingredients = {
-      {type = "fluid", name = "ff-tailings-water", amount = 10, catalyst_amount = 10},
-      {type = "item", name = "coal", amount = 5},
+      {type = "fluid", name = "ff-tailings-water", amount = 100, catalyst_amount = 100},
+      {type = "item", name = "coal", amount = 2},
     },
     results = {
-      {type = "fluid", name = "water", amount = 10, catalyst_amount = 10},
+      {type = "fluid", name = "water", amount = 100, catalyst_amount = 100},
     },
     show_amount_in_title = false,
     always_show_products = true,
@@ -162,14 +162,14 @@ data:extend{
       },
     },
     icon_size = 64, icon_mipmaps = 4,
-    energy_required = 2,
+    energy_required = 36,
     ingredients = {
-      {type = "fluid", name = "ff-tailings-water", amount = 10, catalyst_amount = 10},
+      {type = "fluid", name = "ff-tailings-water", amount = 100, catalyst_amount = 100},
     },
     results = {
-      {type = "fluid", name = "water", amount = 2, catalyst_amount = 2},
-      {type = "item", name = "lead-ore", amount = 5},
-      {type = "item", name = "titanium-ore", amount = 5},
+      {type = "fluid", name = "water", amount = 20, catalyst_amount = 20},
+      {type = "item", name = "lead-ore", amount_min = 10, amount_max = 20},
+      {type = "item", name = "titanium-ore", amount_min = 10, amount_max = 20},
     },
   },
   {
