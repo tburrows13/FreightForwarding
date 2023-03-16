@@ -69,8 +69,31 @@ sims.oil_rigs =
     game.camera_zoom = 1
     game.tick_paused = false
     game.surfaces.nauvis.daytime = 0
+
+    local function powerOilRig(e)
+      if e.tick % 120 == 0 then
+        if global.or_generators == nil then
+          global.or_generators = {}
+          for _, surface in pairs(game.surfaces) do
+            for _, generator in pairs(surface.find_entities_filtered{name="or_power"}) do
+              table.insert(global.or_generators, generator)
+            end
+          end
+        end
+        for i, generator in pairs(global.or_generators) do
+          if(generator.valid) then
+            generator.fluidbox[1] = {name="steam", amount = 200, temperature=165}
+          else
+            --game.players[1].print("found invalid")
+            table.remove(global.or_generators,i)
+          end
+        end
+      end
+    end
+    script.on_event(defines.events.on_tick, powerOilRig)
   ]],
 }
+
 
 sims.titansteel = 
 {
