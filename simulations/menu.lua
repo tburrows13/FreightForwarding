@@ -3,28 +3,30 @@ local sims = data.raw["utility-constants"]["default"].main_menu_simulations
 
 -- disable vanilla sims
 
-sims.solar_power_construction = nil
-sims.lab = nil
-sims.burner_city = nil
-sims.mining_defense = nil
-sims.forest_fire = nil
-sims.oil_pumpjacks = nil
-sims.oil_refinery = nil
-sims.early_smelting = nil
-sims.train_station = nil
-sims.logistic_robots = nil
-sims.nuclear_power = nil
-sims.train_junction = nil
-sims.artillery = nil
-sims.biter_base_spidertron = nil
-sims.biter_base_artillery = nil
-sims.biter_base_laser_defense = nil
-sims.biter_base_player_attack = nil
-sims.biter_base_steamrolled = nil
-sims.chase_player = nil
-sims.big_defense = nil
-sims.brutal_defeat = nil
-sims.spider_ponds = nil
+if settings.startup["freight-forwarding-disable-default-sims"].value then
+  sims.artillery = nil
+  sims.biter_base_spidertron = nil
+  sims.biter_base_artillery = nil
+  sims.biter_base_laser_defense = nil
+  sims.biter_base_player_attack = nil
+  sims.biter_base_steamrolled = nil
+  sims.big_defense = nil
+  sims.brutal_defeat = nil
+  sims.burner_city = nil
+  sims.chase_player = nil
+  sims.early_smelting = nil
+  sims.forest_fire = nil
+  sims.lab = nil
+  sims.logistic_robots = nil
+  sims.mining_defense = nil
+  sims.nuclear_power = nil
+  sims.oil_pumpjacks = nil
+  sims.oil_refinery = nil
+  sims.spider_ponds = nil
+  sims.solar_power_construction = nil
+  sims.train_station = nil
+  sims.train_junction = nil
+end
 
 -- sims.name = 
 -- {
@@ -144,7 +146,7 @@ sims.many_trains =
 {
   checkboard = false,
   save = "__FreightForwarding__/simulations/manyTrains.zip",
-  length = 10 * seconds,
+  length = 8 * seconds,
   init =
   [[
     local logo = game.surfaces.nauvis.find_entities_filtered{name = "factorio-logo-11tiles", limit = 1}[1]
