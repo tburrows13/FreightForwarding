@@ -310,10 +310,12 @@ local function resource_autoplace_settings(params)
   local starting_spot_favorability_expression
   if starting_resource_placement_ring_radius then
     starting_spot_favorability_expression = litexp(
-      starting_feasibility * 10 *
-      (-((-distance + starting_resource_placement_ring_radius) / 4)^4 + 1) +
-      noise.random(0.5)
-    )
+      starting_feasibility * 10 * noise.if_else_chain(
+      noise.less_than(distance, starting_resource_placement_ring_radius - 50), 0,
+      noise.less_than(starting_resource_placement_ring_radius + 50, distance), 0,
+      1 + noise.random(0.2)
+    ))
+
   else
     starting_spot_favorability_expression = litexp(
       starting_feasibility * 2 -
