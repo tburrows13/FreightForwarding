@@ -32,3 +32,16 @@ data.raw["int-setting"]["oil_rig_capacity"].hidden = true
 -- Remove military science from spiderling and patrol technologies
 data.raw["bool-setting"]["sp-remove-military-requirement"].forced_value = true
 data.raw["bool-setting"]["sp-remove-military-requirement"].hidden = true
+
+-- Enable split tabs for containers
+data:extend({
+  {
+    type          = "bool-setting",
+    name          = "ff-enable-split-tabs",
+    hidden        = false,
+    forced_value  = false,
+    default_value = false,
+    setting_type  = "startup",
+    order         = "ff-s0-01",
+  },
+})
