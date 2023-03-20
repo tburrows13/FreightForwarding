@@ -1,8 +1,9 @@
-require "__FreightForwarding__/prototypes/stack-sizes"
 require "__FreightForwarding__/prototypes/transport-drones"
 require "__FreightForwarding__/prototypes/crating-items"
+require "__FreightForwarding__/prototypes/crating-icons"
 require "__FreightForwarding__/prototypes/item-subgroups"
 require "__FreightForwarding__/prototypes/crating-tabs"
+require "__FreightForwarding__/prototypes/stack-sizes"
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 data.raw["resource"]["ff-seamount"].collision_mask = {"resource-layer", non_deep_water_mask, "ground-tile"}
@@ -78,3 +79,6 @@ if data.raw.recipe["bbr-rail-brick"] then
   data.raw.recipe["bbr-rail-brick"].result_count = 1
   multiply_recipe_ingredients(data.raw.recipe["bbr-rail-brick"], 2)
 end
+
+-- Compatibility
+--require "__FreightForwarding__/compatibility/krastorio2/data-final-fixes"

@@ -8,14 +8,3 @@ bzutil.set_ingredient("gun-turret", "iron-plate", 20)
 bzutil.replace_ingredient("firearm-magazine", "lead-plate", "iron-plate")
 bzutil.remove_ingredient("piercing-rounds-magazine", "firearm-magazine")
 bzutil.add_ingredient("piercing-rounds-magazine", "lead-plate", 4)
-
--- Revert bztitanium's changes to underwater pipes
-if mods["underwater-pipes"] then
-  util.remove_prerequisite("underwater-pipes", "titanium-processing")
-  util.add_prerequisite("underwater-pipes", "automated_water_transport")
-  data.raw.recipe["underwater-pipe"].ingredients = {
-    { "pipe", 2 },
-    { "steel-plate", 5 },
-    { "concrete", 20 },
-  }
-end

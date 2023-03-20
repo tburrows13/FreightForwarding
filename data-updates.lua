@@ -18,3 +18,11 @@ for name, item in pairs(data.raw.item) do
     collision_mask_util.add_layer(item.place_as_tile.condition, landfill_collision_mask)
   end
 end
+
+-- Compatibility
+require "__FreightForwarding__/compatibility/aai-vehicles-ironclad/data-updates"
+require "__FreightForwarding__/compatibility/big-mining-drill/data-updates"
+require "__FreightForwarding__/compatibility/concentrated-solar/data-updates"
+--require "__FreightForwarding__/compatibility/krastorio2/data-updates"
+require "__FreightForwarding__/compatibility/plutonium-energy/data-updates"
+require "__FreightForwarding__/compatibility/underwater-pipes/data-updates"

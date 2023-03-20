@@ -7,13 +7,13 @@ for name, subgroup in pairs(data.raw["item-subgroup"]) do
         type = "item-subgroup",
         name = "ff-load-" .. name,
         group = "deadlock-crates",
-        order = "a[load]-" .. subgroup.order,
+        order = "a[load]-" .. (subgroup.order or "unordered"),
       },
       {
         type = "item-subgroup",
         name = "ff-unload-" .. name,
         group = "deadlock-crates",
-        order = "b[unload]-" .. subgroup.order,
+        order = "b[unload]-" .. (subgroup.order or "unordered"),
       },
     }
   end
