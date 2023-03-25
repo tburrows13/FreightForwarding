@@ -109,5 +109,5 @@ crating_util.extend_items_data(items_data)
 
 -- Compatibility
 require "__FreightForwarding__/compatibility/aai-industry/data"
---require "__FreightForwarding__/compatibility/krastorio2/data"
+require "__FreightForwarding__/compatibility/krastorio2/data"
 require "__FreightForwarding__/compatibility/plutonium-energy/data"

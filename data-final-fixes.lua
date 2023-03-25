@@ -81,4 +81,4 @@ if data.raw.recipe["bbr-rail-brick"] then
 end
 
 -- Compatibility
---require "__FreightForwarding__/compatibility/krastorio2/data-final-fixes"
+require "__FreightForwarding__/compatibility/krastorio2/data-final-fixes"
