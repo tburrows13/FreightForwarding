@@ -1,4 +1,5 @@
 require "__FreightForwarding__/prototypes/inventory-sizes"
+require "__FreightForwarding__/prototypes/stack-sizes"
 require "__FreightForwarding__/prototypes/recipe-updates"
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"

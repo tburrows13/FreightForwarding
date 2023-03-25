@@ -1,9 +1,9 @@
 local function is_container(name)
-  return name == "ff-container" or name:sub(1, 15) == "deadlock-crate-"
+  return name == "ic-container" or name:sub(1, #"ic-container-") == "ic-container-"
 end
 
 local function is_filled_container(name)
-  return name:sub(1, 15) == "deadlock-crate-"
+  return name:sub(1, #"ic-container") == "ic-container-"
 end
 
 local function get_logistic_slot(entity, slot_index)

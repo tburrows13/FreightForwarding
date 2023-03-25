@@ -1,7 +1,5 @@
-require "__FreightForwarding__/prototypes/stack-sizes"
+require "__FreightForwarding__/prototypes/containers"
 require "__FreightForwarding__/prototypes/transport-drones"
-require "__FreightForwarding__/prototypes/crating-items"
-require "__FreightForwarding__/prototypes/item-subgroups"
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 data.raw["resource"]["ff-seamount"].collision_mask = {"resource-layer", non_deep_water_mask, "ground-tile"}

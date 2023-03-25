@@ -2,7 +2,7 @@ local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require("__bzlead__/data-util")
 
 util.remove_prerequisite("railway", "engine")
-util.add_prerequisite("railway", "deadlock-crating-1")
+util.add_prerequisite("railway", "ic-containerization-1")
 
 -- Rails are now used in transport science, so swap them out for uranium
 bzutil.remove_ingredient("production-science-pack", "rail")
