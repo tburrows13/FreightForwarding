@@ -1,7 +1,5 @@
 if not mods["aai-industry"] then return end
 
-local crating_util = require "__FreightForwarding__/prototypes/crating-util"
-
 local items_data = {
   ["electric-motor"] = { name = "electric-motor", stack_size = 25, crating = 2 },
   ["glass"] = { name = "glass", stack_size = 50, crating = 1 },
@@ -11,4 +9,7 @@ local items_data = {
   ["stone-tablet"] = { name = "stone-tablet", stack_size = 50, crating = 1 },
 }
 
-crating_util.extend_items_data(items_data)
+for ___, item in pairs(items_data) do
+  if item.stack_size then data.raw[item.source or "item"][item.name].stack_size = item.stack_size end
+  deadlock_crating.add_crate(item.name, "ic-containerization-"..item.crating)
+end

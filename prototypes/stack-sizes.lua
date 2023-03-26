@@ -1,5 +1,47 @@
-data.raw.item["uranium-fuel-cell"].stack_size = 10
-data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10
+-- changes value of stacks
+local function restack(item_name)
+  local item = data.raw.item[item_name] or data.raw.tool[item_name]
+  if not item then return end
+  local stack_size = tonumber(item.stack_size)
+  if ff_stack_size_override[item_name] then
+    item.stack_size = ff_stack_size_override[item_name]
+  elseif stack_size >= 50 then
+    item.stack_size = stack_size / 2
+  end
+end
+
+ff_stack_size_override = {
+  -- Vanilla
+  ["uranium-ore"] = 15,
+  ["uranium-fuel-cell"] = 10, -- Was 50
+  ["used-up-uranium-fuel-cell"] = 10, -- Was 50
+  -- Freight Forwarding
+  ["ff-cobalt-ore"] = 15,
+  -- BZ
+  ["lead-ore"] = 15,
+  ["titanium-ore"] = 15,
+}
+
+local intermediates = {
+  ---- Vanilla
+  -- raw materials
+  "wood", "iron-ore", "copper-ore", "stone", "coal", "iron-plate", "copper-plate", "steel-plate", "stone-brick", "uranium-ore",
+  -- processed
+  "copper-cable", "iron-gear-wheel", "iron-stick", "sulfur", "plastic-bar", "solid-fuel", "electronic-circuit", "advanced-circuit",
+  "processing-unit", "battery", "uranium-235", "uranium-238", "explosives", "engine-unit",  "empty-barrel",
+  -- advanced
+  "electric-engine-unit", "flying-robot-frame", "rocket-control-unit", "low-density-structure", "rocket-fuel", "nuclear-fuel",
+  -- science packs
+  "automation-science-pack", "logistic-science-pack", "chemical-science-pack", "military-science-pack", "production-science-pack", "utility-science-pack", "space-science-pack",  -- Vanilla
+  ---- Freight Forwarding
+  "ff-transport-science-pack", "ff-battery-pack", "ff-charged-battery-pack", "ff-cobalt-ore", "ff-cobalt-concentrate", "ff-cobalt-ingot", "ff-titansteel-plate", "ff-charged-battery",
+  ---- BZ 
+  "lead-ore", "lead-plate", "titanium-ore", "titanium-plate",
+}
+
+for _, item in pairs(intermediates) do
+  restack(item)
+end
 
 -- Increase stack inserter stack sizes
 local stack_bonus_techs = { "stack-inserter", "inserter-capacity-bonus-1", "inserter-capacity-bonus-2", "inserter-capacity-bonus-3", "inserter-capacity-bonus-4", "inserter-capacity-bonus-5", "inserter-capacity-bonus-6", "inserter-capacity-bonus-7", }
@@ -12,21 +54,4 @@ for _, tech_name in pairs(stack_bonus_techs) do
       end
     end
   end
-end
-
-local function update_description_stack_size(description, stack_size)
-  if not description then return end
-  if type(description) ~= "table" then return end
-  if description[1] == "description.stack-size" or description[1] == "other.stack-size-description" then
-    -- Extended Descriptions and Stack Size Tooltip
-    description[2] = stack_size
-  end
-  for _, item in pairs(description) do
-    update_description_stack_size(item, stack_size)
-  end
-end
-
-for _, item in pairs(data.raw.item) do
-  -- Update stack size descriptions added by other mods because we run in data-final-fixes
-  update_description_stack_size(item.localised_description, tostring(item.stack_size))
 end

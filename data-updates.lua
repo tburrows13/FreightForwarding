@@ -1,4 +1,5 @@
 require "__FreightForwarding__/prototypes/inventory-sizes"
+require "__FreightForwarding__/prototypes/stack-sizes"
 require "__FreightForwarding__/prototypes/recipe-updates"
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
@@ -20,6 +21,7 @@ for name, item in pairs(data.raw.item) do
 end
 
 -- Compatibility
+require "__FreightForwarding__/compatibility/aai-industry/data-updates"
 require "__FreightForwarding__/compatibility/aai-vehicles-ironclad/data-updates"
 require "__FreightForwarding__/compatibility/big-mining-drill/data-updates"
 require "__FreightForwarding__/compatibility/concentrated-solar/data-updates"
