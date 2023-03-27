@@ -1,12 +1,16 @@
-- make transport-science tech card icons
-- adjust TSP item/tool order
+- [x] make Transport Science Pack to tech card icons
+- [x] adjust TSP item/tool order
 
-- change item stacks:
-  - ores: 
-  - plates: 
-  - science: 
+- [x] change item stacks:
+  - ores (25)
+  - plates (50)
+  - science (100)
+  - fuels (25)
+  - barrels (10)
 
-- crate items:
+- [x] change rocket silo stacks to 10
+
+- [x] crate items:
   - raw-imersite
   - raw-rare-metal
   - glass
@@ -53,23 +57,24 @@
   - charged-antimatter-fuel-cell
   - matter-stabilizer
   - charged-matter-stabilizer
+  - space-data-cards
 
-- make matter recipes for FF:
-  - ff-cobalt-ore
-  - ff-cobalt-ingot
-  - ff-ferrous-nodule (NO)
-  - ff-cupric-nodule (NO)
-  - ff-cobalt-crust (NO)
+- [x] check matter recipes working after re-stack
+- [x] disable matter-to-ore conversion for iron, copper & cobalt (use nodules instead)
+- [x] make matter recipes for FF:
+  - [x] ff-cobalt-ore
+  - [x] ff-cobalt-ingot
+  - (NOT REQUIRED) ff-ferrous-nodule
+  - (NOT REQUIRED) ff-cupric-nodule
+  - (NOT REQUIRED) ff-cobalt-crust
 
-- change imersite autoplace
-- change raw-metals autoplace
+- [x] change resource autoplace outside starter island
+  - imersite
+  - raw-metals
+  - mineral-water
 
-- check matter recipes working after re-stack
+- [x] modify fuel-inventories (already taken care globally)
 
-- modify fuel-inventories
-
-- additional tab for pack/unpack
-
-- revisit crating times
-
-- check stone bricks
+- [x] additional tab for pack/unpack (feature moved to IC)
+- [x] revisit crating times (feature moved to IC)
+- [x] check stone bricks (feature moved to IC)

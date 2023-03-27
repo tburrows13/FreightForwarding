@@ -40,3 +40,4 @@ data.raw["spider-vehicle"]["lex-flying-heavyship"].chunk_exploration_radius = 6
 
 -- Compatibility
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/data"
+require "__FreightForwarding__/compatibility/krastorio2/data"

@@ -1,5 +1,3 @@
-if not mods["beautiful_bridge_railway_Cargoships"] then return end
-
 -- Set the special item cost for each bridge to 20
 if data.raw["int-setting"]["bbr-fix-cost"] then
   data.raw["int-setting"]["bbr-fix-cost"].allowed_values = {2}  -- gets multiplied by 2 in data-final-fixes

@@ -16,12 +16,17 @@ bzutil.add_ingredient("plutonium-atomic-bomb", "ff-titansteel-plate", 1)
 util.add_prerequisite("plutonium-atomic-bomb", "ff-titansteel-processing")
 
 local items_data = {
-  ["plutonium-238"] = { name = "plutonium-238", stack_size = 50, crating = 2 },
-  ["plutonium-239"] = { name = "plutonium-239", stack_size = 50, crating = 2 },
-  ["plutonium-fuel"] = { name = "plutonium-fuel", stack_size = 1, crating = 2 },
+  ["plutonium-238"] = {},
+  ["plutonium-239"] = {},
+  ["plutonium-fuel"] = { stack_size = 1 },
 }
 
-for ___, item in pairs(items_data) do
-  if item.stack_size then data.raw[item.source or "item"][item.name].stack_size = item.stack_size end
-  deadlock_crating.add_crate_autotech(item.name)
+for item_name, item in pairs(items_data) do
+  if item.stack_size then 
+    data.raw[item.source or "item"][item_name].stack_size = item.stack_size 
+  else
+    ff_restack(item_name)
+  end
+
+  deadlock_crating.add_crate_autotech(item_name, item.tech)
 end

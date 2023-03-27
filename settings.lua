@@ -19,3 +19,5 @@ data.raw["int-setting"]["oil_rig_capacity"].hidden = true
 -- Remove military science from spiderling and patrol technologies
 data.raw["bool-setting"]["sp-remove-military-requirement"].forced_value = true
 data.raw["bool-setting"]["sp-remove-military-requirement"].hidden = true
+
+require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"

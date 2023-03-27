@@ -1,13 +1,14 @@
 -- changes value of stacks
-local function restack(item_name)
+function ff_restack(item_name)
   local item = data.raw.item[item_name] or data.raw.tool[item_name]
   if not item then return end
   local stack_size = tonumber(item.stack_size)
-  if ff_stack_size_override[item_name] then
-    item.stack_size = ff_stack_size_override[item_name]
-  elseif stack_size >= 50 then
-    item.stack_size = stack_size / 2
-  end
+  if ff_stack_size_override[item_name] then item.stack_size = ff_stack_size_override[item_name]
+  elseif item.subgroup == "barrel"       then item.stack_size = 10
+  elseif item.subgroup == "raw-resource" then item.stack_size = 25
+  elseif item.subgroup == "raw-material" then item.stack_size = 50
+  elseif item.subgroup == "science-pack" then item.stack_size = 100
+  elseif stack_size >= 50 then item.stack_size = stack_size / 2 end
 end
 
 ff_stack_size_override = {
@@ -23,24 +24,23 @@ ff_stack_size_override = {
 }
 
 local intermediates = {
-  ---- Vanilla
+  -- -- Vanilla
   -- raw materials
   "wood", "iron-ore", "copper-ore", "stone", "coal", "iron-plate", "copper-plate", "steel-plate", "stone-brick", "uranium-ore",
   -- processed
   "copper-cable", "iron-gear-wheel", "iron-stick", "sulfur", "plastic-bar", "solid-fuel", "electronic-circuit", "advanced-circuit",
   "processing-unit", "battery", "uranium-235", "uranium-238", "explosives", "engine-unit",  "empty-barrel",
-  -- advanced
   "electric-engine-unit", "flying-robot-frame", "rocket-control-unit", "low-density-structure", "rocket-fuel", "nuclear-fuel",
   -- science packs
-  "automation-science-pack", "logistic-science-pack", "chemical-science-pack", "military-science-pack", "production-science-pack", "utility-science-pack", "space-science-pack",  -- Vanilla
-  ---- Freight Forwarding
+  "automation-science-pack", "logistic-science-pack", "chemical-science-pack", "military-science-pack", "production-science-pack", "utility-science-pack", "space-science-pack",
+  -- -- Freight Forwarding
   "ff-transport-science-pack", "ff-battery-pack", "ff-charged-battery-pack", "ff-cobalt-ore", "ff-cobalt-concentrate", "ff-cobalt-ingot", "ff-titansteel-plate", "ff-charged-battery",
-  ---- BZ 
+  -- -- BZ 
   "lead-ore", "lead-plate", "titanium-ore", "titanium-plate",
 }
 
 for _, item in pairs(intermediates) do
-  restack(item)
+  ff_restack(item)
 end
 
 -- Increase stack inserter stack sizes
