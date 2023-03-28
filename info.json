@@ -8,7 +8,7 @@
   "factorio_version": "1.1",
   "dependencies": [
     "base > 1.1.60",
-    "DeadlockCrating",
+    "IntermodalContainers",
     "cargo-ships",
     "SpidertronPatrols >= 2.2.4",
     "lex-aircraft",
@@ -35,6 +35,9 @@
     "! pypostprocessing"
   ],
   "package": {
-    "ignore": ["resources/*", "scenarios/*"]
+    "ignore": [
+      "resources/*",
+      "scenarios/*"
+    ]
   }
 }
