@@ -1,9 +1,13 @@
 if not mods["aai-industry"] then return end
 
+local TIER_1 = "ic-containerization-1"
+local TIER_2 = "ic-containerization-2"
+local TIER_3 = "ic-containerization-3"
+
 local items_data = {
-  ["electric-motor"] = {},
+  ["electric-motor"] = { tech = TIER_2 },
   ["glass"] = {},
-  ["motor"] = {},
+  ["motor"] = { tech = TIER_2 },
   ["processed-fuel"] = {},
   ["sand"] = {},
   ["stone-tablet"] = {},
