@@ -24,7 +24,6 @@ local util = require "__FreightForwarding__/prototypes/data-util"
 
 for _, tech in pairs(data.raw.technology) do
   local ingredients = tech.unit.ingredients
-  if tech.name == "rocket-silo" then log(serpent.block(tech)) end
   if util.contains_research_ingredient(tech.name, "chemical-science-pack")
     and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
     table.insert(ingredients, {"ff-transport-science-pack", 1})
