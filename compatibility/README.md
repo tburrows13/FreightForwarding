@@ -22,6 +22,7 @@ Compatibles (will at least load):
 - [x] Krastorio2
 - [x] Lex's Aircraft
 - [x] Milestones
+- [x] Mining Space Industries II
 - [x] Plutonium Energy
 - [x] Power Overload
 - [x] Remote Configuration
