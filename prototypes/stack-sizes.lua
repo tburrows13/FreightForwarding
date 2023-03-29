@@ -4,24 +4,23 @@ function ff_restack(item_name)
   if not item then return end
   local stack_size = tonumber(item.stack_size)
   if ff_stack_size_override[item_name] then item.stack_size = ff_stack_size_override[item_name]
-  elseif item.subgroup == "barrel"       then item.stack_size = 10
-  elseif item.subgroup == "raw-resource" then item.stack_size = 25
-  elseif item.subgroup == "raw-material" then item.stack_size = 50
-  elseif item.subgroup == "science-pack" then item.stack_size = 100
-  elseif stack_size >= 50 then item.stack_size = stack_size / 2 end
+  elseif stack_size >= 30 then item.stack_size = stack_size / 2 end
 end
 
 ff_stack_size_override = {
   -- Vanilla
   ["uranium-ore"] = 15,
-  ["uranium-fuel-cell"] = 10, -- Was 50
-  ["used-up-uranium-fuel-cell"] = 10, -- Was 50
   -- Freight Forwarding
   ["ff-cobalt-ore"] = 15,
   -- BZ
   ["lead-ore"] = 15,
   ["titanium-ore"] = 15,
+  ["space-science-pack"] = 100,
 }
+
+-- Can't be set in ff_stack_size_override since they aren't containerisable
+data.raw.item["uranium-fuel-cell"].stack_size = 10
+data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10
 
 local intermediates = {
   -- -- Vanilla
