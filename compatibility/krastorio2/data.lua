@@ -1,8 +1,5 @@
 if not mods["Krastorio2"] then return end
 
--- override K2 stack changes before they are applied in data-updates
-settings["startup"]["kr-stack-size"] = "No changes"
-
 local matter = require("__Krastorio2__/lib/public/data-stages/matter-util")
 
 -- Matter technology
