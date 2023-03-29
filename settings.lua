@@ -21,3 +21,4 @@ data.raw["bool-setting"]["sp-remove-military-requirement"].forced_value = true
 data.raw["bool-setting"]["sp-remove-military-requirement"].hidden = true
 
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"
+require "__FreightForwarding__/compatibility/krastorio2/settings"
