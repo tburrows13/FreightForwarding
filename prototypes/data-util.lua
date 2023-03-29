@@ -49,7 +49,7 @@ function data_util.contains_research_ingredient(tech_name, ingredient)
 end
 
 function data_util.is_descendant_of(tech_name, ancestor)
-  if tech_name == ancestor then return true end
+  --if tech_name == ancestor then return true end
   local technology = data.raw.technology[tech_name]
   if not technology then return false end
   if technology.prerequisites == nil then

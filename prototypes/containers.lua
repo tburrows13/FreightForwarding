@@ -13,18 +13,17 @@ local raw_material_list = {
 
 -- These are checked for existence before being added so it doesn't matter if their mod isn't loaded
 local new_material_list = {
-  [1] = { "sand", "glass", "stone-tablet" },  -- AAI Industry
+  [1] = { },
   [2] = {
     "automation-science-pack", "logistic-science-pack", "ff-transport-science-pack", "chemical-science-pack", "military-science-pack",  -- Vanilla
     "explosives", "engine-unit", "electric-engine-unit", "empty-barrel",  -- Vanilla
     "ff-charged-battery",  -- Freight Forwarding
-    "motor", "electric-motor", "processed-fuel",  -- AAI Industry
   },
   [3] = {
     "flying-robot-frame", "rocket-control-unit", "low-density-structure", "rocket-fuel", "nuclear-fuel",  -- Vanilla
     "production-science-pack", "utility-science-pack", "space-science-pack",  -- Vanilla
     "ff-battery-pack", "ff-charged-battery-pack", "ff-cobalt-ore", "ff-cobalt-concentrate", "ff-cobalt-ingot", "ff-titansteel-plate",  -- Freight Forwarding
-    "plutonium-238", "plutonium-239", "plutonium-fuel" },  -- Plutonium Energy
+  }
 }
 
 local raw_materials = {}
@@ -67,20 +66,3 @@ bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_UNLOAD.."battery")
 bzutil.add_unlock(IC_PREFIX.."2", IC_LOAD.."battery")
 bzutil.add_unlock(IC_PREFIX.."2", IC_UNLOAD.."battery")
 
-
-local function update_description_stack_size(description, stack_size)
-  if not description then return end
-  if type(description) ~= "table" then return end
-  if description[1] == "description.stack-size" or description[1] == "other.stack-size-description" then
-    -- Extended Descriptions and Stack Size Tooltip
-    description[2] = stack_size
-  end
-  for _, item in pairs(description) do
-    update_description_stack_size(item, stack_size)
-  end
-end
-
-for _, item in pairs(data.raw.item) do
-  -- Update stack size descriptions added by other mods because we run in data-final-fixes
-  update_description_stack_size(item.localised_description, tostring(item.stack_size))
-end

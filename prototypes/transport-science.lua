@@ -57,9 +57,18 @@ data:extend{
 
 -- Most tech adjustments are in data-final-fixes.lua
 
+-- Insert FF Science Pack before these techs:
 util.add_prerequisite("fluid-handling", "ff-transport-science-pack")
 util.add_prerequisite("water_transport", "ff-transport-science-pack")
 util.add_prerequisite("automobilism", "ff-transport-science-pack")  -- Can't easily drive to lead ore
+
+-- Simplify tech tree dependencies already covered by FF Science Pack:
+util.remove_prerequisite("fluid-handling", "engine")
+util.remove_prerequisite("water_transport", "engine")
+util.remove_prerequisite("water_transport", "logistics-2")
+util.remove_prerequisite("automobilism", "engine")
+util.remove_prerequisite("automobilism", "logistics-2")
+
 
 data.raw.recipe["pipe-to-ground"].enabled = false
 table.insert(data.raw.technology["fluid-handling"].effects, 1, {type = "unlock-recipe", recipe = "pipe-to-ground"})

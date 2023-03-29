@@ -49,6 +49,9 @@ if broken_droid then
   broken_droid.inventory_size = 30
 end
 
+-- Increase Rocket Silo result inventory since science pack stacks are 100 instead of 1'000
+data.raw["rocket-silo"]["rocket-silo"].rocket_result_inventory_size = 10
+
 local burner_types = {
   "boiler",
   "burner-generator",

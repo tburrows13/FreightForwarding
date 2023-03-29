@@ -16,10 +16,6 @@ bzutil.replace_ingredient("boat", "iron-gear-wheel", "lead-plate")
 bzutil.replace_ingredient("cargo_ship", "iron-gear-wheel", "lead-plate")
 bzutil.replace_ingredient("oil_tanker", "iron-gear-wheel", "lead-plate")
 
-if data.raw.recipe["ironclad"] then
-  bzutil.add_ingredient("ironclad", "lead-plate", 30)
-end
-
 util.add_prerequisite("oil-processing", "tank_ship")
 util.add_prerequisite("ff-dredging", "cargo_ships")
 
@@ -33,27 +29,8 @@ bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-heavyship", "steel-plate", "titanium-plate")
 
-if mods["big-mining-drill"] then
-  bzutil.replace_ingredient("big-mining-drill", "steel-plate", "titanium-plate")
-  util.add_prerequisite("big-mining-drill", "titanium-processing")
-end
-
 bzutil.add_ingredient("rocket-control-unit", "ff-charged-battery-pack", 1)
 util.add_prerequisite("rocket-control-unit", "ff-battery-pack")
 
-if mods["ch-concentrated-solar"] then
-  bzutil.add_ingredient("chcs-heliostat-mirror", "ff-cobalt-ingot", 1)
-  bzutil.add_ingredient("chcs-solar-power-tower", "ff-cobalt-ingot", 50)
-  bzutil.add_ingredient("chcs-solar-laser-tower", "ff-cobalt-ingot", 50)
-  util.add_prerequisite("chcs-concentrated-solar-energy", "ff-cobalt-processing")
-  util.add_research_ingredient("chcs-concentrated-solar-energy", "utility-science-pack")
-  util.add_research_ingredient("chcs-weaponized-solar-energy", "utility-science-pack")
-end
-
 bzutil.replace_ingredient("satellite", "accumulator", "ff-charged-battery-pack")
 util.add_prerequisite("space-science-pack", "ff-battery-pack")
-
-if mods["PlutoniumEnergy"] then
-  bzutil.add_ingredient("plutonium-atomic-bomb", "ff-titansteel-plate", 1)
-  util.add_prerequisite("plutonium-atomic-bomb", "ff-titansteel-processing")
-end

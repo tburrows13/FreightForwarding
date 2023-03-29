@@ -9,7 +9,6 @@ require "__FreightForwarding__/prototypes/seamount"
 require "__FreightForwarding__/prototypes/dredger"
 require "__FreightForwarding__/prototypes/nodule"
 require "__FreightForwarding__/prototypes/cobalt"
-require "__FreightForwarding__/prototypes/rail-bridge"
 require "__FreightForwarding__/prototypes/lex-aircraft"
 require "__FreightForwarding__/prototypes/cargo-ships"
 require "__FreightForwarding__/prototypes/crating-machine"
@@ -38,3 +37,7 @@ data.raw["spider-vehicle"]["lex-flying-cargo"].torso_bob_speed = 0.3
 data.raw["spider-vehicle"]["lex-flying-heavyship"].torso_bob_speed = 0.45
 data.raw["spider-vehicle"]["lex-flying-cargo"].chunk_exploration_radius = 6
 data.raw["spider-vehicle"]["lex-flying-heavyship"].chunk_exploration_radius = 6
+
+-- Compatibility
+require "__FreightForwarding__/compatibility/beautiful-bridge-railway/data"
+require "__FreightForwarding__/compatibility/krastorio2/data"
