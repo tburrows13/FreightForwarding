@@ -1,3 +1,8 @@
+-- Intermodal Containers
+data.raw["string-setting"]["ic-machine-size"].allowed_values = { "4×4" }
+data.raw["string-setting"]["ic-machine-size"].default_value = "4×4"
+data.raw["string-setting"]["ic-machine-size"].hidden = true
+
 -- Force offshore oil, no inland oil
 data.raw["bool-setting"]["deep_oil"].forced_value = true
 data.raw["bool-setting"]["deep_oil"].hidden = true

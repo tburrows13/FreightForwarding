@@ -1,37 +1,6 @@
 -- Convert crating machines from 3x3 to 4x4
 
-local SCALE = 4/3 --1.33333
 local IC_PREFIX = "ic-containerization-"
-
-local function scale_pos(pos)
-  return {pos[1] * SCALE, pos[2] * SCALE}
-end
-
-local function scale_box(box)
-  return {scale_pos(box[1]), scale_pos(box[2])}
-end
-
-for tier = 1, 3 do
-  local name = IC_PREFIX .. "machine-" .. tier
-  local entity = data.raw["assembling-machine"][name]
-  entity.tile_width = 4
-  entity.tile_height = 4
-  entity.collision_box = scale_box(entity.collision_box)
-  entity.selection_box = scale_box(entity.selection_box)
-  entity.animation.layers[1].scale = 1 * SCALE
-  entity.animation.layers[1].hr_version.scale = 0.5 * SCALE
-  entity.animation.layers[2].scale = 1 * SCALE
-  entity.animation.layers[2].hr_version.scale = 0.5 * SCALE
-  entity.animation.layers[3].scale = 1 * SCALE
-  entity.animation.layers[3].hr_version.scale = 0.5 * SCALE
-  entity.animation.layers[3].shift = scale_pos(entity.animation.layers[3].shift)
-  entity.animation.layers[3].hr_version.shift = scale_pos(entity.animation.layers[3].hr_version.shift)
-  entity.working_visualisations[1].animation.scale = 1 * SCALE
-  entity.working_visualisations[1].animation.hr_version.scale = 0.5 * SCALE
-  entity.working_visualisations[1].light.scale = 0.5 * SCALE
-  entity.scale_entity_info_icon = true
-  entity.se_allow_in_space = true
-end
 
 
 local item1 = data.raw.item[IC_PREFIX.."machine-1"]
