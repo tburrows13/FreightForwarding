@@ -1,5 +1,8 @@
 local IC_PREFIX = "ic-containerization-"
 
+data.raw.item["red-wire"].ic_create_container = true
+data.raw.item["green-wire"].ic_create_container = true
+
 local recipe1 = data.raw.recipe[IC_PREFIX.."machine-1"]
 --[[ Original:
 {
