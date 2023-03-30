@@ -2,10 +2,6 @@
 
 local IC_PREFIX = "ic-containerization-"
 
-
-local item1 = data.raw.item[IC_PREFIX.."machine-1"]
-item1.order = "d-a["..IC_PREFIX.."machine-1]"
-
 local recipe1 = data.raw.recipe[IC_PREFIX.."machine-1"]
 --[[ Original:
 {
@@ -32,9 +28,6 @@ table.insert(technology1.effects, 2, {
 })
 ]]
 
-local item2 = data.raw.item[IC_PREFIX.."machine-2"]
-item2.order = "d-b["..IC_PREFIX.."machine-2]"
-
 local recipe2 = data.raw.recipe[IC_PREFIX.."machine-2"]
 --[[ Original:
   {IC_PREFIX.."machine-1",1},
@@ -53,10 +46,6 @@ local technology2 = data.raw.technology[IC_PREFIX.."2"]
 -- Original: {"automation-2", IC_PREFIX.."1"},
 technology2.prerequisites = {"electric-engine", "stack-inserter", IC_PREFIX.."1"}
 technology2.unit.count = 200
-
-
-local item3 = data.raw.item[IC_PREFIX.."machine-3"]
-item3.order = "d-c["..IC_PREFIX.."machine-3]"
 
 local recipe3 = data.raw.recipe[IC_PREFIX.."machine-3"]
 --[[ Original:
