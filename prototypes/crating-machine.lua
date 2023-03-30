@@ -1,5 +1,3 @@
--- Convert crating machines from 3x3 to 4x4
-
 local IC_PREFIX = "ic-containerization-"
 
 local recipe1 = data.raw.recipe[IC_PREFIX.."machine-1"]

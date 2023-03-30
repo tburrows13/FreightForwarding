@@ -1,29 +1,34 @@
+local function force_setting(setting_type, setting_name, value)
+  local setting = data.raw[setting_type .. "-setting"][setting_name]
+  if setting_type == "bool" then
+    setting.forced_value = value
+  else
+    setting.allowed_values = { value }
+  end
+  setting.default_value = value
+  setting.hidden = true
+end
+
 -- Intermodal Containers
-data.raw["string-setting"]["ic-machine-size"].allowed_values = { "4×4" }
-data.raw["string-setting"]["ic-machine-size"].default_value = "4×4"
-data.raw["string-setting"]["ic-machine-size"].hidden = true
+force_setting("string", "ic-machine-size", "4×4")
+force_setting("double", "ic-stacks-per-container", 20)
+force_setting("int", "ic-container-stack-size", 1)
+force_setting("double", "ic-cargo-wagon-inventory-multiplier", 1)  -- Handled in our own inventory-sizes.lua
+force_setting("double", "ic-belts-per-machine", 1)
+force_setting("double", "ic-container-loss-rate", 0.01)
 
 -- Force offshore oil, no inland oil
-data.raw["bool-setting"]["deep_oil"].forced_value = true
-data.raw["bool-setting"]["deep_oil"].hidden = true
-data.raw["bool-setting"]["no_oil_on_land"].forced_value = true
-data.raw["bool-setting"]["no_oil_on_land"].hidden = true
-data.raw["bool-setting"]["no_shallow_oil"].forced_value = true
-data.raw["bool-setting"]["no_shallow_oil"].hidden = true
-data.raw["bool-setting"]["no_oil_for_oil_rig"].forced_value = true
-data.raw["bool-setting"]["no_oil_for_oil_rig"].hidden = true
-data.raw["string-setting"]["oil_richness"].allowed_values = { "good" }
-data.raw["string-setting"]["oil_richness"].default_value = "good"
-data.raw["string-setting"]["oil_richness"].hidden = true
+force_setting("bool", "deep_oil", true)
+force_setting("bool", "no_oil_on_land", true)
+force_setting("bool", "no_shallow_oil", true)
+force_setting("bool", "no_oil_for_oil_rig", true)
+force_setting("string", "oil_richness", "good")
 
 -- Increase oil rig storage to match oil tanker's
-data.raw["int-setting"]["oil_rig_capacity"].allowed_values = { 250 }
-data.raw["int-setting"]["oil_rig_capacity"].default_value = 250
-data.raw["int-setting"]["oil_rig_capacity"].hidden = true
+force_setting("int", "oil_rig_capacity", 250)
 
 -- Remove military science from spiderling and patrol technologies
-data.raw["bool-setting"]["sp-remove-military-requirement"].forced_value = true
-data.raw["bool-setting"]["sp-remove-military-requirement"].hidden = true
+force_setting("bool", "sp-remove-military-requirement", true)
 
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"
 require "__FreightForwarding__/compatibility/krastorio2/settings"
