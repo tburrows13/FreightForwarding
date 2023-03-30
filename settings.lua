@@ -15,7 +15,7 @@ force_setting("double", "ic-stacks-per-container", 20)
 force_setting("int", "ic-container-stack-size", 1)
 force_setting("double", "ic-cargo-wagon-inventory-multiplier", 1)  -- Handled in our own inventory-sizes.lua
 force_setting("double", "ic-belts-per-machine", 1)
-force_setting("double", "ic-container-loss-rate", 0.01)
+force_setting("double", "ic-container-loss-chance", 0.01)
 
 -- Force offshore oil, no inland oil
 force_setting("bool", "deep_oil", true)
