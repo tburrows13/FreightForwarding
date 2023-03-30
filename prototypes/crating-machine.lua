@@ -65,11 +65,3 @@ local technology3 = data.raw.technology[IC_PREFIX.."3"]
 -- Original: {"automation-3", IC_PREFIX.."2"}
 technology3.prerequisites = {"automation-3", IC_PREFIX.."2"}
 technology3.unit.count = 300
-
--- Undo change from DCM
--- table.insert(data.raw["character"]["character"].crafting_categories, "packing")
-for i, category in pairs(data.raw["character"]["character"].crafting_categories) do
-  if category == "packing" then
-    table.remove(data.raw["character"]["character"].crafting_categories, i)
-  end
-end
