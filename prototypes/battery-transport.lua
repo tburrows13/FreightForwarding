@@ -410,7 +410,7 @@ data:extend{ -- Battery charging interface
     prerequisites = {"electric-energy-accumulators"},
     unit =
     {
-      count = 1000,
+      count = 150,
 
       ingredients =
       {
@@ -440,7 +440,7 @@ data:extend{ -- Battery charging interface
     prerequisites = {"ff-battery-charging", "utility-science-pack", "ff-cobalt-processing"},
     unit =
     {
-      count = 1000,
+      count = 300,
 
       ingredients =
       {
