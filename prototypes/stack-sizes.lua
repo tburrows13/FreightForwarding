@@ -1,45 +1,18 @@
--- changes value of stacks
-function ff_restack(item_name)
-  local item = data.raw.item[item_name] or data.raw.tool[item_name]
-  if not item then return end
-  local stack_size = tonumber(item.stack_size)
-  if ff_stack_size_override[item_name] then item.stack_size = ff_stack_size_override[item_name]
-  elseif stack_size >= 30 then item.stack_size = stack_size / 2 end
-end
-
-ff_stack_size_override = {
+-- Each of these will get halved by IntermodalContainers
+local stack_size_override = {
   -- Vanilla
-  ["uranium-ore"] = 15,
-  -- Freight Forwarding
-  ["ff-cobalt-ore"] = 15,
+  ["uranium-ore"] = 30,
+  ["uranium-fuel-cell"] = 20,
+  ["used-up-uranium-fuel-cell"] = 20,
   -- BZ
-  ["lead-ore"] = 15,
-  ["titanium-ore"] = 15,
-  ["space-science-pack"] = 100,
+  ["lead-ore"] = 30,
+  ["titanium-ore"] = 30,
+  ["space-science-pack"] = 200,
 }
 
--- Can't be set in ff_stack_size_override since they aren't containerisable
-data.raw.item["uranium-fuel-cell"].stack_size = 10
-data.raw.item["used-up-uranium-fuel-cell"].stack_size = 10
-
-local intermediates = {
-  -- -- Vanilla
-  -- raw materials
-  "wood", "iron-ore", "copper-ore", "stone", "coal", "iron-plate", "copper-plate", "steel-plate", "stone-brick", "uranium-ore",
-  -- processed
-  "copper-cable", "iron-gear-wheel", "iron-stick", "sulfur", "plastic-bar", "solid-fuel", "electronic-circuit", "advanced-circuit",
-  "processing-unit", "battery", "uranium-235", "uranium-238", "explosives", "engine-unit",  "empty-barrel",
-  "electric-engine-unit", "flying-robot-frame", "rocket-control-unit", "low-density-structure", "rocket-fuel", "nuclear-fuel",
-  -- science packs
-  "automation-science-pack", "logistic-science-pack", "chemical-science-pack", "military-science-pack", "production-science-pack", "utility-science-pack", "space-science-pack",
-  -- -- Freight Forwarding
-  "ff-transport-science-pack", "ff-battery-pack", "ff-charged-battery-pack", "ff-cobalt-ore", "ff-cobalt-concentrate", "ff-cobalt-ingot", "ff-titansteel-plate", "ff-charged-battery",
-  -- -- BZ 
-  "lead-ore", "lead-plate", "titanium-ore", "titanium-plate",
-}
-
-for _, item in pairs(intermediates) do
-  ff_restack(item)
+for name, stack_size in pairs(stack_size_override) do
+  local item = data.raw.item[name] or data.raw.tool[name]
+  item.stack_size = stack_size
 end
 
 -- Increase stack inserter stack sizes

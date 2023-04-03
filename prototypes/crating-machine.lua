@@ -1,16 +1,9 @@
 local IC_PREFIX = "ic-containerization-"
 
-data.raw.item["red-wire"].ic_create_container = true
-data.raw.item["green-wire"].ic_create_container = true
+data.raw.item["red-wire"].ic_create_container = false
+data.raw.item["green-wire"].ic_create_container = false
 
 local recipe1 = data.raw.recipe[IC_PREFIX.."machine-1"]
---[[ Original:
-{
-  {"assembling-machine-1",1},
-  {"electric-engine-unit",1},
-  {"stack-inserter",2},
-  {"steel-plate",20},
-}]]
 recipe1.ingredients = {
   {"engine-unit", 2},
   {"fast-inserter", 4},
@@ -18,24 +11,11 @@ recipe1.ingredients = {
 }
 
 local technology1 = data.raw.technology[IC_PREFIX.."1"]
--- Original: {"automation", "electric-engine", "stack-inserter"}
+-- Original: {"automation", "stack-inserter"}
 technology1.prerequisites = {"engine", "fast-inserter"}
 technology1.unit.count = 100
 
---[[
-table.insert(technology1.effects, 2, {
-  type = "unlock-recipe",
-  recipe = "ff-container",
-})
-]]
-
 local recipe2 = data.raw.recipe[IC_PREFIX.."machine-2"]
---[[ Original:
-  {IC_PREFIX.."machine-1",1},
-  {"electric-engine-unit",1},
-  {"stack-inserter",2},
-  {"steel-plate",30},
-]]
 recipe2.ingredients = {
   {IC_PREFIX.."machine-1", 1},
   {"electric-engine-unit", 2},
@@ -49,12 +29,6 @@ technology2.prerequisites = {"electric-engine", "stack-inserter", IC_PREFIX.."1"
 technology2.unit.count = 200
 
 local recipe3 = data.raw.recipe[IC_PREFIX.."machine-3"]
---[[ Original:
-  {IC_PREFIX.."machine-2",1},
-  {"electric-engine-unit",1},
-  {"stack-inserter",2},
-  {"steel-plate",50},
-]]
 recipe3.ingredients = {
   {IC_PREFIX.."machine-2", 1},
   {"electric-engine-unit", 8},

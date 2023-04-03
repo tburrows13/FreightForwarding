@@ -6,7 +6,8 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
     order = "w[nodule]-a[ferrous]",
-    stack_size = 1
+    stack_size = 1,
+    ic_create_container = false,
   },
   {
     type = "recipe",
@@ -47,7 +48,8 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
     order = "w[nodule]-b[cupric]",
-    stack_size = 1
+    stack_size = 1,
+    ic_create_container = false,
   },
   {
     type = "recipe",
@@ -88,7 +90,8 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "raw-resource",
     order = "w[nodule]-c[cobalt-crust]",
-    stack_size = 1
+    stack_size = 1,
+    ic_create_container = false,
   },
   {
     type = "recipe",

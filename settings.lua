@@ -11,6 +11,7 @@ end
 
 -- Intermodal Containers
 force_setting("string", "ic-machine-size", "4×4")
+force_setting("double", "ic-stack-size-multiplier", 0.5)
 force_setting("double", "ic-stacks-per-container", 20)
 force_setting("int", "ic-container-stack-size", 1)
 force_setting("double", "ic-cargo-wagon-inventory-multiplier", 1)  -- Handled in our own inventory-sizes.lua

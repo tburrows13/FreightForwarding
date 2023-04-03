@@ -86,7 +86,8 @@ data:extend{
     },
     subgroup = "raw-resource",
     order = "z",
-    stack_size = 1
+    stack_size = 1,
+    ic_create_container = false,
   },
   {
     type = "recipe",

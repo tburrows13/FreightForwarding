@@ -150,7 +150,8 @@ data:extend{
     },
     subgroup = "raw-material",
     order = "e[titansteel-plate]-a",
-    stack_size = 1
+    stack_size = 1,
+    ic_create_container = false,
   },
   {
     type = "item",

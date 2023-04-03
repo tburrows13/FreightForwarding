@@ -1,3 +1,4 @@
+require "__FreightForwarding__/prototypes/crating-machine"
 require "__FreightForwarding__/prototypes/inventory-sizes"
 require "__FreightForwarding__/prototypes/stack-sizes"
 require "__FreightForwarding__/prototypes/recipe-updates"

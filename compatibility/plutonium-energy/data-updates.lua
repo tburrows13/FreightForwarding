@@ -20,7 +20,7 @@ local items_data = {
   ["plutonium-239"] = {},
   ["plutonium-fuel"] = { stack_size = 1 },
 }
-
+--[[
 for item_name, item in pairs(items_data) do
   if item.stack_size then 
     data.raw[item.source or "item"][item_name].stack_size = item.stack_size 
@@ -30,3 +30,4 @@ for item_name, item in pairs(items_data) do
 
   deadlock_crating.add_crate_autotech(item_name, item.tech)
 end
+]]

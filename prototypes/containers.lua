@@ -40,29 +40,6 @@ for tier, material_list in pairs(new_material_list) do
 end
 
 for name, tech_name in pairs(raw_materials) do
-  deadlock_crating.add_crate(name, tech_name)
+  --deadlock_crating.add_crate(name, tech_name)
 end
-
-
--- Change uranium stacking to tier 2
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_LOAD.."uranium-ore")
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_UNLOAD.."uranium-ore")
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_LOAD.."uranium-235")
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_UNLOAD.."uranium-235")
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_LOAD.."uranium-238")
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_UNLOAD.."uranium-238")
-
-bzutil.add_unlock(IC_PREFIX.."2", IC_LOAD.."uranium-ore")
-bzutil.add_unlock(IC_PREFIX.."2", IC_UNLOAD.."uranium-ore")
-bzutil.add_unlock(IC_PREFIX.."2", IC_LOAD.."uranium-235")
-bzutil.add_unlock(IC_PREFIX.."2", IC_UNLOAD.."uranium-235")
-bzutil.add_unlock(IC_PREFIX.."2", IC_LOAD.."uranium-238")
-bzutil.add_unlock(IC_PREFIX.."2", IC_UNLOAD.."uranium-238")
-
--- Change battery stacking to tier 2
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_LOAD.."battery")
-bzutil.remove_recipe_effect(IC_PREFIX.."3", IC_UNLOAD.."battery")
-
-bzutil.add_unlock(IC_PREFIX.."2", IC_LOAD.."battery")
-bzutil.add_unlock(IC_PREFIX.."2", IC_UNLOAD.."battery")
 

@@ -36,6 +36,7 @@ data:extend{
     subgroup = "raw-resource",
     order = "h[cobalt]-c[cobalt-blast-blend]",
     stack_size = 5,
+    ic_create_container = false,
   },
   {
     type = "item",
