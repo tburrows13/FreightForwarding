@@ -362,6 +362,8 @@ data:extend{ -- Battery charging interface
     fuel_category = "battery",
     fuel_value = "10MJ",
     burnt_result = "ff-battery-pack",
+    fuel_acceleration_multiplier = 1.8,
+    fuel_top_speed_multiplier = 1.5,
     subgroup = "raw-material",
     order = "h[battery]-d",
     stack_size = 400  -- Will be halved in stack-sizes.lua
