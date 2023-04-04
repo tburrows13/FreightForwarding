@@ -1,10 +1,17 @@
 data:extend{
   {
     type = "bool-setting",
+    name = "ff-disable-default-sims",
+    order = "a",
+    setting_type = "startup",
+    default_value = true
+  },
+  {
+    type = "bool-setting",
     name = "ff-revert-locomotive-fuel-category",
     setting_type = "startup",
     default_value = false,
-    order = "a",
+    order = "b",
   },
 }
 
@@ -44,13 +51,3 @@ force_setting("bool", "sp-remove-military-requirement", true)
 
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"
 require "__FreightForwarding__/compatibility/krastorio2/settings"
-
-data:extend({
-  {
-    type = "bool-setting",
-    name = "freight-forwarding-disable-default-sims",
-    order = "d",
-    setting_type = "startup",
-    default_value = true
-  }
-})

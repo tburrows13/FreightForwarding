@@ -3,7 +3,7 @@ local sims = data.raw["utility-constants"]["default"].main_menu_simulations
 
 -- disable vanilla sims
 
-if settings.startup["freight-forwarding-disable-default-sims"].value then
+if settings.startup["ff-disable-default-sims"].value then
   sims.artillery = nil
   sims.biter_base_spidertron = nil
   sims.biter_base_artillery = nil
