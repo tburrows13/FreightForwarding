@@ -10,6 +10,7 @@
     "base > 1.1.60",
     "IntermodalContainers",
     "cargo-ships",
+    "Mini_Trains",
     "SpidertronPatrols >= 2.2.4",
     "lex-aircraft",
     "Hovercrafts",
