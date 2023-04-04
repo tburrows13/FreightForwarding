@@ -10,17 +10,22 @@ data:extend{
 data.raw.item["rocket-fuel"].fuel_category = "advanced-chemical"
 data.raw.item["nuclear-fuel"].fuel_category = "advanced-chemical"
 
+local locomotive = data.raw["locomotive"]["locomotive"]
+
 -- These 2 won't get "advanced-chemical" added
 data.raw["locomotive"]["mini-locomotive"].ff_no_advanced_fuel = true
 if not settings.startup["ff-revert-locomotive-fuel-category"].value then
-  data.raw["locomotive"]["locomotive"].burner.fuel_category = "battery"
+  locomotive.burner.fuel_category = "battery"
 else
-  data.raw["locomotive"]["locomotive"].burner.fuel_category = nil
-  data.raw["locomotive"]["locomotive"].burner.fuel_categories = {"chemical", "battery"}
+  locomotive.burner.fuel_category = nil
+  locomotive.burner.fuel_categories = {"chemical", "battery"}
 end
-data.raw["locomotive"]["locomotive"].burner.fuel_inventory_size = 3
-data.raw["locomotive"]["locomotive"].burner.burnt_inventory_size = 3
-data.raw["locomotive"]["locomotive"].burner.ff_no_double_inventory_size = true
+locomotive.burner.fuel_inventory_size = 3
+locomotive.burner.burnt_inventory_size = 3
+locomotive.burner.ff_no_double_inventory_size = true
+
+--locomotive.friction_force = 0.30  -- Was 0.50
+--locomotive.air_resistance = 0.0050 -- Was 0.0075
 
 -- Integrate mini trains, move regular trains to later in the tech tree
 data.raw.technology["mini-trains"] = nil
