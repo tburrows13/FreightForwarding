@@ -18,6 +18,9 @@ else
   data.raw["locomotive"]["locomotive"].burner.fuel_category = nil
   data.raw["locomotive"]["locomotive"].burner.fuel_categories = {"chemical", "battery"}
 end
+data.raw["locomotive"]["locomotive"].burner.fuel_inventory_size = 3
+data.raw["locomotive"]["locomotive"].burner.burnt_inventory_size = 3
+data.raw["locomotive"]["locomotive"].burner.ff_no_double_inventory_size = true
 
 -- Integrate mini trains, move regular trains to later in the tech tree
 data.raw.technology["mini-trains"] = nil

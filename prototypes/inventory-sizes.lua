@@ -79,8 +79,11 @@ end
 
 -- Increase burner fuel inventory sizes to compensate
 local function increase_fuel_inventory_size(energy_source)
-  if energy_source and energy_source.fuel_inventory_size then
+  if energy_source and energy_source.fuel_inventory_size and not energy_source.ff_no_double_inventory_size then
     energy_source.fuel_inventory_size = min(energy_source.fuel_inventory_size * 2, 10)
+    if energy_source.burnt_inventory_size then
+      energy_source.burnt_inventory_size = min(energy_source.burnt_inventory_size * 2, 10)
+    end
   end
 end
 
