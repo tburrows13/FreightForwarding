@@ -17,6 +17,7 @@ require "__FreightForwarding__/prototypes/resources"
 require "__FreightForwarding__/prototypes/map-gen"
 require "__FreightForwarding__/prototypes/map-gen-presets"
 require "__FreightForwarding__/prototypes/recipe"
+require "__FreightForwarding__/simulations/menu"
 
 local radar = data.raw["radar"]["radar"]
 radar.max_distance_of_sector_revealed = 17  -- 35x35 chunk square

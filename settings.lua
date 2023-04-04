@@ -39,7 +39,18 @@ force_setting("string", "oil_richness", "good")
 force_setting("int", "oil_rig_capacity", 250)
 
 -- Remove military science from spiderling and patrol technologies
+
 force_setting("bool", "sp-remove-military-requirement", true)
 
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"
 require "__FreightForwarding__/compatibility/krastorio2/settings"
+
+data:extend({
+  {
+    type = "bool-setting",
+    name = "freight-forwarding-disable-default-sims",
+    order = "d",
+    setting_type = "startup",
+    default_value = true
+  }
+})
