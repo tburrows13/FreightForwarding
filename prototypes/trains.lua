@@ -1,6 +1,24 @@
 local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require("__bzlead__/data-util")
 
+data:extend{
+  {
+    type = "fuel-category",
+    name = "advanced-chemical"
+  },
+}
+data.raw.item["rocket-fuel"].fuel_category = "advanced-chemical"
+data.raw.item["nuclear-fuel"].fuel_category = "advanced-chemical"
+
+-- These 2 won't get "advanced-chemical" added
+data.raw["locomotive"]["mini-locomotive"].ff_no_advanced_fuel = true
+if not settings.startup["ff-revert-locomotive-fuel-category"].value then
+  data.raw["locomotive"]["locomotive"].burner.fuel_category = "battery"
+else
+  data.raw["locomotive"]["locomotive"].burner.fuel_category = nil
+  data.raw["locomotive"]["locomotive"].burner.fuel_categories = {"chemical", "battery"}
+end
+
 -- Integrate mini trains, move regular trains to later in the tech tree
 data.raw.technology["mini-trains"] = nil
 local railway_tech = data.raw.technology["railway"]
@@ -29,7 +47,6 @@ bzutil.set_ingredient("mini-locomotive", "engine-unit", 15)  -- Was 5
 bzutil.set_ingredient("mini-cargo-wagon", "iron-plate", 20)  -- Was 5
 bzutil.set_ingredient("mini-fluid-wagon", "pipe", 4)  -- Was 20
 bzutil.add_ingredient("mini-fluid-wagon", "storage-tank", 1)
-
 
 data:extend{
   {

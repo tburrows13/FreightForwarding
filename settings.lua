@@ -1,3 +1,13 @@
+data:extend{
+  {
+    type = "bool-setting",
+    name = "ff-revert-locomotive-fuel-category",
+    setting_type = "startup",
+    default_value = false,
+    order = "a",
+  },
+}
+
 local function force_setting(setting_type, setting_name, value)
   local setting = data.raw[setting_type .. "-setting"][setting_name]
   if setting_type == "bool" then
