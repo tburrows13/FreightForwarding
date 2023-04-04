@@ -49,5 +49,7 @@ force_setting("int", "oil_rig_capacity", 250)
 
 force_setting("bool", "sp-remove-military-requirement", true)
 
+force_setting("bool", "bobmods-logistics-trains", false)
+
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"
 require "__FreightForwarding__/compatibility/krastorio2/settings"
