@@ -17,13 +17,15 @@ data:extend{
 
 local function force_setting(setting_type, setting_name, value)
   local setting = data.raw[setting_type .. "-setting"][setting_name]
-  if setting_type == "bool" then
-    setting.forced_value = value
-  else
-    setting.allowed_values = { value }
+  if setting then
+    if setting_type == "bool" then
+      setting.forced_value = value
+    else
+      setting.allowed_values = { value }
+    end
+    setting.default_value = value
+    setting.hidden = true
   end
-  setting.default_value = value
-  setting.hidden = true
 end
 
 -- Intermodal Containers

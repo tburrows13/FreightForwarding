@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 5 April 2023
+  Features:
+    - Moved dependency from Deadlock's Crating Machine to Intermodal Containers
+      - After updating, ensure that Deadlock's Crating Machine is disabled and Intermodal Containers is enabled
+      - This doesn't affect existing saves, but it will give a long list of "Changed recipes" on load
+    - Some more items can be stored in containers, including all tiles and ammo
+    - All newly-containerisable items have had their stack size halved
+    - Reworked trains and train fuel
+      - Added mini trains, which unlock where regular trains previously would
+      - Regular trains are moved to later in the tech tree, and require charged batteries as fuel
+      - Added mod setting to revert the above change so that trains from older saves can still run on burnable fuel
+    - Added several menu background simulations (thanks to sinewavey!)
+  Compatibility:
+    - Added compatibility with Rocket-Silo Construction
+    - Bob's Logistics trains setting is now forcibly disabled (but Bob's Logistics is not recommended at all)
+---------------------------------------------------------------------------------------------------
 Version: 1.4.2
 Date: 18 March 2023
   Bugfixes:

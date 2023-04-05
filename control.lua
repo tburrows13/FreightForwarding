@@ -1,3 +1,4 @@
+require "util"
 require "scripts.container-limitations"
 require "scripts.milestones"
 require "scripts.seismic-scanning"
@@ -104,7 +105,7 @@ script.on_init(
 )
 
 script.on_configuration_changed(
-  function()
+  function(changed_data)
     CollisionTest.run()
     for _, force in pairs(game.forces) do
       force.reset_technology_effects()
@@ -112,6 +113,29 @@ script.on_configuration_changed(
     for _, surface in pairs(game.surfaces) do
       for _, entity in pairs(surface.find_entities_filtered{type = "assembling-machine", name = {"ff-lava-pool", "ff-lava-pool-small"}, force = "player"}) do
         entity.destructible = false
+      end
+    end
+
+    local old_version
+    local mod_changes = changed_data.mod_changes
+    if mod_changes and mod_changes["FreightForwarding"] and mod_changes["FreightForwarding"]["old_version"] then
+      old_version = mod_changes["FreightForwarding"]["old_version"]
+    else
+      return
+    end
+
+    old_version = util.split(old_version, ".")
+    for i=1,#old_version do
+      old_version[i] = tonumber(old_version[i])
+    end
+    if old_version[1] == 1 then
+      if old_version[2] <= 5 then
+        -- Run on 1.5.0 load
+        for _, force in pairs(game.forces) do
+          if force.technologies["railway"].researched then
+            force.print("[Freight Forwarding] This update changes trains to use batteries rather than burnable fuel. If you wish to revert this behaviour so that your existing factory continues to run, you can do so from [font=default-large-semibold]Main Menu > Settings > Mod settings > Startup[/font]")
+          end
+        end
       end
     end
   end
