@@ -2,16 +2,13 @@ if not mods["Krastorio2"] then return end
 
 local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require("__bzlead__/data-util")
-local TIER_1 = "ic-containerization-1"
-local TIER_2 = "ic-containerization-2"
-local TIER_3 = "ic-containerization-3"
 
 -- Disable matter recipes that give iron-ore, copper-ore & cobalt-ore (getting them from nodules)
 data.raw.recipe["matter-to-iron-ore"].hidden = true
 data.raw.recipe["matter-to-copper-ore"].hidden = true
 data.raw.recipe["matter-to-ff-cobalt-ore"].hidden = true
 
---Remove unlock effects from kr-matter techs
+-- Remove unlock effects from kr-matter techs
 bzutil.remove_recipe_effect("kr-matter-iron-processing", "matter-to-iron-ore")
 bzutil.remove_recipe_effect("kr-matter-copper-processing", "matter-to-copper-ore")
 bzutil.remove_recipe_effect("kr-matter-cobalt-processing", "matter-to-ff-cobalt-ore")
@@ -31,78 +28,114 @@ util.add_research_ingredient("fluid-handling", "logistic-science-pack")
 util.add_research_ingredient("oil-processing", "logistic-science-pack")
 util.add_research_ingredient("plastics", "logistic-science-pack")
 
--- Item containers and stack sizes
-local items_data = {
-  ["advanced-fuel"] = { stack_size = 25 },
-  ["advanced-tech-card"] = { source = "tool" },
-  ["ai-core"] = { stack_size = 25 },
-  ["automation-core"] = { tech = TIER_2 },
-  ["basic-tech-card"] = { source = "tool", tech = TIER_2 },
-  ["bio-fuel"] = { stack_size = 25 },
-  ["biomass"] = { tech = TIER_1 },
-  ["blank-tech-card"] = { tech = TIER_2 },
-  ["biters-research-data"] = {},
-  ["charged-antimatter-fuel-cell"] = {},
-  ["charged-matter-stabilizer"] = {},
-  ["coke"] = { stack_size = 25, tech = TIER_1 },
-  ["dt-fuel"] = {},
-  ["electronic-components"] = { tech = TIER_2 },
-  ["empty-antimatter-fuel-cell"] = {},
-  ["empty-dt-fuel"] = { tech = "kr-fusion-energy" },
-  ["energy-control-unit"] = {},
-  ["enriched-copper"] = {},
-  ["enriched-iron"] = {},
-  ["enriched-lead"] = {},
-  ["enriched-rare-metals"] = {},
-  ["enriched-titanium"] = {},
-  ["fertilizer"] = {},
-  ["fuel"] = { stack_size = 25 },
-  ["glass"] = {},
-  ["imersite-crystal"] = {},
-  ["imersite-powder"] = { tech = "kr-quarry-minerals-extraction" },
-  ["imersium-beam"] = {},
-  ["imersium-gear-wheel"] = {},
-  ["imersium-plate"] = {},
-  ["improved-pollution-filter"] = {},
-  ["inserter-parts"] = { tech = TIER_2 },
-  ["iron-beam"] = { tech = TIER_2 },
-  ["lithium"] = {},
-  ["lithium-chloride"] = {},
-  ["lithium-sulfur-battery"] = {},
-  ["low-density-structure"] = { stack_size = 25 },
-  ["matter-cube"] = {},
-  ["matter-research-data"] = {},
-  ["matter-stabilizer"] = {},
-  ["matter-tech-card"] = { source = "tool" },
-  ["pollution-filter"] = {},
-  ["quartz"] = {},
-  ["rare-metals"] = {},
-  ["raw-imersite"] = { stack_size = 15, tech = "kr-quarry-minerals-extraction" },
-  ["raw-rare-metals"] = { stack_size = 15, tech = TIER_1 },
-  ["rocket-control-unit"] = { stack_size = 25 },
-  ["rocket-fuel"] = { stack_size = 25 },
-  ["sand"] = {},
-  ["silicon"] = {},
-  ["singularity-tech-card"] = { source = "tool" },
-  ["space-research-data"] = { tech = TIER_3 },
-  ["steel-beam"] = { tech = TIER_2 },
-  ["steel-gear-wheel"] = { tech = TIER_2 },
-  ["tritium"] = { tech = TIER_3 },
-  ["used-improved-pollution-filter"] = {},
-  ["used-pollution-filter"] = {},
-}
---[[
-for item_name, item in pairs(items_data) do
-  if item.stack_size then 
-    data.raw[item.source or "item"][item_name].stack_size = item.stack_size 
-  else
-    ff_restack(item_name)
+-- Remove Transport Science pack from Singularity lab
+for i, input in pairs(data.raw.lab["kr-singularity-lab"].inputs) do
+  if input == "ff-transport-science-pack" then
+    table.remove(data.raw.lab["kr-singularity-lab"].inputs, i)
   end
+end
 
-  deadlock_crating.add_crate_autotech(item_name, item.tech)
-end]]
+-- Custom stcks size (will be halved in final-fixes)
+data.raw.item["wood"].stack_size = 50
+data.raw.item["sand"].stack_size = 50
+data.raw.item["raw-imersite"].stack_size = 30
+data.raw.item["raw-rare-metals"].stack_size = 30
+data.raw.item["coke"].stack_size = 50
+data.raw.item["glass"].stack_size = 100
+data.raw.item["fertilizer"].stack_size = 100
+data.raw.item["biomass"].stack_size = 100
+data.raw.item["quartz"].stack_size = 100
+data.raw.item["silicon"].stack_size = 100
+data.raw.item["rare-metals"].stack_size = 100
+data.raw.item["imersium-plate"].stack_size = 100
+data.raw.item["enriched-iron"].stack_size = 100
+data.raw.item["enriched-copper"].stack_size = 100
+data.raw.item["enriched-rare-metals"].stack_size = 100
+data.raw.item["lithium-chloride"].stack_size = 100
+data.raw.item["lithium"].stack_size = 100
+data.raw.item["sulfur"].stack_size = 100
+data.raw.item["lithium-sulfur-battery"].stack_size = 100
+data.raw.item["explosives"].stack_size = 100
+data.raw.item["imersite-powder"].stack_size = 100
+data.raw.item["tritium"].stack_size = 100
+data.raw.item["fuel"].stack_size = 50
+data.raw.item["bio-fuel"].stack_size = 50
+data.raw.item["advanced-fuel"].stack_size = 50
+data.raw.item["iron-stick"].stack_size = 200
+data.raw.item["iron-gear-wheel"].stack_size = 200
+data.raw.item["rocket-control-unit"].stack_size = 50
+data.raw.item["low-density-structure"].stack_size = 50
+data.raw.item["rocket-fuel"].stack_size = 50
+data.raw.item["matter-stabilizer"].stack_size = 50
+data.raw.item["charged-matter-stabilizer"].stack_size = 50
+data.raw.item["processing-unit"].stack_size = 200
+data.raw.item["engine-unit"].stack_size = 200
+data.raw.item["electric-engine-unit"].stack_size = 200
+data.raw.item["flying-robot-frame"].stack_size = 200
+data.raw.item["imersite-crystal"].stack_size = 200
+data.raw.item["uranium-235"].stack_size = 200
+data.raw.item["uranium-238"].stack_size = 200
+data.raw.item["energy-control-unit"].stack_size = 200
+data.raw.item["space-research-data"].stack_size = 200
+data.raw.item["kr-black-reinforced-plate"].stack_size = 100
+data.raw.item["kr-white-reinforced-plate"].stack_size = 100
+data.raw.item["kr-steel-pipe"].stack_size = 100
+data.raw.ammo["explosive-turret-rocket"].stack_size = 50
+data.raw.ammo["nuclear-turret-rocket"].stack_size = 50
+data.raw.ammo["antimatter-turret-rocket"].stack_size = 50
+data.raw.ammo["artillery-shell"].stack_size = 50
+data.raw.ammo["nuclear-artillery-shell"].stack_size = 50
+data.raw.ammo["antimatter-artillery-shell"].stack_size = 50
+data.raw.ammo["atomic-bomb"].stack_size = 50
+data.raw.ammo["antimatter-rocket"].stack_size = 50
 
--- change resources autoplace
+if mods["PlutoniumEnergy"] then
+  data.raw.item["plutonium-238"].stack_size = 200
+  data.raw.item["plutonium-239"].stack_size = 200
+  data.raw.ammo["plutonium-atomic-bomb"].stack_size = 50
+end
+
+-- Add containers
+data.raw.ammo["artillery-shell"].ic_create_container = true
+data.raw.ammo["atomic-bomb"].ic_create_container = true
+data.raw.ammo["antimatter-rocket"].ic_create_container = true
+
+if mods["PlutoniumEnergy"] then 
+  data.raw.ammo["plutonium-atomic-bomb"].ic_create_container = true
+end
+
+-- Revert fuels' category to adv.chemical
+data.raw.item["rocket-fuel"].fuel_category = "advanced-chemical"
+
+-- Add chemical fuel back to boat (but NOT adv. chamical)
+data.raw.car["indep-boat"].burner.fuel_category = nil
+data.raw.car["indep-boat"].burner.fuel_categories = { "chemical", "vehicle-fuel" }
+
+-- Add K2's vehicle fuel to Mini Trains
+data.raw.locomotive["mini-locomotive"].burner.fuel_category = nil
+data.raw.locomotive["mini-locomotive"].burner.fuel_categories = { "chemical", "vehicle-fuel" }
+
+-- Apply regular trains' fuel changes + add Vehicle fuel if needed
+if not settings.startup["ff-revert-locomotive-fuel-category"].value then
+  data.raw.locomotive.locomotive.burner.fuel_category = "battery"
+  data.raw.locomotive.locomotive.burner.fuel_categories = nil
+else
+  data.raw.locomotive.locomotive.burner.fuel_category = nil
+  data.raw.locomotive.locomotive.burner.fuel_categories = { "chemical", "vehicle-fuel", "battery" }
+end
+
+-- Allow Plutonium Energy fuel cells into K2's Nuclear Locomotive
+if mods["PlutoniumEnergy"] then 
+  local burner = data.raw.locomotive["kr-nuclear-locomotive"].burner
+  burner.fuel_categories = {
+    burner.fuel_category,
+    data.raw.item["MOX-fuel"].fuel_category,
+    data.raw.item["breeder-fuel-cell"].fuel_category
+  }
+  burner.fuel_category = nil
+end
+
+-- Change resources autoplace
 local resource_autoplace = require("resource-autoplace/resource-autoplace")
 local empty_radius = 1500
 
