@@ -1,24 +1,10 @@
 if not mods["aai-industry"] then return end
 
-local TIER_1 = "ic-containerization-1"
-local TIER_2 = "ic-containerization-2"
-local TIER_3 = "ic-containerization-3"
+data.raw.item["processed-fuel"].stack_size = 50
 
-local items_data = {
-  ["electric-motor"] = { tech = TIER_2 },
-  ["glass"] = {},
-  ["motor"] = { tech = TIER_2 },
-  ["processed-fuel"] = {},
-  ["sand"] = {},
-  ["stone-tablet"] = {},
-}
---[[
-for item_name, item in pairs(items_data) do
-  if item.stack_size then 
-    data.raw[item.source or "item"][item_name].stack_size = item.stack_size 
-  else
-    ff_restack(item_name)
-  end
-
-  deadlock_crating.add_crate_autotech(item_name, item.tech)
-end]]
+if mods["Krastorio2"] then
+  data.raw.item["electric-motor"].stack_size = 200
+  data.raw.item["motor"].stack_size = 200
+else
+  data.raw.item["sand"].stack_size = 100
+end
