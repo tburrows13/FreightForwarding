@@ -1,4 +1,4 @@
-local scanner_range = 24
+local scanner_range = 30
 local min_tiles_from_water = 16
 
 local function to_chunk_position(map_position)
