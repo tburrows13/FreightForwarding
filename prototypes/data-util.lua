@@ -50,6 +50,7 @@ end
 
 function data_util.is_descendant_of(tech_name, ancestor)
   --if tech_name == ancestor then return true end
+  --log(ancestor .. "  -->  "..tech_name)
   local technology = data.raw.technology[tech_name]
   if not technology then return false end
   if technology.prerequisites == nil then
@@ -72,6 +73,16 @@ function data_util.allow_productivity(recipe_name)
       table.insert(module.limitation, recipe_name)
     end
   end
+end
+
+function data_util.debug_technology(tech_name)
+  local tech = data.raw.technology[tech_name]
+  if not tech then log("Unable to find "..tech_name) return end
+  log(serpent.block({
+    A_name    = tech.name,
+    B_prereq  = tech.prerequisites,
+    C_effects = tech.effects
+  }))
 end
 
 return data_util

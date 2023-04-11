@@ -32,6 +32,7 @@ Compatibles (will at least load):
 - [x] Spidertron Enhancements
 - [x] Spidertron Patrols
 - [x] Toxic Biters
+- [x] Train Construction Site
 - [x] Train Groups
 - [x] Transport Drones
 - [x] Underwater Pipes
