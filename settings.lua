@@ -53,7 +53,5 @@ force_setting("bool", "sp-remove-military-requirement", true)
 -- Ensure missile hovercraft exists
 force_setting("bool", "enable-mcraft", true)
 
-force_setting("bool", "bobmods-logistics-trains", false)
-
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/settings"
 require "__FreightForwarding__/compatibility/krastorio2/settings"
