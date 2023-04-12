@@ -203,6 +203,7 @@ data:extend{ -- Battery charging interface
           minimum_intensity = 0,
           maximum_intensity = 0,
       },
+      ff_no_double_inventory_size = true,
     },
 
     fast_replaceable_group = "assembling-machine",
