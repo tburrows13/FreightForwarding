@@ -62,3 +62,6 @@ for _, control in pairs(data.raw["autoplace-control"]) do
     presets["ff-ribbon-world"].basic_settings.autoplace_controls[control.name] = ff_ribbon
   end
 end
+
+-- hide ribbon world
+presets["ff-ribbon-world"] = nil
