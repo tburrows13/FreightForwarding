@@ -20,8 +20,10 @@ if not mods["Krastorio2"] then return end
 data.raw["item-subgroup"]["ic-load-terrain"].order = "a[load]-a-c"
 data.raw["item-subgroup"]["ic-unload-terrain"].order = "b[unload]-a-c"
 
-data.raw["item-subgroup"]["ic-load-logistic-network"].order = "a[load]-k"
-data.raw["item-subgroup"]["ic-unload-logistic-network"].order = "b[unload]-k"
+if mods["Long_Range_Delivery_Drones"] then 
+  data.raw["item-subgroup"]["ic-load-logistic-network"].order = "a[load]-k"
+  data.raw["item-subgroup"]["ic-unload-logistic-network"].order = "b[unload]-k"
+end
 
 data.raw["item-subgroup"]["ic-load-space-related"].order = "a[load]-m"
 data.raw["item-subgroup"]["ic-unload-space-related"].order = "b[unload]-m"
