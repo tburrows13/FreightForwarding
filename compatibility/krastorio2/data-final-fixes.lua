@@ -1,5 +1,11 @@
 if not mods["Krastorio2"] then return end
 
+local function set_subgroup_order(subgroup_name, order)
+  local item_subgroup = data.raw["item-subgroup"][subgroup_name]
+  if not item_subgroup then return end
+  item_subgroup.order = order
+end
+
 -- -- Reorder containers recipes
 -- "a[load]-a"   = "ic-load-fluid-recipes"
 -- "a[load]-a-b" = "ic-load-fuel-processing"
@@ -17,22 +23,20 @@ if not mods["Krastorio2"] then return end
 -- "a[load]-o"   = "ic-load-railgun-turret"
 -- "a[load]-p"   = "ic-load-rocket-turret"
 
-data.raw["item-subgroup"]["ic-load-terrain"].order = "a[load]-a-c"
-data.raw["item-subgroup"]["ic-unload-terrain"].order = "b[unload]-a-c"
+set_subgroup_order("ic-load-terrain", "a[load]-a-c")
+set_subgroup_order("ic-unload-terrain", "b[unload]-a-c")
 
-if mods["Long_Range_Delivery_Drones"] then 
-  data.raw["item-subgroup"]["ic-load-logistic-network"].order = "a[load]-k"
-  data.raw["item-subgroup"]["ic-unload-logistic-network"].order = "b[unload]-k"
-end
+set_subgroup_order("ic-load-logistic-network", "a[load]-k")
+set_subgroup_order("ic-unload-logistic-network", "b[unload]-k")
 
-data.raw["item-subgroup"]["ic-load-space-related"].order = "a[load]-m"
-data.raw["item-subgroup"]["ic-unload-space-related"].order = "b[unload]-m"
+set_subgroup_order("ic-load-space-related", "a[load]-m")
+set_subgroup_order("ic-unload-space-related", "b[unload]-m")
 
-data.raw["item-subgroup"]["ic-load-ammo"].order = "a[load]-n"
-data.raw["item-subgroup"]["ic-unload-ammo"].order = "b[unload]-n"
+set_subgroup_order("ic-load-ammo", "a[load]-n")
+set_subgroup_order("ic-unload-ammo", "b[unload]-n")
 
-data.raw["item-subgroup"]["ic-load-railgun-turret"].order = "a[load]-o"
-data.raw["item-subgroup"]["ic-unload-railgun-turret"].order = "b[unload]-o"
+set_subgroup_order("ic-load-railgun-turret", "a[load]-o")
+set_subgroup_order("ic-unload-railgun-turret", "b[unload]-o")
 
-data.raw["item-subgroup"]["ic-load-rocket-turret"].order = "a[load]-p"
-data.raw["item-subgroup"]["ic-unload-rocket-turret"].order = "b[unload]-p"
+set_subgroup_order("ic-load-rocket-turret", "a[load]-p")
+set_subgroup_order("ic-unload-rocket-turret", "b[unload]-p")
