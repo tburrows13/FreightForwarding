@@ -8,7 +8,7 @@ Technology progression is carefully balanced around the customised procedural is
 
 Use the basic resources (iron, copper, stone, and coal) to produce Automation and Logistics sciences.
 **Unlocks**:
-- Trains
+- Mini trains
 - Container loading
 - Lead processing
 
@@ -23,6 +23,7 @@ Lead ore is required for Transport science and always spawns at the edge of your
 
 Oil only spawns in large offshore patches at sea, so you'll need to use oil rigs and tanker ships to retrieve it.
 **Unlocks**:
+- Battery-powered trains
 - Deep sea dredging
 - Titanium processing
 - Uranium processing
@@ -91,8 +92,8 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 ### Battery charging
 - Battery items can be charged in the charging station
 - Energy stored in charged batteries can be used in the discharging station
-- Floating power poles (from Cargo Ships) have been removed, so you on each island you will have to setup power production or import electricity using containerized charged batteries
-- Steam cannot be loaded onto tanker ships
+- Floating power poles (from Cargo Ships) have been removed, so on each island you will have to setup power production or import electricity using containerized charged batteries
+- Regular trains require charged batteries for power (mini trains still use burnable fuel)
 
 ---
 
@@ -100,13 +101,14 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 
 Some of Freight Forwarding's functionality is provided by other, required, mods. Many things from these mods have been changed to fit into the overall balance and progression, so if you find a bug in them, please confirm that it still occurs without Freight Forwarding enabled before reporting it to that mod's owner, or report it to me and I can let you know whether it's my bug or not.
 
-- [Deadlock's Crating Machine](https://mods.factorio.com/mod/DeadlockCrating): provides graphics and basic functionality for loading containers, although all recipes and icons have been replaced
+- [Intermodal Containers](https://mods.factorio.com/mod/IntermodalContainers): developed from Deadlock's Crating Machine, provides container loading and unloading functionality
 - Water mods
     - [Cargo Ships](https://mods.factorio.com/mod/cargo-ships): large inventories for transport across water; oil rigs for drilling oil in the ocean
     - [Canal Builder Simplified](https://mods.factorio.com/mod/CanalBuilderMAV): allows placing shallow water adjacent to existing water
     - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships)
     - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes): construct offshore oil rig infrastructure without landfill
     - [Hovercrafts](https://mods.factorio.com/mod/Hovercrafts): easier navigation across both water and land
+- [Mini Trains](https://mods.factorio.com/mod/Mini_Trains): adds small trains; regular trains only use batteries and are unlocked later
 - [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): useful for transporting items which can't be loaded into containers
 - [Lex's Aircraft](https://mods.factorio.com/mod/lex-aircraft): late-game alternative to spidertrons, for automation of product logistics over land and sea
 - [BZ Lead](https://mods.factorio.com/mod/bzlead)
@@ -121,15 +123,15 @@ I'd recommend installing [Freight Forwarding Pack](https://mods.factorio.com/mod
 
 Enemy difficulty has not been changed, but because of the island/continent-based map generation, enemies may be easier than normal. I'd recommend [Armoured Biters](https://mods.factorio.com/mod/ArmouredBiters) (make sure to enable custom nests in mod settings), [Explosive Biters](https://mods.factorio.com/mod/Explosive_biters), [Frost Biters](https://mods.factorio.com/mod/Cold_biters), and [Toxic Biters](https://mods.factorio.com/mod/Toxic_biters) if you want an extra challenge.
 
-Compatible with [AAI Industry](https://mods.factorio.com/mod/aai-industry). For additional complexity, you can try installing other [BZ Ores](https://brevven.github.io/bz/), although I haven't tested them so they don't have the custom resource spawning and there may be tech/progression softlocks.
-Not compatible any other overhaul mods (such as Bob's+Angel's, Krastorio2 and Space Exploration). Maybe in the future I will add compatibility with some overhauls, perhaps Krastorio, Industrial Revolution, or Exotic Industries, but this is unlikely to ever happen. Let me know if you'd be interested in any particular overhaul compatibility.
+Compatible with [AAI Industry](https://mods.factorio.com/mod/aai-industry) and [Krastorio2](https://mods.factorio.com/mod/Krastorio2). For additional complexity, you can try installing other [BZ Ores](https://brevven.github.io/bz/), although I haven't tested them so they don't have the custom resource spawning and there may be tech/progression softlocks.
+Not compatible any other overhaul mods (such as Bob's+Angel's and Space Exploration). Maybe in the future I will add compatibility with some overhauls, perhaps Industrial Revolution, or Exotic Industries, but this is unlikely to ever happen. Let me know if you'd be interested in any particular overhaul compatibility.
 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 
 Other small-to-medium mods will probably work, although may break the intended balance/progression. Fully compatible with [Alien Biomes](https://mods.factorio.com/mod/alien-biomes).
 
 ### Attributions
-Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, brevven, and lexsus.
+Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, Klonan, Sacredanarchy, brevven, and lexsus.
 Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the seismic scanner graphics (from [Biter Power](https://mods.factorio.com/mod/biter-power)).
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the battery charging/discharging station graphics (from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains)).
 Thank you to [Yehn](https://mods.factorio.com/user/Yehn) for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
