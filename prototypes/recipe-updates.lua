@@ -1,6 +1,12 @@
 local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require "__bzlead__/data-util"
 
+-- Set recipes fro poles touched by BZ & AAI
+bzutil.set_ingredient("big-electric-pole", "lead-plate", 10)  -- From 2
+bzutil.set_ingredient("big-electric-pole", "steel-plate", 2)  -- From 5
+bzutil.set_ingredient("substation", "lead-plate", 10)  -- From 2
+bzutil.set_ingredient("substation", "steel-plate", 5)  -- From 10
+
 -- Revert bzlead's changes to early game things that need to be built before lead is accessible
 bzutil.replace_ingredient("pipe", "lead-plate", "iron-plate")
 bzutil.remove_ingredient("gun-turret", "lead-plate")

@@ -19,11 +19,6 @@ bzutil.replace_ingredient("oil_tanker", "iron-gear-wheel", "lead-plate")
 util.add_prerequisite("oil-processing", "tank_ship")
 util.add_prerequisite("ff-dredging", "cargo_ships")
 
-bzutil.set_ingredient("big-electric-pole", "lead-plate", 10)  -- From 2
-bzutil.set_ingredient("big-electric-pole", "steel-plate", 2)  -- From 5
-bzutil.set_ingredient("substation", "lead-plate", 10)  -- From 2
-bzutil.set_ingredient("substation", "steel-plate", 5)  -- From 10
-
 -- Add titanium to lex aircraft
 bzutil.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 bzutil.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
