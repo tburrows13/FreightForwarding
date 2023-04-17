@@ -3,6 +3,7 @@ require "scripts.container-limitations"
 require "scripts.milestones"
 require "scripts.seismic-scanning"
 require "scripts.dredging-platform"
+require "scripts.endgame"
 local CollisionTest = require "scripts.collision-test"
 
 local function lava_pool_created(lava_pool)
@@ -101,12 +102,25 @@ script.on_init(
         lava_pool_created(entity)
       end
     end
+
+    if not (script.active_mods["Krastorio2"] or script.active_mods["SpaceMod"]) then
+      if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
+        remote.call("silo_script", "set_no_victory", true)
+      end
+    end
   end
 )
 
 script.on_configuration_changed(
   function(changed_data)
     CollisionTest.run()
+
+    if not (script.active_mods["Krastorio2"] or script.active_mods["SpaceMod"]) then
+      if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
+        remote.call("silo_script", "set_no_victory", true)
+      end
+    end
+
     for _, force in pairs(game.forces) do
       force.reset_technology_effects()
     end
