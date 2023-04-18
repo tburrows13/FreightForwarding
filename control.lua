@@ -1,5 +1,6 @@
 require "util"
 require "scripts.container-limitations"
+require "scripts.landfill-hidden-tile"
 require "scripts.milestones"
 require "scripts.seismic-scanning"
 require "scripts.dredging-platform"

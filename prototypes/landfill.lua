@@ -53,7 +53,6 @@ local landfill_recipe = data.raw.recipe["landfill"]
 landfill_recipe.ingredients = {{ "stone", 20 }, { "wood", 1 }}
 
 local landfill = data.raw.tile["landfill"]
-landfill.walking_speed_modifier = 1.2  -- It can't be concreted, so give it a bit of a boost anyway
 
 -- Make landfill minable
 landfill.minable = {
