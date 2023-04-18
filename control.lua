@@ -107,6 +107,9 @@ script.on_init(
       if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
         remote.call("silo_script", "set_no_victory", true)
       end
+      if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
+        remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
+      end
     end
   end
 )
@@ -118,6 +121,9 @@ script.on_configuration_changed(
     if not (script.active_mods["Krastorio2"] or script.active_mods["SpaceMod"]) then
       if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
         remote.call("silo_script", "set_no_victory", true)
+      end
+      if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
+        remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
       end
     end
 
