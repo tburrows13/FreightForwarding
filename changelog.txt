@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.1
+Date: 18 April 2023
+  Changes:
+    - Concrete and other tiles can now be placed on landfill (thanks to Xeno Lupus!)
+    - Added new dredging tip
+---------------------------------------------------------------------------------------------------
 Version: 1.6.0
 Date: 18 April 2023
   Features:
