@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 18 April 2023
+  Features:
+    - Added "Interstellar communicator", which must be launched in a rocket to win the game
+      - Interstellar communicator unlock requires space science, so 10 satellites must be launched to unlock it
+      - This extends the endgame and makes rockets something that you have to properly support with your logistics, rather than just being an afterthought
+      - I have plans for a more interesting endgame, involving delivering resources to rocket silos spread around the map, but this will take several weeks/months to develop
+    - Added several tips and tricks items explaining key concepts
+  Compatibility:
+    - Fixed crash on load with Krastorio 2 if "Long range delivery drones" was not also enabled
+    - Fixed long range delivery drones inventory size being unintentionally reduced from 5 to 3
+    - Fixed incorrect big electric pole recipe when playing with AAI Industries
+---------------------------------------------------------------------------------------------------
 Version: 1.5.1
 Date: 12 April 2023
   Changes:
