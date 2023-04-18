@@ -176,8 +176,8 @@ data:extend{
   {
     type = "technology",
     name = "ff-cobalt-processing",
-    icon = "__base__/graphics/technology/oil-gathering.png",
-    icon_size = 256, icon_mipmaps = 4,
+    icon = "__FreightForwarding__/graphics/cobalt-ingot-technology.png",
+    icon_size = 100, icon_mipmaps = 1,
     order = "a",
     prerequisites = {"utility-science-pack", "ff-dredging", "explosives"},
     unit = {
