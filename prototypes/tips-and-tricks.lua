@@ -185,7 +185,7 @@ data:extend{
     order = "h",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
   },
-  {
+  --[[{
     type = "tips-and-tricks-item",
     name = "ff-cobalt",
     tag = "[item=ff-cobalt-ore]",
@@ -193,7 +193,7 @@ data:extend{
     indent = 1,
     order = "i",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
-  },
+  },]]
   --[[{
     type = "tips-and-tricks-item",
     name = "ff-titansteel",
