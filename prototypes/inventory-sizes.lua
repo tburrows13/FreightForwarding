@@ -2,6 +2,7 @@ local inventory_blacklist = {
   ["broken_droid"] = true,  -- Science droids
   ["droid_work_station"] = true,
   ["companion"] = true,  -- Companion drones
+  ["long-range-delivery-drone"] = true,  -- Long range delivery drones
 }
 
 local function divide_inventory_size(prototype, amount)
@@ -49,7 +50,7 @@ if broken_droid then
   broken_droid.inventory_size = 30
 end
 
--- Increase Rocket Silo result inventory since science pack stacks are 100 instead of 1'000
+-- Increase Rocket Silo result inventory since science pack stacks are 100 instead of 1000
 data.raw["rocket-silo"]["rocket-silo"].rocket_result_inventory_size = 10
 
 local burner_types = {
