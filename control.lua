@@ -5,6 +5,7 @@ require "scripts.milestones"
 require "scripts.seismic-scanning"
 require "scripts.dredging-platform"
 require "scripts.endgame"
+local Compatibility = require "scripts.compatibility"
 local CollisionTest = require "scripts.collision-test"
 
 local function lava_pool_created(lava_pool)
@@ -93,6 +94,7 @@ end
 
 script.on_init(
   function()
+    Compatibility.init()
     CollisionTest.run()
     script.on_nth_tick(300, print_warning)  -- Probably desyncs if a player joins within 5 seconds
 
@@ -117,6 +119,7 @@ script.on_init(
 
 script.on_configuration_changed(
   function(changed_data)
+    Compatibility.init()
     CollisionTest.run()
 
     if not (script.active_mods["Krastorio2"] or script.active_mods["SpaceMod"]) then
