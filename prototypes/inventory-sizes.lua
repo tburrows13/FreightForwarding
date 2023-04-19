@@ -17,7 +17,15 @@ for _, prototype in pairs(data.raw["cargo-wagon"]) do
 end
 
 for _, prototype in pairs(data.raw["car"]) do
-  divide_inventory_size(prototype, 2)
+  if prototype.name == "hcraft-entity" then
+    prototype.inventory_size = 0
+  elseif prototype.name == "mcraft-entity" then
+    prototype.inventory_size = 10
+  elseif prototype.name == "ironclad" then
+    prototype.inventory_size = 20
+  else
+    divide_inventory_size(prototype, 2)
+  end
 end
 
 -- Automated loading of containers into spider-vehicles is prohibited, so don't need to decrease by much,
@@ -25,23 +33,6 @@ end
 for _, prototype in pairs(data.raw["spider-vehicle"]) do
   divide_inventory_size(prototype, 2)
 end
-
-for _, prototype in pairs(data.raw["container"]) do
-  -- wood/iron/steel default is 16/32/48
-  -- change to 12/18/24
-  if prototype.name == "wooden-chest" and prototype.inventory_size == 16 then
-    prototype.inventory_size = 12
-  elseif prototype.name == "iron-chest" and prototype.inventory_size == 32 then
-    prototype.inventory_size = 18
-  else
-    divide_inventory_size(prototype, 2)
-  end
-end
-
--- Logistic chests are unlikely to be holding containers
---for _, prototype in pairs(data.raw["logistic-container"]) do
---  divide_inventory_size(prototype, 2)
---end
 
 -- Increase inventory size of broken droids from Science Droids so that
 -- they can fit all required materials even though stack sizes are reduced
