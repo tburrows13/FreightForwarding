@@ -1,7 +1,6 @@
 require "util"
 require "scripts.container-limitations"
 require "scripts.landfill-hidden-tile"
-require "scripts.milestones"
 require "scripts.seismic-scanning"
 require "scripts.dredging-platform"
 require "scripts.endgame"
@@ -91,6 +90,8 @@ local function print_warning()
     script.on_nth_tick(300, nil)
   end
 end
+
+Compatibility.load()
 
 script.on_init(
   function()
