@@ -7,9 +7,9 @@ Date: 19 April 2023
   Bugfixes:
     - Fixed lead ore sometimes not spawning on starting island
   Compatibility:
-    - [Krastorio 2] Add blank tech cards to transport tech card recipe
+    - [Krastorio 2] Added blank tech cards to transport tech card recipe
     - [Krastorio 2] Removed steel plates from big electric pole recipe
-    - Added orange color (for Transport Sciences Packs) to labs when using Disco Science
+    - Added orange color (for transport science packs) to labs when using Disco Science
 ---------------------------------------------------------------------------------------------------
 Version: 1.6.1
 Date: 18 April 2023
