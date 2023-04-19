@@ -13,10 +13,21 @@ bzutil.remove_recipe_effect("kr-matter-iron-processing", "matter-to-iron-ore")
 bzutil.remove_recipe_effect("kr-matter-copper-processing", "matter-to-copper-ore")
 bzutil.remove_recipe_effect("kr-matter-cobalt-processing", "matter-to-ff-cobalt-ore")
 
--- Transport Tech Card
+-- -- Transport Tech Card
 data.raw.tool["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-item.png"
 data.raw.tool["ff-transport-science-pack"].order = "b03[transport-science-pack]"
 data.raw.technology["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-technology.png"
+bzutil.set_product_amount("ff-transport-science-pack", "ff-transport-science-pack", 5)
+bzutil.set_recipe_time("ff-transport-science-pack", 20)
+data.raw.recipe["ff-transport-science-pack"].ingredients = {
+  { name = "big-electric-pole", amount = 1},
+  { name = "rail",              amount = 5},
+  { name = "blank-tech-card",   amount = 5}
+}
+
+-- Big-electric-pole recipe
+bzutil.remove_ingredient("big-electric-pole", "steel-plate")
+bzutil.set_ingredient("big-electric-pole", "steel-beam", 2)
 
 -- Simplify research tree
 bzutil.remove_recipe_effect("kr-basic-fluid-handling", "pipe-to-ground")
