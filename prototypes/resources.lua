@@ -116,12 +116,13 @@ if mods["bzlead"] then
     has_starting_area_placement = true,
     regular_rq_factor_multiplier = 1.2,
     starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_ring_radius = 550,  -- Spawns the starting patch somewhere at distance from the center
+    starting_resource_placement_ring_radius = 575,  -- Spawns the starting patch somewhere at distance from the center
     starting_resource_placement_radius = 1000,  -- Keep it reasonably above starting_resource_placement_ring_radius?
     regular_patch_fade_in_distance_start = 1000,
     regular_patch_fade_in_distance = 1000,
     ideal_aux = 0.7,
   }
+  --data.raw.resource["lead-ore"].map_color = {r=1, g=0, b=0}  -- For debug
 end
 
 if mods["bztitanium"] then
