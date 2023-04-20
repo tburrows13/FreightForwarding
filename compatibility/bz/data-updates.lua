@@ -206,3 +206,6 @@ set_stack_size("cement", 100)
 set_stack_size("crucible", 100)
 set_stack_size("aluminum-cable", 200)
 set_stack_size("acsr-cable", 200)
+
+bzutil.remove_ingredient("stone-furnace", "zircon")
+bzutil.set_ingredient("stone-furnace", "stone", 5)
