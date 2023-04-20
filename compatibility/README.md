@@ -14,6 +14,7 @@ Compatibles (will at least load):
 - [x] Cargo Ships
 - [x] Cheese's Concentrated Solar
 - [x] Deadlock's Larger Lamp
+- [x] Disco Science
 - [x] Explosive Biters
 - [x] Extended Descriptions
 - [x] Frost Biters
