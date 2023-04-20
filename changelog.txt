@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.2
+Date: 19 April 2023
+  Changes:
+    - Increased chest sizes back to vanilla values
+    - Removed hovercraft inventory, reduced missile hovercraft inventory size to 10, reduced ironclad inventory size to 20
+  Bugfixes:
+    - Fixed lead ore sometimes not spawning on starting island
+  Compatibility:
+    - [Krastorio 2] Added blank tech cards to transport tech card recipe
+    - [Krastorio 2] Removed steel plates from big electric pole recipe
+    - Added orange color (for transport science packs) to labs when using Disco Science
+---------------------------------------------------------------------------------------------------
 Version: 1.6.1
 Date: 18 April 2023
   Changes:
@@ -14,7 +26,7 @@ Date: 18 April 2023
       - I have plans for a more interesting endgame, involving delivering resources to rocket silos spread around the map, but this will take several weeks/months to develop
     - Added several tips and tricks items explaining key concepts
   Compatibility:
-    - Fixed crash on load with Krastorio 2 if "Long range delivery drones" was not also enabled
+    - [Krastorio 2] Fixed crash on load if "Long range delivery drones" was not also enabled
     - Fixed long range delivery drones inventory size being unintentionally reduced from 5 to 3
     - Fixed incorrect big electric pole recipe when playing with AAI Industries
 ---------------------------------------------------------------------------------------------------

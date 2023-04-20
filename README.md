@@ -24,6 +24,7 @@ Lead ore is required for Transport science and always spawns at the edge of your
 Oil only spawns in large offshore patches at sea, so you'll need to use oil rigs and tanker ships to retrieve it.
 **Unlocks**:
 - Battery-powered trains
+- Hovercrafts
 - Deep sea dredging
 - Titanium processing
 - Uranium processing
@@ -33,7 +34,6 @@ Oil only spawns in large offshore patches at sea, so you'll need to use oil rigs
 Titanium and Uranium only spawn on other continents, so you will load them into containers at their mines and transport the containers using combinations of ships and trains.
 **Unlocks**:
 - Spidertron automation
-- Hovercrafts
 
 ### Production / Utility sciences
 
@@ -45,7 +45,8 @@ Expansion onto other continents for larger patches of basic resources will be re
 
 ### Rocket launch
 
-Rocket parts require Titansteel, which can only be forged in naturally-occuring lava pools using steel and titanium plates for the ultimate logistics challenge! Combat aircraft have a very large radar area, so can be used to explore large areas of the map using remotes.
+Rocket parts require Titansteel, which can only be forged in naturally-occuring lava pools using steel, titanium, and cobalt for the ultimate logistics challenge! Combat aircraft have a very large radar area, so can be used to explore large areas of the map using remotes.
+You must launch an interstellar communicator to win the game, which can be researched using space science from 10 launched satellites.
 
 ---
 
@@ -55,14 +56,13 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 - Stack sizes of all raw and intermediate resources has been halved compared to vanilla
 - One container holds 20 stacks (10x density compared to vanilla)
 - Inventory sizes have been reduced to compensate, so trains and ships have had their inventory sizes divided by 10
-- Other vehicles and containers have had their inventory sizes divided by 2
+- Other vehicles have had their inventory sizes divided by 2
 - Containers are very heavy, so transporting them by logistic robots is prohibited
 - Empty containers can be loaded into spidertrons using docks, but spidertrons also cannot carry loaded containers
 
 ### Landfill
 - Landfill and rail bridges cannot be placed on deep water
 - Landfill can now be removed by right-clicking on it whilst holding a tile in hand
-- Stone bricks and concrete cannot be placed on landfill
 
 ### Map generation
 - Custom procedural map generation originally based on [Island Start](https://mods.factorio.com/mod/IslandStart) featuring a completely isolated starting island surrounded by larger islands and continents
@@ -83,7 +83,7 @@ Rocket parts require Titansteel, which can only be forged in naturally-occuring 
 
 ### Titansteel and Lava pools
 - Lava pools occur naturally in far-away islands
-- Steel plates and titanium plates can be inserted into lava pools to create hot titansteel plates (which also produces slag as a byproduct)
+- Steel, titanium, and cobalt can be inserted into lava pools to create hot titansteel plates (which also produces slag as a byproduct)
 - Hot titansteel plates can be cooled into Titansteel plates, which produces lots of steam (so doubles up as a power source)
 - Titansteel can be reheated in small lava pools if you want to expand the power production
 - Slag requires sulfuric acid to process, which returns small amounts of iron ore and stone
@@ -136,6 +136,7 @@ Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the battery charging/discharging station graphics (from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains)).
 Thank you to [Yehn](https://mods.factorio.com/user/Yehn) for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
 Thank you to [PantherX](https://mods.factorio.com/user/PantherX) and [Kirazy](https://mods.factorio.com/user/Kirazy) for the dredging platform tile graphics (from [Dectorio](https://mods.factorio.com/mod/Dectorio)).
+Thank you to [Krastorio2](https://mods.factorio.com/mod/Krastorio2) for the interstellar communicator icon.
 Thank you to [Subnautica](https://unknownworlds.com/subnautica/) for the ferrous nodule, cupric nodule, and cobalt ingot icons.
-Thank you to RedRafe, Ray1claw, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for feedback and suggestions.
+Thank you to RedRafe, Ray1claw, Xeno Lupus, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for contributions, feedback and suggestions.
 If anyone would like to contribute better graphics, please get in touch!
