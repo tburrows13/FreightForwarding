@@ -35,6 +35,7 @@ Compatibles (will at least load):
 - [x] Mining Space Industries II
 - [x] Plutonium Energy
 - [x] Power Overload
+- [x] Pressurized Fluids
 - [x] Remote Configuration
 - [x] Rocket Silo Construction
 - [x] Simulation Helper
