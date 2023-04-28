@@ -11,6 +11,8 @@ end
 require "__FreightForwarding__/compatibility/aai-industry/data-updates"
 require "__FreightForwarding__/compatibility/aai-vehicles-ironclad/data-updates"
 require "__FreightForwarding__/compatibility/big-mining-drill/data-updates"
+require "__FreightForwarding__/compatibility/bz/data-updates"
+require "__FreightForwarding__/compatibility/compressed-fluids/data-updates"
 require "__FreightForwarding__/compatibility/concentrated-solar/data-updates"
 require "__FreightForwarding__/compatibility/krastorio2/data-updates"
 require "__FreightForwarding__/compatibility/plutonium-energy/data-updates"

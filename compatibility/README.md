@@ -8,12 +8,22 @@ Compatibles (will at least load):
 - [X] Beautiful Bridges Railway Cargoships
 - [x] Big Mining Drill
 - [ ] Bz
+  - [ ] Aluminum
+  - [ ] Carbon
+  - [ ] Foundry
+  - [ ] Gas
   - [x] Lead
+  - [ ] Noble Metals
+  - [ ] Silicon
+  - [ ] Tin
   - [x] Titanium
+  - [ ] Tungsten
+  - [ ] Zirconium
 - [x] Canal Builder Simplified
 - [x] Cargo Ships
 - [x] Cheese's Concentrated Solar
 - [x] Deadlock's Larger Lamp
+- [x] Disco Science
 - [x] Explosive Biters
 - [x] Extended Descriptions
 - [x] Frost Biters
@@ -25,6 +35,7 @@ Compatibles (will at least load):
 - [x] Mining Space Industries II
 - [x] Plutonium Energy
 - [x] Power Overload
+- [x] Pressurized Fluids
 - [x] Remote Configuration
 - [x] Rocket Silo Construction
 - [x] Simulation Helper

@@ -3,10 +3,15 @@ if not mods["beautiful_bridge_railway_Cargoships"] then return end
 local function multiply_ingredients(ingredients, multiplier, ingredient_name)
   local new_ingredients = {}
   for _, ingredient in pairs(ingredients) do
-    if not ingredient_name or ingredient_name == ingredient[1] then
-      table.insert(new_ingredients, {ingredient[1], ingredient[2] * multiplier})
+    local pi = {
+      type   = ingredient.type   or "item",
+      name   = ingredient.name   or ingredient[1],
+      amount = ingredient.amount or ingredient[2]
+    }
+    if not ingredient_name or ingredient_name == pi.name then
+      table.insert(new_ingredients, {type = pi.type, name = pi.name, amount = pi.amount * multiplier})
     else
-      table.insert(new_ingredients, {ingredient[1], ingredient[2]})
+      table.insert(new_ingredients, {type = pi.type, name = pi.name, amount = pi.amount})
     end
   end
   return new_ingredients
