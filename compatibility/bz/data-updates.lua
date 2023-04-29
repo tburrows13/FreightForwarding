@@ -12,9 +12,10 @@ then return end
 
 local resource_autoplace = require("resource-autoplace/resource-autoplace")
 local bzutil = require("__bzlead__/data-util")
+local util = require "__FreightForwarding__/prototypes/data-util"
 
 local START_RADIUS =  175
-local INNER_RADIUS =  525
+local INNER_RADIUS =  575
 local OUTER_RADIUS = 1000
 local EMPTY_RADIUS = 1500
 
@@ -209,3 +210,28 @@ set_stack_size("acsr-cable", 200)
 
 bzutil.remove_ingredient("stone-furnace", "zircon")
 bzutil.set_ingredient("stone-furnace", "stone", 5)
+
+-- Remove tungsten and zirconium from engines/trains
+util.remove_prerequisite("engine", "tungsten-processing")
+bzutil.remove_ingredient("engine-unit", "spark-plug")
+bzutil.remove_ingredient("engine-unit", "tungsten-plate")
+
+if mods["bztungsten"] then
+  -- Adds tungsten requirement to transport science
+  bzutil.add_ingredient("ff-transport-science-pack", "small-lamp", 2)
+end
+
+-- Add zircon to transport science
+bzutil.add_ingredient("big-electric-pole", "zirconium-plate", 2)
+bzutil.add_ingredient("po-huge-electric-pole", "zirconium-plate", 10)  -- From Power Overload
+bzutil.add_ingredient("substation", "zirconium-plate", 5)
+
+-- Remove lead from natural gas things
+if not mods["bztin"] then
+  bzutil.remove_ingredient("gas-extractor", "lead-plate")
+  bzutil.remove_ingredient("basic-chemical-plant", "lead-plate")
+end
+
+if mods["bztin"] and not (mods["bztungsten"] or mods["bzzirconium"]) then
+  error("\nUsing BZ Tin without either Tungsten or Zirconium is not allowed for progression reasons")
+end
