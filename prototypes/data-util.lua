@@ -85,4 +85,10 @@ function data_util.debug_technology(tech_name)
   }))
 end
 
+function data_util.set_item_subgroup_order(subgroup_name, order)
+  local item_subgroup = data.raw["item-subgroup"][subgroup_name]
+  if not item_subgroup then return end
+  item_subgroup.order = order
+end
+
 return data_util
