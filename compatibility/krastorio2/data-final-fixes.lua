@@ -1,10 +1,6 @@
 if not mods["Krastorio2"] then return end
 
-local function set_subgroup_order(subgroup_name, order)
-  local item_subgroup = data.raw["item-subgroup"][subgroup_name]
-  if not item_subgroup then return end
-  item_subgroup.order = order
-end
+local data_util = require "__FreightForwarding__/prototypes/data-util"
 
 -- -- Reorder containers recipes
 -- "a[load]-a"   = "ic-load-fluid-recipes"
@@ -23,20 +19,20 @@ end
 -- "a[load]-o"   = "ic-load-railgun-turret"
 -- "a[load]-p"   = "ic-load-rocket-turret"
 
-set_subgroup_order("ic-load-terrain", "a[load]-a-c")
-set_subgroup_order("ic-unload-terrain", "b[unload]-a-c")
+data_util.set_item_subgroup_order("ic-load-terrain", "a[load]-a-c")
+data_util.set_item_subgroup_order("ic-unload-terrain", "b[unload]-a-c")
 
-set_subgroup_order("ic-load-logistic-network", "a[load]-k")
-set_subgroup_order("ic-unload-logistic-network", "b[unload]-k")
+data_util.set_item_subgroup_order("ic-load-logistic-network", "a[load]-k")
+data_util.set_item_subgroup_order("ic-unload-logistic-network", "b[unload]-k")
 
-set_subgroup_order("ic-load-space-related", "a[load]-m")
-set_subgroup_order("ic-unload-space-related", "b[unload]-m")
+data_util.set_item_subgroup_order("ic-load-space-related", "a[load]-m")
+data_util.set_item_subgroup_order("ic-unload-space-related", "b[unload]-m")
 
-set_subgroup_order("ic-load-ammo", "a[load]-n")
-set_subgroup_order("ic-unload-ammo", "b[unload]-n")
+data_util.set_item_subgroup_order("ic-load-ammo", "a[load]-n")
+data_util.set_item_subgroup_order("ic-unload-ammo", "b[unload]-n")
 
-set_subgroup_order("ic-load-railgun-turret", "a[load]-o")
-set_subgroup_order("ic-unload-railgun-turret", "b[unload]-o")
+data_util.set_item_subgroup_order("ic-load-railgun-turret", "a[load]-o")
+data_util.set_item_subgroup_order("ic-unload-railgun-turret", "b[unload]-o")
 
-set_subgroup_order("ic-load-rocket-turret", "a[load]-p")
-set_subgroup_order("ic-unload-rocket-turret", "b[unload]-p")
+data_util.set_item_subgroup_order("ic-load-rocket-turret", "a[load]-p")
+data_util.set_item_subgroup_order("ic-unload-rocket-turret", "b[unload]-p")
