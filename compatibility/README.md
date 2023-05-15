@@ -7,18 +7,19 @@ Compatibles (will at least load):
 - [x] Auto-Track-Laying
 - [X] Beautiful Bridges Railway Cargoships
 - [x] Big Mining Drill
-- [ ] Bz
-  - [ ] Aluminum
-  - [ ] Carbon
-  - [ ] Foundry
-  - [ ] Gas
+- [x] Bz
+  - [x] Aluminum
+  - [x] Carbon
+  - [x] Foundry
+  - [x] Gas
   - [x] Lead
-  - [ ] Noble Metals
-  - [ ] Silicon
-  - [ ] Tin
+  - [x] Noble Metals
+  - [x] Salt & Chlorine
+  - [x] Silicon
+  - [x] Tin
   - [x] Titanium
-  - [ ] Tungsten
-  - [ ] Zirconium
+  - [x] Tungsten
+  - [x] Zirconium
 - [x] Canal Builder Simplified
 - [x] Cargo Ships
 - [x] Cheese's Concentrated Solar

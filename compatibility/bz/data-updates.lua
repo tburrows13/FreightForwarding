@@ -1,7 +1,7 @@
 if  
   not mods["bzaluminum"]  and
   not mods["bzcarbon"]    and
-  not mods["bzcarbon"]    and
+  not mods["bzchlorine"]  and
   not mods["bzgas"]       and
   not mods["bzgold"]      and
   not mods["bzsilicon"]   and
@@ -9,6 +9,10 @@ if
   not mods["bztungsten"]  and
   not mods["bzzirconium"]
 then return end
+
+if mods["bztin"] and not (mods["bztungsten"] or mods["bzzirconium"]) then
+  error("\nUsing BZ Tin without either Tungsten or Zirconium is not allowed for progression reasons")
+end
 
 local resource_autoplace = require("resource-autoplace/resource-autoplace")
 local bzutil = require("__bzlead__/data-util")
@@ -27,7 +31,7 @@ local EMPTY_RADIUS = 1500
 .60 stone, tungsten
 .70 lead, zircon
 .80 copper, tin, rich-coppe
-.90 lava pool
+.90 lava pool, salt
 ]]
 
 -- Starter Island Spawn: Aluminum, Natural Gas, Graphite, Tin, (Coal, Copper, Iron, Stone)
@@ -116,7 +120,24 @@ if mods["bztin"] then
   }
 end
 
--- Startet Island Ring: Wolframite (AKA Tungsten), Zircon
+-- Startet Island Ring: Salt, Wolframite (AKA Tungsten), Zircon
+
+if mods["bzchlorine"] then
+  data.raw.resource["salt"].autoplace = resource_autoplace.resource_autoplace_settings{
+    name = "salt",
+    order = "b-z",
+    base_density = 3,
+    base_spots_per_km2 = 2,
+    regular_rq_factor_multiplier = 2.0,
+    has_starting_area_placement = true,
+    starting_resource_placement_ring_radius = INNER_RADIUS,
+    starting_resource_placement_radius = OUTER_RADIUS,
+    regular_patch_fade_in_distance_start = OUTER_RADIUS,
+    regular_patch_fade_in_distance = OUTER_RADIUS,
+    ideal_aux = 0.9,
+    aux_range = 0.05,
+  }
+end
 
 if mods["bztungsten"] then
   data.raw.resource["tungsten-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
@@ -194,19 +215,21 @@ local function set_stack_size(item, stack_size)
   item.stack_size = stack_size
 end
 
-set_stack_size("rich-copper-ore", 30)
-set_stack_size("silver-ore", 30)
-set_stack_size("gold-ore", 30)
 set_stack_size("aluminum-ore", 30)
 set_stack_size("flake-graphite", 30)
+set_stack_size("gold-ore", 30)
+set_stack_size("rich-copper-ore", 30)
+set_stack_size("salt", 30)
+set_stack_size("silver-ore", 30)
+set_stack_size("tin-ore", 30)
 set_stack_size("tungsten-ore", 30)
 set_stack_size("zircon", 30)
-set_stack_size("tin-ore", 30)
-set_stack_size("zirconia", 100)
 set_stack_size("cement", 100)
 set_stack_size("crucible", 100)
-set_stack_size("aluminum-cable", 200)
+set_stack_size("zirconia", 100)
 set_stack_size("acsr-cable", 200)
+set_stack_size("aluminum-cable", 200)
+
 
 bzutil.remove_ingredient("stone-furnace", "zircon")
 bzutil.set_ingredient("stone-furnace", "stone", 5)
@@ -230,8 +253,4 @@ bzutil.add_ingredient("substation", "zirconium-plate", 5)
 if not mods["bztin"] then
   bzutil.remove_ingredient("gas-extractor", "lead-plate")
   bzutil.remove_ingredient("basic-chemical-plant", "lead-plate")
-end
-
-if mods["bztin"] and not (mods["bztungsten"] or mods["bzzirconium"]) then
-  error("\nUsing BZ Tin without either Tungsten or Zirconium is not allowed for progression reasons")
 end
