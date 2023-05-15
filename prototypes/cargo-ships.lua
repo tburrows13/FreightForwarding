@@ -1,8 +1,3 @@
--- Fix oil rigs
-table.insert(data.raw["generator"]["or_power"].flags, "placeable-off-grid")
-table.insert(data.raw["electric-pole"]["or_pole"].flags, "placeable-off-grid")
-table.insert(data.raw["radar"]["or_radar"].flags, "placeable-off-grid")
-
 -- Much bigger supply area to make up for lack of floating pole
 data.raw["electric-pole"]["or_pole"].supply_area_distance = 7.5  -- 4.5
 
