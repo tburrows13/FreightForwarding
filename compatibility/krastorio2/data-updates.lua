@@ -3,6 +3,9 @@ if not mods["Krastorio2"] then return end
 local util = require "__FreightForwarding__/prototypes/data-util"
 local bzutil = require("__bzlead__/data-util")
 
+-- Update kr-steel-pump
+data.raw.pump["kr-steel-pump"].energy_source.drain = "1.5kW"
+
 -- Disable matter recipes that give iron-ore, copper-ore & cobalt-ore (getting them from nodules)
 data.raw.recipe["matter-to-iron-ore"].hidden = true
 data.raw.recipe["matter-to-copper-ore"].hidden = true
