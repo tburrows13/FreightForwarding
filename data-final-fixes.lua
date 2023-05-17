@@ -43,6 +43,17 @@ for _, tech in pairs(data.raw.technology) do
   end
 end
 
+if data.raw.technology["ff-interstellar-communication"] then
+  for name, tech in pairs(data.raw.technology) do
+    if name ~= "ff-interstellar-communication" then
+      for _, prereq in pairs(tech.prerequisites or {}) do
+        if prereq == "space-science-pack" then
+          table.insert(tech.prerequisites, "ff-interstellar-communication")
+        end
+      end
+    end
+  end
+end
 -- Compatibility
 require "__FreightForwarding__/compatibility/beautiful-bridge-railway/data-final-fixes"
 require "__FreightForwarding__/compatibility/krastorio2/data-final-fixes"
