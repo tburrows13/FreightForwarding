@@ -123,8 +123,8 @@ I'd recommend installing [Freight Forwarding Pack](https://mods.factorio.com/mod
 
 Enemy difficulty has not been changed, but because of the island/continent-based map generation, enemies may be easier than normal. I'd recommend [Armoured Biters](https://mods.factorio.com/mod/ArmouredBiters) (make sure to enable custom nests in mod settings), [Explosive Biters](https://mods.factorio.com/mod/Explosive_biters), [Frost Biters](https://mods.factorio.com/mod/Cold_biters), and [Toxic Biters](https://mods.factorio.com/mod/Toxic_biters) if you want an extra challenge.
 
-Compatible with [AAI Industry](https://mods.factorio.com/mod/aai-industry) and [Krastorio2](https://mods.factorio.com/mod/Krastorio2). For additional complexity, you can try installing other [BZ Ores](https://brevven.github.io/bz/), although I haven't tested them so they don't have the custom resource spawning and there may be tech/progression softlocks.
-Not compatible any other overhaul mods (such as Bob's+Angel's and Space Exploration). Maybe in the future I will add compatibility with some overhauls, perhaps Industrial Revolution, or Exotic Industries, but this is unlikely to ever happen. Let me know if you'd be interested in any particular overhaul compatibility.
+Compatible with [AAI Industry](https://mods.factorio.com/mod/aai-industry) and [Krastorio2](https://mods.factorio.com/mod/Krastorio2). For additional complexity, you can try installing other [BZ Ores](https://brevven.github.io/bz/). In particular, I'd recommend [Tungsten](https://mods.factorio.com/mod/bztungsten), [Natural Gas](https://mods.factorio.com/mod/bzgas), and [Noble Metals](https://mods.factorio.com/mod/bzgold).
+Not compatible any other overhaul mods (such as Bob's+Angel's and Space Exploration). Maybe in the future I will add compatibility with some overhauls (perhaps Industrial Revolution, or Exotic Industries) but this is unlikely to ever happen. Let me know if you'd be interested in any particular overhaul compatibility.
 
 For quality of life, you are free to choose your own. You can see my general recommendations [here](https://mods.factorio.com/mod/X-QoL).
 

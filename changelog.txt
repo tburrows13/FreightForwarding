@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.3
+Date: 17 May 2023
+  Changes:
+    - Changed colour of seamounts on map from black to green
+    - Changed colour of discharging machines from blue to green (to distinguish them from charging machines)
+    - Locale changes corresponding to Cargo Ships v0.2.0
+  Compatibility:
+    - Added compatibility with all BZ Ores (Very BZ)
+    - Fixed error on load with Pressurized fluids
+---------------------------------------------------------------------------------------------------
 Version: 1.6.2
 Date: 19 April 2023
   Changes:
