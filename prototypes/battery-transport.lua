@@ -2,11 +2,17 @@
 local hit_effects = require("__base__/prototypes/entity/hit-effects")
 local sounds = require("__base__/prototypes/entity/sounds")
 
-function space_accumulator_picture(tint, repeat_count)
+function space_accumulator_picture(tint, repeat_count, discharging_graphics)
+  local filename = "__FreightForwarding__/graphics/charging-station/space_charging_station.png"
+  local hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station.png"
+  if discharging_graphics then 
+    filename = "__FreightForwarding__/graphics/charging-station/space_discharging_station.png"
+    hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_discharging_station.png"
+  end
   return {
     layers = {
       {
-        filename = "__FreightForwarding__/graphics/charging-station/space_charging_station.png",
+        filename = filename,
         priority = "high",
         width = 64,
         height = 96,
@@ -16,7 +22,7 @@ function space_accumulator_picture(tint, repeat_count)
         animation_speed = 0.5,
         scale = 1,
         hr_version = {
-          filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station.png",
+          filename = hr_filename,
           priority = "high",
           width = 128,
           height = 192,
@@ -51,14 +57,14 @@ function space_accumulator_picture(tint, repeat_count)
   }
 end
 
-function space_accumulator_charge()
+function space_accumulator_charge(discharging_graphics)
   return {
       layers = {space_accumulator_picture({
           r = 1,
           g = 1,
           b = 1,
           a = 1
-      }, 30), {
+      }, 30, discharging_graphics), {
           filename = "__FreightForwarding__/graphics/charging-station/space_charging_station_lightning.png",
           priority = "high",
           width = 64,
@@ -169,7 +175,7 @@ data:extend{ -- Battery charging interface
   {
     type = "burner-generator",
     name = "ff-discharging-station",
-    icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
+    icon = "__FreightForwarding__/graphics/charging-station/space-train-discharging-station.png",
     icon_size = 128,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
@@ -207,8 +213,8 @@ data:extend{ -- Battery charging interface
     },
 
     fast_replaceable_group = "assembling-machine",
-    idle_animation = space_accumulator_picture(nil, 30),
-    animation = space_accumulator_charge(),
+    idle_animation = space_accumulator_picture(nil, 30, true),
+    animation = space_accumulator_charge(true),
 
     water_reflection = accumulator_reflection(),
     vehicle_impact_sound = sounds.generic_impact,
@@ -243,7 +249,7 @@ data:extend{ -- Battery charging interface
   {
     type = "item",
     name = "ff-discharging-station",
-    icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
+    icon = "__FreightForwarding__/graphics/charging-station/space-train-discharging-station.png",
     icon_size = 128,
     subgroup = "production-machine",
     order = "h[train-system]",
