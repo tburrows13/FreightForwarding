@@ -169,8 +169,8 @@ data:extend{
     },
     results = {
       {type = "fluid", name = "water", amount = 20, catalyst_amount = 20},
-      {type = "item", name = "lead-ore", amount_min = 10, amount_max = 20},
-      {type = "item", name = "titanium-ore", amount_min = 10, amount_max = 20},
+      {type = "item", name = "lead-ore", amount_min = 0, amount_max = 8},
+      {type = "item", name = "titanium-ore", amount_min = 0, amount_max = 4},
     },
   },
   {

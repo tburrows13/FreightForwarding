@@ -37,7 +37,7 @@ data:extend{
     results = {
       {name = "iron-ore", amount_min = 40, amount_max = 50},
       {name = "copper-ore", amount_min = 0, amount_max = 8},
-      {name = "stone", amount_min = 0, amount_max = 16},
+      {name = "stone", amount_min = 0, amount_max = 4},
       {name = "ff-ferrous-nodule", amount_min = 0, amount_max = 6},
     },
   },
@@ -79,7 +79,7 @@ data:extend{
     results = {
       {name = "copper-ore", amount_min = 40, amount_max = 50},
       {name = "iron-ore", amount_min = 0, amount_max = 8},
-      {name = "stone", amount_min = 0, amount_max = 16},
+      {name = "stone", amount_min = 0, amount_max = 4},
       {name = "ff-cupric-nodule", amount_min = 0, amount_max = 6},
     },
   },
@@ -122,7 +122,7 @@ data:extend{
       {name = "ff-cobalt-ore", amount_min = 40, amount_max = 50},
       {name = "iron-ore", amount_min = 0, amount_max = 8},
       {name = "copper-ore", amount_min = 0, amount_max = 8},
-      {name = "stone", amount_min = 0, amount_max = 16},
+      {name = "stone", amount_min = 0, amount_max = 4},
       {name = "ff-cobalt-crust", amount_min = 0, amount_max = 10},
     },
   },
