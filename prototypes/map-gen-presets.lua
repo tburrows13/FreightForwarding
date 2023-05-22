@@ -15,7 +15,7 @@ presets["x-default"] = {
       ["coal"] = ff_default,
       ["uranium-ore"] = ff_default,
       ["crude-oil"] = ff_default,]]
-      ["enemy-base"] = { frequency = 0.5, size = 0.5 },
+      --["enemy-base"] = { frequency = 0.5, size = 0.5 },
     },
     terrain_segmentation = 1,  -- Inverse of Water Scale
     water = 1,  -- Water Coverage
@@ -27,13 +27,16 @@ presets["x-default"] = {
     enemy_evolution = {
       time_factor = 0.000001  -- Default is 0.000004
     },
+    enemy_expansion = {
+     enabled = false
+    },
     difficulty_settings = {
       research_queue_setting = "always"
     }
   }
 }
-
 -- FreightForwarding::Ribbon Word
+-- TODO update with changes to x-default preset
 presets["ff-ribbon-world"] = {
   order = ".2",
   basic_settings = 
