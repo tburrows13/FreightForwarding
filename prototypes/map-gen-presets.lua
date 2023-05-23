@@ -25,7 +25,7 @@ presets["x-default"] = {
   },
   advanced_settings = {
     enemy_evolution = {
-      time_factor = 0.000001  -- Default is 0.000004
+      time_factor = 0.000002  -- Default is 0.000004
     },
     enemy_expansion = {
      enabled = false
