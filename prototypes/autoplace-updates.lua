@@ -40,7 +40,7 @@ Goes from
   },
 ]]
 
-local distance_scale = 3
+local distance_scale = 2.5
 
 local function update_expression(expression)
   for key, value in pairs(expression) do
