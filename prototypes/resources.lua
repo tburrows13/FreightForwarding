@@ -49,9 +49,12 @@ data:extend{
 
 -- Redefine base resources here so that they pick up modified defaults from config.lua (starting_resource_placement_radius)
 data.raw.resource["iron-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
+  -- iron-ore has a hardcoded special case in resource-autoplace.lua so that it appears both
+  -- in the starting area and at the edge of the starting island
   name = "iron-ore",
   order = "b",
   base_density = 10,
+  starting_amount = 40000,
   has_starting_area_placement = true,
   regular_rq_factor_multiplier = 1.1,
   starting_rq_factor_multiplier = 1.3,
@@ -116,7 +119,7 @@ if mods["bzlead"] then
     has_starting_area_placement = true,
     regular_rq_factor_multiplier = 1.2,
     starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_ring_radius = 575,  -- Spawns the starting patch somewhere at distance from the center
+    starting_resource_placement_ring_radius = 700,  -- Spawns the starting patch somewhere at distance from the center
     starting_resource_placement_radius = 1000,  -- Keep it reasonably above starting_resource_placement_ring_radius?
     regular_patch_fade_in_distance_start = 1000,
     regular_patch_fade_in_distance = 1000,

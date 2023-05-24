@@ -202,7 +202,7 @@ local function IS_make_lakes(x, y, tile, map, options)
   local starting_plateau_bias = 20 --default 20.
   local starting_plateau_octaves = 6
 
-  local blotchiness = 2
+  local blotchiness = 2.75
 
   local roughness = simple_amplitude_corrected_multioctave_noise{
     x = x,
@@ -249,11 +249,11 @@ local function IS_make_lakes(x, y, tile, map, options)
     persistence = persistence_start
   }
   -- 10 default. 
-  local island_scale = 1.7
+  local island_scale = 2.1
   local starting_plateau = starting_plateau_basis + starting_plateau_bias + map.finite_water_level * IS_wlc_mult - tile.distance / (island_scale * 15)
 
   -- Set elevation to -4.5 in a radius around the center so that any generated continents don't merge with the starting island.
-  local empty_radius = 700
+  local empty_radius = 850
   local avoid_starting_island = function(dist)
     return noise.clamp((dist - empty_radius) / (empty_radius + 400), 0, 1) ^ 3
   end

@@ -234,7 +234,7 @@ local function resource_autoplace_settings(params)
   -- reduce the influence of the frequency slider over the amount of ore in the starting area.
   -- note that starting_spot_count is still set to frequency_multiplier below, so we still split the ore to a fairly high amount of patches.
   local starting_frequency_multiplier = ((frequency_multiplier - 1) * 0.5) + 1
-  local starting_amount = default.starting_amount * base_density * starting_frequency_multiplier * size_multiplier
+  local starting_amount = (params.starting_amount or default.starting_amount) * base_density * starting_frequency_multiplier * size_multiplier
   --local starting_amount = 1000000 -- nicer for testing - just check that all spots have ~1.0M
   local starting_area_sharpness = tne(math.huge)
   local starting_resource_placement_area = math.pi*starting_resource_placement_radius*starting_resource_placement_radius
@@ -355,6 +355,54 @@ local function resource_autoplace_settings(params)
     }
   }
 
+  local starting_ring_spots = -1000000
+  if params.name == "iron-ore" then
+    starting_resource_placement_ring_radius = 700
+    starting_resource_placement_radius = 1000  -- Keep it reasonably above starting_resource_placement_ring_radius?
+    regular_patch_fade_in_distance_start = 1000
+    regular_patch_fade_in_distance = 1000
+    starting_resource_placement_area = math.pi*starting_resource_placement_radius*starting_resource_placement_radius
+    starting_density = starting_amount / starting_resource_placement_area
+    -- Goes < 0 outside of starting area and at negative elevations
+    starting_modulation =
+      noise.clamp((starting_resource_placement_radius - distance) * starting_area_sharpness, 0, 1)
+    starting_feasibility =
+      noise.clamp((elevation - 1) / 10, 0, 1) * starting_modulation
+      -- Allow resources at lower elevations for starting
+
+    starting_ring_spots = tne{
+      type = "function-application",
+      function_name = "spot-noise",
+      arguments =
+      {
+        x = noise.var("x"),
+        y = noise.var("y"),
+        seed0 = noise.var("map_seed"),
+        seed1 = tne(seed1+2),
+        skip_span = noise.var("starting-resource-patch-set-count"),
+        skip_offset = starting_patch_set_index,
+        region_size = tne(starting_resource_placement_radius * 2),
+        candidate_spot_count = tne(starting_resource_placement_ring_radius),
+        suggested_minimum_candidate_point_spacing = tne(32),
+        density_expression = litexp(3 * starting_density * starting_modulation),
+        spot_quantity_expression = litexp(starting_area_spot_quantity),
+        hard_region_target_quantity = tne(true), -- Since there's [usually] only one spot, clamp its quantity to the target quantity
+        spot_radius_expression = litexp(starting_rq_factor * starting_area_spot_quantity ^ (onethird)),
+        spot_favorability_expression = litexp(
+          starting_feasibility * 10 * noise.if_else_chain(
+          noise.less_than(distance, starting_resource_placement_ring_radius - 300), 0,
+          noise.less_than(starting_resource_placement_ring_radius + 100, distance), 0,
+          noise.less_than(distance, starting_resource_placement_ring_radius - 150), 0.1 + noise.random(0.1),
+          noise.less_than(distance, starting_resource_placement_ring_radius - 50), 0.4 + noise.random(0.1),
+          noise.less_than(starting_resource_placement_ring_radius + 50, distance), 0.4 + noise.random(0.1),
+          1 + noise.random(0.2)
+        )),
+        basement_value = basement_value,
+        maximum_spot_basement_radius = tne(128) -- does making this huge make a difference?
+      }
+    }
+  end
+
   if pointillist_mode or not patch_blobbiness_enabled then
     regular_blob_amplitude_expression = 0
   end
@@ -407,10 +455,11 @@ local function resource_autoplace_settings(params)
 
   local regular_patches = regular_spots + blobs1f * regular_blob_amplitude_expression
   local starting_patches = starting_spots + blobs0f * starting_blob_amplitude
+  local starting_ring_patches = starting_ring_spots + blobs0f * starting_blob_amplitude
 
   local all_patches
   if (params.has_starting_area_placement) == true then
-    all_patches = noise.max(starting_patches, regular_patches)
+    all_patches = noise.max(starting_patches, regular_patches, starting_ring_patches)
   elseif (params.has_starting_area_placement) == false then
     all_patches = regular_patches
   else -- nil or unspecified means just make it uniform everywhere
