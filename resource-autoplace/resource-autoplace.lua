@@ -2,9 +2,9 @@
 -- -- Import modules
 ---------------------------------------------------------------------------------------------------
 
-local expression_to_ascii_math = require(".expression-to-ascii-math")
-local config = require(".config")
-local noise  = require(".noise")
+local expression_to_ascii_math = require ".expression-to-ascii-math"
+local config = require ".config"
+local noise  = require ".noise"
 local tne    = noise.to_noise_expression
 local litexp = noise.literal_expression
 

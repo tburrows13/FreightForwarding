@@ -28,7 +28,7 @@ presets["x-default"] = {
       time_factor = 0.000002  -- Default is 0.000004
     },
     enemy_expansion = {
-     enabled = false
+    enabled = false
     },
     difficulty_settings = {
       research_queue_setting = "always"

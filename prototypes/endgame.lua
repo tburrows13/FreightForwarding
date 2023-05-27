@@ -1,6 +1,6 @@
 if mods["Krastorio2"] or mods["SpaceMod"] then return end
 
-local bzutil = require("__bzlead__/data-util")
+local bzutil = require "__bzlead__.data-util"
 
 data:extend{
   {

@@ -1,7 +1,7 @@
 if not mods["PlutoniumEnergy"] then return end
 
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require "__bzlead__/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
+local bzutil = require "__bzlead__.data-util"
 
 data.raw.item["plutonium-238"].order = "r[uranium-238]-[plutonium238]"
 data.raw.item["plutonium-239"].order = "r[uranium-238]-[plutonium239]"

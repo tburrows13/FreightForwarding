@@ -45,13 +45,13 @@ local function save_landfill_hidden_tile(event)
 	local landfill_count = 0
 
 	for _, tile in pairs(event.tiles) do
-  	if tile.old_tile.name == "landfill" then
+		if tile.old_tile.name == "landfill" then
 			--game.print("replaced landfill"..tile.position.x.."-"..tile.position.y)
 			local hidden_tile = surface.get_hidden_tile(tile.position)
 			set_landfill_hidden_tile(tile.position.x, tile.position.y, hidden_tile)
 			surface.set_hidden_tile(tile.position, "landfill")
 			landfill_count = landfill_count + 1
-  	end
+		end
 	end
 
 	return landfill_count

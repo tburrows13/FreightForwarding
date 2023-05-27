@@ -344,7 +344,7 @@ local function expression_to_ascii_math(expr, precedence)
   end
 end
 
-local noise = require('noise')
+local noise = require "noise"
 local tne = noise.to_noise_expression
 
 local testing = false

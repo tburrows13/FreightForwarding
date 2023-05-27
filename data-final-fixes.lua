@@ -1,5 +1,5 @@
-require "__FreightForwarding__/prototypes/containers"
-require "__FreightForwarding__/prototypes/fuel-categories"
+require "__FreightForwarding__.prototypes.containers"
+require "__FreightForwarding__.prototypes.fuel-categories"
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
@@ -21,7 +21,7 @@ table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask
 
 
 -- Science
-local util = require "__FreightForwarding__/prototypes/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
 
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then
@@ -55,6 +55,6 @@ if data.raw.technology["ff-interstellar-communication"] then
   end
 end
 -- Compatibility
-require "__FreightForwarding__/compatibility/beautiful-bridge-railway/data-final-fixes"
-require "__FreightForwarding__/compatibility/krastorio2/data-final-fixes"
-require "__FreightForwarding__/compatibility/transport-drones/data-final-fixes"
+require "__FreightForwarding__.compatibility.beautiful-bridge-railway.data-final-fixes"
+require "__FreightForwarding__.compatibility.krastorio2.data-final-fixes"
+require "__FreightForwarding__.compatibility.transport-drones.data-final-fixes"

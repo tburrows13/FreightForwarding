@@ -1,4 +1,4 @@
-local util = require "__FreightForwarding__/prototypes/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
 
 data:extend{
   {

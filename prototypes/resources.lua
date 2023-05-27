@@ -1,6 +1,6 @@
 -- import custom Resource Autoplace
-local resource_autoplace = require("resource-autoplace/resource-autoplace")
-local noise = require("noise")
+local resource_autoplace = require "resource-autoplace.resource-autoplace"
+local noise = require "noise"
 local tne = noise.to_noise_expression
 
 local function make_multioctave_noise_function(seed0,seed1,octaves,octave_output_scale_multiplier,octave_input_scale_multiplier,output_scale0,input_scale0)

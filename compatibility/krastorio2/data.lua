@@ -1,6 +1,6 @@
 if not mods["Krastorio2"] then return end
 
-local matter = require("__Krastorio2__/lib/public/data-stages/matter-util")
+local matter = require "__Krastorio2__.lib.public.data-stages.matter-util"
 
 -- Matter technology
 data:extend({

@@ -3,8 +3,8 @@
 -- assembling-machine which is placed instead of the mining-drill by script
 -- tile which is placed around the assembling-machine by script
 
-local sounds = require("__base__.prototypes.entity.sounds")
-local hit_effects = require("__base__.prototypes.entity.hit-effects")
+local sounds = require "__base__.prototypes.entity.sounds"
+local hit_effects = require "__base__.prototypes.entity.hit-effects"
 
 data:extend{
   {

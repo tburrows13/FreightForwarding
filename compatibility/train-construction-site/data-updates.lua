@@ -1,7 +1,7 @@
 if not mods["trainConstructionSite"] then return end
 
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require "__bzlead__/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
+local bzutil = require "__bzlead__.data-util"
 
 -- Move all TCS techs before Transport Science (needed to deploy trains **)
 -- > mini-trains get unlocked before FF's Transport Science

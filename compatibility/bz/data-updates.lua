@@ -14,9 +14,9 @@ if mods["bztin"] and not (mods["bztungsten"] or mods["bzzirconium"]) then
   error("\nUsing BZ Tin without either Tungsten or Zirconium is not allowed for progression reasons")
 end
 
-local resource_autoplace = require("resource-autoplace/resource-autoplace")
-local bzutil = require("__bzlead__/data-util")
-local util = require "__FreightForwarding__/prototypes/data-util"
+local resource_autoplace = require "resource-autoplace.resource-autoplace"
+local bzutil = require "__bzlead__.data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
 
 local START_RADIUS =  175
 local INNER_RADIUS =  700

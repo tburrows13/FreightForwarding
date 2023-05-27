@@ -150,11 +150,8 @@ script.on_configuration_changed(
     end
 
     old_version = util.split(old_version, ".")
-    for i=1,#old_version do
-      old_version[i] = tonumber(old_version[i])
-    end
-    if old_version[1] == 1 then
-      if old_version[2] <= 5 then
+    if tonumber(old_version[1]) == 1 then
+      if tonumber(old_version[2]) <= 5 then
         -- Run on 1.5.0 load
         for _, force in pairs(game.forces) do
           if force.technologies["railway"].researched then

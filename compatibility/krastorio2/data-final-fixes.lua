@@ -1,6 +1,6 @@
 if not mods["Krastorio2"] then return end
 
-local data_util = require "__FreightForwarding__/prototypes/data-util"
+local data_util = require "__FreightForwarding__.prototypes.data-util"
 
 -- -- Reorder containers recipes
 -- "a[load]-a"   = "ic-load-fluid-recipes"

@@ -1,5 +1,5 @@
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require "__bzlead__/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
+local bzutil = require "__bzlead__.data-util"
 
 -- Set recipes for poles touched by BZ & AAI
 bzutil.set_ingredient("big-electric-pole", "lead-plate", 10)  -- From 2

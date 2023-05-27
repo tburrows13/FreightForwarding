@@ -1,4 +1,4 @@
-local bzutil = require "__bzlead__/data-util";
+local bzutil = require "__bzlead__.data-util";
 
 local IC_PREFIX = "ic-containerization-"
 local IC_LOAD   = "ic-load-"

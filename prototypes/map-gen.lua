@@ -1,13 +1,13 @@
 -- Code taken from IslandStart mod by Yehn, which was itself taken from vanilla
 -- Modified by Xorimuth in many places, and not in a particularly understandable way for anyone else other than me...
 
-local noise = require("noise")
-local util = require("util")
+local noise = require "noise"
+local util = require "util"
 local tne = noise.to_noise_expression
 
-local function make_basis_noise_function(seed0,seed1,outscale0,inscale0)
+local function make_basis_noise_function(seed0, seed1, outscale0, inscale0)
   outscale0 = outscale0 or 1
-  inscale0 = inscale0 or 1/outscale0
+  inscale0 = inscale0 or (1/outscale0)
   return function(x,y,inscale,outscale)
     return tne
     {
@@ -39,7 +39,7 @@ local function multioctave_noise(params)
     error("Both persistence and octave_output_scale_multiplier were provided to multioctave_noise, which makes no sense!")
   end
   local octave_output_scale_multiplier = params.octave_output_scale_multiplier or 2
-  local octave_input_scale_multiplier = params.octave_input_scale_multiplier or 1/2
+  local octave_input_scale_multiplier = params.octave_input_scale_multiplier or (1/2)
   local basis_noise_function = params.basis_noise_function or make_basis_noise_function(seed0, seed1)
 
   if params.persistence then
@@ -82,7 +82,7 @@ local function simple_variable_persistence_multioctave_noise(params)
   local octave_count = params.octave_count or 1
   local octave0_output_scale = params.octave0_output_scale or 1
   local octave0_input_scale = params.octave0_input_scale or 1
-  local persistence = params.persistence or 1/2
+  local persistence = params.persistence or (1/2)
 
   local terms = {}
   -- Start at the 'large' octave (assuming powers of 2 size increases)
@@ -137,12 +137,12 @@ local function simple_amplitude_corrected_multioctave_noise(params)
   return simple_variable_persistence_multioctave_noise(util.merge{params, {octave0_output_scale = multiplier * amplitide}})
 end
 
-local standard_starting_lake_elevation_expression = noise.define_noise_function( function(x,y,tile,map)
+local standard_starting_lake_elevation_expression = noise.define_noise_function( function(x, y, tile, map)
   local starting_lake_distance = noise.distance_from(x, y, noise.var("starting_lake_positions"), 1024)
   local minimal_starting_lake_depth = 7
   local minimal_starting_lake_bottom =
     starting_lake_distance / 4 - minimal_starting_lake_depth +
-    make_basis_noise_function(map.seed, 123, 1.5, 1/8)(x,y)
+    make_basis_noise_function(map.seed, 123, 1.5, 1/8)(x, y)
 
   -- Starting cone ensures a more random (but not ~too~ random, because people don't like 'swampy lakes')
   -- valley outside the starting lake:
@@ -244,7 +244,7 @@ local function IS_make_lakes(x, y, tile, map, options)
     seed1 = 2,
     octave_count = starting_plateau_octaves,
     --octave0_input_scale = 1/2 - map.segmentation_multiplier / 10,
-	  octave0_input_scale = 1/2,
+    octave0_input_scale = 1/2,
     octave0_output_scale = 1/12,
     persistence = persistence_start
   }
@@ -267,10 +267,10 @@ data:extend{
     type = "noise-expression",
     name = "x-continents",
     intended_property = "elevation",
-    expression = noise.define_noise_function( function(x,y,tile,map)
+    expression = noise.define_noise_function( function(x, y, tile, map)
       x = x + 20000 -- Move the point where 'fractal similarity' is obvious off into the boonies
       y = y
-      options =
+      local options =
       {
         bias = -60,  -- Higher number (closer to 0) means water level is lower so islands are bigger
         terrain_octaves = 10

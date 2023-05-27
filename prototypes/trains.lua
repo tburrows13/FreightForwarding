@@ -1,5 +1,4 @@
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require("__bzlead__/data-util")
+local bzutil = require "__bzlead__.data-util"
 
 data:extend{
   {

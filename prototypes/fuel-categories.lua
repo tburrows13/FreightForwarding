@@ -1,4 +1,4 @@
-local bzutil = require("__bzlead__/data-util")
+local bzutil = require "__bzlead__.data-util"
 
 local entity_types = {"assembling-machine", "beacon", "boiler", "burner-generator", "car", "spider-vehicle", "furnace", "inserter", "lab", "locomotive", "mining-drill", "reactor", "generator-equipment"}
 

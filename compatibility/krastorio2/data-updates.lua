@@ -1,7 +1,7 @@
 if not mods["Krastorio2"] then return end
 
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require("__bzlead__/data-util")
+local util = require "__FreightForwarding__.prototypes.data-util"
+local bzutil = require "__bzlead__.data-util"
 
 -- Update kr-steel-pump
 data.raw.pump["kr-steel-pump"].energy_source.drain = "1.5kW"
@@ -17,9 +17,9 @@ bzutil.remove_recipe_effect("kr-matter-copper-processing", "matter-to-copper-ore
 bzutil.remove_recipe_effect("kr-matter-cobalt-processing", "matter-to-ff-cobalt-ore")
 
 -- -- Transport Tech Card
-data.raw.tool["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-item.png"
+data.raw.tool["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics.compatibility.krastorio2/transport-tech-card-item.png"
 data.raw.tool["ff-transport-science-pack"].order = "b03[transport-science-pack]"
-data.raw.technology["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-technology.png"
+data.raw.technology["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics.compatibility.krastorio2/transport-tech-card-technology.png"
 bzutil.set_product_amount("ff-transport-science-pack", "ff-transport-science-pack", 5)
 bzutil.set_recipe_time("ff-transport-science-pack", 20)
 data.raw.recipe["ff-transport-science-pack"].ingredients = {
@@ -150,7 +150,7 @@ if mods["PlutoniumEnergy"] then
 end
 
 -- Change resources autoplace
-local resource_autoplace = require("resource-autoplace/resource-autoplace")
+local resource_autoplace = require "resource-autoplace.resource-autoplace"
 local empty_radius = 1500
 
 data.raw.resource["rare-metals"].autoplace = resource_autoplace.resource_autoplace_settings({

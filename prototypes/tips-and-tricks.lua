@@ -63,7 +63,7 @@ local vanilla_tip_names = {
   "fast-replace-belt-underground",
 }
 
-vanilla_category_names = {
+local vanilla_category_names = {
   "game-interaction",
   "inserters",
   "belts",

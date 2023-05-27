@@ -1,7 +1,7 @@
 if not mods["ch-concentrated-solar"] then return end
 
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require "__bzlead__/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
+local bzutil = require "__bzlead__.data-util"
 
 bzutil.add_ingredient("chcs-heliostat-mirror", "ff-cobalt-ingot", 1)
 bzutil.add_ingredient("chcs-solar-power-tower", "ff-cobalt-ingot", 50)

@@ -1,5 +1,5 @@
-local util = require "__FreightForwarding__/prototypes/data-util"
-local bzutil = require("__bzlead__/data-util")
+local util = require "__FreightForwarding__.prototypes.data-util"
+local bzutil = require "__bzlead__.data-util"
 
 util.remove_prerequisite("railway", "engine")
 util.add_prerequisite("railway", "ic-containerization-1")

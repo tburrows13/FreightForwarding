@@ -1,8 +1,8 @@
 -- Taken from se-space-trains
-local hit_effects = require("__base__/prototypes/entity/hit-effects")
-local sounds = require("__base__/prototypes/entity/sounds")
+local hit_effects = require "__base__.prototypes.entity.hit-effects"
+local sounds = require "__base__.prototypes.entity.sounds"
 
-function space_accumulator_picture(tint, repeat_count, discharging_graphics)
+local function space_accumulator_picture(tint, repeat_count, discharging_graphics)
   local filename = "__FreightForwarding__/graphics/charging-station/space_charging_station.png"
   local hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station.png"
   if discharging_graphics then 
@@ -57,7 +57,7 @@ function space_accumulator_picture(tint, repeat_count, discharging_graphics)
   }
 end
 
-function space_accumulator_charge(discharging_graphics)
+local function space_accumulator_charge(discharging_graphics)
   return {
       layers = {space_accumulator_picture({
           r = 1,
@@ -476,5 +476,5 @@ data:extend(
   }
 })
 
-local util = require "__FreightForwarding__/prototypes/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
 util.allow_productivity("ff-battery-pack")

@@ -1,6 +1,6 @@
 if not mods["underwater-pipes"] then return end
 
-local util = require "__FreightForwarding__/prototypes/data-util"
+local util = require "__FreightForwarding__.prototypes.data-util"
 
 -- Revert bztitanium's changes to underwater pipes
 util.remove_prerequisite("underwater-pipes", "titanium-processing")
