@@ -3,6 +3,7 @@
 Compatibles (will at least load):
 - [x] AAI industry
 - [x] AAI Vehicles: Ironclad
+- [x] Advanced Centrifuge
 - [x] Alien Biomes
 - [x] Auto-Track-Laying
 - [X] Beautiful Bridges Railway Cargoships

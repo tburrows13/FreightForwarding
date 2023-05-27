@@ -9,6 +9,7 @@ for _, tile in pairs(data.raw.tile) do
 end
 
 -- Compatibility
+require "__FreightForwarding__.compatibility.advanced-centrifuge.data-updates"
 require "__FreightForwarding__.compatibility.aai-industry.data-updates"
 require "__FreightForwarding__.compatibility.aai-vehicles-ironclad.data-updates"
 require "__FreightForwarding__.compatibility.big-mining-drill.data-updates"
