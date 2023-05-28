@@ -19,7 +19,7 @@ local bzutil = require "__bzlead__.data-util"
 local util = require "__FreightForwarding__.prototypes.data-util"
 
 local START_RADIUS =  175
-local INNER_RADIUS =  700
+local INNER_RADIUS =  750
 local OUTER_RADIUS = 1000
 local EMPTY_RADIUS = 1500
 

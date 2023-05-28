@@ -357,7 +357,7 @@ local function resource_autoplace_settings(params)
 
   local starting_ring_spots = -1000000
   if params.name == "iron-ore" then
-    starting_resource_placement_ring_radius = 700
+    starting_resource_placement_ring_radius = 750
     starting_resource_placement_radius = 1000  -- Keep it reasonably above starting_resource_placement_ring_radius?
     regular_patch_fade_in_distance_start = 1000
     regular_patch_fade_in_distance = 1000
