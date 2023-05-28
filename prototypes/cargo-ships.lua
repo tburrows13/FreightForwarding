@@ -1,5 +1,5 @@
 -- Much bigger supply area to make up for lack of floating pole
-data.raw["electric-pole"]["or_pole"].supply_area_distance = 7.5  -- 4.5
+data.raw["electric-pole"]["or_pole"].supply_area_distance = 12.5  -- 4.5
 
 -- Hide floating pole
 table.insert(data.raw["electric-pole"]["floating-electric-pole"].flags, "hidden")

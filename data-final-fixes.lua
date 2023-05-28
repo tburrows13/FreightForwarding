@@ -19,6 +19,9 @@ end
 table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_layer)
 table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_layer)
 
+local offshore_tank_collision = table.deepcopy(data.raw["pump"]["pump"].collision_mask)
+table.insert(offshore_tank_collision, "ground-tile")
+data.raw["storage-tank"]["ff-offshore-storage-tank"].collision_mask = offshore_tank_collision
 
 -- Science
 local util = require "__FreightForwarding__.prototypes.data-util"

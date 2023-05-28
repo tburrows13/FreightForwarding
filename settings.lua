@@ -45,7 +45,7 @@ force_setting("bool", "no_oil_for_oil_rig", true)
 force_setting("string", "oil_richness", "good")
 
 -- Increase oil rig storage to match oil tanker's
-force_setting("int", "oil_rig_capacity", 250)
+--force_setting("int", "oil_rig_capacity", 250)
 
 -- Remove military science from spiderling and patrol technologies
 force_setting("bool", "sp-remove-military-requirement", true)
