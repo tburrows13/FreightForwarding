@@ -99,10 +99,10 @@ end
 local Landfill = {}
 
 Landfill.events = {
-	[defines.events.on_player_built_tile] = on_player_built_tile,
-	[defines.events.on_player_mined_tile] = on_mined_tile,
-	[defines.events.on_robot_built_tile] 	= on_robot_built_tile,
-	[defines.events.on_robot_mined_tile] 	= on_mined_tile,
+	[defines.events.on_player_built_tile]	= on_player_built_tile,
+	[defines.events.on_player_mined_tile]	= on_mined_tile,
+	[defines.events.on_robot_built_tile]	= on_robot_built_tile,
+	[defines.events.on_robot_mined_tile]	= on_mined_tile,
 }
 
 return Landfill

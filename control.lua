@@ -1,4 +1,4 @@
-local handler = require "__core__/lualib/event_handler"
+local handler = require "__core__.lualib.event_handler"
 
 ---@class ScriptLib
 ---@field add_commands? fun()
@@ -25,7 +25,7 @@ handler.add_libraries{
 
 local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
 
-script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
+script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
 script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
 script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
 
