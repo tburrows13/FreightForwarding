@@ -7,6 +7,7 @@ local function add_square(x, y, tiles)
 end
 
 function dredger_created(dredger)
+  local force = dredger.force
   local surface = dredger.surface
   local position = dredger.position
   dredger.destroy()
@@ -15,7 +16,7 @@ function dredger_created(dredger)
   local created = surface.create_entity{
     name = "ff-dredger",
     position = position,
-    force = "player",
+    force = force,
     create_build_effect_smoke = false,
   }
   created.destructible = false
@@ -23,7 +24,7 @@ function dredger_created(dredger)
   local pole = surface.create_entity{
     name = "ff-dredger-pole",
     position = position,
-    force = "player",
+    force = force,
     create_build_effect_smoke = false,
   }
   pole.destructible = false
@@ -31,7 +32,7 @@ function dredger_created(dredger)
   local radar = surface.create_entity{
     name = "ff-dredger-radar",
     position = position,
-    force = "player",
+    force = force,
     create_build_effect_smoke = false,
   }
   radar.destructible = false
