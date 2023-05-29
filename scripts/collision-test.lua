@@ -1,5 +1,3 @@
-local CollisionTest = {}
-
 -- tile, entity, should_collide
 local test_cases = {
   {"water", "character", true},
@@ -53,7 +51,7 @@ local test_cases = {
 
 }
 
-function CollisionTest.run()
+local function run_test()
   local tiles = game.tile_prototypes
   local entities = game.entity_prototypes
   local tests_failed = 0
@@ -80,5 +78,11 @@ function CollisionTest.run()
   end
   log("CollisionTest finished: " .. tests_passed .. " tests passed, " .. tests_failed .. " tests failed.")
 end
+
+---@type ScriptLib
+local CollisionTest = {}
+
+CollisionTest.on_init = run_test
+CollisionTest.on_configuration_changed = run_test
 
 return CollisionTest

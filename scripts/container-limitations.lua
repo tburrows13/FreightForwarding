@@ -22,28 +22,25 @@ local function clear_logistic_slot(entity, slot_index)
   end
 end
 
-
-script.on_event(defines.events.on_entity_logistic_slot_changed,
-  function(event)
-    local entity = event.entity
-    local slot = get_logistic_slot(entity, event.slot_index)
-    local name = slot.name
-    if name and slot.max > 0 then
-      if is_container(name) then
-        clear_logistic_slot(entity, event.slot_index)
-        local player = game.get_player(event.player_index)
-        if player then
-          player.create_local_flying_text{
-            text = {"freight-forwarding.containers-too-heavy"},
-            create_at_cursor = true,
-          }
-        else
-          entity.force.print({"freight-forwarding.containers-too-heavy"})
-        end
+local on_entity_logistic_slot_changed = function(event)
+  local entity = event.entity
+  local slot = get_logistic_slot(entity, event.slot_index)
+  local name = slot.name
+  if name and slot.max > 0 then
+    if is_container(name) then
+      clear_logistic_slot(entity, event.slot_index)
+      local player = game.get_player(event.player_index)
+      if player then
+        player.create_local_flying_text{
+          text = {"freight-forwarding.containers-too-heavy"},
+          create_at_cursor = true,
+        }
+      else
+        entity.force.print({"freight-forwarding.containers-too-heavy"})
       end
     end
   end
-)
+end
 
 -- Logistic chests don't raise events when their requests slots are changed
 local function check_requester_slots(entity)
@@ -71,20 +68,18 @@ local function check_requester_slots(entity)
   return slots_cleared
 end
 
-script.on_event(defines.events.on_entity_settings_pasted,
-  function(event)
-    local entity = event.destination
-    if entity.type == "logistic-container" then
-      if check_requester_slots(entity) then
-        local player = game.get_player(event.player_index)
-        player.create_local_flying_text{
-          text = {"freight-forwarding.containers-too-heavy"},
-          create_at_cursor = true,
-        }
-      end
+local on_entity_settings_pasted = function(event)
+  local entity = event.destination
+  if entity.type == "logistic-container" then
+    if check_requester_slots(entity) then
+      local player = game.get_player(event.player_index)
+      player.create_local_flying_text{
+        text = {"freight-forwarding.containers-too-heavy"},
+        create_at_cursor = true,
+      }
     end
   end
-)
+end
 
 local function check_spidertron_inventory(entity)
   local items_spilled = false
@@ -107,59 +102,65 @@ local function check_spidertron_inventory(entity)
   return items_spilled
 end
 
-script.on_event(defines.events.on_player_fast_transferred,
-  function(event)
-    local entity = event.entity
-    if entity.type == "spider-vehicle" then
-      if check_spidertron_inventory(entity) then
-        local player = game.get_player(event.player_index)
-        player.create_local_flying_text{
-          text = {"freight-forwarding.containers-in-spider-vehicles-by-player"},
-          create_at_cursor = true,
-        }
-      end
+local on_player_fast_transferred = function(event)
+  local entity = event.entity
+  if entity.type == "spider-vehicle" then
+    if check_spidertron_inventory(entity) then
+      local player = game.get_player(event.player_index)
+      player.create_local_flying_text{
+        text = {"freight-forwarding.containers-in-spider-vehicles-by-player"},
+        create_at_cursor = true,
+      }
     end
   end
-)
+end
 
 -- If player presses Z over a spidertron
-script.on_event(defines.events.on_player_cursor_stack_changed,
-  function(event)
-    local player = game.get_player(event.player_index)
-    local entity = player.selected
-    if entity and entity.type == "spider-vehicle" then
-      if check_spidertron_inventory(entity) then
-        player.create_local_flying_text{
-          text = {"freight-forwarding.containers-in-spider-vehicles-by-player"},
-          create_at_cursor = true,
-        }
-      end
+local on_player_cursor_stack_changed = function(event)
+  local player = game.get_player(event.player_index)
+  local entity = player.selected
+  if entity and entity.type == "spider-vehicle" then
+    if check_spidertron_inventory(entity) then
+      player.create_local_flying_text{
+        text = {"freight-forwarding.containers-in-spider-vehicles-by-player"},
+        create_at_cursor = true,
+      }
     end
   end
-)
+end
 
-
-script.on_event(defines.events.on_tick,
-  function(event)
-    for _, player in pairs(game.players) do
-      local entity = player.opened
-      if entity and entity.object_name == "LuaEntity" then
-        if entity.type == "logistic-container" then
-          if check_requester_slots(entity) then
-            player.create_local_flying_text{
-              text = {"freight-forwarding.containers-too-heavy"},
-              create_at_cursor = true,
-            }
-          end
-        elseif entity.type == "spider-vehicle" then
-          if check_spidertron_inventory(entity) then
-            player.create_local_flying_text{
-              text = {"freight-forwarding.containers-in-spider-vehicles-by-player"},
-              create_at_cursor = true,
-            }
-          end
+local on_tick = function(event)
+  for _, player in pairs(game.players) do
+    local entity = player.opened
+    if entity and entity.object_name == "LuaEntity" then
+      if entity.type == "logistic-container" then
+        if check_requester_slots(entity) then
+          player.create_local_flying_text{
+            text = {"freight-forwarding.containers-too-heavy"},
+            create_at_cursor = true,
+          }
+        end
+      elseif entity.type == "spider-vehicle" then
+        if check_spidertron_inventory(entity) then
+          player.create_local_flying_text{
+            text = {"freight-forwarding.containers-in-spider-vehicles-by-player"},
+            create_at_cursor = true,
+          }
         end
       end
     end
   end
-)
+end
+
+---@type ScriptLib
+local ContainerLimitations = {}
+
+ContainerLimitations.events = {
+  [defines.events.on_entity_logistic_slot_changed] = on_entity_logistic_slot_changed,
+  [defines.events.on_entity_settings_pasted]       = on_entity_settings_pasted,
+  [defines.events.on_player_fast_transferred]      = on_player_fast_transferred,
+  [defines.events.on_player_cursor_stack_changed]  = on_player_cursor_stack_changed,
+  [defines.events.on_tick] = on_tick
+}
+
+return ContainerLimitations

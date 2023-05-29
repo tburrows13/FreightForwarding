@@ -1,86 +1,33 @@
-require "util"
-require "scripts.container-limitations"
-require "scripts.landfill-hidden-tile"
-require "scripts.seismic-scanning"
-require "scripts.dredging-platform"
-require "scripts.endgame"
-local Compatibility = require "scripts.compatibility"
-local CollisionTest = require "scripts.collision-test"
+local handler = require "__core__/lualib/event_handler"
 
-local function lava_pool_created(lava_pool)
-  lava_pool.amount = 1
-  local surface = lava_pool.surface
-  local position = lava_pool.position
-  local created = false
-  if math.random() > 0.4 then
-    if surface.can_place_entity{name = "ff-lava-pool", position = position, force = "player"} then
-      created = surface.create_entity{name = "ff-lava-pool", position = position, force = "player", false}
-    end
-  end
-  if not created then
-    if surface.can_place_entity{name = "ff-lava-pool-small", position = position, force = "player"} then
-      created = surface.create_entity{name = "ff-lava-pool-small", position = position, force = "player", false}
-    end
-  end
-  if created then
-    created.destructible = false
-  else
-    --game.print("Lava pool destroyed!")
-    lava_pool.destroy()
-  end
-end
+---@class ScriptLib
+---@field add_commands? fun()
+---@field add_remote_interface? fun()
+---@field on_init? fun()
+---@field on_load? fun()
+---@field on_configuration_changed? fun(d: ConfigurationChangedData)
+---@field events? table<defines.events, fun(d: EventData)>
+---@field on_nth_tick? table<integer, fun(d: NthTickEventData)>
 
-local function seamount_created(seamount)
-  seamount.amount = 1
+handler.add_libraries{
+  require "scripts.migrations",
+  require "scripts.burnt-result",
+  require "scripts.container-limitations",
+  require "scripts.dredging-platform",
+  require "scripts.endgame",
+  require "scripts.landfill-hidden-tile",
+  require "scripts.lava-pool",
+  require "scripts.seamount",
+  require "scripts.seismic-scanning",
+  require "scripts.compatibility",
+  require "scripts.collision-test"
+}
 
-  -- Resources are created centered on a tile, we need to change that, and teleport it to a 2x2-tile position
-  local position = seamount.position
-  local x = math.floor(position.x)
-  local y = math.floor(position.y)
-  if x % 2 == 1 then
-    x = x + 1
-  end
-  if y % 2 == 1 then
-    y = y + 1
-  end
-  seamount.teleport{x = x, y = y}
-end
+local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
 
-script.on_event(defines.events.on_script_trigger_effect,
-  function(event)
-    --game.print("Lava pool created!")
-    if event.effect_id == "ff-lava-pool-created" then
-      local lava_pool = event.target_entity
-      lava_pool_created(lava_pool)
-    elseif event.effect_id == "ff-dredger-created" then
-      local dredger = event.target_entity
-      dredger_created(dredger)
-    elseif event.effect_id == "ff-seamount-created" then
-      local seamount = event.target_entity
-      seamount_created(seamount)
-    end
-  end
-)
-
--- Recover empty batteries when mining discharging station
-local function recover_burnt_result(event)
-  local entity = event.entity
-  local buffer = event.buffer
-  if entity and buffer then
-    local burner = entity.burner
-    if burner then
-      local burning = burner.currently_burning
-      if burning then
-        local burnt_result = burning.burnt_result
-        if burnt_result then
-          event.buffer.insert{name=burnt_result.name,count=1}
-        end
-      end
-    end
-  end
-end
-script.on_event(defines.events.on_player_mined_entity, recover_burnt_result)
-script.on_event(defines.events.on_robot_mined_entity, recover_burnt_result)
+script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
+script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
+script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
 
 local function print_warning()
   if game.tick > 0 then
@@ -91,74 +38,8 @@ local function print_warning()
   end
 end
 
-Compatibility.load()
-
 script.on_init(
   function()
-    Compatibility.init()
-    CollisionTest.run()
     script.on_nth_tick(300, print_warning)  -- Probably desyncs if a player joins within 5 seconds
-
-    --global.rng = game.create_random_generator()
-
-    for _, surface in pairs(game.surfaces) do
-      for _, entity in pairs(surface.find_entities_filtered{type = "resource", name = "ff-lava-pool-resource", force = "neutral"}) do
-        lava_pool_created(entity)
-      end
-    end
-
-    if not (script.active_mods["Krastorio2"] or script.active_mods["SpaceMod"]) then
-      if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
-        remote.call("silo_script", "set_no_victory", true)
-      end
-      if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
-        remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
-      end
-    end
-  end
-)
-
-script.on_configuration_changed(
-  function(changed_data)
-    Compatibility.init()
-    CollisionTest.run()
-
-    if not (script.active_mods["Krastorio2"] or script.active_mods["SpaceMod"]) then
-      if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
-        remote.call("silo_script", "set_no_victory", true)
-      end
-      if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
-        remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
-      end
-    end
-
-    for _, force in pairs(game.forces) do
-      force.reset_technology_effects()
-    end
-    for _, surface in pairs(game.surfaces) do
-      for _, entity in pairs(surface.find_entities_filtered{type = "assembling-machine", name = {"ff-lava-pool", "ff-lava-pool-small"}, force = "player"}) do
-        entity.destructible = false
-      end
-    end
-
-    local old_version
-    local mod_changes = changed_data.mod_changes
-    if mod_changes and mod_changes["FreightForwarding"] and mod_changes["FreightForwarding"]["old_version"] then
-      old_version = mod_changes["FreightForwarding"]["old_version"]
-    else
-      return
-    end
-
-    old_version = util.split(old_version, ".")
-    if tonumber(old_version[1]) == 1 then
-      if tonumber(old_version[2]) <= 5 then
-        -- Run on 1.5.0 load
-        for _, force in pairs(game.forces) do
-          if force.technologies["railway"].researched then
-            force.print("[Freight Forwarding] This update changes trains to use batteries rather than burnable fuel. If you wish to revert this behaviour so that your existing factory continues to run, you can do so from [font=default-large-semibold]Main Menu > Settings > Mod settings > Startup[/font]")
-          end
-        end
-      end
-    end
   end
 )
