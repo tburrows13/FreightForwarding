@@ -3,11 +3,11 @@ local milestones    = require "compatibility.milestones.control"
 
 local Compatibility = {}
 
-function Compatibility.load()
+Compatibility.on_load = function()
   milestones.load()
 end
 
-function Compatibility.init()
+Compatibility.on_init = function()
   disco_science.init()
 end
 

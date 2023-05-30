@@ -6,7 +6,10 @@ local function add_square(x, y, tiles)
   end
 end
 
-function dredger_created(dredger)
+local function on_dredger_created(event)
+  if event.effect_id ~= "ff-dredger-created" then return end
+  
+  local dredger = event.target_entity
   local force = dredger.force
   local surface = dredger.surface
   local position = dredger.position
@@ -55,3 +58,12 @@ function dredger_created(dredger)
 
   surface.set_tiles(tiles, true, false)
 end
+
+---@type ScriptLib
+local DredgingPlatform = {}
+
+DredgingPlatform.events = {
+  [defines.events.on_script_trigger_effect] = on_dredger_created
+}
+
+return DredgingPlatform

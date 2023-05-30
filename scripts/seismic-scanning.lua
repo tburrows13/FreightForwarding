@@ -89,8 +89,6 @@ local function on_sector_scanned(event)
   end
 end
 
-script.on_event(defines.events.on_sector_scanned, on_sector_scanned, {{filter = "name", name = "ff-seismic-scanner"}})
-
 local function on_scanner_built(event)
   -- Disable scanner if within 16 tiles of water
   local scanner = event.created_entity
@@ -105,5 +103,13 @@ local function on_scanner_built(event)
   end
 end
 
-script.on_event(defines.events.on_built_entity, on_scanner_built, {{filter = "name", name = "ff-seismic-scanner"}})
-script.on_event(defines.events.on_robot_built_entity, on_scanner_built, {{filter = "name", name = "ff-seismic-scanner"}})
+---@type ScriptLib
+local SeismicScanning = {}
+
+SeismicScanning.events = {
+  [defines.events.on_built_entity]       = on_scanner_built,
+  [defines.events.on_robot_built_entity] = on_scanner_built,
+  [defines.events.on_sector_scanned]     = on_sector_scanned,
+}
+
+return SeismicScanning

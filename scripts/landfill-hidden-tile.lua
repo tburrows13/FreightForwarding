@@ -21,7 +21,6 @@ local function set_landfill_hidden_tile(x, y, tile)
 	table.insert(global.landfill, data)
 end
 
-
 local function get_landfill_hidden_tile(x, y)
 	if global.landfill == nil then
 		game.print("error failed to get tile below landfill. using default")
@@ -37,7 +36,6 @@ local function get_landfill_hidden_tile(x, y)
 	game.print("error failed to get tile below landfill. using default")
 	return "water"
 end
-
 
 local function save_landfill_hidden_tile(event)
 	--game.print("restore_landfill_hidden_tile")
@@ -57,7 +55,6 @@ local function save_landfill_hidden_tile(event)
 	return landfill_count
 end
 
-
 local function on_player_built_tile(event)
 	--game.print("on_player_built_tile")
 	local landfill_count = save_landfill_hidden_tile(event)
@@ -66,10 +63,11 @@ local function on_player_built_tile(event)
 		--game.print("steal player "..landfill_count.." landfill")
 		local player = game.players[event.player_index]
 		local inventory = player.get_inventory(defines.inventory.character_main)
-		inventory.remove({name="landfill", count=landfill_count})
+		if inventory then 
+			inventory.remove({name="landfill", count=landfill_count})
+		end
 	end
 end
-
 
 local function on_robot_built_tile(event)
 	--game.print("on_robot_built_tile")
@@ -81,7 +79,6 @@ local function on_robot_built_tile(event)
 		inventory.remove({name="landfill", count=landfill_count})
 	end
 end
-
 
 local function on_mined_tile(event)
 	--game.print("on_mined_tile")
@@ -98,8 +95,14 @@ local function on_mined_tile(event)
 	end
 end
 
+---@type ScriptLib
+local Landfill = {}
 
-script.on_event(defines.events.on_player_built_tile, on_player_built_tile)
-script.on_event(defines.events.on_robot_built_tile, on_robot_built_tile)
-script.on_event(defines.events.on_player_mined_tile, on_mined_tile)
-script.on_event(defines.events.on_robot_mined_tile, on_mined_tile)
+Landfill.events = {
+	[defines.events.on_player_built_tile]	= on_player_built_tile,
+	[defines.events.on_player_mined_tile]	= on_mined_tile,
+	[defines.events.on_robot_built_tile]	= on_robot_built_tile,
+	[defines.events.on_robot_mined_tile]	= on_mined_tile,
+}
+
+return Landfill
