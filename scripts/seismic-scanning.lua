@@ -112,4 +112,18 @@ SeismicScanning.events = {
   [defines.events.on_sector_scanned]     = on_sector_scanned,
 }
 
+SeismicScanning.on_init = function()
+  local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
+  script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
+  script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
+  script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
+end
+
+SeismicScanning.on_configuration_changed = function()
+  local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
+  script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
+  script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
+  script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
+end
+
 return SeismicScanning

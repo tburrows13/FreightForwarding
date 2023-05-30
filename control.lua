@@ -20,26 +20,6 @@ handler.add_libraries{
   require "scripts.seamount",
   require "scripts.seismic-scanning",
   require "scripts.compatibility",
-  require "scripts.collision-test"
+  require "scripts.collision-test",
+  require "scripts.warning"
 }
-
-local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
-
-script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
-script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
-script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
-
-local function print_warning()
-  if game.tick > 0 then
-    if game.default_map_gen_settings.property_expression_names.elevation ~= "x-continents" then
-      game.print({"freight-forwarding.warn-nondefault-mapgen", {"map-gen-preset-name.x-default"}})
-    end
-    script.on_nth_tick(300, nil)
-  end
-end
-
-script.on_init(
-  function()
-    script.on_nth_tick(300, print_warning)  -- Probably desyncs if a player joins within 5 seconds
-  end
-)
