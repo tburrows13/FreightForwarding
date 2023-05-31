@@ -21,7 +21,7 @@ for _, prototype in pairs(data.raw["car"]) do
     prototype.inventory_size = 0
   elseif prototype.name == "mcraft-entity" then
     prototype.inventory_size = 10
-  elseif prototype.name == "ironclad" then
+  elseif prototype.name == "ironclad" or prototype.name == "ironclad-gunboat" then
     prototype.inventory_size = 20
   else
     divide_inventory_size(prototype, 2)
