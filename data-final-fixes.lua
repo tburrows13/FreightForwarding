@@ -19,6 +19,20 @@ end
 table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_layer)
 table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_layer)
 
+-- Ensure pump collides with underwater pipes
+local pump = data.raw["pump"]["pump"]
+pump_underwater_pipe_collision_layer = collision_mask_util.get_first_unused_layer()
+log("FF pump_underwater_pipe_collision_layer assigned to " .. pump_underwater_pipe_collision_layer)
+collision_mask_util.add_layer(pump.collision_mask, pump_underwater_pipe_collision_layer)
+collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, pump_underwater_pipe_collision_layer)
+
+-- Compatibility for pump upgrade mods
+local next_pump = data.raw.pump["pump"].next_upgrade
+while next_pump and data.raw.pump[next_pump] do
+  data.raw.pump[next_pump].collision_mask = table.deepcopy(data.raw.pump["pump"].collision_mask)
+  next_pump = data.raw.pump[next_pump].next_upgrade
+end
+
 local offshore_tank_collision = table.deepcopy(data.raw["pump"]["pump"].collision_mask)
 table.insert(offshore_tank_collision, "ground-tile")
 data.raw["storage-tank"]["ff-offshore-storage-tank"].collision_mask = offshore_tank_collision

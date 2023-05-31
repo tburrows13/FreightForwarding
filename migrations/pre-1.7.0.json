@@ -1,0 +1,14 @@
+{
+  "item":
+  [
+    ["underwater-pipe", "ff-underwater-pipe"]
+  ],
+  "recipe":
+  [
+    ["underwater-pipe", "ff-underwater-pipe"]
+  ],
+  "entity":
+  [
+    ["underwater-pipe", "ff-underwater-pipe"]
+  ]
+}

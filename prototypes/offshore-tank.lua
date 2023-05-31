@@ -1,3 +1,5 @@
+-- Adapted from https://mods.factorio.com/mod/exotic-industries-tanks
+
 local ei_tank_1 = {
   north = util.empty_sprite(),
   south = {
@@ -116,7 +118,7 @@ data:extend{
 }
 
 
-table.insert(data.raw["technology"]["tank_ship"].effects, 2,
+table.insert(data.raw["technology"]["tank_ship"].effects, 3,
   {
     type = "unlock-recipe",
     recipe = "ff-offshore-storage-tank"
