@@ -1,4 +1,4 @@
-if not mods["aai-ironclad"] then return end
+if not mods["aai-vehicles-ironclad"] then return end
 
 local bzutil = require "__bzlead__.data-util"
 
