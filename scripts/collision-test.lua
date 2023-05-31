@@ -24,8 +24,8 @@ local entity_tests = {
   {"character", {"straight-water-way", "ff-underwater-pipe"}, false},
   {"character", {"pump", "ff-offshore-storage-tank", "assembling-machine-1", "ic-containerization-machine-1"}, true},
   {"straight-water-way", {"ff-underwater-pipe"}, false},
-  {"straight-water-way", {"ff-offshore-storage-tank", "pump"}, true},
-  {"pump", {"ff-underwater-pipe", "ff-offshore-storage-tank"}, true}
+  {"straight-water-way", {"ff-offshore-storage-tank", "pump", "ff-seamount"}, true},
+  {"pump", {"ff-underwater-pipe", "ff-offshore-storage-tank", "ff-seamount"}, true}
 }
 
 local function test_collision(mask1, mask2, name1, name2, should_collide)
