@@ -8,7 +8,7 @@ end
 
 local function on_dredger_created(event)
   if event.effect_id ~= "ff-dredger-created" then return end
-  
+
   local dredger = event.target_entity
   local force = dredger.force
   local surface = dredger.surface
