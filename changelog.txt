@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.0
+Date: 3 June 2023
+  Features:
+    - Added offshore storage tank that can only be placed in water
+    - Added underwater pipe
+    - Removed dependency on Underwater Pipes mod, but keep it if you still want "underground underwater pipes"
+    - Patches of regular water now spawn around seamounts for increased visibility
+  Changes:
+    - Changed default oil rig capacity from 250k to 100k
+    - Rebalanced biters so that they have more presence on the starting island, but are not as hard on other islands
+    - Biter expansion is now disabled by default
+    - Starting island is now bigger
+    - Added iron ore patch at the edge of the starting island, reduced size of central iron ore patch
+  Compatibility:
+    - Added 30 lead plate to AAI Ironclad's recipe
+    - Applied Ironclad's inventory size and recipe changes to Ironclad Gunboat
+    - Added compatibility with Advanced Centrifuge by kiratu11
+    - Fixed dredgers being created with the wrong force when testing with Editor Extensions
+---------------------------------------------------------------------------------------------------
 Version: 1.6.4
 Date: 18 May 2023
   Changes:

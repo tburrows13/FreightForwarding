@@ -56,6 +56,7 @@ Compatibles (will at least load):
 Incompatibilities:
 - [x] Deadlock Crating Machine
 - [x] Industrial Revolution
+- [x] Exotic Industries
 - [x] Island Start
 - [x] Nullius
 - [x] pY mods

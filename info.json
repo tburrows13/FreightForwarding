@@ -1,6 +1,6 @@
 {
   "name": "FreightForwarding",
-  "version": "1.6.4",
+  "version": "1.7.0",
   "title": "Freight Forwarding",
   "author": "Xorimuth",
   "homepage": "https://discord.gg/pkJc4v9nfT",
@@ -38,6 +38,7 @@
     "! rso-mod",
     "! space-exploration",
     "! IndustrialRevolution3",
+    "! exotic-industries",
     "! nullius",
     "! pypostprocessing"
   ],

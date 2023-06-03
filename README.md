@@ -106,7 +106,6 @@ Some of Freight Forwarding's functionality is provided by other, required, mods.
     - [Cargo Ships](https://mods.factorio.com/mod/cargo-ships): large inventories for transport across water; oil rigs for drilling oil in the ocean
     - [Canal Builder Simplified](https://mods.factorio.com/mod/CanalBuilderMAV): allows placing shallow water adjacent to existing water
     - [Beautiful Bridge Railway for Cargoships](https://mods.factorio.com/mod/beautiful_bridge_railway_Cargoships)
-    - [Underwater Pipes](https://mods.factorio.com/mod/underwater-pipes): construct offshore oil rig infrastructure without landfill
     - [Hovercrafts](https://mods.factorio.com/mod/Hovercrafts): easier navigation across both water and land
 - [Mini Trains](https://mods.factorio.com/mod/Mini_Trains): adds small trains; regular trains only use batteries and are unlocked later
 - [Spidertron Patrols](https://mods.factorio.com/mod/SpidertronPatrols): useful for transporting items which can't be loaded into containers
@@ -136,6 +135,7 @@ Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the battery charging/discharging station graphics (from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains)).
 Thank you to [Yehn](https://mods.factorio.com/user/Yehn) for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
 Thank you to [PantherX](https://mods.factorio.com/user/PantherX) and [Kirazy](https://mods.factorio.com/user/Kirazy) for the dredging platform tile graphics (from [Dectorio](https://mods.factorio.com/mod/Dectorio)).
+Thank you to [PreLeyZero](https://mods.factorio.com/user/PreLeyZero) for the offshore storage tank graphics (from [Exotic Industries: Tanks](https://mods.factorio.com/mod/exotic-industries-tanks)).
 Thank you to [Krastorio2](https://mods.factorio.com/mod/Krastorio2) for the interstellar communicator icon.
 Thank you to [Subnautica](https://unknownworlds.com/subnautica/) for the ferrous nodule, cupric nodule, and cobalt ingot icons.
 Thank you to RedRafe, Ray1claw, Xeno Lupus, ElephantInTheRoom and others from [my discord](https://discord.gg/pkJc4v9nfT) for contributions, feedback and suggestions.
