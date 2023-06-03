@@ -357,10 +357,10 @@ local function resource_autoplace_settings(params)
 
   local starting_ring_spots = -1000000
   if params.name == "iron-ore" then
-    starting_resource_placement_ring_radius = 750
-    starting_resource_placement_radius = 1000  -- Keep it reasonably above starting_resource_placement_ring_radius?
-    regular_patch_fade_in_distance_start = 1000
-    regular_patch_fade_in_distance = 1000
+    starting_resource_placement_ring_radius = 775
+    starting_resource_placement_radius = 1200  -- Keep it reasonably above starting_resource_placement_ring_radius?
+    regular_patch_fade_in_distance_start = 1200
+    regular_patch_fade_in_distance = 1200
     starting_resource_placement_area = math.pi*starting_resource_placement_radius*starting_resource_placement_radius
     starting_density = starting_amount / starting_resource_placement_area
     -- Goes < 0 outside of starting area and at negative elevations
