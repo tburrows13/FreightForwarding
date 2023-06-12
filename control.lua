@@ -9,6 +9,9 @@ local handler = require "__core__.lualib.event_handler"
 ---@field events? table<defines.events, fun(d: EventData)>
 ---@field on_nth_tick? table<integer, fun(d: NthTickEventData)>
 
+local compatibility = require "scripts.compatibility"
+compatibility.preload_remote_interface()
+
 handler.add_libraries{
   require "scripts.migrations",
   require "scripts.burnt-result",
