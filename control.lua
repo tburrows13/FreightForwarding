@@ -22,6 +22,7 @@ handler.add_libraries{
   require "scripts.lava-pool",
   require "scripts.seamount",
   require "scripts.seismic-scanning",
+  require "scripts.life-ring",
   require "scripts.compatibility",
   require "scripts.collision-test",
   require "scripts.warning"

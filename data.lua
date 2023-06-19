@@ -1,4 +1,4 @@
-require "__FreightForwarding__.prototypes.shallow-water"
+require "__FreightForwarding__.prototypes.water"
 require "__FreightForwarding__.prototypes.landfill"
 require "__FreightForwarding__.prototypes.titansteel"
 require "__FreightForwarding__.prototypes.slag"

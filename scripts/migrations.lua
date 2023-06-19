@@ -7,7 +7,7 @@ Migrations.on_configuration_changed = function(changed_data)
   for _, force in pairs(game.forces) do
     force.reset_technology_effects()
   end
-  
+
   local old_version
   local mod_changes = changed_data.mod_changes
   if mod_changes and mod_changes["FreightForwarding"] and mod_changes["FreightForwarding"]["old_version"] then

@@ -4,7 +4,7 @@ local tests_passed = 0
 -- tile, entity, should_collide
 local tile_tests = {
   -- name, grass, shallow, regular, deep
-  {"character", false, false, true, true},
+  {"character", false, false, false, false},
   {"pipe", false, true, true, true},
   {"pump", false, false, false, false},
   {"iron-ore", false, true, true, true},
