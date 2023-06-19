@@ -149,15 +149,7 @@ data:extend{
     order = "d",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
   },
-  {
-    type = "tips-and-tricks-item",
-    name = "ff-ships",
-    tag = "[entity=cargo_ship]",
-    category = "freight-forwarding",
-    indent = 1,
-    order = "e",
-    --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
-  },
+  -- Cargo ships tip fits in here, see below
   {
     type = "tips-and-tricks-item",
     name = "ff-oil",
@@ -204,3 +196,11 @@ data:extend{
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
   },]]
 }
+
+-- Convert cargo ships tip to fit in with the rest
+local ships_tip = data.raw["tips-and-tricks-item"]["cargo-ships"]
+ships_tip.category = "freight-forwarding"
+ships_tip.tag = "[entity=cargo_ship]"
+ships_tip.indent = 1
+ships_tip.order = "e"
+ships_tip.is_title = false
