@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.1
+Date: 15 June 2023
+  Features:
+  Changes:
+  Compatibility:
+    - Added FF+Krastorio2 Milestones preset
+    - Added compatibility with Bismuth by trikop
+    - Added compatibility with Brass Tracks by Planetfall
+    - Added compatibility with If I Had a Nickel by Planetfall
+---------------------------------------------------------------------------------------------------
 Version: 1.7.0
 Date: 3 June 2023
   Features:

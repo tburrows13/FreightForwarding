@@ -8,6 +8,8 @@ Compatibles (will at least load):
 - [x] Auto-Track-Laying
 - [X] Beautiful Bridges Railway Cargoships
 - [x] Big Mining Drill
+- [x] Bismuth
+- [x] Brass Tracks
 - [x] Bz
   - [x] Aluminum
   - [x] Carbon
@@ -31,6 +33,7 @@ Compatibles (will at least load):
 - [x] Extended Descriptions
 - [x] Frost Biters
 - [x] Hovercrafts
+- [x] If I Had A Nicker
 - [x] Intermodal Containers
 - [x] Krastorio2
 - [x] Lex's Aircraft
