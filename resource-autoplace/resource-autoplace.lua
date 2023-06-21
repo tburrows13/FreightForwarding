@@ -382,7 +382,7 @@ local function resource_autoplace_settings(params)
         skip_span = noise.var("starting-resource-patch-set-count"),
         skip_offset = starting_patch_set_index,
         region_size = tne(starting_resource_placement_radius * 2),
-        candidate_spot_count = tne(starting_resource_placement_ring_radius),
+        candidate_spot_count = tne(starting_resource_placement_ring_radius and 128 or 32),
         suggested_minimum_candidate_point_spacing = tne(32),
         density_expression = litexp(3 * starting_density * starting_modulation),
         spot_quantity_expression = litexp(starting_area_spot_quantity),
