@@ -122,8 +122,8 @@ end
 
 -- Startet Island Ring: Salt, Wolframite (AKA Tungsten), Zircon
 
-if mods["bzchlorine"] then
-  data.raw.resource["salt"].autoplace = resource_autoplace.resource_autoplace_settings{
+if mods["bzchlorine"] and data.raw.resource["salt"] then
+    data.raw.resource["salt"].autoplace = resource_autoplace.resource_autoplace_settings{
     name = "salt",
     order = "b-z",
     base_density = 3,
