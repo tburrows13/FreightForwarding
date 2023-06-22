@@ -102,7 +102,7 @@ data:extend{
         source_effects = {
           {
             type = "script",
-            effect_id = "ff-lava-pool-created",
+            effect_id = "ff-lava-pool-resource-created",
           },
         }
       }
@@ -116,7 +116,53 @@ data:extend{
     flags = {"placeable-player"},
     collision_box = {{-1.8, -1.8}, {1.8, 1.8}},
     selection_box = {{-2, -2}, {2, 2}},
+    --always_draw_idle_animation = true,
     animation =
+    {
+      filename = "__core__/graphics/light-medium.png",
+      blend_mode = "additive",
+      draw_as_light = true,
+      tint = {a = 0.8, r = 255, g = 80, b = 0},
+      width = 300,
+      height = 300,
+      --repeat_count = 48,
+      shift = util.by_pixel(0, 10),
+      scale = 1.1,
+      hr_version =
+      {
+        filename = "__core__/graphics/light-medium.png",
+        blend_mode = "additive",
+        draw_as_light = true,
+        tint = {a = 0.8, r = 255, g = 80, b = 0},
+        width = 300,
+        height = 300,
+        --repeat_count = 48,
+        shift = util.by_pixel(0, 10),
+        scale = 1.1,
+      }
+    },
+    integration_patch =  {
+      filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
+      priority = "high",
+      width = 512,
+      height = 512,
+      --line_length = 8,
+      --shift = util.by_pixel(0, 2),
+      scale = 0.275,
+      --draw_as_glow = true,
+      hr_version =
+      {
+        filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
+        priority = "high",
+        width = 512,
+        height = 512,
+        --line_length = 8,
+        --shift = util.by_pixel(0, 2),
+        scale = 0.275,
+      },
+    },
+    --always_draw_idle_animation = true,
+    --[[idle_animation =
     {
       layers =
       {
@@ -125,24 +171,26 @@ data:extend{
           priority = "high",
           width = 512,
           height = 512,
-          frame_count = 1,
+          frame_count = 10,
           --line_length = 8,
           --shift = util.by_pixel(0, 2),
           scale = 0.275,
+          animation_speed = 0.25,
           hr_version =
           {
             filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
             priority = "high",
             width = 512,
             height = 512,
-            frame_count = 1,
+            frame_count = 10,
             --line_length = 8,
             --shift = util.by_pixel(0, 2),
             scale = 0.275,
+            animation_speed = 0.25,
           }
         },
       }
-    },
+    },]]
     --map_color = {1, 0.4, 0},
     crafting_categories = {"ff-lava-smelting"},
     fixed_recipe = "ff-titansteel-smelting",
@@ -157,9 +205,11 @@ data:extend{
       type = "direct",
       action_delivery = {
         type = "instant",
-        target_effects = {
-          type = "create-entity",
-          entity_name = "ff-lava-light",
+        source_effects = {
+          {
+            type = "script",
+            effect_id = "ff-lava-pool-machine-created",
+          },
         }
       }
     },
@@ -178,6 +228,32 @@ data:extend{
     }]]
   },
   {
+    type = "animation",
+    name = "ff-lava-pool-animation",
+    filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
+    priority = "high",
+    width = 512,
+    height = 512,
+    frame_count = 10,
+    --line_length = 8,
+    --shift = util.by_pixel(0, 2),
+    scale = 0.275,
+    animation_speed = 0.2,
+    draw_as_glow = true,
+    hr_version =
+    {
+      filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
+      priority = "high",
+      width = 512,
+      height = 512,
+      frame_count = 10,
+      --line_length = 8,
+      --shift = util.by_pixel(0, 2),
+      scale = 0.275,
+      animation_speed = 0.2,
+    },
+  },
+  {
     type = "assembling-machine",
     name = "ff-lava-pool-small",
     icon = "__FreightForwarding__/graphics/lava-pool/small-lava-pool-icon.png",
@@ -187,30 +263,48 @@ data:extend{
     selection_box = {{-1, -1}, {1, 1}},
     animation =
     {
-      layers =
+      filename = "__core__/graphics/light-medium.png",
+      blend_mode = "additive",
+      draw_as_light = true,
+      tint = {a = 0.8, r = 255, g = 80, b = 0},
+      width = 300,
+      height = 300,
+      --repeat_count = 48,
+      scale = 0.55,
+      shift = util.by_pixel(0, 6),
+      hr_version =
       {
-        {
-          filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
-          priority = "high",
-          width = 200,
-          height = 200,
-          frame_count = 1,
-          --line_length = 8,
-          --shift = util.by_pixel(0, 2),
-          scale = 0.6,
-          hr_version =
-          {
-            filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
-            priority = "high",
-            width = 200,
-            height = 200,
-            frame_count = 1,
-            --line_length = 8,
-            --shift = util.by_pixel(0, 2),
-            scale = 0.6,
-          }
-        },
+        filename = "__core__/graphics/light-medium.png",
+        blend_mode = "additive",
+        draw_as_light = true,
+        tint = {a = 0.8, r = 255, g = 80, b = 0},
+        width = 300,
+        height = 300,
+        --repeat_count = 48,
+        --shift = util.by_pixel(-1, 44),
+        scale = 0.55,
+        shift = util.by_pixel(0, 6),
       }
+    },
+    integration_patch =  {
+      filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
+      priority = "high",
+      width = 128,
+      height = 128,
+        --line_length = 8,
+      --shift = util.by_pixel(0, 2),
+      scale = 0.6,
+      --draw_as_glow = true,
+      hr_version =
+      {
+        filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
+        priority = "high",
+        width = 128,
+        height = 128,
+            --line_length = 8,
+        --shift = util.by_pixel(0, 2),
+        scale = 0.6,
+      },
     },
     --map_color = {1, 0.4, 0},
     crafting_categories = {"ff-lava-heating"},
@@ -226,9 +320,11 @@ data:extend{
       type = "direct",
       action_delivery = {
         type = "instant",
-        target_effects = {
-          type = "create-entity",
-          entity_name = "ff-lava-light",
+        source_effects = {
+          {
+            type = "script",
+            effect_id = "ff-lava-pool-machine-created",
+          },
         }
       }
     },
@@ -245,6 +341,32 @@ data:extend{
       fade_in_ticks = 4,
       fade_out_ticks = 20
     }]]
+  },
+  {
+    type = "animation",
+    name = "ff-lava-pool-small-animation",
+    filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
+    priority = "high",
+    width = 128,
+    height = 128,
+    frame_count = 10,
+    --line_length = 8,
+    --shift = util.by_pixel(0, 2),
+    scale = 0.6,
+    animation_speed = 0.2,
+    draw_as_glow = true,
+    hr_version =
+    {
+      filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
+      priority = "high",
+      width = 128,
+      height = 128,
+      frame_count = 10,
+      --line_length = 8,
+      --shift = util.by_pixel(0, 2),
+      scale = 0.6,
+      animation_speed = 0.2,
+    },
   },
   --[[{
     type = "loader-1x1",
@@ -269,20 +391,4 @@ data:extend{
       direction_out = empty_sprite,
     }
   },]]
-  {
-    type = "lamp",
-    name = "ff-lava-light",
-    energy_source = {type = "void"},
-    energy_usage_per_tick = "1W",
-    always_on = true,
-    picture_on = empty_sprite,
-    picture_off = empty_sprite,
-    flags = {"hidden", "not-on-map", "placeable-off-grid"},
-    light =
-    {
-      intensity = 1,
-      size = 14,
-      color = {r = 255, g = 80, b = 0},
-    },
-  },
 }
