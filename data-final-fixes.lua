@@ -37,6 +37,26 @@ local offshore_tank_collision = table.deepcopy(data.raw["pump"]["pump"].collisio
 table.insert(offshore_tank_collision, "ground-tile")
 data.raw["storage-tank"]["ff-offshore-storage-tank"].collision_mask = offshore_tank_collision
 
+-- Ensure vehicles and units still collide with water even though player can walk on it
+substitute_player_collision_layer = collision_mask_util.get_first_unused_layer()
+log("FF substitute_player_collision_layer assigned to " .. pump_underwater_pipe_collision_layer)
+
+local water = data.raw.tile["water"]
+local deep_water = data.raw.tile["deepwater"]
+for _, water_tile in pairs{water, deep_water} do
+  collision_mask_util.add_layer(water_tile.collision_mask, substitute_player_collision_layer)
+end
+
+for _, type in pairs{"unit", "car", "spider-leg"} do
+  for _, prototype in pairs(data.raw[type]) do
+    local mask = collision_mask_util.get_mask(prototype)
+    if collision_mask_util.mask_contains_layer(mask, "player-layer") then
+      collision_mask_util.add_layer(mask, substitute_player_collision_layer)
+      prototype.collision_mask = mask
+    end
+  end
+end
+
 -- Science
 local util = require "__FreightForwarding__.prototypes.data-util"
 

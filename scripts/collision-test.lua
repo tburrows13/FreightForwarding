@@ -5,6 +5,9 @@ local tests_passed = 0
 local tile_tests = {
   -- name, grass, shallow, regular, deep
   {"character", false, false, false, false},
+  {"small-biter", false, false, true, true},
+  {"biter-spawner", false, true, true, true},
+  {"car", false, false, true, true},
   {"pipe", false, true, true, true},
   {"pump", false, false, false, false},
   {"iron-ore", false, true, true, true},
