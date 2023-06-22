@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.7.1
-Date: 15 June 2023
+Date: 22 June 2023
   Features:
-  Changes:
+    - Player can now swim in all water types, by automatically equipping a life ring
+    - New graphics for lava pools (thanks to Galdoc!)
+  Bugfixes:
+    - Fixed aircraft not accepting rocket fuel and nuclear fuel
   Compatibility:
     - Added FF+Krastorio2 Milestones preset
     - Added compatibility with Bismuth by trikop

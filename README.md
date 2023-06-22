@@ -131,6 +131,7 @@ Other small-to-medium mods will probably work, although may break the intended b
 
 ### Attributions
 Thank you to everyone who's contributed to the mods used in Freight Forwarding. In particular: Deadlock989, shanemadden, schnurrebutz, robot256, Klonan, Sacredanarchy, brevven, and lexsus.
+Thank you to [Galdoc](https://mods.factorio.com/user/Galdoc) for the lava pool graphics.
 Thank you to [Stringweasel](https://mods.factorio.com/user/Stringweasel) for the seismic scanner graphics (from [Biter Power](https://mods.factorio.com/mod/biter-power)).
 Thank you to [FragJacker](https://mods.factorio.com/user/FragJacker) for the battery charging/discharging station graphics (from [SE Space Trains](https://mods.factorio.com/mod/se-space-trains)).
 Thank you to [Yehn](https://mods.factorio.com/user/Yehn) for [Island Start](https://mods.factorio.com/mod/IslandStart), which this mod's map generation is based on.
