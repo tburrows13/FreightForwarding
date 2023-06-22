@@ -44,13 +44,8 @@ data:extend{
     type = "item",
     name = "ff-lava-pool-dummy",  -- So that the correct words appear when hovering over the patch in map view
     localised_name = {"entity-name.ff-lava-pool"},
-    --icon = "__base__/graphics/icons/assembling-machine-1.png",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/crude-oil-resource.png",
-        tint = {b = 0, g = 0, r = 0.7},
-      },
-    },
+    icon = "__FreightForwarding__/graphics/lava-pool/lava-pool-icon.png",
+    icon_size = 64, icon_mipmaps = 1,
     icon_size = 64, icon_mipmaps = 4,
     flags = {"hidden"},
     --subgroup = "raw-resource",
@@ -60,14 +55,9 @@ data:extend{
   {
     type = "resource",
     name = "ff-lava-pool-resource",
-    --icon = "__base__/graphics/icons/assembling-machine-1.png",
-    icons = {
-      {
-        icon = "__base__/graphics/icons/crude-oil-resource.png",
-        tint = {b = 0, g = 0, r = 0.7},
-      },
-    },
-    icon_size = 64, icon_mipmaps = 4,
+    localised_name = {"entity-name.ff-lava-pool"},
+    icon = "__FreightForwarding__/graphics/lava-pool/lava-pool-icon.png",
+    icon_size = 64, icon_mipmaps = 1,
     flags = {"placeable-neutral"},
     category = "basic-fluid",
     subgroup = "raw-resource",
