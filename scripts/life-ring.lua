@@ -52,7 +52,10 @@ local function on_tick()
     local tile = player.surface.get_tile(player.position.x, player.position.y)
     if not tile or not tile.valid then goto continue end
     local tile_name = tile.name
-    if (tile_name == "water" or tile_name == "deepwater") and player.character and not player.vehicle then
+    if (tile_name == "water" or tile_name == "deepwater")
+      and player.character and not player.vehicle
+      and (not (remote.interfaces["jetpack"] and remote.interfaces["jetpack"].is_jetpacking) or not remote.call("jetpack", "is_jetpacking", {character=player.character}))
+      then
       local offset = get_offset(player.walking_state)
       if not global.liferings[player.index] and player.character then
         global.liferings[player.index] = {
