@@ -50,6 +50,7 @@ end
 local function on_tick()
   for _, player in pairs(game.players) do
     local tile = player.surface.get_tile(player.position.x, player.position.y)
+    if not tile or not tile.valid then goto continue end
     local tile_name = tile.name
     if (tile_name == "water" or tile_name == "deepwater") and player.character and not player.vehicle then
       local offset = get_offset(player.walking_state)
@@ -122,6 +123,7 @@ local function on_tick()
         global.liferings[player.index] = nil
       end
     end
+    ::continue::
   end
 end
 
