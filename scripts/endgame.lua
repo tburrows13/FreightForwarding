@@ -7,7 +7,7 @@ local function on_rocket_launched(event)
 
   local rocket = event.rocket
   if not (rocket and rocket.valid) then return end
-  
+
   if game.finished or game.finished_but_continuing then return end
 
   local inventory = rocket.get_inventory(defines.inventory.rocket)
@@ -21,9 +21,9 @@ local function on_rocket_launched(event)
   end
 end
 
-local function disable_rocket_vistory()
+local function disable_rocket_victory()
   if interfering_mods() then return end
-  
+
   if remote.interfaces["silo_script"] and remote.interfaces["silo_script"]["set_no_victory"] then
     remote.call("silo_script", "set_no_victory", true)
   end
@@ -39,7 +39,7 @@ Endgame.events = {
   [defines.events.on_rocket_launched] = on_rocket_launched
 }
 
-Endgame.on_init = disable_rocket_vistory
-Endgame.on_configuration_changed = disable_rocket_vistory
+Endgame.on_init = disable_rocket_victory
+Endgame.on_configuration_changed = disable_rocket_victory
 
 return Endgame
