@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.2
+Date: 26 June 2023
+  Features:
+    - Updated tailings water icon (thanks to PreLeyZero!)
+  Bugfixes:
+    - Fixed crash when entering testing lab from Editor Extensions
+    - Fixed lifering drawing whilst in jetpack
+---------------------------------------------------------------------------------------------------
 Version: 1.7.1
 Date: 22 June 2023
   Features:
