@@ -12,7 +12,7 @@ local tile_tests = {
   {"pump", false, false, false, false},
   {"iron-ore", false, true, true, true},
   {"crude-oil", true, true, true, false},
-  {"deep_oil", true, true, true, false},
+  {"deep_oil", true, true, true, true},  -- doesn't really matter since script-created
   {"ff-underwater-pipe", true, false, false, false},
   {"ff-offshore-storage-tank", true, false, false, false},
   {"ff-seamount", true, true, true, false},
@@ -26,9 +26,13 @@ local tile_tests = {
 local entity_tests = {
   {"character", {"straight-water-way", "ff-underwater-pipe"}, false},
   {"character", {"pump", "ff-offshore-storage-tank", "assembling-machine-1", "ic-containerization-machine-1"}, true},
+  {"indep-boat", {"straight-water-way", "ff-underwater-pipe", "buoy", "chain_buoy", "port", "pump"}, false},
+  {"indep-boat", {"ff-seamount", "ff-offshore-storage-tank", "oil_rig"}, true},
   {"straight-water-way", {"ff-underwater-pipe"}, false},
-  {"straight-water-way", {"ff-offshore-storage-tank", "pump", "ff-seamount"}, true},
-  {"pump", {"ff-underwater-pipe", "ff-offshore-storage-tank", "ff-seamount"}, true}
+  {"straight-water-way", {"ff-offshore-storage-tank", "pump"}, true},
+  {"pump", {"ff-underwater-pipe", "ff-offshore-storage-tank"}, true},
+  {"ff-underwater-pipe", {"hcraft-entity"}, false},
+  {"ff-underwater-pipe", {"oil_rig", "ff-offshore-storage-tank"}, true},
 }
 
 local function test_collision(mask1, mask2, name1, name2, should_collide)
@@ -41,10 +45,10 @@ local function test_collision(mask1, mask2, name1, name2, should_collide)
   end
   if should_collide and not collides then
     tests_failed = tests_failed + 1
-    log("CollisionTest failed: " .. name1 .. " and " .. name2 .. " should collide. " .. serpent.line(mask1) .. " " .. serpent.line(mask2))
+    log("CollisionTest failed: " .. name1 .. " and " .. name2 .. " should collide. " .. serpent.line(mask1) .. " | " .. serpent.line(mask2))
   elseif not should_collide and collides then
     tests_failed = tests_failed + 1
-    log("CollisionTest failed: " .. name1 .. " and " .. name2 .. " should not collide. " .. serpent.line(mask1) .. " " .. serpent.line(mask2))
+    log("CollisionTest failed: " .. name1 .. " and " .. name2 .. " should not collide. " .. serpent.line(mask1) .. " | " .. serpent.line(mask2))
   else
     tests_passed = tests_passed + 1
   end

@@ -19,12 +19,14 @@ end
 table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_layer)
 table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_layer)
 
--- Ensure pump collides with underwater pipes
+-- Ensure collisions between pump, underwater pipe, oil rig, offshore storage tank
 local pump = data.raw["pump"]["pump"]
-pump_underwater_pipe_collision_layer = collision_mask_util.get_first_unused_layer()
-log("FF pump_underwater_pipe_collision_layer assigned to " .. pump_underwater_pipe_collision_layer)
-collision_mask_util.add_layer(pump.collision_mask, pump_underwater_pipe_collision_layer)
-collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, pump_underwater_pipe_collision_layer)
+water_object_layer = collision_mask_util.get_first_unused_layer()
+log("FF water_object_layer assigned to " .. water_object_layer)
+collision_mask_util.add_layer(pump.collision_mask, water_object_layer)
+collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, water_object_layer)
+collision_mask_util.add_layer(data.raw["storage-tank"]["ff-offshore-storage-tank"].collision_mask, water_object_layer)
+collision_mask_util.add_layer(data.raw["mining-drill"]["oil_rig"].collision_mask, water_object_layer)
 
 -- Compatibility for pump upgrade mods
 local next_pump = data.raw.pump["pump"].next_upgrade
@@ -39,7 +41,7 @@ data.raw["storage-tank"]["ff-offshore-storage-tank"].collision_mask = offshore_t
 
 -- Ensure vehicles and units still collide with water even though player can walk on it
 substitute_player_collision_layer = collision_mask_util.get_first_unused_layer()
-log("FF substitute_player_collision_layer assigned to " .. pump_underwater_pipe_collision_layer)
+log("FF substitute_player_collision_layer assigned to " .. substitute_player_collision_layer)
 
 local water = data.raw.tile["water"]
 local deep_water = data.raw.tile["deepwater"]
@@ -56,6 +58,16 @@ for _, type in pairs{"unit", "car", "spider-leg"} do
     end
   end
 end
+
+-- Ensure that underwater pipes can't be placed on ground but also don't collide with ships
+underwater_pipe_layer = collision_mask_util.get_first_unused_layer()
+log("FF underwater_pipe_layer assigned to " .. underwater_pipe_layer)
+for _, tile in pairs(data.raw.tile) do
+  if collision_mask_util.mask_contains_layer(tile.collision_mask, "ground-tile") then
+    table.insert(tile.collision_mask, underwater_pipe_layer)
+  end
+end
+collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, underwater_pipe_layer)
 
 -- Science
 local util = require "__FreightForwarding__.prototypes.data-util"
@@ -95,3 +107,25 @@ end
 require "__FreightForwarding__.compatibility.beautiful-bridge-railway.data-final-fixes"
 require "__FreightForwarding__.compatibility.krastorio2.data-final-fixes"
 require "__FreightForwarding__.compatibility.transport-drones.data-final-fixes"
+
+
+--[[
+  Layers with only FF
+  FF non_deep_water_mask assigned to layer-13
+  FF deep_water_mask assigned to layer-16
+  layer-19: Hovercrafts
+  layer-20: CS waterway_layer
+  layer-21: CS pump_collision_layer
+  layer-22: CS land_resource_layer
+  layer-23: FF platform_layer
+  layer-24: FF water_object_layer
+  layer-25: FF substitute_player_collision_layer
+  layer-26: FF underwater_pipe_layer
+
+ deep_oil and grass-1 should collide. {["resource-layer"] = true} | {["ground-tile"] = true, ["layer-20"] = true}
+ straight-water-way and ff-seamount should collide. {["layer-20"] = true, ["object-layer"] = true} | {["ground-tile"] = true, ["layer-13"] = true, ["resource-layer"] = true}
+ pump and ff-seamount should collide. {["layer-21"] = true, ["layer-24"] = true, ["object-layer"] = true} | {["ground-tile"] = true, ["layer-13"] = true, ["resource-layer"] = true}
+ ff-underwater-pipe and indep-boat should not collide. {["ground-tile"] = true, ["layer-24"] = true} | {["ground-tile"] = true, ["train-layer"] = true}
+ ff-underwater-pipe and oil_rig should collide. {["ground-tile"] = true, ["layer-24"] = true} | {["object-layer"] = true, ["train-layer"] = true}
+
+]]
