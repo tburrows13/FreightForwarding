@@ -79,6 +79,17 @@ data:extend{
     stack_size = 5
   },
   {
+    type = "item",
+    name = "ff-dredger-dummy",  -- So that FNEI recognises dredger recipes
+    icon = "__FreightForwarding__/graphics/dredger.png",
+    icon_size = 64, icon_mipmaps = 1,
+    subgroup = "extraction-machine",
+    order = "b[fluids]-d[dredger]",
+    flags = {"hidden"},
+    place_result = "ff-dredger",
+    stack_size = 1
+  },
+  {
     type = "mining-drill",
     name = "ff-dredging-platform",
     icon = "__FreightForwarding__/graphics/dredger.png",

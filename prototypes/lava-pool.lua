@@ -42,14 +42,26 @@ end
 data:extend{
   {
     type = "item",
-    name = "ff-lava-pool-dummy",  -- So that the correct words appear when hovering over the patch in map view
+    name = "ff-lava-pool-dummy",  -- So that the correct words appear when hovering over the patch in map view, and for FNEI
     localised_name = {"entity-name.ff-lava-pool"},
     icon = "__FreightForwarding__/graphics/lava-pool/lava-pool-icon.png",
     icon_size = 64, icon_mipmaps = 1,
-    icon_size = 64, icon_mipmaps = 4,
     flags = {"hidden"},
     --subgroup = "raw-resource",
     --order = "e[iron-ore]",
+    place_result = "ff-lava-pool",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "ff-lava-pool-small-dummy",  -- So that FNEI recognises lava pool recipes
+    localised_name = {"entity-name.ff-lava-pool-small"},
+    icon = "__FreightForwarding__/graphics/lava-pool/small-lava-pool-icon.png",
+    icon_size = 64, icon_mipmaps = 1,
+    flags = {"hidden"},
+    --subgroup = "raw-resource",
+    --order = "e[iron-ore]",
+    place_result = "ff-lava-pool-small",
     stack_size = 50
   },
   {
