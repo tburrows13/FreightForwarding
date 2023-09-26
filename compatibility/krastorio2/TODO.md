@@ -91,5 +91,5 @@
 
 ### Update after FF v1.7.2
 - [x] unify FF's "battery-pack" with K2's "lithium-sulfur-battery"
-- [ ] tweak steam temperature of turbines and titansteel recipe to match 500°C
+- [x] tweak steam temperature of turbines and titansteel recipe to match 500°C
 - [ ] add K2 fuel to spiderlings
