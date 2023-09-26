@@ -138,6 +138,26 @@ else
   data.raw.locomotive.locomotive.burner.fuel_categories = { "chemical", "vehicle-fuel", "battery" }
 end
 
+-- Replace all K2 lithium-sulfur-battery instances with FF's battery-pack
+data.raw.recipe["lithium-sulfur-battery"].hidden = true
+data.raw.item["lithium-sulfur-battery"].flags = {"hidden"}
+data.raw.item["lithium-sulfur-battery"].ic_create_container = false
+bzutil.remove_recipe_effect("kr-lithium-sulfur-battery", "lithium-sulfur-battery")
+for ___, recipe in pairs(data.raw.recipe) do
+  bzutil.replace_ingredient(recipe.name, "lithium-sulfur-battery", "ff-battery-pack")
+  bzutil.replace_product(recipe.name, "lithium-sulfur-battery", "ff-battery-pack")
+end
+
+-- Rebalance FF-battery-pack recipe to be more generous & speedy (lithium-batteries are used for science in K2)
+-- (3 lithium + 3 cobalt ingot + 9 battery + 1 red chip = 3 battery packs, in the same time)
+bzutil.add_ingredient("ff-battery-pack", "lithium", 3)
+bzutil.set_ingredient("ff-battery-pack", "battery", 9)
+bzutil.set_ingredient("ff-battery-pack", "ff-cobalt-ingot", 3)
+bzutil.set_product_amount("ff-battery-pack", "ff-battery-pack", 3)
+bzutil.add_prerequisite("ff-battery-pack", "kr-lithium-processing")
+data.raw.item["ff-battery-pack"].localised_name = "Lithium battery pack"
+data.raw.item["ff-charged-battery-pack"].localised_name = "Charged lithium battery pack"
+
 -- Allow Plutonium Energy fuel cells into K2's Nuclear Locomotive
 if mods["PlutoniumEnergy"] then 
   local burner = data.raw.locomotive["kr-nuclear-locomotive"].burner

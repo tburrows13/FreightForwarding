@@ -1,0 +1,13 @@
+{
+  "item":
+  [
+    ["lithium-sulfur-battery", "ff-battery-pack"],
+    ["ic-container-lithium-sulfur-battery", "ic-container-ff-battery-pack"]
+  ],
+  "recipe":
+  [
+    ["lithium-sulfur-battery", "ff-battery-pack"],
+    ["ic-load-lithium-sulfur-battery", "ic-load-ff-battery-pack"],
+    ["ic-unload-lithium-sulfur-battery", "ic-unload-ff-battery-pack"]
+  ]
+}

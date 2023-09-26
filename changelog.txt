@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.3
+Date: 26 September 2023
+  Changes:
+    - 
+  Bugfixes:
+    - 
+  Compatibility:
+    - [Krastorio 2] Unified K2's Lithium Battery with FF's Battery Pack
+---------------------------------------------------------------------------------------------------
 Version: 1.7.2
 Date: 26 June 2023
   Features:
