@@ -54,5 +54,13 @@ force_setting("bool", "sp-remove-military-requirement", true)
 -- Ensure missile hovercraft exists
 force_setting("bool", "enable-mcraft", true)
 
+-- Lex's Aircraft
+-- Hide light gunship settings, ensure all ships support logistics requests
+data.raw["double-setting"]["lex-flying-gunship-speed-settings"].hidden = true
+data.raw["int-setting"]["lex-gunship-inventory-size-settings"].hidden = true
+force_setting("int", "lex-flying-cargo-trash-inventory-size-settings", 20)
+force_setting("int", "lex-gunship-trash-inventory-size-settings", 10)
+force_setting("int", "lex-flying-heavyship-trash-inventory-size-settings", 10)
+
 require "__FreightForwarding__.compatibility.beautiful-bridge-railway.settings"
 require "__FreightForwarding__.compatibility.krastorio2.settings"
