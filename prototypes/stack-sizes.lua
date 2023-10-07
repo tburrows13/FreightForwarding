@@ -2,6 +2,8 @@
 local stack_size_override = {
   -- Vanilla
   ["uranium-ore"] = 30,
+  ["uranium-235"] = 50,
+  ["uranium-238"] = 50,
   ["uranium-fuel-cell"] = 20,
   ["used-up-uranium-fuel-cell"] = 20,
   -- BZ
