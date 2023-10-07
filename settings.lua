@@ -62,5 +62,12 @@ force_setting("int", "lex-flying-cargo-trash-inventory-size-settings", 20)
 force_setting("int", "lex-gunship-trash-inventory-size-settings", 10)
 force_setting("int", "lex-flying-heavyship-trash-inventory-size-settings", 10)
 
+-- BZ hide extra options
+force_setting("bool", "bzlead-byproduct", true)
+force_setting("string", "bzlead-more-entities", "no")
+force_setting("string", "bzlead-more-ammo", "no")
+force_setting("string", "bztitanium-mining-fluid", "lubricant")
+force_setting("int", "bztitanium-mining-fluid-amount", 3)
+
 require "__FreightForwarding__.compatibility.beautiful-bridge-railway.settings"
 require "__FreightForwarding__.compatibility.krastorio2.settings"
