@@ -13,6 +13,7 @@ local function on_seamount_created(event)
 
   local seamount = event.target_entity
   seamount.amount = 1
+  seamount.destructible = false
 
   -- Resources are created centered on a tile, we need to change that, and teleport it to a 2x2-tile position
   local position = seamount.position

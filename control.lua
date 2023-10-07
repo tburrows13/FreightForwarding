@@ -21,6 +21,7 @@ handler.add_libraries{
   require "scripts.landfill-hidden-tile",
   require "scripts.lava-pool",
   require "scripts.seamount",
+  require "scripts.rocket-silo",
   require "scripts.seismic-scanning",
   require "scripts.life-ring",
   require "scripts.compatibility",

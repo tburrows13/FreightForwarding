@@ -18,12 +18,18 @@ Migrations.on_configuration_changed = function(changed_data)
 
   old_version = util.split(old_version, ".")
   if tonumber(old_version[1]) == 1 then
-    if tonumber(old_version[2]) <= 5 then
+    if tonumber(old_version[2]) < 5 then
       -- Run on 1.5.0 load
       for _, force in pairs(game.forces) do
         if force.technologies["railway"].researched then
           force.print("[Freight Forwarding] This update changes trains to use batteries rather than burnable fuel. If you wish to revert this behaviour so that your existing factory continues to run, you can do so from [font=default-large-semibold]Main Menu > Settings > Mod settings > Startup[/font]")
         end
+      end
+    end
+    if tonumber(old_version[2]) < 8 then
+      -- Run on 1.8.0 load
+      for _, surface in pairs(game.surfaces) do
+        surface.regenerate_entity("ff-rocket-silo-hole")
       end
     end
   end
