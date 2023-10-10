@@ -9,7 +9,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "science-pack",
     order = "b[logistic-science-pack]-a[transport-science-pack]",
-    stack_size = 200,
+    stack_size = 100,
     durability = 1,
     durability_description_key = "description.science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value"
