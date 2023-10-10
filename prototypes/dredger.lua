@@ -110,7 +110,7 @@ data:extend{
       emissions_per_minute = 200,
       usage_priority = "secondary-input"
     },
-    energy_usage = "800kW",
+    energy_usage = "2MW",
     mining_speed = 1,
     resource_searching_radius = 0.5,
     vector_to_place_result = {0, 0},
@@ -279,7 +279,7 @@ data:extend{
       emissions_per_minute = 200,
       usage_priority = "secondary-input"
     },
-    energy_usage = "800kW",
+    energy_usage = "2MW",
     crafting_speed = 1,
     resource_searching_radius = 0.49,
     --[[module_specification =
