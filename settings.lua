@@ -45,6 +45,10 @@ force_setting("bool", "no_oil_for_oil_rig", true)
 force_setting("string", "oil_richness", "good")
 force_setting("string", "oil_rigs_require_external_power", "disabled")
 
+-- Reduce tanker capacity from 250k to 200k
+force_setting("int", "tanker_capacity", 200)
+force_setting("double", "fuel_modifier", 2)
+
 -- Increase oil rig storage to match oil tanker's
 --force_setting("int", "oil_rig_capacity", 250)
 

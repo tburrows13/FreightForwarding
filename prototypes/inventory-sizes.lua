@@ -13,7 +13,11 @@ local function divide_inventory_size(prototype, amount)
 end
 
 for _, prototype in pairs(data.raw["cargo-wagon"]) do
-  divide_inventory_size(prototype, 10)
+  if prototype.name == "cargo_ship" then
+    prototype.inventory_size = 80  -- original is 1000
+  else
+    divide_inventory_size(prototype, 10)
+  end
 end
 
 for _, prototype in pairs(data.raw["car"]) do
