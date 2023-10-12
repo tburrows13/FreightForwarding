@@ -11,8 +11,8 @@ end
 
 local function chunk_position_to_area(chunk_position)
   return {
-    left_top = {chunk_position[1] * 32, chunk_position[2] * 32},
-    right_bottom = {chunk_position[1] * 32 + 32, chunk_position[2] * 32 + 32},
+    left_top = {chunk_position[1] * 32 + 1, chunk_position[2] * 32 + 1},
+    right_bottom = {chunk_position[1] * 32 + 31, chunk_position[2] * 32 + 31},
   }
 end
 
@@ -55,37 +55,53 @@ local function neighbouring_chunks(chunk_position)
   }
 end
 
+local function supports_chunk_requested_for_charting()
+  local version_string = game.active_mods["base"]
+  return tonumber(util.split(version_string, ".")[3]) >= 93
+end
+
 local function on_sector_scanned(event)
   -- Raised when radar does scan, but the scanner prototype has a very small radius
   -- so that the actual chunk scan is done by the following script
   local scanner = event.radar
   local surface = scanner.surface
+  local force = scanner.force
   local scanner_chunk_position = to_chunk_position(scanner.position)
 
   local scanner_data = get_scanner_data(scanner)
 
-  local chunk_str = next(scanner_data.to_be_explored_chunks)
-  if chunk_str then
-    local chunk = str_to_position(chunk_str)
+  local charted_chunk_yet = false
 
-    scanner.force.chart(scanner.surface, chunk_position_to_area(chunk))
+  while not charted_chunk_yet do
+    local chunk_str = next(scanner_data.to_be_explored_chunks)
+    if chunk_str then
+      local chunk = str_to_position(chunk_str)
 
-    scanner_data.explored_chunks[chunk_str] = true
-    scanner_data.to_be_explored_chunks[chunk_str] = nil
-    if is_chunk_land(chunk, surface) then
-      -- Add neighbouring chunks to to_be_explored_chunks
-      for _, neighbouring_chunk in pairs(neighbouring_chunks(chunk)) do
-        if is_chunk_in_range(neighbouring_chunk, scanner_chunk_position) then
-          local neighbouring_chunk_str = position_to_str(neighbouring_chunk)
-          if not scanner_data.explored_chunks[neighbouring_chunk_str] then
-            scanner_data.to_be_explored_chunks[neighbouring_chunk_str] = true
+      if not force.is_chunk_charted(surface, chunk)
+        and not (supports_chunk_requested_for_charting() and force.is_chunk_requested_for_charting(surface, chunk))
+      then
+        force.chart(surface, chunk_position_to_area(chunk))
+        charted_chunk_yet = true
+      end
+
+      scanner_data.explored_chunks[chunk_str] = true
+      scanner_data.to_be_explored_chunks[chunk_str] = nil
+      if is_chunk_land(chunk, surface) then
+        -- Add neighbouring chunks to to_be_explored_chunks
+        for _, neighbouring_chunk in pairs(neighbouring_chunks(chunk)) do
+          if is_chunk_in_range(neighbouring_chunk, scanner_chunk_position) then
+            local neighbouring_chunk_str = position_to_str(neighbouring_chunk)
+            if not scanner_data.explored_chunks[neighbouring_chunk_str] then
+              scanner_data.to_be_explored_chunks[neighbouring_chunk_str] = true
+            end
           end
         end
       end
+    else
+      global.scanner_data[scanner.unit_number] = nil
+      scanner.active = false
+      return
     end
-  else
-    global.scanner_data[scanner.unit_number] = nil
-    on_sector_scanned(event)
   end
 end
 
