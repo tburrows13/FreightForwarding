@@ -18,7 +18,7 @@ Migrations.on_configuration_changed = function(changed_data)
 
   old_version = util.split(old_version, ".")
   if tonumber(old_version[1]) == 1 then
-    if tonumber(old_version[2]) <= 5 then
+    if tonumber(old_version[2]) < 5 then
       -- Run on 1.5.0 load
       for _, force in pairs(game.forces) do
         if force.technologies["railway"].researched then

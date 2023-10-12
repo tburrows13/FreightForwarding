@@ -60,7 +60,7 @@ presets["ff-ribbon-world"] = {
 
 for _, control in pairs(data.raw["autoplace-control"]) do
   local name = control.name
-  if name ~= "trees" and name ~= "enemy-base" and name ~= "ff-seamount" then
+  if name ~= "trees" and name ~= "enemy-base" and name ~= "ff-seamount" and name ~= "ff-rocket-silo-hole" then
     presets["x-default"].basic_settings.autoplace_controls[control.name] = ff_default
     presets["ff-ribbon-world"].basic_settings.autoplace_controls[control.name] = ff_ribbon
   end

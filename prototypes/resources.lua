@@ -157,7 +157,7 @@ data:extend{
 }
 
 data.raw.resource["ff-seamount"].autoplace = {
-  name = "ff-seamount",
+  control = "ff-seamount",
   order = "c",
   probability_expression = noise.define_noise_function( function(x, y, tile, map)
       -- Frequency value from map gen settings
@@ -206,3 +206,46 @@ data.raw.resource["ff-lava-pool-resource"].autoplace = resource_autoplace.resour
   regular_patch_fade_in_distance = 3000,
   ideal_aux = 0.9,
 }
+
+if not (mods["Mining-Space-Industries-II"] or mods["LunarLandings"] or mods["space-exploration"]) then
+
+  data:extend{
+    {
+      type = "autoplace-control",
+      name = "ff-rocket-silo-hole",
+      --localised_name = {"", "[entity=ff-seamount] ", {"entity-name.ff-seamount"}},
+      localised_name = {"entity-name.ff-rocket-silo-hole"},
+      richness = false,
+      order = "z-c",
+      category = "resource"
+    },
+  }
+
+  data.raw.resource["ff-rocket-silo-hole"].autoplace = {
+    control = "ff-rocket-silo-hole",
+    order = "a",
+    probability_expression = noise.define_noise_function( function(x, y, tile, map)
+        -- Frequency value from map gen settings
+        local frequency_multiplier = noise.var("control-setting:ff-rocket-silo-hole:frequency:multiplier")
+        local desired_frequency = 1.4 / (64 * 64^2)
+
+        local elevation = noise.var("elevation")
+        local distance = noise.var("distance")
+        local aux = noise.var("resource-spread")
+
+        local elevation_multiplier = noise.if_else_chain(
+          noise.less_than(10, elevation),  -- only spawn at elevation 10 or higher
+            noise.if_else_chain(
+              noise.less_than(5000, distance),   -- spawn far from start
+              noise.if_else_chain(noise.less_than(aux, 0.6), 1, 0),  -- keep away from lava pools
+              0
+            ),
+            0
+        )
+        return desired_frequency * frequency_multiplier * elevation_multiplier
+      end),
+    richness_expression = noise.define_noise_function( function(x, y, tile, map)
+      return 10  -- Overwritten in control by script trigger
+    end)
+  }
+end

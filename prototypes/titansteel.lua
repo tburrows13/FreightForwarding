@@ -166,7 +166,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "e[titansteel-plate]-c",
-    stack_size = 50  -- Will be halved in stack-sizes.lua
+    stack_size = 30  -- Will be halved in stack-sizes.lua
   },
 }
 

@@ -12,11 +12,12 @@ local tile_tests = {
   {"pump", false, false, false, false},
   {"iron-ore", false, true, true, true},
   {"crude-oil", true, true, true, false},
-  {"deep_oil", true, true, true, true},  -- doesn't really matter since script-created
+  --{"deep_oil", true, true, true, true},  -- doesn't really matter since script-created
   {"ff-underwater-pipe", true, false, false, false},
   {"ff-offshore-storage-tank", true, false, false, false},
   {"ff-seamount", true, true, true, false},
   {"ff-lava-pool-resource", false, true, true, true},
+  {"ff-rocket-silo-hole", false, true, true, true},
   {"straight-rail", false, true, true, true},
   {"straight-water-way", true, false, false, false},
   {"bbr-straight-rail-iron", false, false, false, true},
@@ -33,6 +34,8 @@ local entity_tests = {
   {"pump", {"ff-underwater-pipe", "ff-offshore-storage-tank"}, true},
   {"ff-underwater-pipe", {"hcraft-entity"}, false},
   {"ff-underwater-pipe", {"oil_rig", "ff-offshore-storage-tank"}, true},
+  {"ff-rocket-silo-hole", {"ff-rocket-silo-dummy"}, false},
+  {"ff-rocket-silo-hole", {"stone-furnace", "character"}, true},
 }
 
 local function test_collision(mask1, mask2, name1, name2, should_collide)

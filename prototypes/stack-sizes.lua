@@ -2,12 +2,22 @@
 local stack_size_override = {
   -- Vanilla
   ["uranium-ore"] = 30,
+  ["uranium-235"] = 50,
+  ["uranium-238"] = 50,
   ["uranium-fuel-cell"] = 20,
   ["used-up-uranium-fuel-cell"] = 20,
   -- BZ
   ["lead-ore"] = 30,
   ["titanium-ore"] = 30,
-  ["space-science-pack"] = 200,
+
+  -- Sciences
+  ["automation-science-pack"] = 100,
+  ["logistic-science-pack"] = 100,
+  ["chemical-science-pack"] = 100,
+  ["military-science-pack"] = 100,
+  ["production-science-pack"] = 100,
+  ["utility-science-pack"] = 100,
+  ["space-science-pack"] = 100,
 }
 
 for name, stack_size in pairs(stack_size_override) do

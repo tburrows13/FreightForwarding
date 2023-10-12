@@ -13,7 +13,11 @@ local function divide_inventory_size(prototype, amount)
 end
 
 for _, prototype in pairs(data.raw["cargo-wagon"]) do
-  divide_inventory_size(prototype, 10)
+  if prototype.name == "cargo_ship" then
+    prototype.inventory_size = 80  -- original is 1000
+  else
+    divide_inventory_size(prototype, 10)
+  end
 end
 
 for _, prototype in pairs(data.raw["car"]) do
@@ -41,8 +45,8 @@ if broken_droid then
   broken_droid.inventory_size = 30
 end
 
--- Increase Rocket Silo result inventory since science pack stacks are 100 instead of 1000
-data.raw["rocket-silo"]["rocket-silo"].rocket_result_inventory_size = 10
+-- Increase Rocket Silo result inventory since science pack stacks are 50 instead of 1000
+data.raw["rocket-silo"]["rocket-silo"].rocket_result_inventory_size = 20
 
 local burner_types = {
   "boiler",

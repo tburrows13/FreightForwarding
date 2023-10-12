@@ -373,7 +373,7 @@ data:extend{ -- Battery charging interface
     fuel_top_speed_multiplier = 1.5,
     subgroup = "raw-material",
     order = "h[battery]-d",
-    stack_size = 400  -- Will be halved in stack-sizes.lua
+    stack_size = 200  -- Will be halved in stack-sizes.lua
   },
   {
     type = "recipe",
