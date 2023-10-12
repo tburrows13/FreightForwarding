@@ -1,4 +1,4 @@
-local scanner_range = 30
+local scanner_range = 80
 local min_tiles_from_water = 16
 
 local function to_chunk_position(map_position)
@@ -29,7 +29,7 @@ local function is_chunk_land(chunk_position, surface)
   -- 1024 tiles in a chunk
   local area = chunk_position_to_area(chunk_position)
   local ground_tiles = surface.count_tiles_filtered{area = area, collision_mask = "ground-tile"}
-  return ground_tiles > 128
+  return ground_tiles > 64
 end
 
 local function is_chunk_in_range(chunk_position, scanner_position)

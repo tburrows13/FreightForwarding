@@ -74,7 +74,7 @@ data:extend{
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
     --energy_per_sector = "10MJ",
-    energy_per_sector = "1.5MJ",
+    energy_per_sector = "1MJ",
     --energy_per_sector = "10kJ",
     max_distance_of_sector_revealed = 1,
     max_distance_of_nearby_sector_revealed = 1,
