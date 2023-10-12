@@ -168,8 +168,32 @@ data:extend{
     order = "e[titansteel-plate]-c",
     stack_size = 30  -- Will be halved in stack-sizes.lua
   },
+  {
+    type = "recipe",
+    name = "ff-rocket-frame",
+    category = "crafting",
+    energy_required = 15,
+    enabled = false,
+    ingredients =
+    {
+      {"low-density-structure", 1},
+      {"ff-titansteel-plate", 1},
+    },
+    result = "ff-rocket-frame"
+  },
+  {
+    type = "item",
+    name = "ff-rocket-frame",
+    icon = "__FreightForwarding__/graphics/item/rocket-frame.png",
+    icon_size = 64, icon_mipmaps = 4,
+    subgroup = "intermediate-product",
+    order = "p[rocket-frame]",
+    stack_size = 10
+  },
 }
 
+util.allow_productivity("ff-rocket-frame")
+
+bzutil.add_unlock("rocket-silo", "ff-rocket-frame")
 util.add_prerequisite("rocket-silo", "ff-titansteel-processing")
-bzutil.replace_ingredient("rocket-silo", "steel-plate", "ff-titansteel-plate")
-bzutil.add_ingredient("rocket-part", "ff-titansteel-plate", 10)
+bzutil.replace_ingredient("rocket-part", "low-density-structure", "ff-rocket-frame")
