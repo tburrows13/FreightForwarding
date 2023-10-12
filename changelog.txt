@@ -1,11 +1,20 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.7.3
-Date: 26 September 2023
+Version: 1.8.0
+Date: ???
+  Features:
+    - Rocket silos can now only be placed in naturally occuring rocket silo holes
   Changes:
-    - 
-  Bugfixes:
-    - 
+    - Reduced stack size of titansteel plates from 25 to 15
+    - Reduced stack size of Uranium-235 and Uranium-238 from 50 to 25
+    - Reduced stack size of battery packs from 200 to 100
+    - Reduced stack size of all science packs from 100 to 50
+    - Decreased cargo ships inventory from 100 to 80
+    - Decreased tanker ship capacity from 250,000 to 200,000
+    - Increased dredging machine energy usage from 800kW to 2MW
+    - Reduced amount of shallow water spawned
+    - Slightly reduced amount of regular water spawned
   Compatibility:
+    - Fixed dredging and titansteel recipes not being shown by FNEI
     - [Krastorio2] Unified K2's Lithium Battery with FF's Battery Pack
     - [Krastorio2] Increased steam-turbine max_temperature to 500°C to match titansteel steam output
 ---------------------------------------------------------------------------------------------------
