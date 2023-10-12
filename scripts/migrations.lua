@@ -26,12 +26,6 @@ Migrations.on_configuration_changed = function(changed_data)
         end
       end
     end
-    if tonumber(old_version[2]) < 8 then
-      -- Run on 1.8.0 load
-      for _, surface in pairs(game.surfaces) do
-        surface.regenerate_entity("ff-rocket-silo-hole")
-      end
-    end
   end
 end
 
