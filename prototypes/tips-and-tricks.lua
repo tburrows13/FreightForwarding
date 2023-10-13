@@ -195,6 +195,15 @@ data:extend{
     order = "h",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
   },]]
+  {
+    type = "tips-and-tricks-item",
+    name = "ff-rocket-silo",
+    tag = "[entity=rocket-silo]",
+    category = "freight-forwarding",
+    indent = 1,
+    order = "i",
+    image = "__FreightForwarding__/graphics/tips-and-tricks/rocket-silo.png"
+  },
 }
 
 -- Convert cargo ships tip to fit in with the rest

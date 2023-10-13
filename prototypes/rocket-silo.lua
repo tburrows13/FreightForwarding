@@ -5,7 +5,11 @@ local sounds = require "__base__.prototypes.entity.sounds"
 --local rocket_silo = data.raw["rocket-silo"]["rocket-silo"]
 --rocket_silo.placeable_by = { item = "rocket-silo", count = 1 }  -- Allows placing rocket silo blueprints outside of holes
 
+data.raw["rocket-silo"]["rocket-silo"].localised_description = {"entity-description.ff-rocket-silo"}
+data.raw.technology["rocket-silo"].localised_description = {"technology-description.ff-rocket-silo"}
+
 local rocket_silo = table.deepcopy(data.raw["rocket-silo"]["rocket-silo"])
+
 local rocket_silo_item = data.raw["item"]["rocket-silo"]
 
 local rocket_silo_dummy = table.deepcopy(rocket_silo)

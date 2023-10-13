@@ -93,6 +93,3 @@ satellite_item.rocket_launch_product = {"space-science-pack", 200}
 bzutil.set_ingredient("satellite", "low-density-structure", 50)
 bzutil.set_ingredient("satellite", "solar-panel", 50)
 bzutil.set_ingredient("satellite", "accumulator", 50)  -- Will be replaced by charged battery pack
-
-data.raw["rocket-silo"]["rocket-silo"].localised_description = {"entity-description.ff-rocket-silo"}
-data.raw.technology["rocket-silo"].localised_description = {"technology-description.ff-rocket-silo"}
