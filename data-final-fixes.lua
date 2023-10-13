@@ -94,9 +94,10 @@ end
 if data.raw.technology["ff-interstellar-communication"] then
   for name, tech in pairs(data.raw.technology) do
     if name ~= "ff-interstellar-communication" then
-      for _, prereq in pairs(tech.prerequisites or {}) do
+      for i, prereq in pairs(tech.prerequisites or {}) do
         if prereq == "space-science-pack" then
           table.insert(tech.prerequisites, "ff-interstellar-communication")
+          table.remove(tech.prerequisites, i)
         end
       end
     end

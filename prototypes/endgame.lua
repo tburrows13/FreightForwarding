@@ -27,7 +27,7 @@ data:extend{
         {"utility-science-pack", 1},
         {"space-science-pack", 1}
       },
-      time = 30
+      time = 60
     },
     prerequisites = {"space-science-pack"},
     order = "c-a"
