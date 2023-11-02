@@ -39,6 +39,10 @@ data:extend{
         type = "unlock-recipe",
         recipe = "ff-slag-leaching"
       },
+      {
+        type = "unlock-recipe",
+        recipe = "ff-water-condensing"
+      }
     },
     prerequisites = {"production-science-pack", "utility-science-pack", "ff-cobalt-processing"},
     unit =
@@ -125,6 +129,27 @@ data:extend{
     energy_required = 10,  -- 3 lava pools : 2 chemical plants
   },
   {
+    type = "recipe",
+    name = "ff-water-condensing",
+    localised_name = {"recipe-name.ff-water-condensing"},
+    category = "chemistry",
+    subgroup = "fluid-recipes",
+    order = "g[steam]",
+    main_product = "water",
+    enabled = false,
+    ingredients = {
+      {type = "fluid", name = "water", amount = 50},
+      {type = "fluid", name = "steam", amount = 150},
+    },
+    results = {
+      {type = "fluid", name = "water", amount = 190},
+    },
+    energy_required = 6,
+    allow_decomposition = false,
+    show_amount_in_title = false,
+    always_show_products = true,
+  },
+  {
     type = "item",
     name = "ff-hot-titansteel-plate",
     icon = "__FreightForwarding__/graphics/hot-titansteel.png",
@@ -190,7 +215,7 @@ data:extend{
     type = "item",
     name = "ff-rocket-frame",
     icon = "__FreightForwarding__/graphics/item/rocket-frame.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64, icon_mipmaps = 1,
     subgroup = "intermediate-product",
     order = "p[rocket-frame]",
     stack_size = 10
