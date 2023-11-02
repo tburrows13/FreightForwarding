@@ -171,15 +171,20 @@ data:extend{
   {
     type = "recipe",
     name = "ff-rocket-frame",
-    category = "crafting",
+    category = "crafting-with-fluid",
     energy_required = 15,
     enabled = false,
     ingredients =
     {
       {"low-density-structure", 1},
       {"ff-titansteel-plate", 1},
+      {type = "fluid", name = "lubricant", amount = 200},
     },
-    result = "ff-rocket-frame"
+    results = {
+      {type = "item", name = "ff-rocket-frame", amount = 1},
+      {type = "fluid", name = "lubricant", amount = 180},
+    },
+    main_product = "ff-rocket-frame",
   },
   {
     type = "item",
