@@ -55,11 +55,6 @@ local function neighbouring_chunks(chunk_position)
   }
 end
 
-local function supports_chunk_requested_for_charting()
-  local version_string = game.active_mods["base"]
-  return tonumber(util.split(version_string, ".")[3]) >= 93
-end
-
 local function on_sector_scanned(event)
   -- Raised when radar does scan, but the scanner prototype has a very small radius
   -- so that the actual chunk scan is done by the following script
@@ -77,8 +72,7 @@ local function on_sector_scanned(event)
     if chunk_str then
       local chunk = str_to_position(chunk_str)
 
-      if not force.is_chunk_charted(surface, chunk)
-        and not (supports_chunk_requested_for_charting() and force.is_chunk_requested_for_charting(surface, chunk))
+      if not force.is_chunk_charted(surface, chunk) and not force.is_chunk_requested_for_charting(surface, chunk)
       then
         force.chart(surface, chunk_position_to_area(chunk))
         charted_chunk_yet = true

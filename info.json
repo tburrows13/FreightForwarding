@@ -7,7 +7,7 @@
   "description": "A small overhaul with a focus on long-distance logistics variety.\nTransport containerized items across land and sea using trains and ships!\nUnlocks are balanced around the custom island-based terrain and resource spawning to provide a smooth progression.\nFirst, venture to the edge of your starting island using trains to find lead, then set sail for offshore oil using tanker ships, dredge metallic nodules from the seabed, and recover titanium from other islands. Finally you'll be transporting materials to faraway lava pools to smelt titansteel, an essential ingredient in rocket parts.\nAlong the way you'll unlock hovercrafts, automated spidertrons, and aircraft.",
   "factorio_version": "1.1",
   "dependencies": [
-    "base > 1.1.60",
+    "base > 1.1.93",
     "IntermodalContainers",
     "cargo-ships",
     "Mini_Trains",
