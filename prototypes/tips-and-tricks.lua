@@ -170,11 +170,20 @@ data:extend{
   },
   {
     type = "tips-and-tricks-item",
+    name = "ff-fuel",
+    tag = "[item=solid-fuel]",
+    category = "freight-forwarding",
+    indent = 1,
+    order = "h",
+    --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
+  },
+  {
+    type = "tips-and-tricks-item",
     name = "ff-dredging",
     tag = "[entity=ff-dredger]",
     category = "freight-forwarding",
     indent = 1,
-    order = "h",
+    order = "i",
     --trigger = {type = "build-entity", entity = "spidertron", match_type_only = true},
   },
   --[[{
@@ -201,7 +210,7 @@ data:extend{
     tag = "[entity=rocket-silo]",
     category = "freight-forwarding",
     indent = 1,
-    order = "i",
+    order = "j",
     image = "__FreightForwarding__/graphics/tips-and-tricks/rocket-silo.png"
   },
 }
