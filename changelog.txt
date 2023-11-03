@@ -1,8 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.0
-Date: ???
+Date: 3 November 2023
   Features:
     - Rocket silos can now only be placed in naturally occuring rocket silo holes
+    - Rockets now require "Rocket frames" to construct, crafted from titansteel, low density structures, and lubricant
+    - Added water condensing recipe for getting rid of excess steam
+    - Added tips and tricks pages explaining vehicle fuel restrictions and new rocket silo mechanics
+    - Added logistics requests to combat aircraft
   Changes:
     - Reduced stack size of titansteel plates from 25 to 15
     - Reduced stack size of Uranium-235 and Uranium-238 from 50 to 25
@@ -13,6 +17,7 @@ Date: ???
     - Increased dredging machine energy usage from 800kW to 2MW
     - Reduced amount of shallow water spawned
     - Slightly reduced amount of regular water spawned
+    - Renamed "Locomotive" to "Electric locomotive"
   Compatibility:
     - Fixed dredging and titansteel recipes not being shown by FNEI
     - [Krastorio2] Unified K2's Lithium Battery with FF's Battery Pack
