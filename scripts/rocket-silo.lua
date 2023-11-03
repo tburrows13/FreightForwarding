@@ -1,5 +1,5 @@
 local function on_rocket_silo_hole_created(event)
-  game.print("Rocket silo hole created!")
+  --game.print("Rocket silo hole found!")
   local rocket_silo = event.target_entity
   rocket_silo.amount = 1
   rocket_silo.destructible = false

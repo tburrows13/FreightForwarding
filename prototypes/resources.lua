@@ -234,9 +234,9 @@ if not (mods["Mining-Space-Industries-II"] or mods["LunarLandings"] or mods["spa
         local aux = noise.var("resource-spread")
 
         local elevation_multiplier = noise.if_else_chain(
-          noise.less_than(10, elevation),  -- only spawn at elevation 10 or higher
+          noise.less_than(8, elevation),  -- only spawn at elevation 10 or higher
             noise.if_else_chain(
-              noise.less_than(5000, distance),   -- spawn far from start
+              noise.less_than(4000, distance),   -- spawn far from start
               noise.if_else_chain(noise.less_than(aux, 0.6), 1, 0),  -- keep away from lava pools
               0
             ),
