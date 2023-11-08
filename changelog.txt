@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.1
+Date: 8 November 2023
+  Features:
+    - Added map rechart on migration to reveal rocket silo holes in already-mapped chunks
+  Bugfixes:
+    - Fixed crash when updating to 1.8.0 with MSI2
+    - Fixed crash on load with VeryBZ or BZ Basic Metals
+---------------------------------------------------------------------------------------------------
 Version: 1.8.0
 Date: 3 November 2023
   Features:
