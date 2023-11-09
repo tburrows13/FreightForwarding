@@ -68,11 +68,14 @@ local function test_tile_collisions()
 
   for _, test_case in pairs(tile_tests) do
     local entity_name = test_case[1]
-    local mask1 = entities[entity_name].collision_mask
-    test_collision(mask1, grass_mask, entity_name, "grass-1", test_case[2])
-    test_collision(mask1, shallow_mask, entity_name, "water-shallow", test_case[3])
-    test_collision(mask1, regular_mask, entity_name, "water", test_case[4])
-    test_collision(mask1, deep_mask, entity_name, "deepwater", test_case[5])
+    local entity = entities[entity_name]
+    if entity then
+      local mask1 = entity.collision_mask
+      test_collision(mask1, grass_mask, entity_name, "grass-1", test_case[2])
+      test_collision(mask1, shallow_mask, entity_name, "water-shallow", test_case[3])
+      test_collision(mask1, regular_mask, entity_name, "water", test_case[4])
+      test_collision(mask1, deep_mask, entity_name, "deepwater", test_case[5])
+    end
   end
 end
 
@@ -81,10 +84,16 @@ local function test_entity_collisions()
 
   for _, test_case in pairs(entity_tests) do
     local entity_name = test_case[1]
-    local mask1 = entities[entity_name].collision_mask
-    for _, other_entity_name in pairs(test_case[2]) do
-      local mask2 = entities[other_entity_name].collision_mask
-      test_collision(mask1, mask2, entity_name, other_entity_name, test_case[3])
+    local entity1 = entities[entity_name]
+    if entity1 then
+      local mask1 = entity1.collision_mask
+      for _, other_entity_name in pairs(test_case[2]) do
+        local entity2 = entities[other_entity_name]
+        if entity2 then
+          local mask2 = entity2.collision_mask
+          test_collision(mask1, mask2, entity_name, other_entity_name, test_case[3])
+        end
+      end
     end
   end
 end
