@@ -20,6 +20,7 @@ local function on_rocket_silo_created(event)
     position = position,
     force = force,
     create_build_effect_smoke = false,
+    raise_built = true,
   }
 end
 
