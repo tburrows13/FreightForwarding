@@ -9,7 +9,6 @@ Compatibles (will at least load):
 - [X] Beautiful Bridges Railway Cargoships
 - [x] Big Mining Drill
 - [x] Bismuth
-- [x] Brass Tracks
 - [x] Bz
   - [x] Aluminum
   - [x] Carbon
@@ -33,13 +32,18 @@ Compatibles (will at least load):
 - [x] Extended Descriptions
 - [x] Frost Biters
 - [x] Hovercrafts
-- [x] If I Had A Nicker
 - [x] Intermodal Containers
 - [x] Krastorio2
 - [x] Lex's Aircraft
 - [x] Milestones
 - [x] Mining Space Industries II
 - [x] Plutonium Energy
+- [x] Planetfall
+    [x] Brass Tracks
+    [x] Brim Stuff
+    [x] If I Had A Nicker
+    [x] Lasing Around
+    [x] Them Thar Hills
 - [x] Power Overload
 - [x] Pressurized Fluids
 - [x] Remote Configuration
