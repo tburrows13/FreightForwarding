@@ -161,23 +161,6 @@ bzutil.add_prerequisite("ff-battery-pack", "kr-lithium-processing")
 data.raw.item["ff-battery-pack"].localised_name = "Lithium battery pack"
 data.raw.item["ff-charged-battery-pack"].localised_name = "Charged lithium battery pack"
 
--- Add lead ore to rocks for ammos
-for name, rock in pairs(data.raw["simple-entity"]) do
-  if name:match('rock') and rock.minable then
-    local results = {}
-    if rock.minable.result then
-      results = {{ rock.minable.result, rock.minable.count or 1 }}
-      rock.minable.result = nil
-      rock.minable.count = nil
-    end
-    if rock.minable.results then
-      results = rock.minable.results
-    end
-    results[#results+1] = { name = 'lead-ore', amount_min = 12, amount_max = 28 }
-    rock.minable.results = results
-  end
-end
-
 -- Allow Plutonium Energy fuel cells into K2's Nuclear Locomotive
 if mods["PlutoniumEnergy"] then 
   local burner = data.raw.locomotive["kr-nuclear-locomotive"].burner

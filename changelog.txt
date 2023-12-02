@@ -1,8 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.3
-Date: XX November 2023
+Date: XX December 2023
   Compatibility:
     - [BZ] When BZ-tin is enable, recipes with lead will not be reverted to iron
+    - [K2] Added setting to enable/disable lead ingredients in early ammos
     - [PF] Added compatibility with Brim Stuff, Lasing Around, and Them Thar Hills by Planetfall
     - [RSC] Fixed rocket silo stage 1 not advancing in its own progress
 ---------------------------------------------------------------------------------------------------
