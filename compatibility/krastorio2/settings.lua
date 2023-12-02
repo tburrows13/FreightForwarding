@@ -4,13 +4,14 @@ if data.raw["string-setting"]["kr-stack-size"] then
   data.raw["string-setting"]["kr-stack-size"].hidden = true
 end
 
-
-data:extend{
-  {
-    type = "bool-setting",
-    name = "ff-k2-no-lead-ammo",
-    order = "c",
-    setting_type = "startup",
-    default_value = true
-  },
-}
+if mods["Krastorio2"] then 
+  data:extend{
+    {
+      type = "bool-setting",
+      name = "ff-k2-no-lead-ammo",
+      order = "c",
+      setting_type = "startup",
+      default_value = true
+    },
+  }
+end
