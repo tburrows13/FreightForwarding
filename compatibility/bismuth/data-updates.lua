@@ -1,6 +1,7 @@
 if not mods["bismuth"] then return end
 
 local resource_autoplace = require "resource-autoplace.resource-autoplace"
+local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
 
 local START_RADIUS =  175
 local INNER_RADIUS =  775
@@ -26,10 +27,4 @@ if data.raw.resource["bismuth-ore"] then
 end
 
 -- Stack size tweaks
-local function set_stack_size(item, stack_size)
-  local item = data.raw.item[item] or data.raw.tool[item]
-  if not item then return end
-  item.stack_size = stack_size
-end
-
-set_stack_size("bismuth-ore", 30)
+restack("bismuth-ore", 30)

@@ -75,20 +75,15 @@ if mods["BrimStuff"] and data.raw.resource["sulfur-ore"] then
 end
 
 -- Stack size tweaks
-local function set_stack_size(item, stack_size)
-  local item = data.raw.item[item] or data.raw.tool[item]
-  if not item then return end
-  item.stack_size = stack_size
-end
-
-set_stack_size("brass-precursor", 30)
-set_stack_size("nickel-ore", 30)
-set_stack_size("invar-precursor", 30)
-set_stack_size("motor", 50)
-set_stack_size("gold-ore", 30)
-set_stack_size("sulfur", 30)
-set_stack_size("gold-powder", 50)
-set_stack_size("drive-belt", 50)
-set_stack_size("transceiver", 50)
-set_stack_size("empty-amplifier-tube", 50)
-set_stack_size("advanced-cable", 200)
+local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
+restack("brass-precursor", 30)
+restack("nickel-ore", 30)
+restack("invar-precursor", 30)
+restack("motor", 50)
+restack("gold-ore", 30)
+restack("sulfur", 30)
+restack("gold-powder", 50)
+restack("drive-belt", 50)
+restack("transceiver", 50)
+restack("empty-amplifier-tube", 50)
+restack("advanced-cable", 200)

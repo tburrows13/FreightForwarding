@@ -53,64 +53,71 @@ for i, input in pairs(data.raw.lab["kr-singularity-lab"].inputs) do
 end
 
 -- Custom stcks size (will be halved in final-fixes)
-data.raw.item["wood"].stack_size = 50
-data.raw.item["sand"].stack_size = 50
-data.raw.item["raw-imersite"].stack_size = 30
-data.raw.item["raw-rare-metals"].stack_size = 30
-data.raw.item["coke"].stack_size = 50
-data.raw.item["glass"].stack_size = 100
-data.raw.item["fertilizer"].stack_size = 100
-data.raw.item["biomass"].stack_size = 100
-data.raw.item["quartz"].stack_size = 100
-data.raw.item["silicon"].stack_size = 100
-data.raw.item["rare-metals"].stack_size = 100
-data.raw.item["imersium-plate"].stack_size = 100
-data.raw.item["enriched-iron"].stack_size = 100
-data.raw.item["enriched-copper"].stack_size = 100
-data.raw.item["enriched-rare-metals"].stack_size = 100
-data.raw.item["lithium-chloride"].stack_size = 100
-data.raw.item["lithium"].stack_size = 100
-data.raw.item["sulfur"].stack_size = 100
-data.raw.item["lithium-sulfur-battery"].stack_size = 100
-data.raw.item["explosives"].stack_size = 100
-data.raw.item["imersite-powder"].stack_size = 100
-data.raw.item["tritium"].stack_size = 100
-data.raw.item["fuel"].stack_size = 50
-data.raw.item["bio-fuel"].stack_size = 50
-data.raw.item["advanced-fuel"].stack_size = 50
-data.raw.item["iron-stick"].stack_size = 200
-data.raw.item["iron-gear-wheel"].stack_size = 200
-data.raw.item["rocket-control-unit"].stack_size = 50
-data.raw.item["low-density-structure"].stack_size = 50
-data.raw.item["rocket-fuel"].stack_size = 50
-data.raw.item["matter-stabilizer"].stack_size = 50
-data.raw.item["charged-matter-stabilizer"].stack_size = 50
-data.raw.item["processing-unit"].stack_size = 200
-data.raw.item["engine-unit"].stack_size = 200
-data.raw.item["electric-engine-unit"].stack_size = 200
-data.raw.item["flying-robot-frame"].stack_size = 200
-data.raw.item["imersite-crystal"].stack_size = 200
-data.raw.item["uranium-235"].stack_size = 200
-data.raw.item["uranium-238"].stack_size = 200
-data.raw.item["energy-control-unit"].stack_size = 200
-data.raw.item["space-research-data"].stack_size = 200
-data.raw.item["kr-black-reinforced-plate"].stack_size = 100
-data.raw.item["kr-white-reinforced-plate"].stack_size = 100
-data.raw.item["kr-steel-pipe"].stack_size = 100
-data.raw.ammo["explosive-turret-rocket"].stack_size = 50
-data.raw.ammo["nuclear-turret-rocket"].stack_size = 50
-data.raw.ammo["antimatter-turret-rocket"].stack_size = 50
-data.raw.ammo["artillery-shell"].stack_size = 50
-data.raw.ammo["nuclear-artillery-shell"].stack_size = 50
-data.raw.ammo["antimatter-artillery-shell"].stack_size = 50
-data.raw.ammo["atomic-bomb"].stack_size = 50
-data.raw.ammo["antimatter-rocket"].stack_size = 50
-
-if mods["PlutoniumEnergy"] then
-  data.raw.item["plutonium-238"].stack_size = 200
-  data.raw.item["plutonium-239"].stack_size = 200
-  data.raw.ammo["plutonium-atomic-bomb"].stack_size = 50
-end
+local restack = util.set_stack_size
+restack("wood", 50)
+restack("sand", 50)
+restack("raw-imersite", 30)
+restack("raw-rare-metals", 30)
+restack("coke", 50)
+restack("glass", 100)
+restack("fertilizer", 100)
+restack("biomass", 100)
+restack("quartz", 100)
+restack("silicon", 100)
+restack("rare-metals", 100)
+restack("imersium-plate", 100)
+restack("enriched-iron", 100)
+restack("enriched-copper", 100)
+restack("enriched-rare-metals", 100)
+restack("lithium-chloride", 100)
+restack("lithium", 100)
+restack("sulfur", 100)
+restack("lithium-sulfur-battery", 100)
+restack("explosives", 100)
+restack("imersite-powder", 100)
+restack("tritium", 100)
+restack("fuel", 50)
+restack("bio-fuel", 50)
+restack("advanced-fuel", 50)
+restack("iron-stick", 200)
+restack("iron-gear-wheel", 200)
+restack("rocket-control-unit", 50)
+restack("low-density-structure", 50)
+restack("rocket-fuel", 50)
+restack("matter-stabilizer", 50)
+restack("charged-matter-stabilizer", 50)
+restack("processing-unit", 200)
+restack("engine-unit", 200)
+restack("electric-engine-unit", 200)
+restack("flying-robot-frame", 200)
+restack("imersite-crystal", 200)
+restack("uranium-235", 200)
+restack("uranium-238", 200)
+restack("energy-control-unit", 200)
+restack("space-research-data", 200)
+restack("kr-black-reinforced-plate", 100)
+restack("kr-white-reinforced-plate", 100)
+restack("kr-steel-pipe", 100)
+restack("blank-tech-card", 100)
+restack("biters-research-data", 100)
+restack("matter-research-data", 100)
+restack("space-research-data", 100)
+restack("basic-tech-card", 100)
+restack("matter-tech-card", 100)
+restack("advanced-tech-card", 100)
+restack("singularity-tech-card", 100)
+restack("explosive-turret-rocket", 50)
+restack("nuclear-turret-rocket", 50)
+restack("antimatter-turret-rocket", 50)
+restack("artillery-shell", 50)
+restack("nuclear-artillery-shell", 50)
+restack("antimatter-artillery-shell", 50)
+restack("atomic-bomb", 50)
+restack("antimatter-rocket", 50)
+-- "PlutoniumEnergy"
+restack("plutonium-238", 200)
+restack("plutonium-239", 200)
+restack("plutonium-atomic-bomb", 50)
 
 -- Add containers
 data.raw.ammo["artillery-shell"].ic_create_container = true

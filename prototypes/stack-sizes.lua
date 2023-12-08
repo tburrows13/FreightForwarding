@@ -1,3 +1,5 @@
+local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
+
 -- Each of these will get halved by IntermodalContainers
 local stack_size_override = {
   -- Vanilla
@@ -21,8 +23,7 @@ local stack_size_override = {
 }
 
 for name, stack_size in pairs(stack_size_override) do
-  local item = data.raw.item[name] or data.raw.tool[name]
-  item.stack_size = stack_size
+  restack(name, stack_size)
 end
 
 -- Increase stack inserter stack sizes

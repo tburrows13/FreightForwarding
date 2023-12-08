@@ -1,10 +1,12 @@
 if not mods["aai-industry"] then return end
 
-data.raw.item["processed-fuel"].stack_size = 50
+local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
+
+restack("processed-fuel", 50)
 
 if mods["Krastorio2"] then
-  data.raw.item["electric-motor"].stack_size = 200
-  data.raw.item["motor"].stack_size = 200
+  restack("electric-motor", 200)
+  restack("motor", 200)
 else
-  data.raw.item["sand"].stack_size = 100
+  restack("sand", 100)
 end

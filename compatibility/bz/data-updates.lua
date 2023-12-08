@@ -209,27 +209,21 @@ if mods["bzgold"] and data.raw.resource["rich-copper-ore"] then
 end
 
 -- Stack size tweaks
-local function set_stack_size(item, stack_size)
-  local item = data.raw.item[item] or data.raw.tool[item]
-  if not item then return end
-  item.stack_size = stack_size
-end
-
-set_stack_size("aluminum-ore", 30)
-set_stack_size("flake-graphite", 30)
-set_stack_size("gold-ore", 30)
-set_stack_size("rich-copper-ore", 30)
-set_stack_size("salt", 30)
-set_stack_size("silver-ore", 30)
-set_stack_size("tin-ore", 30)
-set_stack_size("tungsten-ore", 30)
-set_stack_size("zircon", 30)
-set_stack_size("cement", 100)
-set_stack_size("crucible", 100)
-set_stack_size("zirconia", 100)
-set_stack_size("acsr-cable", 200)
-set_stack_size("aluminum-cable", 200)
-
+local restack = util.set_stack_size
+restack("aluminum-ore", 30)
+restack("flake-graphite", 30)
+restack("gold-ore", 30)
+restack("rich-copper-ore", 30)
+restack("salt", 30)
+restack("silver-ore", 30)
+restack("tin-ore", 30)
+restack("tungsten-ore", 30)
+restack("zircon", 30)
+restack("cement", 100)
+restack("crucible", 100)
+restack("zirconia", 100)
+restack("acsr-cable", 200)
+restack("aluminum-cable", 200)
 
 bzutil.remove_ingredient("stone-furnace", "zircon")
 bzutil.set_ingredient("stone-furnace", "stone", 5)

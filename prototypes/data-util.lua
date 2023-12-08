@@ -1,5 +1,11 @@
 local data_util = {}
 
+function data_util.set_stack_size(item, stack_size)
+  local item = data.raw.item[item] or data.raw.tool[item] or data.raw.ammo[item]
+  if not item then return end
+  item.stack_size = stack_size or 50
+end
+
 function data_util.add_prerequisite(tech_name, prerequisite)
   local technology = data.raw.technology[tech_name]
   for _, name in pairs(technology.prerequisites) do
