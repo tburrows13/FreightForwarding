@@ -114,10 +114,10 @@ data:extend{
     mining_speed = 1,
     resource_searching_radius = 0.5,
     vector_to_place_result = {0, 0},
-    module_specification =
+    --[[module_specification =
     {
       module_slots = 2
-    },
+    },]]
     radius_visualisation_picture =
     {
       filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
