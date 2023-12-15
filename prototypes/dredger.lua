@@ -264,7 +264,7 @@ data:extend{
     name = "ff-dredger",
     icon = "__FreightForwarding__/graphics/dredger.png",
     icon_size = 64, icon_mipmaps = 1,
-    flags = {"placeable-neutral", "player-creation"},
+    flags = {"placeable-neutral", "player-creation", "not-blueprintable", "not-deconstructable"},
     crafting_categories = {"ff-dredging"},
     max_health = 200,
     corpse = "pumpjack-remnants",
