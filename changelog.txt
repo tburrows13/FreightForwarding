@@ -4,6 +4,8 @@ Date: dd Month yyyy
   Bugfixes:
     - Removed fake module slots in the dredger platofrm showing up in Extended Descriptions (#17, thanks Dimava)
     - Fixed dredge platorm being deconstrucable via decon. planner (#18, thanks Dimava)
+  Compatibility:
+    - Added support for Picker Dollies
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.3
 Date: 8 December 2023

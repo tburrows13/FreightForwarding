@@ -44,6 +44,7 @@ Compatibles (will at least load):
     [x] If I Had A Nicker
     [x] Lasing Around
     [x] Them Thar Hills
+- [x] Picker Dollies
 - [x] Power Overload
 - [x] Pressurized Fluids
 - [x] Remote Configuration
