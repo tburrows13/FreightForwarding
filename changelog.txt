@@ -6,7 +6,7 @@ Date: dd Month yyyy
     - Fixed dredge platorm being deconstrucable via decon. planner (#18, thanks Dimava)
   Compatibility:
     - Added support for Picker Dollies
-    - Added support for Better Victory Screen
+    - Added support for Better Victory Screen (#19)
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.3
 Date: 8 December 2023
