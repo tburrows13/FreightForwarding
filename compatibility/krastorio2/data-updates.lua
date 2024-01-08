@@ -22,6 +22,24 @@ bzutil.remove_recipe_effect("kr-matter-cobalt-processing", "matter-to-ff-cobalt-
 -- -- Transport Tech Card
 data.raw.tool["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-item.png"
 data.raw.tool["ff-transport-science-pack"].order = "b03[transport-science-pack]"
+data.raw.tool["ff-transport-science-pack"].pictures = {
+  layers = {
+    {
+      size = 64,
+      filename = data.raw.tool["ff-transport-science-pack"].icon,
+      scale = 0.25,
+      mipmap_count = 4,
+    },
+    {
+      draw_as_light = true,
+      flags = { "light" },
+      size = 64,
+      filename = kr_cards_icons_path .. "logistic-tech-card-light.png",
+      scale = 0.25,
+      mipmap_count = 4,
+    },
+  },
+}
 data.raw.technology["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-technology.png"
 bzutil.set_product_amount("ff-transport-science-pack", "ff-transport-science-pack", 5)
 bzutil.set_recipe_time("ff-transport-science-pack", 20)
