@@ -8,6 +8,7 @@ Date: dd Month yyyy
     - Added support for Picker Dollies
     - Added support for Better Victory Screen (#19)
     - [Krastorio2] Added glow layer to transport tech cards
+    - [Krastorio2] "Transport science pack" is now called "Transport tech card"
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.3
 Date: 8 December 2023
