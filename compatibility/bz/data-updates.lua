@@ -236,6 +236,10 @@ bzutil.remove_ingredient("engine-unit", "tungsten-plate")
 if mods["bztungsten"] then
   -- Adds tungsten requirement to transport science
   bzutil.add_ingredient("ff-transport-science-pack", "small-lamp", 2)
+
+  -- This sim crashes
+  local s = data.raw["utility-constants"]["default"].main_menu_simulations
+  s['tungsten-nozzle'] = nil
 end
 
 -- Add zircon to transport science
