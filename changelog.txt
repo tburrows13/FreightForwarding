@@ -1,14 +1,13 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.4
-Date: dd Month yyyy
+Date: 10 January 2024
   Bugfixes:
-    - Removed fake module slots in the dredger platofrm showing up in Extended Descriptions (#17, thanks Dimava)
-    - Fixed dredge platorm being deconstrucable via decon. planner (#18, thanks Dimava)
+    - Removed fake module slots in the dredger platform showing up in Extended Descriptions (thanks Dimava)
+    - Fixed dredger being deconstructable using deconstruction planner (thanks Dimava)
   Compatibility:
     - Added support for Picker Dollies
-    - Added support for Better Victory Screen (#19)
-    - [Krastorio2] Added glow layer to transport tech cards
-    - [Krastorio2] "Transport science pack" is now called "Transport tech card"
+    - Added support for Better Victory Screen
+    - [K2] Transport tech cards now have glow and correct name (thanks fgardt)
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.3
 Date: 8 December 2023
