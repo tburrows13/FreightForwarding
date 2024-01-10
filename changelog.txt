@@ -2,7 +2,7 @@
 Version: 1.8.5
 Date: 10 January 2024
   Bugfixes:
-    - Fixed crash when loading a save while Milestones mod is enabled
+    - Fixed crash when loading a save while Milestones mod is enabled (thanks fgardt)
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.4
 Date: 10 January 2024
