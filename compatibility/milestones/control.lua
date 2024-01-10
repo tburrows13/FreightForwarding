@@ -1,16 +1,17 @@
 local presets = require "presets"
 
-local function add_remote_interface()
-  if not script.active_mods["Milestones"] then return end
+---@return table<string, function>
+local function remote_interface_fragment()
+  if not script.active_mods["Milestones"] then return {} end
 
-  remote.add_interface("FreightForwarding", {
+  return {
     milestones_presets = function()
       return presets
     end
-  })
+  }
 end
 
 return
 {
-  add_remote_interface = add_remote_interface,
+  remote_interface_fragment = remote_interface_fragment,
 }

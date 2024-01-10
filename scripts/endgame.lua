@@ -41,37 +41,12 @@ local function disable_rocket_victory()
   end
 end
 
----@param winning_force LuaForce the force that triggered the victory
----@param forces LuaForce[] list of forces victory screen will be shown to
----@return unknown
-local function better_victory_screen_statistics(winning_force, forces)
-  local statistics = { by_force = { } }
-  for _, force in pairs(forces) do
-    local containers_created = force.item_production_statistics.get_input_count("ic-container")
-    statistics.by_force[force.name] = {
-      -- Add it to the existing production category
-      ["production"] = { stats = {
-        ["containers"] = { value = containers_created, order = "p"},
-      }}
-    }
-  end
-  return statistics
-end
-
 ---@type ScriptLib
 local Endgame = {}
 
 Endgame.events = {
   [defines.events.on_rocket_launched] = on_rocket_launched
 }
-
-Endgame.add_remote_interface = function()
-	remote.add_interface("FreightForwarding", {
-    ["better-victory-screen-statistics"] = function(winning_force, forces)
-      return better_victory_screen_statistics(winning_force, forces)
-    end
-  })
-end
 
 Endgame.on_init = disable_rocket_victory
 Endgame.on_configuration_changed = disable_rocket_victory
