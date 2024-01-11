@@ -9,11 +9,11 @@ local function on_rocket_launched(event)
   if not (rocket and rocket.valid) then return end
   local force = rocket.force
 
-  if game.finished or game.finished_but_continuing or global.finished[force.name] then return end
-  global.finished[force.name] = true
+  if game.finished or game.finished_but_continuing or global.finished then return end
 
   local inventory = rocket.get_inventory(defines.inventory.rocket)
   if inventory.get_item_count("ff-interstellar-communicator") > 0 then
+    global.finished = true
 
     if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
       remote.call("better-victory-screen", "trigger_victory", force)
@@ -30,11 +30,6 @@ local function on_rocket_launched(event)
 end
 
 local function disable_rocket_victory()
-  -- Keep track if if force has achieved victory. This is good practice,
-  -- and also BVS does not mark the game as finished.
-  ---@type table<string, boolean> where the key is the force name
-  global.finished = global.finished or { }
-
   -- We do this always to improve some compat with BVS and K2
   -- while K2 doesn't support BVS yet.
   -- Technically we should only set the no_victory if FF will handle
