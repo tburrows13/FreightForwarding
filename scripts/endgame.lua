@@ -7,9 +7,9 @@ local function on_rocket_launched(event)
 
   local rocket = event.rocket
   if not (rocket and rocket.valid) then return end
-  local force = rocket.force
 
   if game.finished or game.finished_but_continuing or global.finished then return end
+  local force = rocket.force
 
   local inventory = rocket.get_inventory(defines.inventory.rocket)
   if inventory.get_item_count("ff-interstellar-communicator") > 0 then
@@ -30,19 +30,13 @@ local function on_rocket_launched(event)
 end
 
 local function disable_rocket_victory()
-  -- We do this always to improve some compat with BVS and K2
-  -- while K2 doesn't support BVS yet.
-  -- Technically we should only set the no_victory if FF will handle
-  -- the victory itself when there are no interfering mods. But it's
-  -- a safe assumption to make that the interfering mods will set no_victory
-  -- anyway. 
+  if interfering_mods() then return end
+
   for interface, functions in pairs(remote.interfaces) do
     if (functions["set_no_victory"] ~= nil) then
       remote.call(interface, "set_no_victory", true)
     end
   end
-
-  if interfering_mods() then return end
 
   if remote.interfaces["freeplay"] and remote.interfaces["freeplay"]["set_custom_intro_message"] then
     remote.call("freeplay", "set_custom_intro_message", {"freight-forwarding.msg-intro"})
