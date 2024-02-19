@@ -8,19 +8,21 @@ local function on_rocket_launched(event)
   local rocket = event.rocket
   if not (rocket and rocket.valid) then return end
 
-  if game.finished or game.finished_but_continuing then return end
+  if game.finished or game.finished_but_continuing or global.finished then return end
+  local force = rocket.force
 
   local inventory = rocket.get_inventory(defines.inventory.rocket)
   if inventory.get_item_count("ff-interstellar-communicator") > 0 then
+    global.finished = true
 
     if remote.interfaces["better-victory-screen"] and remote.interfaces["better-victory-screen"]["trigger_victory"] then
-      remote.call("better-victory-screen", "trigger_victory", rocket.force)
+      remote.call("better-victory-screen", "trigger_victory", force)
     else
       game.set_game_state{
         game_finished = true,
         player_won = true,
         can_continue = true,
-        victorious_force = rocket.force
+        victorious_force = force
       }
     end
 
