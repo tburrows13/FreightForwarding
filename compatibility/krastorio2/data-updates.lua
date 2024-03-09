@@ -188,6 +188,9 @@ bzutil.add_prerequisite("ff-battery-pack", "kr-lithium-processing")
 data.raw.item["ff-battery-pack"].localised_name = "Lithium battery pack"
 data.raw.item["ff-charged-battery-pack"].localised_name = "Charged lithium battery pack"
 
+-- Lower battery requirements for Advanced Tech Cards
+bzutil.set_ingredient("advanced-tech-card", "ff-battery-pack", 1)
+
 -- Allow Plutonium Energy fuel cells into K2's Nuclear Locomotive
 if mods["PlutoniumEnergy"] then 
   local burner = data.raw.locomotive["kr-nuclear-locomotive"].burner
