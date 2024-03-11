@@ -8,6 +8,9 @@ end
 
 function data_util.add_prerequisite(tech_name, prerequisite)
   local technology = data.raw.technology[tech_name]
+  if not technology then
+    return
+  end
   for _, name in pairs(technology.prerequisites) do
     if name == prerequisite then
       return

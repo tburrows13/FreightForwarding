@@ -57,6 +57,7 @@ Compatibles (will at least load):
 - [x] Train Construction Site
 - [x] Train Groups
 - [x] Transport Drones
+- [x] True Nukes
 - [x] Underwater Pipes
 - [x] Walkable Water
 - [x] Wret's Beacon Rebalance
