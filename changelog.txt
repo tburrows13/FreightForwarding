@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.6
-Date: xx xxxx 2024
+Date: 11 March 2024
   Compatibility:
-    - Added cpmpatibility with true Nukes mod
+    - [TN] Added cpmpatibility with true Nukes mod
     - [K2] Balanced 'Advanced Tech Cards' to require 10->1 Lithium Battery Pack
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.5
