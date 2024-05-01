@@ -1,67 +1,34 @@
+local util = require("scripts/chunk-util")
+local entity_name = "ff-seismic-scanner"
 local scanner_range = 80
 local min_tiles_from_water = 16
 
-local function to_chunk_position(map_position)
-  return { math.floor(map_position.x / 32), math.floor(map_position.y / 32) }
-end
+---@class SeismicScannerData
+---@field explored_chunks table<string, boolean>
+---@field to_be_explored_chunks table<string, boolean>
 
-local function to_map_position(chunk_position)
-  return { chunk_position[1] * 32 + 16, chunk_position[2] * 32 + 16 }
-end
-
-local function chunk_position_to_area(chunk_position)
-  return {
-    left_top = {chunk_position[1] * 32 + 1, chunk_position[2] * 32 + 1},
-    right_bottom = {chunk_position[1] * 32 + 31, chunk_position[2] * 32 + 31},
-  }
-end
-
-local function position_to_str(position)
-  return position[1] .. "," .. position[2]
-end
-
-local function str_to_position(str)
-  local x, y = str:match("^(%-?%d+),(%-?%d+)$")
-  return {tonumber(x), tonumber(y)}
-end
-
-local function is_chunk_land(chunk_position, surface)
-  -- 1024 tiles in a chunk
-  local area = chunk_position_to_area(chunk_position)
-  local ground_tiles = surface.count_tiles_filtered{area = area, collision_mask = "ground-tile"}
-  return ground_tiles > 64
-end
-
-local function is_chunk_in_range(chunk_position, scanner_position)
-  return math.abs(chunk_position[1] - scanner_position[1]) <= scanner_range and math.abs(chunk_position[2] - scanner_position[2]) <= scanner_range
-end
-
+---@param scanner LuaEntity
+---@return SeismicScannerData
 local function get_scanner_data(scanner)
-  local unit_number = scanner.unit_number
+  local unit_number = scanner.unit_number --[[@as uint]]
   global.scanner_data = global.scanner_data or {}
   if not global.scanner_data[unit_number] then
-    local chunk_position = to_chunk_position(scanner.position)
-    global.scanner_data[unit_number] = {explored_chunks = {}, to_be_explored_chunks = {[position_to_str(chunk_position)] = true}}
+    local chunk_position = util.to_chunk_position(scanner.position)
+    global.scanner_data[unit_number] = { explored_chunks = {}, to_be_explored_chunks = { [util.position_to_str(chunk_position)] = true } }
   end
   return global.scanner_data[unit_number]
 end
 
-local function neighbouring_chunks(chunk_position)
-  return {
-    {chunk_position[1] - 1, chunk_position[2]},
-    {chunk_position[1], chunk_position[2] - 1},
-    {chunk_position[1], chunk_position[2] + 1},
-    {chunk_position[1] + 1, chunk_position[2]},
-  }
-end
-
+---@param event EventData.on_sector_scanned
 local function on_sector_scanned(event)
   -- Raised when radar does scan, but the scanner prototype has a very small radius
   -- so that the actual chunk scan is done by the following script
   local scanner = event.radar
+  if scanner.name ~= entity_name then return end
+
   local surface = scanner.surface
   local force = scanner.force
-  local scanner_chunk_position = to_chunk_position(scanner.position)
+  local scanner_chunk_position = util.to_chunk_position(scanner.position)
 
   local scanner_data = get_scanner_data(scanner)
 
@@ -70,21 +37,21 @@ local function on_sector_scanned(event)
   while not charted_chunk_yet do
     local chunk_str = next(scanner_data.to_be_explored_chunks)
     if chunk_str then
-      local chunk = str_to_position(chunk_str)
+      local chunk = util.str_to_position(chunk_str)
 
       if not force.is_chunk_charted(surface, chunk) and not force.is_chunk_requested_for_charting(surface, chunk)
       then
-        force.chart(surface, chunk_position_to_area(chunk))
+        force.chart(surface, util.chunk_position_to_area(chunk))
         charted_chunk_yet = true
       end
 
       scanner_data.explored_chunks[chunk_str] = true
       scanner_data.to_be_explored_chunks[chunk_str] = nil
-      if is_chunk_land(chunk, surface) then
+      if util.is_chunk_land(chunk, surface) then
         -- Add neighbouring chunks to to_be_explored_chunks
-        for _, neighbouring_chunk in pairs(neighbouring_chunks(chunk)) do
-          if is_chunk_in_range(neighbouring_chunk, scanner_chunk_position) then
-            local neighbouring_chunk_str = position_to_str(neighbouring_chunk)
+        for _, neighbouring_chunk in pairs(util.neighbouring_chunks(chunk)) do
+          if util.is_chunk_in_range(neighbouring_chunk, scanner_chunk_position, scanner_range) then
+            local neighbouring_chunk_str = util.position_to_str(neighbouring_chunk)
             if not scanner_data.explored_chunks[neighbouring_chunk_str] then
               scanner_data.to_be_explored_chunks[neighbouring_chunk_str] = true
             end
@@ -93,54 +60,41 @@ local function on_sector_scanned(event)
       end
     else
       global.scanner_data[scanner.unit_number] = nil
-      scanner.active = false
+      -- scanner.active = false
       return
     end
   end
 end
 
+---@param event
+---| EventData.on_built_entity
+---| EventData.on_robot_built_entity
 local function on_scanner_built(event)
   -- Disable scanner if within 16 tiles of water
   local scanner = event.created_entity
+  if scanner.name ~= entity_name then return end
+
   scanner.backer_name = ""
   local surface = scanner.surface
-  local water_tile_count = surface.count_tiles_filtered{position = scanner.position, radius = min_tiles_from_water, collision_mask = "water-tile", limit = 1}
+  local water_tile_count = surface.count_tiles_filtered { position = scanner.position, radius = min_tiles_from_water, collision_mask = "water-tile", limit = 1 }
   if water_tile_count > 0 then
     scanner.active = false
     if event.player_index then
-      game.get_player(event.player_index).create_local_flying_text({text = {"freight-forwarding.seismic-scanner-too-close-to-water", min_tiles_from_water}, create_at_cursor = true})
+      game.get_player(event.player_index).create_local_flying_text({ text = { "freight-forwarding.seismic-scanner-too-close-to-water", min_tiles_from_water }, create_at_cursor = true })
     end
   end
+
+  script.register_on_entity_destroyed(scanner)
 end
 
 ---@type ScriptLib
 local SeismicScanning = {}
 
+-- no need to handle on_entity_destroyed since its handled by sonar-scanning.lua
 SeismicScanning.events = {
   [defines.events.on_built_entity]       = on_scanner_built,
   [defines.events.on_robot_built_entity] = on_scanner_built,
   [defines.events.on_sector_scanned]     = on_sector_scanned,
 }
-
-SeismicScanning.on_init = function()
-  local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
-  script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
-  script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
-  script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
-end
-
-SeismicScanning.on_configuration_changed = function()
-  local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
-  script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
-  script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
-  script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
-end
-
-SeismicScanning.on_load = function()
-  local scanner_filter = {{filter = "name", name = "ff-seismic-scanner"}}
-  script.set_event_filter(defines.events.on_built_entity       --[[@as uint]], scanner_filter)
-  script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]], scanner_filter)
-  script.set_event_filter(defines.events.on_sector_scanned     --[[@as uint]], scanner_filter)
-end
 
 return SeismicScanning
