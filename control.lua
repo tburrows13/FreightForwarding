@@ -12,7 +12,7 @@ local handler = require "__core__.lualib.event_handler"
 local compatibility = require "scripts.compatibility"
 compatibility.preload_remote_interface()
 
-handler.add_libraries{
+handler.add_libraries {
   require "scripts.migrations",
   require "scripts.burnt-result",
   require "scripts.container-limitations",
@@ -23,6 +23,7 @@ handler.add_libraries{
   require "scripts.seamount",
   require "scripts.rocket-silo",
   require "scripts.seismic-scanning",
+  require "scripts.sonar-scanning",
   require "scripts.life-ring",
   require "scripts.compatibility",
   require "scripts.collision-test",

@@ -5,6 +5,7 @@ require "__FreightForwarding__.prototypes.slag"
 require "__FreightForwarding__.prototypes.lava-pool"
 require "__FreightForwarding__.prototypes.battery-transport"
 require "__FreightForwarding__.prototypes.seismic-scanner"
+require "__FreightForwarding__.prototypes.sonar-buoy"
 require "__FreightForwarding__.prototypes.rocket-silo"
 require "__FreightForwarding__.prototypes.seamount"
 require "__FreightForwarding__.prototypes.dredger"
@@ -25,7 +26,7 @@ require "__FreightForwarding__.prototypes.tips-and-tricks"
 require "__FreightForwarding__.simulations.menu"
 
 local radar = data.raw["radar"]["radar"]
-radar.max_distance_of_sector_revealed = 17  -- 35x35 chunk square
+radar.max_distance_of_sector_revealed = 17 -- 35x35 chunk square
 radar.energy_per_sector = "3MJ"
 radar.max_distance_of_nearby_sector_revealed = 4
 radar.energy_per_nearby_scan = "150kJ"

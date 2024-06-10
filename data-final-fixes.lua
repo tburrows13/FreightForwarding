@@ -2,12 +2,12 @@ require "__FreightForwarding__.prototypes.fuel-categories"
 
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
-data.raw["resource"]["ff-seamount"].collision_mask = {"resource-layer", non_deep_water_mask, "ground-tile"}
+data.raw["resource"]["ff-seamount"].collision_mask = { "resource-layer", non_deep_water_mask, "ground-tile" }
 
 local platform_layer = collision_mask_util.get_first_unused_layer()
 log("FF platform_layer assigned to " .. platform_layer)
 table.insert(data.raw.tile["ff-dredging-platform"].collision_mask, platform_layer)
-local banned_types = {"electric-pole", "underground-belt"}
+local banned_types = { "electric-pole", "underground-belt" }
 for _, type in pairs(banned_types) do
   for _, prototype in pairs(data.raw[type]) do
     local mask = collision_mask_util.get_mask(prototype)
@@ -18,7 +18,7 @@ end
 table.insert(data.raw["offshore-pump"]["offshore-pump"].center_collision_mask, platform_layer)
 table.insert(data.raw["offshore-pump"]["waterfill-placer"].center_collision_mask, platform_layer)
 
--- Ensure collisions between pump, underwater pipe, oil rig, offshore storage tank
+-- Ensure collisions between pump, underwater pipe, oil rig, offshore storage tank, sonar buoy
 local pump = data.raw["pump"]["pump"]
 water_object_layer = collision_mask_util.get_first_unused_layer()
 log("FF water_object_layer assigned to " .. water_object_layer)
@@ -26,6 +26,7 @@ collision_mask_util.add_layer(pump.collision_mask, water_object_layer)
 collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, water_object_layer)
 collision_mask_util.add_layer(data.raw["storage-tank"]["ff-offshore-storage-tank"].collision_mask, water_object_layer)
 collision_mask_util.add_layer(data.raw["mining-drill"]["oil_rig"].collision_mask, water_object_layer)
+collision_mask_util.add_layer(data.raw["radar"]["ff-sonar-buoy"].collision_mask, water_object_layer)
 
 -- Compatibility for pump upgrade mods
 local next_pump = data.raw.pump["pump"].next_upgrade
@@ -44,11 +45,11 @@ log("FF substitute_player_collision_layer assigned to " .. substitute_player_col
 
 local water = data.raw.tile["water"]
 local deep_water = data.raw.tile["deepwater"]
-for _, water_tile in pairs{water, deep_water} do
+for _, water_tile in pairs { water, deep_water } do
   collision_mask_util.add_layer(water_tile.collision_mask, substitute_player_collision_layer)
 end
 
-for _, type in pairs{"unit", "car", "spider-leg"} do
+for _, type in pairs { "unit", "car", "spider-leg" } do
   for _, prototype in pairs(data.raw[type]) do
     local mask = collision_mask_util.get_mask(prototype)
     if collision_mask_util.mask_contains_layer(mask, "player-layer") then
@@ -75,17 +76,17 @@ for _, tech in pairs(data.raw.technology) do
   if tech.unit then
     local ingredients = tech.unit.ingredients
     if util.contains_research_ingredient(tech.name, "chemical-science-pack")
-      and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
-      table.insert(ingredients, {"ff-transport-science-pack", 1})
+        and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
+      table.insert(ingredients, { "ff-transport-science-pack", 1 })
     else
       -- Add to all techs descending from key techs
       if (util.is_descendant_of(tech.name, "water_transport")
-        or util.is_descendant_of(tech.name, "fluid-handling")
-        or util.is_descendant_of(tech.name, "automobilism")
-        or util.is_descendant_of(tech.name, "ff-transport-science-pack"))
-        and util.contains_research_ingredient(tech.name, "logistic-science-pack")
-        and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
-        table.insert(ingredients, {"ff-transport-science-pack", 1})
+          or util.is_descendant_of(tech.name, "fluid-handling")
+          or util.is_descendant_of(tech.name, "automobilism")
+          or util.is_descendant_of(tech.name, "ff-transport-science-pack"))
+          and util.contains_research_ingredient(tech.name, "logistic-science-pack")
+          and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
+        table.insert(ingredients, { "ff-transport-science-pack", 1 })
       end
     end
   end
