@@ -9,8 +9,8 @@ data:extend({
     name = "ff-sonar-buoy",
     icons = {
       {
-        icon = "__base__/graphics/technology/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/technology.png",
-        icon_size = 256,
+        icon = "__base__/graphics/icons/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/technology.png",
+        icon_size = 64,
         tint = { r = 0.0, g = 0.8, b = 0.8, a = 1.0 },
       },
     },
