@@ -7,8 +7,13 @@ data:extend({
   {
     type = "technology",
     name = "ff-sonar-buoy",
-    icon = "__base__/graphics/technology/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/technology.png",
-    icon_size = 256,
+    icons = {
+      {
+        icon = "__base__/graphics/technology/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/technology.png",
+        icon_size = 256,
+        tint = { r = 0.0, g = 0.8, b = 0.8, a = 1.0 },
+      },
+    },
     order = "sonar buoy",
     prerequisites = { "laser", "advanced-electronics-2" },
     unit = {
@@ -42,8 +47,13 @@ data:extend({
   {
     type = "item",
     name = "ff-sonar-buoy",
-    icon = "__base__/graphics/icons/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/icon.png",
-    icon_size = 64,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/icon.png",
+        icon_size = 64,
+        tint = { r = 0.0, g = 0.8, b = 0.8, a = 1.0 },
+      },
+    },
     subgroup = "defensive-structure",
     order = "d[radar]-b[radar]",
     place_result = "ff-sonar-buoy",
@@ -52,8 +62,13 @@ data:extend({
   {
     type = "radar",
     name = "ff-sonar-buoy",
-    icon = "__base__/graphics/icons/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/icon.png",
-    icon_size = 64,
+    icons = {
+      {
+        icon = "__base__/graphics/icons/radar.png", --"__FreightForwarding__/graphics/sonar-buoy/icon.png",
+        icon_size = 64,
+        tint = { r = 0.0, g = 0.8, b = 0.8, a = 1.0 },
+      },
+    },
     flags = { "placeable-player", "player-creation" },
     minable = { mining_time = 0.1, result = "ff-sonar-buoy" },
     max_health = 250,
@@ -119,6 +134,55 @@ data:extend({
       }
     },
 
-    pictures = table.deepcopy(data.raw["radar"]["radar"].pictures),
+    pictures = {
+      layers = {
+        {
+          filename = "__base__/graphics/entity/radar/radar.png",
+          apply_projection = false,
+          priority = "low",
+          line_length = 8,
+          width = 98,
+          height = 128,
+          direction_count = 64,
+          shift = { 0.03125, -0.5 },
+          tint = { r = 0.0, g = 0.8, b = 0.8, a = 1.0 },
+          hr_version = {
+            filename = "__base__/graphics/entity/radar/hr-radar.png",
+            apply_projection = false,
+            priority = "low",
+            line_length = 8,
+            width = 196,
+            height = 254,
+            scale = 0.5,
+            direction_count = 64,
+            shift = { 0.03125, -0.5 },
+            tint = { r = 0.0, g = 0.8, b = 0.8, a = 1.0 },
+          },
+        },
+        {
+          filename = "__base__/graphics/entity/radar/radar-shadow.png",
+          apply_projection = false,
+          priority = "low",
+          line_length = 8,
+          width = 172,
+          height = 94,
+          direction_count = 64,
+          draw_as_shadow = true,
+          shift = { 1.21875, 0.09375 },
+          hr_version = {
+            filename = "__base__/graphics/entity/radar/hr-radar-shadow.png",
+            apply_projection = false,
+            priority = "low",
+            line_length = 8,
+            width = 343,
+            height = 186,
+            scale = 0.5,
+            direction_count = 64,
+            draw_as_shadow = true,
+            shift = { 1.2265625, 0.09375 },
+          },
+        },
+      },
+    },
   } --[[@as data.RadarPrototype]]
 })
