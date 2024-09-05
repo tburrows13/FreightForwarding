@@ -302,7 +302,13 @@ local function on_scanner_built(event)
   scanner.backer_name = ""
   scanner.active = false
 
-  game.get_player(event.player_index).create_local_flying_text({
+  local player
+  if event.player_index then
+    player = game.get_player(event.player_index)
+  else
+    player = event.created_entity.last_user
+  end
+  player.create_local_flying_text({
     text = { "freight-forwarding.sonar-buoy-warmup" },
     position = scanner.position,
   })
