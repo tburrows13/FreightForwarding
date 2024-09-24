@@ -1,8 +1,7 @@
 if not mods["bismuth"] then return end
 
 local resource_autoplace = require "resource-autoplace.resource-autoplace"
-local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
-
+local restack = x_util.set_stack_size
 local START_RADIUS =  175
 local INNER_RADIUS =  775
 local OUTER_RADIUS = 1200

@@ -1,8 +1,5 @@
 if not mods["Krastorio2"] then return end
 
-local util = require "__FreightForwarding__.prototypes.data-util"
-local bzutil = require "__bzlead__.data-util"
-
 -- Update kr-steel-pump
 data.raw.pump["kr-steel-pump"].energy_source.drain = "1.5kW"
 
@@ -15,9 +12,9 @@ data.raw.recipe["matter-to-copper-ore"].hidden = true
 data.raw.recipe["matter-to-ff-cobalt-ore"].hidden = true
 
 -- Remove unlock effects from kr-matter techs
-bzutil.remove_recipe_effect("kr-matter-iron-processing", "matter-to-iron-ore")
-bzutil.remove_recipe_effect("kr-matter-copper-processing", "matter-to-copper-ore")
-bzutil.remove_recipe_effect("kr-matter-cobalt-processing", "matter-to-ff-cobalt-ore")
+x_util.remove_recipe_effect("kr-matter-iron-processing", "matter-to-iron-ore")
+x_util.remove_recipe_effect("kr-matter-copper-processing", "matter-to-copper-ore")
+x_util.remove_recipe_effect("kr-matter-cobalt-processing", "matter-to-ff-cobalt-ore")
 
 -- -- Transport Tech Card
 data.raw.tool["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-item.png"
@@ -43,8 +40,8 @@ data.raw.tool["ff-transport-science-pack"].pictures = {
 }
 data.raw.technology["ff-transport-science-pack"].icon = "__FreightForwarding__/graphics/compatibility/krastorio2/transport-tech-card-technology.png"
 data.raw.technology["ff-transport-science-pack"].localised_name = { "item-name.ff-k2-transport-tech-card" }
-bzutil.set_product_amount("ff-transport-science-pack", "ff-transport-science-pack", 5)
-bzutil.set_recipe_time("ff-transport-science-pack", 20)
+x_util.set_product_amount("ff-transport-science-pack", "ff-transport-science-pack", 5)
+x_util.set_recipe_time("ff-transport-science-pack", 20)
 data.raw.recipe["ff-transport-science-pack"].ingredients = {
   { name = "big-electric-pole", amount = 1},
   { name = "rail",              amount = 5},
@@ -52,18 +49,18 @@ data.raw.recipe["ff-transport-science-pack"].ingredients = {
 }
 
 -- Big-electric-pole recipe
-bzutil.remove_ingredient("big-electric-pole", "steel-plate")
-bzutil.set_ingredient("big-electric-pole", "steel-beam", 2)
+x_util.remove_ingredient("big-electric-pole", "steel-plate")
+x_util.set_ingredient("big-electric-pole", "steel-beam", 2)
 
 -- Simplify research tree
-bzutil.remove_recipe_effect("kr-basic-fluid-handling", "pipe-to-ground")
-util.remove_prerequisite("fluid-handling", "kr-basic-fluid-handling")
-util.remove_prerequisite("fluid-handling", "engine")
+x_util.remove_recipe_effect("kr-basic-fluid-handling", "pipe-to-ground")
+x_util.remove_prerequisite("fluid-handling", "kr-basic-fluid-handling")
+x_util.remove_prerequisite("fluid-handling", "engine")
 
 -- Add logistics (will also add FF Science pack if needed in FF-final-fixes)
-util.add_research_ingredient("fluid-handling", "logistic-science-pack")
-util.add_research_ingredient("oil-processing", "logistic-science-pack")
-util.add_research_ingredient("plastics", "logistic-science-pack")
+x_util.add_research_ingredient("fluid-handling", "logistic-science-pack")
+x_util.add_research_ingredient("oil-processing", "logistic-science-pack")
+x_util.add_research_ingredient("plastics", "logistic-science-pack")
 
 -- Remove Transport Science pack from Singularity lab
 for i, input in pairs(data.raw.lab["kr-singularity-lab"].inputs) do
@@ -73,7 +70,7 @@ for i, input in pairs(data.raw.lab["kr-singularity-lab"].inputs) do
 end
 
 -- Custom stcks size (will be halved in final-fixes)
-local restack = util.set_stack_size
+local restack = x_util.set_stack_size
 restack("wood", 50)
 restack("sand", 50)
 restack("raw-imersite", 30)
@@ -172,24 +169,24 @@ end
 data.raw.recipe["lithium-sulfur-battery"].hidden = true
 data.raw.item["lithium-sulfur-battery"].flags = {"hidden"}
 data.raw.item["lithium-sulfur-battery"].ic_create_container = false
-bzutil.remove_recipe_effect("kr-lithium-sulfur-battery", "lithium-sulfur-battery")
+x_util.remove_recipe_effect("kr-lithium-sulfur-battery", "lithium-sulfur-battery")
 for ___, recipe in pairs(data.raw.recipe) do
-  bzutil.replace_ingredient(recipe.name, "lithium-sulfur-battery", "ff-battery-pack")
-  bzutil.replace_product(recipe.name, "lithium-sulfur-battery", "ff-battery-pack")
+  x_util.replace_ingredient(recipe.name, "lithium-sulfur-battery", "ff-battery-pack")
+  x_util.replace_product(recipe.name, "lithium-sulfur-battery", "ff-battery-pack")
 end
 
 -- Rebalance FF-battery-pack recipe to be more generous & speedy (lithium-batteries are used for science in K2)
 -- (3 lithium + 3 cobalt ingot + 9 battery + 1 red chip = 3 battery packs, in the same time)
-bzutil.add_ingredient("ff-battery-pack", "lithium", 3)
-bzutil.set_ingredient("ff-battery-pack", "battery", 9)
-bzutil.set_ingredient("ff-battery-pack", "ff-cobalt-ingot", 3)
-bzutil.set_product_amount("ff-battery-pack", "ff-battery-pack", 3)
-bzutil.add_prerequisite("ff-battery-pack", "kr-lithium-processing")
+x_util.add_ingredient("ff-battery-pack", "lithium", 3)
+x_util.set_ingredient("ff-battery-pack", "battery", 9)
+x_util.set_ingredient("ff-battery-pack", "ff-cobalt-ingot", 3)
+x_util.set_product_amount("ff-battery-pack", "ff-battery-pack", 3)
+x_util.add_prerequisite("ff-battery-pack", "kr-lithium-processing")
 data.raw.item["ff-battery-pack"].localised_name = "Lithium battery pack"
 data.raw.item["ff-charged-battery-pack"].localised_name = "Charged lithium battery pack"
 
 -- Lower battery requirements for Advanced Tech Cards
-bzutil.set_ingredient("advanced-tech-card", "ff-battery-pack", 1)
+x_util.set_ingredient("advanced-tech-card", "ff-battery-pack", 1)
 
 -- Allow Plutonium Energy fuel cells into K2's Nuclear Locomotive
 if mods["PlutoniumEnergy"] then 

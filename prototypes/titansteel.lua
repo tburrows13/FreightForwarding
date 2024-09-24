@@ -1,6 +1,3 @@
-local util = require "__FreightForwarding__.prototypes.data-util"
-local bzutil = require "__bzlead__.data-util"
-
 data:extend{
   {
     type = "recipe-category",
@@ -222,8 +219,8 @@ data:extend{
   },
 }
 
-util.allow_productivity("ff-rocket-frame")
+x_util.allow_productivity("ff-rocket-frame")
 
-bzutil.add_unlock("rocket-silo", "ff-rocket-frame")
-util.add_prerequisite("rocket-silo", "ff-titansteel-processing")
-bzutil.replace_ingredient("rocket-part", "low-density-structure", "ff-rocket-frame")
+x_util.add_unlock("rocket-silo", "ff-rocket-frame")
+x_util.add_prerequisite("rocket-silo", "ff-titansteel-processing")
+x_util.replace_ingredient("rocket-part", "low-density-structure", "ff-rocket-frame")

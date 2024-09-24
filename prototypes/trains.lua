@@ -1,5 +1,3 @@
-local bzutil = require "__bzlead__.data-util"
-
 data:extend{
   {
     type = "fuel-category",
@@ -31,16 +29,16 @@ data.raw.technology["mini-trains"] = nil
 local railway_tech = data.raw.technology["railway"]
 railway_tech.icon = "__Mini_Trains__/data/icons/tech256.png"
 railway_tech.icon_size = 256
-bzutil.remove_recipe_effect("railway", "locomotive")
-bzutil.remove_recipe_effect("railway", "cargo-wagon")
-bzutil.add_unlock("railway", "mini-locomotive")
-bzutil.add_unlock("railway", "mini-cargo-wagon")
+x_util.remove_recipe_effect("railway", "locomotive")
+x_util.remove_recipe_effect("railway", "cargo-wagon")
+x_util.add_unlock("railway", "mini-locomotive")
+x_util.add_unlock("railway", "mini-cargo-wagon")
 
 local fluid_wagon_tech = data.raw.technology["fluid-wagon"]
 fluid_wagon_tech.icon = "__Mini_Trains__/data/icons/fluid256.png"
 fluid_wagon_tech.icon_size = 256
-bzutil.remove_recipe_effect("fluid-wagon", "fluid-wagon")
-bzutil.add_unlock("fluid-wagon", "mini-fluid-wagon")
+x_util.remove_recipe_effect("fluid-wagon", "fluid-wagon")
+x_util.add_unlock("fluid-wagon", "mini-fluid-wagon")
 
 data.raw.item["mini-locomotive"].subgroup = "train-transport"
 data.raw.item["mini-cargo-wagon"].subgroup = "train-transport"
@@ -50,10 +48,10 @@ data.raw.item["mini-locomotive"].order = "a[train-system]-ef[mini]-a[locomotive]
 data.raw.item["mini-cargo-wagon"].order = "a[train-system]-ef[mini]-b[cargo-wagon]"
 data.raw.item["mini-fluid-wagon"].order = "a[train-system]-ef[mini]-c[fluid-wagon]"
 
-bzutil.set_ingredient("mini-locomotive", "engine-unit", 15)  -- Was 5
-bzutil.set_ingredient("mini-cargo-wagon", "iron-plate", 20)  -- Was 5
-bzutil.set_ingredient("mini-fluid-wagon", "pipe", 4)  -- Was 20
-bzutil.add_ingredient("mini-fluid-wagon", "storage-tank", 1)
+x_util.set_ingredient("mini-locomotive", "engine-unit", 15)  -- Was 5
+x_util.set_ingredient("mini-cargo-wagon", "iron-plate", 20)  -- Was 5
+x_util.set_ingredient("mini-fluid-wagon", "pipe", 4)  -- Was 20
+x_util.add_ingredient("mini-fluid-wagon", "storage-tank", 1)
 
 data:extend{
   {

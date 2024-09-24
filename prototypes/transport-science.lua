@@ -1,5 +1,3 @@
-local util = require "__FreightForwarding__.prototypes.data-util"
-
 data:extend{
   {
     type = "tool",
@@ -58,23 +56,23 @@ data:extend{
 -- Most tech adjustments are in data-final-fixes.lua
 
 -- Insert FF Science Pack before these techs:
-util.add_prerequisite("fluid-handling", "ff-transport-science-pack")
-util.add_prerequisite("water_transport", "ff-transport-science-pack")
-util.add_prerequisite("automobilism", "ff-transport-science-pack")  -- Can't easily drive to lead ore
+x_util.add_prerequisite("fluid-handling", "ff-transport-science-pack")
+x_util.add_prerequisite("water_transport", "ff-transport-science-pack")
+x_util.add_prerequisite("automobilism", "ff-transport-science-pack")  -- Can't easily drive to lead ore
 
 -- Simplify tech tree dependencies already covered by FF Science Pack:
-util.remove_prerequisite("fluid-handling", "engine")
-util.remove_prerequisite("water_transport", "engine")
-util.remove_prerequisite("water_transport", "logistics-2")
-util.remove_prerequisite("automobilism", "engine")
-util.remove_prerequisite("automobilism", "logistics-2")
+x_util.remove_prerequisite("fluid-handling", "engine")
+x_util.remove_prerequisite("water_transport", "engine")
+x_util.remove_prerequisite("water_transport", "logistics-2")
+x_util.remove_prerequisite("automobilism", "engine")
+x_util.remove_prerequisite("automobilism", "logistics-2")
 
 
 data.raw.recipe["pipe-to-ground"].enabled = false
 table.insert(data.raw.technology["fluid-handling"].effects, 1, {type = "unlock-recipe", recipe = "pipe-to-ground"})
 
 table.insert(data.raw.lab.lab.inputs, 3, "ff-transport-science-pack")
-util.allow_productivity("ff-transport-science-pack")
+x_util.allow_productivity("ff-transport-science-pack")
 
 -- Merge deep sea oil with pumpjack tech
 local deep_sea_oil = data.raw.technology["deep_sea_oil_extraction"]
