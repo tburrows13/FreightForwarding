@@ -1,5 +1,3 @@
-local util = require "__FreightForwarding__.prototypes.data-util"
-
 data:extend{
   {
     type = "item",
@@ -223,7 +221,7 @@ data:extend{
   },
 }
 
-util.allow_productivity("ff-cobalt-concentrate")
-util.allow_productivity("ff-cobalt-ingot")
-util.allow_productivity("ff-tailings-filtration")
-util.allow_productivity("ff-tailings-evaporation")
+x_util.allow_productivity("ff-cobalt-concentrate")
+x_util.allow_productivity("ff-cobalt-ingot")
+x_util.allow_productivity("ff-tailings-filtration")
+x_util.allow_productivity("ff-tailings-evaporation")

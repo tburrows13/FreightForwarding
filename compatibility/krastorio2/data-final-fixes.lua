@@ -1,15 +1,12 @@
 if not mods["Krastorio2"] then return end
 
-local util = require "__FreightForwarding__.prototypes.data-util"
-local bzutil = require "__bzlead__.data-util"
-
 -- Adjust lead requirements for k2 ammos, moved to piercing- types
 if settings.startup["ff-k2-no-lead-ammo"].value then
-  bzutil.replace_ingredient("rifle-magazine", "lead-plate", "iron-plate")
-  bzutil.add_ingredient("armor-piercing-rifle-magazine", "lead-plate", 2)
+  x_util.replace_ingredient("rifle-magazine", "lead-plate", "iron-plate")
+  x_util.add_ingredient("armor-piercing-rifle-magazine", "lead-plate", 2)
 
-  bzutil.replace_ingredient("anti-material-rifle-magazine", "lead-plate", "iron-plate")
-  bzutil.add_ingredient("armor-piercing-anti-material-rifle-magazine", "lead-plate", 3)
+  x_util.replace_ingredient("anti-material-rifle-magazine", "lead-plate", "iron-plate")
+  x_util.add_ingredient("armor-piercing-anti-material-rifle-magazine", "lead-plate", 3)
 else
   for name, rock in pairs(data.raw["simple-entity"]) do
     if name:match('rock') and rock.minable then
@@ -45,20 +42,20 @@ end
 -- "a[load]-o"   = "ic-load-railgun-turret"
 -- "a[load]-p"   = "ic-load-rocket-turret"
 
-util.set_item_subgroup_order("ic-load-terrain", "a[load]-a-c")
-util.set_item_subgroup_order("ic-unload-terrain", "b[unload]-a-c")
+x_util.set_item_subgroup_order("ic-load-terrain", "a[load]-a-c")
+x_util.set_item_subgroup_order("ic-unload-terrain", "b[unload]-a-c")
 
-util.set_item_subgroup_order("ic-load-logistic-network", "a[load]-k")
-util.set_item_subgroup_order("ic-unload-logistic-network", "b[unload]-k")
+x_util.set_item_subgroup_order("ic-load-logistic-network", "a[load]-k")
+x_util.set_item_subgroup_order("ic-unload-logistic-network", "b[unload]-k")
 
-util.set_item_subgroup_order("ic-load-space-related", "a[load]-m")
-util.set_item_subgroup_order("ic-unload-space-related", "b[unload]-m")
+x_util.set_item_subgroup_order("ic-load-space-related", "a[load]-m")
+x_util.set_item_subgroup_order("ic-unload-space-related", "b[unload]-m")
 
-util.set_item_subgroup_order("ic-load-ammo", "a[load]-n")
-util.set_item_subgroup_order("ic-unload-ammo", "b[unload]-n")
+x_util.set_item_subgroup_order("ic-load-ammo", "a[load]-n")
+x_util.set_item_subgroup_order("ic-unload-ammo", "b[unload]-n")
 
-util.set_item_subgroup_order("ic-load-railgun-turret", "a[load]-o")
-util.set_item_subgroup_order("ic-unload-railgun-turret", "b[unload]-o")
+x_util.set_item_subgroup_order("ic-load-railgun-turret", "a[load]-o")
+x_util.set_item_subgroup_order("ic-unload-railgun-turret", "b[unload]-o")
 
-util.set_item_subgroup_order("ic-load-rocket-turret", "a[load]-p")
-util.set_item_subgroup_order("ic-unload-rocket-turret", "b[unload]-p")
+x_util.set_item_subgroup_order("ic-load-rocket-turret", "a[load]-p")
+x_util.set_item_subgroup_order("ic-unload-rocket-turret", "b[unload]-p")

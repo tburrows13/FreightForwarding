@@ -1,7 +1,5 @@
 if mods["Krastorio2"] or mods["SpaceMod"] then return end
 
-local bzutil = require "__bzlead__.data-util"
-
 data:extend{
   {
     type = "technology",
@@ -90,6 +88,6 @@ local satellite_item = data.raw.item["satellite"]
 satellite_item.rocket_launch_product = {"space-science-pack", 200}
 
 -- Reduce satellite cost
-bzutil.set_ingredient("satellite", "low-density-structure", 50)
-bzutil.set_ingredient("satellite", "solar-panel", 50)
-bzutil.set_ingredient("satellite", "accumulator", 50)  -- Will be replaced by charged battery pack
+x_util.set_ingredient("satellite", "low-density-structure", 50)
+x_util.set_ingredient("satellite", "solar-panel", 50)
+x_util.set_ingredient("satellite", "accumulator", 50)  -- Will be replaced by charged battery pack

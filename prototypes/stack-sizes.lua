@@ -1,5 +1,4 @@
-local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
-
+local restack = x_util.set_stack_size
 -- Each of these will get halved by IntermodalContainers
 local stack_size_override = {
   -- Vanilla

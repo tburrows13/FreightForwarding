@@ -476,5 +476,4 @@ data:extend(
   }
 })
 
-local util = require "__FreightForwarding__.prototypes.data-util"
-util.allow_productivity("ff-battery-pack")
+x_util.allow_productivity("ff-battery-pack")

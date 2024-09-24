@@ -1,3 +1,5 @@
+x_util = require("__FreightForwarding__.x-util")
+
 require "__FreightForwarding__.prototypes.water"
 require "__FreightForwarding__.prototypes.landfill"
 require "__FreightForwarding__.prototypes.titansteel"

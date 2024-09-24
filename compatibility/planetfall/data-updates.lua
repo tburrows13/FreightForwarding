@@ -75,8 +75,7 @@ if mods["BrimStuff"] and data.raw.resource["sulfur-ore"] then
 end
 
 -- Stack size tweaks
-local restack = require "__FreightForwarding__.prototypes.data-util".set_stack_size
-restack("brass-precursor", 30)
+local restack = x_util.set_stack_sizerestack("brass-precursor", 30)
 restack("nickel-ore", 30)
 restack("invar-precursor", 30)
 restack("motor", 50)

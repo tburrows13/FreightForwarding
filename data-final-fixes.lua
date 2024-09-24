@@ -70,22 +70,20 @@ end
 collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, underwater_pipe_layer)
 
 -- Science
-local util = require "__FreightForwarding__.prototypes.data-util"
-
 for _, tech in pairs(data.raw.technology) do
   if tech.unit then
     local ingredients = tech.unit.ingredients
-    if util.contains_research_ingredient(tech.name, "chemical-science-pack")
-        and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
+    if x_util.contains_research_ingredient(tech.name, "chemical-science-pack")
+        and not x_util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
       table.insert(ingredients, { "ff-transport-science-pack", 1 })
     else
       -- Add to all techs descending from key techs
-      if (util.is_descendant_of(tech.name, "water_transport")
-          or util.is_descendant_of(tech.name, "fluid-handling")
-          or util.is_descendant_of(tech.name, "automobilism")
-          or util.is_descendant_of(tech.name, "ff-transport-science-pack"))
-          and util.contains_research_ingredient(tech.name, "logistic-science-pack")
-          and not util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
+      if (x_util.is_descendant_of(tech.name, "water_transport")
+          or x_util.is_descendant_of(tech.name, "fluid-handling")
+          or x_util.is_descendant_of(tech.name, "automobilism")
+          or x_util.is_descendant_of(tech.name, "ff-transport-science-pack"))
+          and x_util.contains_research_ingredient(tech.name, "logistic-science-pack")
+          and not x_util.contains_research_ingredient(tech.name, "ff-transport-science-pack") then
         table.insert(ingredients, { "ff-transport-science-pack", 1 })
       end
     end

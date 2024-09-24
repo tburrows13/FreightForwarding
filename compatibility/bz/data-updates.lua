@@ -1,4 +1,4 @@
-if  
+if
   not mods["bzaluminum"]  and
   not mods["bzcarbon"]    and
   not mods["bzchlorine"]  and
@@ -9,14 +9,11 @@ if
   not mods["bztungsten"]  and
   not mods["bzzirconium"]
 then return end
-
 if mods["bztin"] and not (mods["bztungsten"] or mods["bzzirconium"]) then
   error("\nUsing BZ Tin without either Tungsten or Zirconium is not allowed for progression reasons")
 end
 
 local resource_autoplace = require "resource-autoplace.resource-autoplace"
-local bzutil = require "__bzlead__.data-util"
-local util = require "__FreightForwarding__.prototypes.data-util"
 
 local START_RADIUS =  175
 local INNER_RADIUS =  775
@@ -194,7 +191,7 @@ end
 if mods["bzgold"] and data.raw.resource["rich-copper-ore"] then 
   data.raw.resource["rich-copper-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
     name = "rich-copper-ore",
-    autoplace_control_name = bzutil.se6() and "rich-copper-ore" or "copper-ore",
+    autoplace_control_name = x_util.se6() and "rich-copper-ore" or "copper-ore",
     order = "b-z",
     base_density = 4,
     base_spots_per_km2 = 1,
@@ -209,7 +206,7 @@ if mods["bzgold"] and data.raw.resource["rich-copper-ore"] then
 end
 
 -- Stack size tweaks
-local restack = util.set_stack_size
+local restack = x_util.set_stack_size
 restack("aluminum-ore", 30)
 restack("flake-graphite", 30)
 restack("gold-ore", 30)
@@ -225,17 +222,17 @@ restack("zirconia", 100)
 restack("acsr-cable", 200)
 restack("aluminum-cable", 200)
 
-bzutil.remove_ingredient("stone-furnace", "zircon")
-bzutil.set_ingredient("stone-furnace", "stone", 5)
+x_util.remove_ingredient("stone-furnace", "zircon")
+x_util.set_ingredient("stone-furnace", "stone", 5)
 
 -- Remove tungsten and zirconium from engines/trains
-util.remove_prerequisite("engine", "tungsten-processing")
-bzutil.remove_ingredient("engine-unit", "spark-plug")
-bzutil.remove_ingredient("engine-unit", "tungsten-plate")
+x_util.remove_prerequisite("engine", "tungsten-processing")
+x_util.remove_ingredient("engine-unit", "spark-plug")
+x_util.remove_ingredient("engine-unit", "tungsten-plate")
 
 if mods["bztungsten"] then
   -- Adds tungsten requirement to transport science
-  bzutil.add_ingredient("ff-transport-science-pack", "small-lamp", 2)
+  x_util.add_ingredient("ff-transport-science-pack", "small-lamp", 2)
 
   -- This sim crashes
   local s = data.raw["utility-constants"]["default"].main_menu_simulations
@@ -243,12 +240,12 @@ if mods["bztungsten"] then
 end
 
 -- Add zircon to transport science
-bzutil.add_ingredient("big-electric-pole", "zirconium-plate", 2)
-bzutil.add_ingredient("po-huge-electric-pole", "zirconium-plate", 10)  -- From Power Overload
-bzutil.add_ingredient("substation", "zirconium-plate", 5)
+x_util.add_ingredient("big-electric-pole", "zirconium-plate", 2)
+x_util.add_ingredient("po-huge-electric-pole", "zirconium-plate", 10)  -- From Power Overload
+x_util.add_ingredient("substation", "zirconium-plate", 5)
 
 -- Remove lead from natural gas things
 if not mods["bztin"] then
-  bzutil.remove_ingredient("gas-extractor", "lead-plate")
-  bzutil.remove_ingredient("basic-chemical-plant", "lead-plate")
+  x_util.remove_ingredient("gas-extractor", "lead-plate")
+  x_util.remove_ingredient("basic-chemical-plant", "lead-plate")
 end
