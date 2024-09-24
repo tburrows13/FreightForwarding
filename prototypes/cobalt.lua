@@ -51,7 +51,7 @@ data:extend{
     type = "fluid",
     name = "ff-tailings-water",
     icon = "__FreightForwarding__/graphics/item/tailings-water.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64, icon_mipmaps = 4,
     subgroup = "fluid",
     default_temperature = 15,
     base_color = {r=0.1, g=0.2, b=0.3},  -- TODO
@@ -116,7 +116,7 @@ data:extend{
         icon = "__FreightForwarding__/graphics/item/tailings-water.png",
         scale = 0.25,
         shift = {-8, -8},
-        icon_mipmaps = 1,
+        icon_mipmaps = 4,
       },
     },
     icon_size = 64,
@@ -149,7 +149,7 @@ data:extend{
         icon = "__FreightForwarding__/graphics/item/tailings-water.png",
         scale = 0.25,
         shift = {-8, -8},
-        icon_mipmaps = 1,
+        icon_mipmaps = 4,
       },
       {
         icon = "__bzlead__/graphics/icons/lead-ore.png",
