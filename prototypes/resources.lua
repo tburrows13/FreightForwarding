@@ -108,25 +108,21 @@ data.raw.resource["uranium-ore"].autoplace = resource_autoplace.resource_autopla
   ideal_aux = 0.3,
 }
 
-
-if mods["bzlead"] then
-  -- override BZ's autoplace, but keeping same values for richness
-  data.raw.resource["lead-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
-    name = "lead-ore",
-    order = "b-z",
-    base_density = 6,
-    base_spots_per_km2 = 1,
-    has_starting_area_placement = true,
-    regular_rq_factor_multiplier = 1.2,
-    starting_rq_factor_multiplier = 1.7,
-    starting_resource_placement_ring_radius = 775,  -- Spawns the starting patch somewhere at distance from the center
-    starting_resource_placement_radius = 1200,  -- Keep it reasonably above starting_resource_placement_ring_radius?
-    regular_patch_fade_in_distance_start = 1200,
-    regular_patch_fade_in_distance = 1200,
-    ideal_aux = 0.7,
-  }
-  --data.raw.resource["lead-ore"].map_color = {r=1, g=0, b=0}  -- For debug
-end
+data.raw.resource["lead-ore"].autoplace = resource_autoplace.resource_autoplace_settings{
+  name = "lead-ore",
+  order = "b-z",
+  base_density = 6,
+  base_spots_per_km2 = 1,
+  has_starting_area_placement = true,
+  regular_rq_factor_multiplier = 1.2,
+  starting_rq_factor_multiplier = 1.7,
+  starting_resource_placement_ring_radius = 775,  -- Spawns the starting patch somewhere at distance from the center
+  starting_resource_placement_radius = 1200,  -- Keep it reasonably above starting_resource_placement_ring_radius?
+  regular_patch_fade_in_distance_start = 1200,
+  regular_patch_fade_in_distance = 1200,
+  ideal_aux = 0.7,
+}
+--data.raw.resource["lead-ore"].map_color = {r=1, g=0, b=0}  -- For debug
 
 if mods["bztitanium"] then
   -- override BZ's autoplace, but keeping same values for richness
