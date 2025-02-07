@@ -3,10 +3,10 @@
 -- Water:     autoplace = make_water_autoplace_settings(0, 100),
 -- Deepwater: autoplace = make_water_autoplace_settings(-2, 200),
 
-data.raw["tile"]["water-shallow"].autoplace = make_water_autoplace_settings(0, 25)
--- data.raw["tile"]["water-mud"].autoplace = make_water_autoplace_settings(-2, 50)
-data.raw["tile"]["water"].autoplace = make_water_autoplace_settings(-2.5, 100)
-data.raw["tile"]["deepwater"].autoplace = make_water_autoplace_settings(-8, 200)
+data.raw["tile"]["water-shallow"].autoplace = {probability_expression = "water_base(0, 25)"}
+-- data.raw["tile"]["water-mud"].autoplace = {probability_expression = "water_base(-2, 50)"}
+data.raw["tile"]["water"].autoplace = {probability_expression = "water_base(-2.5, 100)"}
+data.raw["tile"]["deepwater"].autoplace = {probability_expression = "water_base(-8, 200)"}
 
 local mud_water = data.raw.tile["water-mud"]
 mud_water.walking_speed_modifier = 0.7  -- Default 0.8
