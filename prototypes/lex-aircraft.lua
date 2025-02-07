@@ -1,8 +1,8 @@
 -- Hide light gunship
 data.raw.technology["lex-flying-gunship-ships"].hidden = true
 data.raw.recipe["lex-flying-gunship"].hidden = true
-table.insert(data.raw["item-with-entity-data"]["lex-flying-gunship"].flags, "hidden")
-table.insert(data.raw["spider-vehicle"]["lex-flying-gunship"].flags, "hidden")
+data.raw["item-with-entity-data"]["lex-flying-gunship"].hidden = true
+data.raw["spider-vehicle"]["lex-flying-gunship"].hidden = true
 x_util.remove_prerequisite("lex-flying-heavyship-ships", "lex-flying-gunship-ships")
 
 -- Doesn't have any effect anyway because automatic_weapon_cycling = false, so remove from tooltip

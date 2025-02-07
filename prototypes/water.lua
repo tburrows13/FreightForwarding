@@ -74,7 +74,8 @@ data:extend{
     localised_name = {"entity-name.water-splash"},
     icon = "__base__/graphics/icons/fluid/water.png",
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"not-on-map", "hidden", "placeable-off-grid"},
+    flags = {"not-on-map", "placeable-off-grid"},
+    hidden = true,
     subgroup = "explosions",
     animations = util.empty_sprite(),
     created_effect =

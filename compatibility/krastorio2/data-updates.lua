@@ -162,7 +162,7 @@ data.raw.locomotive.locomotive.burner.fuel_categories = nil
 
 -- Replace all K2 lithium-sulfur-battery instances with FF's battery-pack
 data.raw.recipe["lithium-sulfur-battery"].hidden = true
-data.raw.item["lithium-sulfur-battery"].flags = {"hidden"}
+data.raw.item["lithium-sulfur-battery"].hidden = true
 data.raw.item["lithium-sulfur-battery"].ic_create_container = false
 x_util.remove_recipe_effect("kr-lithium-sulfur-battery", "lithium-sulfur-battery")
 for ___, recipe in pairs(data.raw.recipe) do

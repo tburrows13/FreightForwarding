@@ -85,7 +85,7 @@ data:extend{
     icon_size = 64, icon_mipmaps = 1,
     subgroup = "extraction-machine",
     order = "b[fluids]-d[dredger]",
-    flags = {"hidden"},
+    hidden = true,
     place_result = "ff-dredger",
     stack_size = 1
   },
@@ -412,7 +412,8 @@ data:extend{
     name = "ff-dredger-pole",
     icon = "__base__/graphics/icons/substation.png",
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"hidden", "not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"},
+    flags = {"not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"},
+    hidden = true,
     --collision_box = {{-0.7, -0.7}, {0.7, 0.7}},
     --selection_box = {{-1, -1}, {1, 1}},
     maximum_wire_distance = 0,
@@ -508,7 +509,8 @@ data:extend{
 
 local radar = table.deepcopy(data.raw["radar"]["radar"])
 radar.name = "ff-dredger-radar"
-radar.flags = {"hidden", "not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"}
+radar.flags = {"not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"}
+radar.hidden = true
 radar.selectable_in_game = false
 radar.allow_copy_paste = false
 radar.collision_mask = {layers={}}

@@ -12,7 +12,7 @@ data:extend{
       },
     },
     icon_size = 64, icon_mipmaps = 4,
-    flags = {"hidden"},
+    hidden = true,
     --subgroup = "raw-resource",
     --order = "e[iron-ore]",
     stack_size = 50

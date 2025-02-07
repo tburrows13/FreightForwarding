@@ -2,9 +2,9 @@ if not mods["underwater-pipes"] then return end
 
 -- Main underwater pipe is now provided by FF, so hide it
 
-table.insert(data.raw.pipe["underwater-pipe"].flags, "hidden")
-table.insert(data.raw.pipe["underwater-pipe-placer"].flags, "hidden")
-data.raw.item["underwater-pipe"].flags = {"hidden"}
+data.raw.pipe["underwater-pipe"].hidden = true
+data.raw.pipe["underwater-pipe-placer"].hidden = true
+data.raw.item["underwater-pipe"].hidden = true
 data.raw.recipe["underwater-pipe"].hidden = true
 
 data.raw.recipe["underwater-pipe-to-ground"].ingredients = {
