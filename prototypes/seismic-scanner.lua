@@ -83,7 +83,7 @@ data:extend{
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions_per_minute = 150  -- One mining drill is 10
+      emissions_per_minute = { pollution = 150 },  -- One mining drill is 10
     },
     energy_usage = "600kW",
     integration_patch =

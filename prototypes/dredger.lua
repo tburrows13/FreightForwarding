@@ -107,7 +107,7 @@ data:extend{
     energy_source =
     {
       type = "electric",
-      emissions_per_minute = 200,
+      emissions_per_minute = { pollution = 200 },
       usage_priority = "secondary-input"
     },
     energy_usage = "2MW",
@@ -276,7 +276,7 @@ data:extend{
     energy_source =
     {
       type = "electric",
-      emissions_per_minute = 200,
+      emissions_per_minute = { pollution = 200 },
       usage_priority = "secondary-input"
     },
     energy_usage = "2MW",

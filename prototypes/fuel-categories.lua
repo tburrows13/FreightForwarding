@@ -8,10 +8,9 @@ for _, type in pairs(entity_types) do
         if x_util.contains(energy_source.fuel_categories, "chemical") then
           table.insert(energy_source.fuel_categories, "advanced-chemical")
         end
-      elseif energy_source.fuel_category == "chemical" or not energy_source.fuel_category then
+      else
         -- Default fuel_category is "chemical"
         energy_source.fuel_categories = {"chemical", "advanced-chemical"}
-        energy_source.fuel_category = nil
       end
     end
   end

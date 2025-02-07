@@ -200,8 +200,8 @@ data:extend{ -- Battery charging interface
     },
     max_power_output = "4MW",
     burner = {
-      emissions_per_minute = 0,
-      fuel_category = "battery",
+      emissions_per_minute = { pollution = 0 },
+      fuel_categories = {"battery"},
       fuel_inventory_size = 1,
       burnt_inventory_size = 1,
       type = "burner",
