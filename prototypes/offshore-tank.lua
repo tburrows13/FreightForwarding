@@ -87,17 +87,15 @@ data:extend{
     map_color = data.raw["storage-tank"]["storage-tank"].map_color,
     window_bounding_box = {{0,0},{1,1}},
     fluid_box = {
-      base_area = 1000,
+      volume = 100000,
       pipe_covers = pipecoverspictures(),
       pipe_picture = ei_tank_1,
-      base_level = 0,
-      height = 1,
       pipe_connections =
       {
-        { type = "input-output", position = {0, -3} },
-        { type = "input-output", position = {0, 3} },
-        { type = "input-output", position = {-3, 0} },
-        { type = "input-output", position = {3, 0} },
+        { flow_direction = "input-output", direction = defines.direction.north, position = {0, -2} },
+        { flow_direction = "input-output", direction = defines.direction.east, position = {0, 2} },
+        { flow_direction = "input-output", direction = defines.direction.south, position = {-2, 0} },
+        { flow_direction = "input-output", direction = defines.direction.west, position = {2, 0} },
       },
       production_type = "input-output",
     },

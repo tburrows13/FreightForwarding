@@ -99,27 +99,13 @@ data:extend({
       burns_fluid = true,
       scale_fluid_usage = true,
       fluid_box = {
-        height = 1,
-        base_area = 1,
-        base_level = -1,
+        volume = 100,
         filter = "crude-oil",
         pipe_connections = {
-          {
-            type = "input",
-            position = { 0, 2 }
-          },
-          {
-            type = "input",
-            position = { 0, -2 }
-          },
-          {
-            type = "input",
-            position = { 2, 0 }
-          },
-          {
-            type = "input",
-            position = { -2, 0 }
-          }
+          { flow_direction = "input", direction = defines.direction.north, position = {0, -1} },
+          { flow_direction = "input", direction = defines.direction.east, position = {0, 1} },
+          { flow_direction = "input", direction = defines.direction.south, position = {-1, 0} },
+          { flow_direction = "input", direction = defines.direction.west, position = {1, 0} },
         }
       }
     },
