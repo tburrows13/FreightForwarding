@@ -1,11 +1,11 @@
 {
   "name": "FreightForwarding",
-  "version": "1.9.0",
+  "version": "2.0.0",
   "title": "Freight Forwarding",
   "author": "Xorimuth",
   "homepage": "https://discord.gg/pkJc4v9nfT",
   "description": "A small overhaul with a focus on long-distance logistics variety.\nTransport containerized items across land and sea using trains and ships!\nUnlocks are balanced around the custom island-based terrain and resource spawning to provide a smooth progression.\nFirst, venture to the edge of your starting island using trains to find lead, then set sail for offshore oil using tanker ships, dredge metallic nodules from the seabed, and recover titanium from other islands. Finally you'll be transporting materials to faraway lava pools to smelt titansteel, an essential ingredient in rocket parts.\nAlong the way you'll unlock hovercrafts, automated spidertrons, and aircraft.",
-  "factorio_version": "1.1",
+  "factorio_version": "2.0",
   "dependencies": [
     "base > 1.1.93",
     "IntermodalContainers",
@@ -16,8 +16,6 @@
     "Hovercrafts",
     "bzlead",
     "bztitanium",
-    "CanalBuilderMAV",
-    "beautiful_bridge_railway_Cargoships",
     "? FreightForwardingPack",
     "? Milestones",
     "? aai-vehicles-ironclad",
