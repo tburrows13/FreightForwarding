@@ -30,7 +30,7 @@ technology2.unit.count = 200
 
 local recipe3 = data.raw.recipe[IC_PREFIX.."machine-3"]
 recipe3.ingredients = {
-  {IC_PREFIX.."machine-2", 1},
+  {type="item", name=IC_PREFIX.."machine-2", amount=1},
   {type="item", name="electric-engine-unit", amount=8},
   {type="item", name="advanced-circuit", amount=8},
   {type="item", name="steel-plate", amount=30},

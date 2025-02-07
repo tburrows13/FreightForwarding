@@ -130,7 +130,7 @@ end
 local function add_ingredient(recipe, ingredient, quantity, is_fluid)
   if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
-      if existing[1] == ingredient or existing.name == ingredient then
+      if existing.name == ingredient then
         return
       end
     end
@@ -155,7 +155,7 @@ end
 local function replace_ingredient(recipe, old, new, amount, multiply)
   if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
-      if existing[1] == new or existing.name == new then
+      if existing.name == new then
         return
       end
     end
@@ -167,16 +167,6 @@ local function replace_ingredient(recipe, old, new, amount, multiply)
             ingredient.amount = amount * ingredient.amount
           else
             ingredient.amount = amount
-          end
-        end
-      end
-      if ingredient[1] == old then
-        ingredient[1] = new
-        if amount then
-          if multiply then
-            ingredient[2] = amount * ingredient[2]
-          else
-            ingredient[2] = amount
           end
         end
       end
@@ -194,7 +184,7 @@ function x_util.replace_ingredient(recipe_name, old, new, amount, multiply, opti
 end
 
 -- From bzutil
-function set_ingredient(recipe, ingredient, quantity)
+local function set_ingredient(recipe, ingredient, quantity)
   if recipe ~= nil and recipe.ingredients ~= nil then
     for i, existing in pairs(recipe.ingredients) do
       if existing.name == ingredient then
@@ -215,7 +205,7 @@ function x_util.set_ingredient(recipe_name, ingredient, quantity)
 end
 
 -- From bzutil
-function remove_ingredient(recipe, old)
+local function remove_ingredient(recipe, old)
   index = -1
 	if recipe ~= nil and recipe.ingredients ~= nil then
 		for i, ingredient in pairs(recipe.ingredients) do

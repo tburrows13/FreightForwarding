@@ -68,7 +68,7 @@ data:extend{
       {type = "fluid", name = "water", amount = 100, catalyst_amount = 100},
     },
     results = {
-      {name = "ff-cobalt-concentrate", amount = 5},
+      {type = "item", name = "ff-cobalt-concentrate", amount = 5},
       {type = "fluid", name = "ff-tailings-water", amount = 100, catalyst_amount = 100},
     },
     allow_productivity = true,
@@ -85,7 +85,7 @@ data:extend{
       {type = "item", name = "explosives", amount = 4},
     },
     results = {
-      {name = "ff-cobalt-blast-blend", amount = 4},
+      {type = "item", name = "ff-cobalt-blast-blend", amount = 4},
     },
   },
   {
@@ -95,7 +95,7 @@ data:extend{
     enabled = false,
     energy_required = 16,
     ingredients = {{type="item", name="ff-cobalt-blast-blend", amount=5}},
-    result = "ff-cobalt-ingot",
+    results = {{type="item", name="ff-cobalt-ingot", amount=1}},
     allow_productivity = true,
   },
   {

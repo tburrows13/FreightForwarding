@@ -38,9 +38,9 @@ data:extend({
     name = "ff-sonar-buoy",
     enabled = false,
     ingredients = {
-      { "processing-unit", 5 },
-      { "barrel",    10 },
-      { "radar",           1 },
+      {type="item", name="processing-unit", amount=5},
+      {type="item", name="barrel", amount=10},
+      {type="item", name="radar", amount=1},
     },
     results = {{type="item", name="ff-sonar-buoy", amount=1}},
   } --[[@as data.RecipePrototype]],

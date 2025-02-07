@@ -7,8 +7,8 @@ if not mods["advanced-centrifuge"] then return end
 
 local function k2_byproducts(index)
   local byproducts = {
-    [1] = { name = "iron-ore", probability = 0.25, amount = 5 },
-    [2] = { name = "stone", probability = 0.5, amount = 5 }
+    [1] = { type = "item", name = "iron-ore", probability = 0.25, amount = 5 },
+    [2] = { type = "item", name = "stone", probability = 0.5, amount = 5 }
   }
   if mods["Krastorio2"] then return byproducts[index] else return nil end
 end

@@ -43,9 +43,9 @@ data.raw.technology["ff-transport-science-pack"].localised_name = { "item-name.f
 x_util.set_product_amount("ff-transport-science-pack", "ff-transport-science-pack", 5)
 x_util.set_recipe_time("ff-transport-science-pack", 20)
 data.raw.recipe["ff-transport-science-pack"].ingredients = {
-  { name = "big-electric-pole", amount = 1},
-  { name = "rail",              amount = 5},
-  { name = "blank-tech-card",   amount = 5}
+  { type = "item", name = "big-electric-pole", amount = 1},
+  { type = "item", name = "rail",              amount = 5},
+  { type = "item", name = "blank-tech-card",   amount = 5}
 }
 
 -- Big-electric-pole recipe

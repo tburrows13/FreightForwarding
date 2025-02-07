@@ -22,8 +22,7 @@ data:extend{
       {type="item", name="rail", amount=1},
       {type="item", name="big-electric-pole", amount=1}
     },
-    result_count = 2,
-    result = "ff-transport-science-pack",
+    results = {{type="item", name="ff-transport-science-pack", amount=2}},
     allow_productivity = true,
   },
   {

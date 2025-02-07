@@ -65,13 +65,13 @@ data:extend{
     enabled = false,
     main_product = "ff-hot-titansteel-plate",
     ingredients = {
-      {name = "steel-plate", amount = 1},
-      {name = "titanium-plate", amount = 1},
-      {name = "ff-cobalt-ingot", amount = 1},
+      {type = "item", name = "steel-plate", amount = 1},
+      {type = "item", name = "titanium-plate", amount = 1},
+      {type = "item", name = "ff-cobalt-ingot", amount = 1},
     },
     results = {
-      {name = "ff-hot-titansteel-plate", amount = 1},
-      {name = "ff-slag", amount = 15},
+      {type = "item", name = "ff-hot-titansteel-plate", amount = 1},
+      {type = "item", name = "ff-slag", amount = 15},
     },
     energy_required = 15,
     always_show_made_in = true,
@@ -97,11 +97,11 @@ data:extend{
     enabled = false,
     main_product = "ff-hot-titansteel-plate",
     ingredients = {
-      {name = "ff-titansteel-plate", amount = 1},
+      {type = "item", name = "ff-titansteel-plate", amount = 1},
     },
     results = {
-      {name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99},
-      {name = "ff-slag", amount = 3},
+      {type = "item", name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99},
+      {type = "item", name = "ff-slag", amount = 3},
     },
     energy_required = 3,
     always_show_made_in = true,
@@ -116,11 +116,11 @@ data:extend{
     main_product = "ff-titansteel-plate",
     enabled = false,
     ingredients = {
-      {name = "ff-hot-titansteel-plate", amount = 1},
+      {type = "item", name = "ff-hot-titansteel-plate", amount = 1},
       {type = "fluid", name = "water", amount = 400},
     },
     results = {
-      {name = "ff-titansteel-plate", amount = 1},
+      {type = "item", name = "ff-titansteel-plate", amount = 1},
       {type = "fluid", name = "steam", amount = 400, temperature = 500},
     },
     energy_required = 10,  -- 3 lava pools : 2 chemical plants

@@ -37,7 +37,7 @@ data:extend{
       {type="item", name="lead-plate", amount=20},
       {type="item", name="explosives", amount=10}
     },
-    result = "ff-seismic-scanner"
+    results = {{type="item", name="ff-seismic-scanner", amount=1}},
   },
   {
     type = "item",
