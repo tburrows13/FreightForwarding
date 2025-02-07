@@ -11,12 +11,12 @@ local min_tiles_from_water = 16
 ---@return SeismicScannerData
 local function get_scanner_data(scanner)
   local unit_number = scanner.unit_number --[[@as uint]]
-  global.scanner_data = global.scanner_data or {}
-  if not global.scanner_data[unit_number] then
+  storage.scanner_data = storage.scanner_data or {}
+  if not storage.scanner_data[unit_number] then
     local chunk_position = util.to_chunk_position(scanner.position)
-    global.scanner_data[unit_number] = { explored_chunks = {}, to_be_explored_chunks = { [util.position_to_str(chunk_position)] = true } }
+    storage.scanner_data[unit_number] = { explored_chunks = {}, to_be_explored_chunks = { [util.position_to_str(chunk_position)] = true } }
   end
-  return global.scanner_data[unit_number]
+  return storage.scanner_data[unit_number]
 end
 
 ---@param event EventData.on_sector_scanned
@@ -59,7 +59,7 @@ local function on_sector_scanned(event)
         end
       end
     else
-      global.scanner_data[scanner.unit_number] = nil
+      storage.scanner_data[scanner.unit_number] = nil
       -- scanner.active = false
       return
     end

@@ -57,8 +57,8 @@ local function on_tick()
       and (not (remote.interfaces["jetpack"] and remote.interfaces["jetpack"].is_jetpacking) or not remote.call("jetpack", "is_jetpacking", {character=player.character}))
       then
       local offset = get_offset(player.walking_state)
-      if not global.liferings[player.index] and player.character then
-        global.liferings[player.index] = {
+      if not storage.liferings[player.index] and player.character then
+        storage.liferings[player.index] = {
           front = rendering.draw_sprite{
             sprite = "ff-life-ring-front",
             target = player.character,
@@ -98,17 +98,17 @@ local function on_tick()
 
         }
       else
-        if rendering.is_valid(global.liferings[player.index].front) then
-          rendering.set_target(global.liferings[player.index].front, player.character, offset)
+        if rendering.is_valid(storage.liferings[player.index].front) then
+          rendering.set_target(storage.liferings[player.index].front, player.character, offset)
         end
-        if rendering.is_valid(global.liferings[player.index].back) then
-          rendering.set_target(global.liferings[player.index].back, player.character, offset)
+        if rendering.is_valid(storage.liferings[player.index].back) then
+          rendering.set_target(storage.liferings[player.index].back, player.character, offset)
         end
-        if rendering.is_valid(global.liferings[player.index].shadow or 0) then
-          rendering.set_target(global.liferings[player.index].shadow, player.character, add_offset(offset, shadow_offset))
+        if rendering.is_valid(storage.liferings[player.index].shadow or 0) then
+          rendering.set_target(storage.liferings[player.index].shadow, player.character, add_offset(offset, shadow_offset))
         end
-        if rendering.is_valid(global.liferings[player.index].legs or 0) then
-          rendering.set_target(global.liferings[player.index].legs, player.character, add_offset(offset, legs_offset))
+        if rendering.is_valid(storage.liferings[player.index].legs or 0) then
+          rendering.set_target(storage.liferings[player.index].legs, player.character, add_offset(offset, legs_offset))
         end
       end
       for _, splash_position in pairs(splash_positions) do
@@ -118,12 +118,12 @@ local function on_tick()
         }
       end
     else
-      if global.liferings[player.index] then
-        rendering.destroy(global.liferings[player.index].front)
-        rendering.destroy(global.liferings[player.index].back)
-        rendering.destroy(global.liferings[player.index].shadow or 0)
-        rendering.destroy(global.liferings[player.index].legs or 0)
-        global.liferings[player.index] = nil
+      if storage.liferings[player.index] then
+        rendering.destroy(storage.liferings[player.index].front)
+        rendering.destroy(storage.liferings[player.index].back)
+        rendering.destroy(storage.liferings[player.index].shadow or 0)
+        rendering.destroy(storage.liferings[player.index].legs or 0)
+        storage.liferings[player.index] = nil
       end
     end
     ::continue::
@@ -139,11 +139,11 @@ LifeRing.events = {
 }
 
 LifeRing.on_init = function ()
-  global.liferings = {}
+  storage.liferings = {}
 end
 
 LifeRing.on_configuration_changed = function(changed_data)
-  global.liferings = global.liferings or {}
+  storage.liferings = storage.liferings or {}
 end
 
 return LifeRing

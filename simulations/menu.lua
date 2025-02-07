@@ -74,20 +74,20 @@ sims.oil_rigs =
 
     local function powerOilRig(e)
       if e.tick % 120 == 0 then
-        if global.or_generators == nil then
-          global.or_generators = {}
+        if storage.or_generators == nil then
+          storage.or_generators = {}
           for _, surface in pairs(game.surfaces) do
             for _, generator in pairs(surface.find_entities_filtered{name="or_power"}) do
-              table.insert(global.or_generators, generator)
+              table.insert(storage.or_generators, generator)
             end
           end
         end
-        for i, generator in pairs(global.or_generators) do
+        for i, generator in pairs(storage.or_generators) do
           if(generator.valid) then
             generator.fluidbox[1] = {name="steam", amount = 200, temperature=165}
           else
             --game.players[1].print("found invalid")
-            table.remove(global.or_generators,i)
+            table.remove(storage.or_generators,i)
           end
         end
       end
