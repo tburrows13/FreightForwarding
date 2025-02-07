@@ -295,7 +295,7 @@ end
 ---| EventData.on_built_entity
 ---| EventData.on_robot_built_entity
 local function on_scanner_built(event)
-  local scanner = event.created_entity
+  local scanner = event.entity
   if scanner.name ~= entity_name then return end
 
   script.register_on_object_destroyed(scanner)
@@ -306,7 +306,7 @@ local function on_scanner_built(event)
   if event.player_index then
     player = game.get_player(event.player_index)
   else
-    player = event.created_entity.last_user
+    player = event.entity.last_user
   end
   player.create_local_flying_text({
     text = { "freight-forwarding.sonar-buoy-warmup" },

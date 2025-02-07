@@ -71,7 +71,7 @@ end
 ---| EventData.on_robot_built_entity
 local function on_scanner_built(event)
   -- Disable scanner if within 16 tiles of water
-  local scanner = event.created_entity
+  local scanner = event.entity
   if scanner.name ~= entity_name then return end
 
   scanner.backer_name = ""
