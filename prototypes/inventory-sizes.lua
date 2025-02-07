@@ -21,9 +21,9 @@ for _, prototype in pairs(data.raw["cargo-wagon"]) do
 end
 
 for _, prototype in pairs(data.raw["car"]) do
-  if prototype.name == "hcraft-entity" then
+  if prototype.name == "hovercraft" then
     prototype.inventory_size = 0
-  elseif prototype.name == "mcraft-entity" then
+  elseif prototype.name == "missile-hovercraft" then
     prototype.inventory_size = 10
   elseif prototype.name == "ironclad" or prototype.name == "ironclad-gunboat" then
     prototype.inventory_size = 20

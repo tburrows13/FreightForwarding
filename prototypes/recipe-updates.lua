@@ -20,8 +20,8 @@ if not mods["bztin"] then
 end
 
 -- Revert bztitanium's changes to hovercrafts
-x_util.replace_ingredient("hcraft-recipe", "titanium-plate", "steel-plate")
-x_util.remove_prerequisite("hcraft-tech", "titanium-processing")
+x_util.replace_ingredient("hovercraft", "titanium-plate", "steel-plate")
+x_util.remove_prerequisite("hovercraft", "titanium-processing")
 
-x_util.add_ingredient("mcraft-recipe", "titanium-plate", 20)
-x_util.add_prerequisite("mcraft-tech", "titanium-processing")
+x_util.add_ingredient("missile-hovercraft", "titanium-plate", 20)
+x_util.add_prerequisite("missile-hovercraft", "titanium-processing")

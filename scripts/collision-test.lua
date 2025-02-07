@@ -32,7 +32,7 @@ local entity_tests = {
   {"straight-water-way", {"ff-underwater-pipe"}, false},
   {"straight-water-way", {"ff-offshore-storage-tank", "pump"}, true},
   {"pump", {"ff-underwater-pipe", "ff-offshore-storage-tank"}, true},
-  {"ff-underwater-pipe", {"hcraft-entity"}, false},
+  {"ff-underwater-pipe", {"hovercraft"}, false},
   {"ff-underwater-pipe", {"oil_rig", "ff-offshore-storage-tank"}, true},
   {"ff-rocket-silo-hole", {"ff-rocket-silo-dummy"}, false},
   {"ff-rocket-silo-hole", {"stone-furnace", "character"}, true},

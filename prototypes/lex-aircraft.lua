@@ -13,7 +13,7 @@ data.raw["spider-vehicle"]["lex-flying-cargo"].localised_description = {""}
 data.raw["spider-vehicle"]["lex-flying-heavyship"].localised_description = {""}
 
 -- Move lex aicraft to lategame
-x_util.add_prerequisite("lex-jet-engine", "hcraft-tech")
+x_util.add_prerequisite("lex-jet-engine", "hovercraft")
 x_util.add_prerequisite("lex-jet-engine", "utility-science-pack")
 x_util.add_prerequisite("lex-jet-engine", "production-science-pack")
 x_util.remove_prerequisite("lex-jet-engine", "automobilism")
@@ -25,14 +25,14 @@ data.raw.technology["lex-jet-engine"].unit.count = 500  -- 350
 
 --x_util.add_research_ingredient("lex-flying-gunship-ships", "utility-science-pack")
 --data.raw.technology["lex-flying-gunship-ships"].unit.count = 1000  -- 500
---x_util.add_prerequisite("lex-flying-gunship-ships", "mcraft-tech")
+--x_util.add_prerequisite("lex-flying-gunship-ships", "missile-hovercraft")
 
 x_util.add_research_ingredient("lex-flying-cargo-ships", "utility-science-pack")
 x_util.add_research_ingredient("lex-flying-cargo-ships", "production-science-pack")
 data.raw.technology["lex-flying-cargo-ships"].unit.count = 1500  -- 500
 x_util.add_prerequisite("lex-flying-cargo-ships", "sp-spidertron-automation")
 
-x_util.add_prerequisite("lex-flying-heavyship-ships", "mcraft-tech")
+x_util.add_prerequisite("lex-flying-heavyship-ships", "missile-hovercraft")
 x_util.add_prerequisite("lex-flying-heavyship-ships", "lex-jet-engine")
 x_util.remove_prerequisite("lex-flying-heavyship-ships", "lex-flying-cargo-ships")
 x_util.remove_recipe_effect("lex-flying-heavyship-ships", "spidertron-remote")
