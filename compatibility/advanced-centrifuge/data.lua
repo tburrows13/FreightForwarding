@@ -57,6 +57,7 @@ data:extend({
       },
       k2_byproducts(1),
       k2_byproducts(2),
-    }
+    },
+    allow_productivity = true,
   },
 })

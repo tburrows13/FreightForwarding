@@ -403,6 +403,7 @@ data:extend{ -- Battery charging interface
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
+    allow_productivity = true,
   },
   {
     type = "technology",
@@ -483,5 +484,3 @@ data:extend(
     name = "battery"
   }
 })
-
-x_util.allow_productivity("ff-battery-pack")

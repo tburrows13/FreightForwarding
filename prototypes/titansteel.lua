@@ -207,6 +207,7 @@ data:extend{
       {type = "fluid", name = "lubricant", amount = 180},
     },
     main_product = "ff-rocket-frame",
+    allow_productivity = true,
   },
   {
     type = "item",
@@ -218,8 +219,6 @@ data:extend{
     stack_size = 10
   },
 }
-
-x_util.allow_productivity("ff-rocket-frame")
 
 x_util.add_unlock("rocket-silo", "ff-rocket-frame")
 x_util.add_prerequisite("rocket-silo", "ff-titansteel-processing")

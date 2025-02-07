@@ -23,7 +23,8 @@ data:extend{
       {type="item", name="big-electric-pole", amount=1}
     },
     result_count = 2,
-    result = "ff-transport-science-pack"
+    result = "ff-transport-science-pack",
+    allow_productivity = true,
   },
   {
     type = "technology",
@@ -72,7 +73,6 @@ data.raw.recipe["pipe-to-ground"].enabled = false
 table.insert(data.raw.technology["fluid-handling"].effects, 1, {type = "unlock-recipe", recipe = "pipe-to-ground"})
 
 table.insert(data.raw.lab.lab.inputs, 3, "ff-transport-science-pack")
-x_util.allow_productivity("ff-transport-science-pack")
 
 -- Merge deep sea oil with pumpjack tech
 local deep_sea_oil = data.raw.technology["deep_sea_oil_extraction"]

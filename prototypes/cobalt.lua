@@ -71,6 +71,7 @@ data:extend{
       {name = "ff-cobalt-concentrate", amount = 5},
       {type = "fluid", name = "ff-tailings-water", amount = 100, catalyst_amount = 100},
     },
+    allow_productivity = true,
   },
   {
     type = "recipe",
@@ -94,7 +95,8 @@ data:extend{
     enabled = false,
     energy_required = 16,
     ingredients = {{type="item", name="ff-cobalt-blast-blend", amount=5}},
-    result = "ff-cobalt-ingot"
+    result = "ff-cobalt-ingot",
+    allow_productivity = true,
   },
   {
     type = "recipe",
@@ -129,6 +131,7 @@ data:extend{
     },
     show_amount_in_title = false,
     always_show_products = true,
+    allow_productivity = true,
   },
   {
     type = "recipe",
@@ -170,6 +173,7 @@ data:extend{
       {type = "item", name = "lead-ore", amount_min = 0, amount_max = 8},
       {type = "item", name = "titanium-ore", amount_min = 0, amount_max = 4},
     },
+    allow_productivity = true,
   },
   {
     type = "technology",
@@ -220,8 +224,3 @@ data:extend{
     }
   },
 }
-
-x_util.allow_productivity("ff-cobalt-concentrate")
-x_util.allow_productivity("ff-cobalt-ingot")
-x_util.allow_productivity("ff-tailings-filtration")
-x_util.allow_productivity("ff-tailings-evaporation")

@@ -10,7 +10,6 @@ if not mods["Krastorio2"] then k11.crafting_speed = 4 end
 x_util.add_ingredient("k11-advanced-centrifuge", "lead-plate", 200)
 
 -- Recipe extensions
-x_util.allow_productivity("ff-advanced-uranium-processing")
 x_util.add_unlock("k11-advanced-centrifuge", "ff-advanced-uranium-processing")
 
 -- Fix prerequisites
