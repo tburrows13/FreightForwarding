@@ -6,13 +6,6 @@ data:extend{
     setting_type = "startup",
     default_value = true
   },
-  {
-    type = "bool-setting",
-    name = "ff-revert-locomotive-fuel-category",
-    setting_type = "startup",
-    default_value = false,
-    order = "b",
-  },
 }
 
 local function force_setting(setting_type, setting_name, value)

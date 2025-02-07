@@ -157,13 +157,8 @@ data.raw.locomotive["mini-locomotive"].burner.fuel_category = nil
 data.raw.locomotive["mini-locomotive"].burner.fuel_categories = { "chemical", "vehicle-fuel" }
 
 -- Apply regular trains' fuel changes + add Vehicle fuel if needed
-if not settings.startup["ff-revert-locomotive-fuel-category"].value then
-  data.raw.locomotive.locomotive.burner.fuel_category = "battery"
-  data.raw.locomotive.locomotive.burner.fuel_categories = nil
-else
-  data.raw.locomotive.locomotive.burner.fuel_category = nil
-  data.raw.locomotive.locomotive.burner.fuel_categories = { "chemical", "vehicle-fuel", "battery" }
-end
+data.raw.locomotive.locomotive.burner.fuel_category = "battery"
+data.raw.locomotive.locomotive.burner.fuel_categories = nil
 
 -- Replace all K2 lithium-sulfur-battery instances with FF's battery-pack
 data.raw.recipe["lithium-sulfur-battery"].hidden = true

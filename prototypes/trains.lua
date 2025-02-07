@@ -11,15 +11,10 @@ local locomotive = data.raw["locomotive"]["locomotive"]
 
 -- These 2 won't get "advanced-chemical" added
 data.raw["locomotive"]["mini-locomotive"].ff_no_advanced_fuel = true
-if not settings.startup["ff-revert-locomotive-fuel-category"].value then
-  locomotive.burner.fuel_category = "battery"
-else
-  locomotive.burner.fuel_category = nil
-  locomotive.burner.fuel_categories = {"chemical", "battery"}
-end
-locomotive.burner.fuel_inventory_size = 3
-locomotive.burner.burnt_inventory_size = 3
-locomotive.burner.ff_no_double_inventory_size = true
+  locomotive.energy_source.fuel_categories = {"battery"}
+locomotive.energy_source.fuel_inventory_size = 3
+locomotive.energy_source.burnt_inventory_size = 3
+locomotive.energy_source.ff_no_double_inventory_size = true
 
 --locomotive.friction_force = 0.30  -- Was 0.50
 --locomotive.air_resistance = 0.0050 -- Was 0.0075
