@@ -483,7 +483,7 @@ data:extend{
     name = "ff-dredging-platform",
     order = "a[artificial]-b[tier-2]-a[concrete]",
     needs_correction = false,
-    collision_mask = {layers = {ground=true}}, -- Gets added to later
+    collision_mask = {layers = {ground_tile=true}}, -- Gets added to later
     walking_speed_modifier = 1.4,
     layer = 61,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete

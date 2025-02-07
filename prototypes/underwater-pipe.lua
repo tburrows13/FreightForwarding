@@ -41,8 +41,8 @@ pipe.name = "ff-underwater-pipe"
 pipe.minable = {mining_time = 0.1, result = "ff-underwater-pipe"}
 pipe.collision_mask = {layers = {}}  -- Replacement ground-tile layer added in data-final-fixes
 pipe.icons = {
-  {icon="__base__/graphics/terrain/water/water-o.png", icon_size=32},
-  {icon=pipe.icon, icon_size=pipe.icon_size, tint=transparent},
+  {icon="__base__/graphics/terrain/water/water1.png", icon_size=64},
+  {icon="__base__/graphics/icons/pipe.png", icon_size=64, tint=transparent},
 }
 pipe.icon = nil
 pipe.icon_size = nil
@@ -54,7 +54,7 @@ data:extend{
     type = "item",
     name = "ff-underwater-pipe",
     icons = {
-      {icon="__base__/graphics/terrain/water/water-o.png", icon_size=32},
+      {icon="__base__/graphics/terrain/water/water1.png", icon_size=64},
       {icon="__base__/graphics/icons/pipe.png", icon_size=64, tint=transparent},
     },
     subgroup = "energy-pipe-distribution",

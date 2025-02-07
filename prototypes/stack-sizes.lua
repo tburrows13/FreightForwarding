@@ -26,12 +26,12 @@ for name, stack_size in pairs(stack_size_override) do
 end
 
 -- Increase stack inserter stack sizes
-local stack_bonus_techs = { "stack-inserter", "inserter-capacity-bonus-1", "inserter-capacity-bonus-2", "inserter-capacity-bonus-3", "inserter-capacity-bonus-4", "inserter-capacity-bonus-5", "inserter-capacity-bonus-6", "inserter-capacity-bonus-7", }
+local stack_bonus_techs = { "bulk-inserter", "inserter-capacity-bonus-1", "inserter-capacity-bonus-2", "inserter-capacity-bonus-3", "inserter-capacity-bonus-4", "inserter-capacity-bonus-5", "inserter-capacity-bonus-6", "inserter-capacity-bonus-7", }
 for _, tech_name in pairs(stack_bonus_techs) do
   local bonus_tech = data.raw.technology[tech_name]
   if bonus_tech then
     for _, effect in pairs(bonus_tech.effects) do
-      if effect.type == "stack-inserter-capacity-bonus" then
+      if effect.type == "bulk-inserter-capacity-bonus" then
         effect.modifier = effect.modifier + 1
       end
     end

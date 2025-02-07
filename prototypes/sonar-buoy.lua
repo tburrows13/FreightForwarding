@@ -15,7 +15,7 @@ data:extend({
       },
     },
     order = "sonar buoy",
-    prerequisites = { "laser", "advanced-electronics-2" },
+    prerequisites = { "laser", "processing-unit" },
     unit = {
       time = 30,
       count = 300,

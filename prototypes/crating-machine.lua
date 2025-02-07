@@ -11,7 +11,7 @@ recipe1.ingredients = {
 }
 
 local technology1 = data.raw.technology[IC_PREFIX.."1"]
--- Original: {"automation", "stack-inserter"}
+-- Original: {"automation", "bulk-inserter"}
 technology1.prerequisites = {"engine", "fast-inserter"}
 technology1.unit.count = 100
 
@@ -19,13 +19,13 @@ local recipe2 = data.raw.recipe[IC_PREFIX.."machine-2"]
 recipe2.ingredients = {
   {type="item", name=IC_PREFIX.."machine-1", amount=1},
   {type="item", name="electric-engine-unit", amount=2},
-  {type="item", name="stack-inserter", amount=2},
+  {type="item", name="bulk-inserter", amount=2},
   {type="item", name="steel-plate", amount=20},
 }
 
 local technology2 = data.raw.technology[IC_PREFIX.."2"]
 -- Original: {"automation-2", IC_PREFIX.."1"},
-technology2.prerequisites = {"electric-engine", "stack-inserter", IC_PREFIX.."1"}
+technology2.prerequisites = {"electric-engine", "bulk-inserter", IC_PREFIX.."1"}
 technology2.unit.count = 200
 
 local recipe3 = data.raw.recipe[IC_PREFIX.."machine-3"]

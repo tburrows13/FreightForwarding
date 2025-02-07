@@ -89,7 +89,8 @@ data:extend{
           type = "create-particle",
           repeat_count = 3,
           repeat_count_deviation = 2,
-          particle_name = "deep-water-particle",
+          particle_name = "tintable-water-particle",
+          tint = {0.226, 0.341, 0.337, 0.314},
           offsets =
           {
             { 0, 0 }
