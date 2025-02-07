@@ -49,7 +49,7 @@ end
 
 local function on_tick()
   for _, player in pairs(game.players) do
-    local tile = player.surface.get_tile(player.position.x, player.position.y)
+    local tile = player.surface.get_tile(player.physical_position.x, player.physical_position.y)
     if not tile or not tile.valid then goto continue end
     local tile_name = tile.name
     if (tile_name == "water" or tile_name == "deepwater")
@@ -114,7 +114,7 @@ local function on_tick()
       for _, splash_position in pairs(splash_positions) do
         player.surface.create_entity{
           name = "ff-life-ring-splash",
-          position = add_offset(add_offset(player.position, splash_position), offset),
+          position = add_offset(add_offset(player.physical_position, splash_position), offset),
         }
       end
     else

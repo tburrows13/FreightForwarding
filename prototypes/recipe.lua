@@ -27,8 +27,8 @@ x_util.replace_ingredient("lex-flying-gunship", "steel-plate", "titanium-plate")
 x_util.replace_ingredient("lex-flying-cargo", "steel-plate", "titanium-plate")
 x_util.replace_ingredient("lex-flying-heavyship", "steel-plate", "titanium-plate")
 
---x_util.add_ingredient("rocket-control-unit", "ff-charged-battery-pack", 1)
+--x_util.add_ingredient("rocket-control-unit", "ff-charged-battery-pack", 1)  -- TODO 2.0 RCU?
 --x_util.add_prerequisite("rocket-control-unit", "ff-battery-pack")
 
 x_util.replace_ingredient("satellite", "accumulator", "ff-charged-battery-pack")
-x_util.add_prerequisite("space-science-pack", "ff-battery-pack")
+x_util.add_prerequisite("rocket-silo", "ff-battery-pack")

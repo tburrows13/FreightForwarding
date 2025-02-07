@@ -1,7 +1,6 @@
 require "__FreightForwarding__.prototypes.fuel-categories"
 
-do return end -- TODO 2.0 collision
-
+--[[ TODO 2.0 collision
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 data.raw["resource"]["ff-seamount"].collision_mask = { "resource-layer", non_deep_water_mask, "ground-tile" }
@@ -70,6 +69,7 @@ for _, tile in pairs(data.raw.tile) do
   end
 end
 collision_mask_util.add_layer(data.raw.pipe["ff-underwater-pipe"].collision_mask, underwater_pipe_layer)
+]]
 
 -- Science
 for _, tech in pairs(data.raw.technology) do

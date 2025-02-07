@@ -76,7 +76,7 @@ local function on_scanner_built(event)
 
   scanner.backer_name = ""
   local surface = scanner.surface
-  local water_tile_count = surface.count_tiles_filtered { position = scanner.position, radius = min_tiles_from_water, collision_mask = {layers={water_tile = true}}, limit = 1 }
+  local water_tile_count = surface.count_tiles_filtered { position = scanner.position, radius = min_tiles_from_water, collision_mask = {water_tile = true}, limit = 1 }
   if water_tile_count > 0 then
     scanner.active = false
     if event.player_index then

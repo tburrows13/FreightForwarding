@@ -93,9 +93,9 @@ data:extend{
       pipe_connections =
       {
         { flow_direction = "input-output", direction = defines.direction.north, position = {0, -2} },
-        { flow_direction = "input-output", direction = defines.direction.east, position = {0, 2} },
-        { flow_direction = "input-output", direction = defines.direction.south, position = {-2, 0} },
-        { flow_direction = "input-output", direction = defines.direction.west, position = {2, 0} },
+        { flow_direction = "input-output", direction = defines.direction.south, position = {0, 2} },
+        { flow_direction = "input-output", direction = defines.direction.west, position = {-2, 0} },
+        { flow_direction = "input-output", direction = defines.direction.east, position = {2, 0} },
       },
       production_type = "input-output",
     },

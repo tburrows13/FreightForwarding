@@ -103,9 +103,9 @@ data:extend({
         filter = "crude-oil",
         pipe_connections = {
           { flow_direction = "input", direction = defines.direction.north, position = {0, -1} },
-          { flow_direction = "input", direction = defines.direction.east, position = {0, 1} },
-          { flow_direction = "input", direction = defines.direction.south, position = {-1, 0} },
-          { flow_direction = "input", direction = defines.direction.west, position = {1, 0} },
+          { flow_direction = "input", direction = defines.direction.south, position = {0, 1} },
+          { flow_direction = "input", direction = defines.direction.west, position = {-1, 0} },
+          { flow_direction = "input", direction = defines.direction.east, position = {1, 0} },
         }
       }
     },

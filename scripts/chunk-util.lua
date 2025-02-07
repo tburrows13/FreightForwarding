@@ -40,7 +40,7 @@ end
 function ChunkUtil.is_chunk_land(chunk_position, surface)
   -- 1024 tiles in a chunk
   local area = ChunkUtil.chunk_position_to_area(chunk_position)
-  local ground_tiles = surface.count_tiles_filtered { area = area, collision_mask = {layers={ground_tile=true}}}
+  local ground_tiles = surface.count_tiles_filtered { area = area, collision_mask = {ground_tile=true}}
   return ground_tiles > 64
 end
 
