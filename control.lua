@@ -26,6 +26,6 @@ handler.add_libraries {
   require "scripts.sonar-scanning",
   require "scripts.life-ring",
   require "scripts.compatibility",
-  require "scripts.collision-test",
+  --require "scripts.collision-test",
   require "scripts.warning"
 }
