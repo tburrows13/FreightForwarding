@@ -298,7 +298,7 @@ local function on_scanner_built(event)
   local scanner = event.created_entity
   if scanner.name ~= entity_name then return end
 
-  script.register_on_entity_destroyed(scanner)
+  script.register_on_object_destroyed(scanner)
   scanner.backer_name = ""
   scanner.active = false
 
@@ -317,12 +317,12 @@ local function on_scanner_built(event)
   global.sonar_scanner_warmup[scanner.unit_number] = scanner
 end
 
----@param event EventData.on_entity_destroyed
+---@param event EventData.on_object_destroyed
 local function on_scanner_destroyed(event)
-  if not event.unit_number then return end
+  if not event.useful_id then return end
 
   global.scanner_data = global.scanner_data or {}
-  global.scanner_data[event.unit_number] = nil
+  global.scanner_data[event.useful_id] = nil
 end
 
 ---@param event EventData.on_tick
@@ -389,7 +389,7 @@ local SonarScanning = {}
 SonarScanning.events = {
   [defines.events.on_built_entity]       = on_scanner_built,
   [defines.events.on_robot_built_entity] = on_scanner_built,
-  [defines.events.on_entity_destroyed]   = on_scanner_destroyed,
+  [defines.events.on_object_destroyed]   = on_scanner_destroyed,
   [defines.events.on_sector_scanned]     = on_sector_scanned,
   [defines.events.on_tick]               = scanner_warmup,
 }

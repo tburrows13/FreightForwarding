@@ -84,13 +84,13 @@ local function on_scanner_built(event)
     end
   end
 
-  script.register_on_entity_destroyed(scanner)
+  script.register_on_object_destroyed(scanner)
 end
 
 ---@type ScriptLib
 local SeismicScanning = {}
 
--- no need to handle on_entity_destroyed since its handled by sonar-scanning.lua
+-- no need to handle on_object_destroyed since its handled by sonar-scanning.lua
 SeismicScanning.events = {
   [defines.events.on_built_entity]       = on_scanner_built,
   [defines.events.on_robot_built_entity] = on_scanner_built,
