@@ -39,7 +39,7 @@ data:extend({
     enabled = false,
     ingredients = {
       { "processing-unit", 5 },
-      { "empty-barrel",    10 },
+      { "barrel",    10 },
       { "radar",           1 },
     },
     result = "ff-sonar-buoy",

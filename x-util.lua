@@ -273,7 +273,7 @@ end
 
 function x_util.disallow_efficiency(recipe_name)
   for _, module in pairs(data.raw.module) do
-    if module.category == "effectivity" then
+    if module.category == "efficiency" then
       module.limitation = module.limitation or {}
       for i, name in pairs(module.limitation) do
         if name == recipe_name then
