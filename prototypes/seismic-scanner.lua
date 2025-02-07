@@ -32,10 +32,10 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"advanced-circuit", 5},
-      {"electric-engine-unit", 10},
-      {"lead-plate", 20},
-      {"explosives", 10}
+      {type="item", name="advanced-circuit", amount=5},
+      {type="item", name="electric-engine-unit", amount=10},
+      {type="item", name="lead-plate", amount=20},
+      {type="item", name="explosives", amount=10}
     },
     result = "ff-seismic-scanner"
   },

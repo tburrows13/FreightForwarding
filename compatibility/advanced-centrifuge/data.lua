@@ -24,7 +24,7 @@ data:extend({
     energy_required = 60, --was 12
     enabled = false,
     category = "advanced-centrifuging",
-    ingredients = {{"uranium-ore", 46}}, -- was 10
+    ingredients = {{type="item", name="uranium-ore", amount=46}}, -- was 10
     icons = {
       {
         icon = "__base__/graphics/icons/uranium-processing.png",

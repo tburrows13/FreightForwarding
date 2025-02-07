@@ -261,16 +261,24 @@ data:extend{ -- Battery charging interface
     name = "ff-charging-station",
     energy_required = 10,
     enabled = false,
-    ingredients = {{"steel-plate", 15}, {"advanced-circuit", 5}, {"copper-cable", 20}},
-    result = "ff-charging-station",
+    ingredients = {
+      {type="item", name="steel-plate", amount=15},
+      {type="item", name="advanced-circuit", amount=5},
+      {type="item", name="copper-cable", amount=20}
+    },
+    results = {{type="item", name="ff-charging-station", amount=1}},
   },
   {
     type = "recipe",
     name = "ff-discharging-station",
     energy_required = 10,
     enabled = false,
-    ingredients = {{"steel-plate", 15}, {"advanced-circuit", 5}, {"copper-cable", 20}},
-    result = "ff-discharging-station",
+    ingredients = {
+      {type="item", name="steel-plate", amount=15},
+      {type="item", name="advanced-circuit", amount=5},
+      {type="item", name="copper-cable", amount=20}
+    },
+    results = {{type="item", name="ff-discharging-station", amount=1}},
   },
   {
     type = "item",
@@ -308,7 +316,7 @@ data:extend{ -- Battery charging interface
     --icon_size = 128,
     subgroup = "raw-material",
     allow_as_intermediate = false,
-    ingredients = {{"battery", 1}},
+    ingredients = {{type="item", name="battery", amount=1}},
     results = {{
       name = "ff-charged-battery",
       probability = 0.98,
@@ -326,11 +334,11 @@ data:extend{ -- Battery charging interface
     enabled = false,
     ingredients =
     {
-      {"battery", 3},
-      {"advanced-circuit", 1},
-      {"ff-cobalt-ingot", 1},
+      {type="item", name="battery", amount=3},
+      {type="item", name="advanced-circuit", amount=1},
+      {type="item", name="ff-cobalt-ingot", amount=1},
     },
-    result = "ff-battery-pack",
+    results = {{type="item", name="ff-battery-pack", amount=1}},
     crafting_machine_tint =
     {
       primary = {r = 0.965, g = 0.482, b = 0.338, a = 1.000}, -- #f67a56ff
@@ -386,7 +394,7 @@ data:extend{ -- Battery charging interface
     --icon_size = 128,
     subgroup = "raw-material",
     allow_as_intermediate = false,
-    ingredients = {{"ff-battery-pack", 1}},
+    ingredients = {{type="item", name="ff-battery-pack", amount=1}},
     results = {{
       name = "ff-charged-battery-pack",
       probability = 0.995,

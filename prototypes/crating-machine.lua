@@ -5,9 +5,9 @@ data.raw.item["green-wire"].ic_create_container = false
 
 local recipe1 = data.raw.recipe[IC_PREFIX.."machine-1"]
 recipe1.ingredients = {
-  {"engine-unit", 2},
-  {"fast-inserter", 4},
-  {"steel-plate", 5},
+  {type="item", name="engine-unit", amount=2},
+  {type="item", name="fast-inserter", amount=4},
+  {type="item", name="steel-plate", amount=5},
 }
 
 local technology1 = data.raw.technology[IC_PREFIX.."1"]
@@ -17,10 +17,10 @@ technology1.unit.count = 100
 
 local recipe2 = data.raw.recipe[IC_PREFIX.."machine-2"]
 recipe2.ingredients = {
-  {IC_PREFIX.."machine-1", 1},
-  {"electric-engine-unit", 2},
-  {"stack-inserter", 2},
-  {"steel-plate", 20},
+  {type="item", name=IC_PREFIX.."machine-1", amount=1},
+  {type="item", name="electric-engine-unit", amount=2},
+  {type="item", name="stack-inserter", amount=2},
+  {type="item", name="steel-plate", amount=20},
 }
 
 local technology2 = data.raw.technology[IC_PREFIX.."2"]
@@ -31,9 +31,9 @@ technology2.unit.count = 200
 local recipe3 = data.raw.recipe[IC_PREFIX.."machine-3"]
 recipe3.ingredients = {
   {IC_PREFIX.."machine-2", 1},
-  {"electric-engine-unit", 8},
-  {"advanced-circuit", 8},
-  {"steel-plate", 30},
+  {type="item", name="electric-engine-unit", amount=8},
+  {type="item", name="advanced-circuit", amount=8},
+  {type="item", name="steel-plate", amount=30},
 }
 
 local technology3 = data.raw.technology[IC_PREFIX.."3"]

@@ -60,12 +60,12 @@ data:extend{
     energy_required = 5,
     ingredients =
     {
-      {"pumpjack", 1},
-      {"landfill", 100},
-      {"refined-concrete", 200},
-      {"lead-plate", 100},
+      {type="item", name="pumpjack", amount=1},
+      {type="item", name="landfill", amount=100},
+      {type="item", name="refined-concrete", amount=200},
+      {type="item", name="lead-plate", amount=100},
     },
-    result = "ff-dredging-platform",
+    results = {{type="item", name="ff-dredging-platform", amount=1}},
     enabled = false
   },
   {

@@ -67,11 +67,11 @@ data:extend{
     name = "ff-underwater-pipe",
     energy_required = 0.5,
     ingredients = {
-        {"pipe", 2},
-        {"steel-plate", 5},
-        {"concrete", 20},
+        {type="item", name="pipe", amount=2},
+        {type="item", name="steel-plate", amount=5},
+        {type="item", name="concrete", amount=20},
     },
-    result = "ff-underwater-pipe",
+    results = {{type="item", name="ff-underwater-pipe", amount=1}},
     enabled = false,
   },
 }

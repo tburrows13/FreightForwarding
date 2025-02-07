@@ -8,7 +8,7 @@ data.raw.item["underwater-pipe"].hidden = true
 data.raw.recipe["underwater-pipe"].hidden = true
 
 data.raw.recipe["underwater-pipe-to-ground"].ingredients = {
-  {"ff-underwater-pipe", 20},
+  {type="item", name="ff-underwater-pipe", amount=20},
 }
 
 table.remove(data.raw.technology["underwater-pipes"].effects, 1)  -- Remove underwater pipe

@@ -198,8 +198,8 @@ data:extend{
     enabled = false,
     ingredients =
     {
-      {"low-density-structure", 1},
-      {"ff-titansteel-plate", 1},
+      {type="item", name="low-density-structure", amount=1},
+      {type="item", name="ff-titansteel-plate", amount=1},
       {type = "fluid", name = "lubricant", amount = 200},
     },
     results = {

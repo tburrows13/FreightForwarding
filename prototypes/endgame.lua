@@ -56,7 +56,7 @@ data:extend{
     subgroup = "space-related",
     order = "n[interstellar-communicator]",
     stack_size = 1,
-    rocket_launch_product = {"space-science-pack", 1000}
+    rocket_launch_products = {{type="item", name="space-science-pack", amount=1000}}
   },
   {
     type = "recipe",
@@ -66,12 +66,12 @@ data:extend{
     category = "crafting",
     ingredients =
     {
-      {"satellite", 1},
-      {"low-density-structure", 50},
-      --{"rocket-control-unit", 50},
-      {"nuclear-fuel", 10}
+      {type="item", name="satellite", amount=1},
+      {type="item", name="low-density-structure", amount=50},
+      --{type="item", name="rocket-control-unit", amount=50},
+      {type="item", name="nuclear-fuel", amount=10}
     },
-    result = "ff-interstellar-communicator",
+    results = {{type="item", name="ff-interstellar-communicator", amount=1}},
     requester_paste_multiplier = 1
   },
 }
@@ -85,7 +85,7 @@ data:extend{
   {"rocket-fuel", 50}
 ]]
 local satellite_item = data.raw.item["satellite"]
-satellite_item.rocket_launch_product = {"space-science-pack", 200}
+satellite_item.rocket_launch_products = {{type="item", name="space-science-pack", amount=200}}
 
 -- Reduce satellite cost
 x_util.set_ingredient("satellite", "low-density-structure", 50)

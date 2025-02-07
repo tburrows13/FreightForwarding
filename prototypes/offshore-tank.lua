@@ -58,12 +58,11 @@ data:extend{
     energy_required = 2,
     ingredients =
     {
-      {"iron-plate", 25},
-      {"steel-plate", 40},
-      {"storage-tank", 2},
+      {type="item", name="iron-plate", amount=25},
+      {type="item", name="steel-plate", amount=40},
+      {type="item", name="storage-tank", amount=2},
     },
-    result = "ff-offshore-storage-tank",
-    --result_count = 1,
+    results = {{type="item", name="ff-offshore-storage-tank", amount=1}},
     enabled = false,
     --always_show_made_in = true,
     --main_product = "ff-offshore-storage-tank",

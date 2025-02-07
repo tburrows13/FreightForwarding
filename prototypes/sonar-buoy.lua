@@ -42,7 +42,7 @@ data:extend({
       { "barrel",    10 },
       { "radar",           1 },
     },
-    result = "ff-sonar-buoy",
+    results = {{type="item", name="ff-sonar-buoy", amount=1}},
   } --[[@as data.RecipePrototype]],
   {
     type = "item",

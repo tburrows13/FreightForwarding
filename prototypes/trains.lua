@@ -87,28 +87,28 @@ data:extend{
 
 --[[ Was
   {
-    {"engine-unit", 20},
-    {"electronic-circuit", 10},
-    {"steel-plate", 30}
+    {type="item", name="engine-unit", amount=20},
+    {type="item", name="electronic-circuit", amount=10},
+    {type="item", name="steel-plate", amount=30}
   },
 ]]
 data.raw.recipe["locomotive"].ingredients = {
-  {"electric-engine-unit", 20},
-  {"advanced-circuit", 10},
-  {"steel-plate", 50}
+  {type="item", name="electric-engine-unit", amount=20},
+  {type="item", name="advanced-circuit", amount=10},
+  {type="item", name="steel-plate", amount=50}
 }
 
 data.raw.recipe["cargo-wagon"].ingredients = {
-  {"iron-gear-wheel", 20},
-  {"iron-plate", 40},
-  {"steel-plate", 40}
+  {type="item", name="iron-gear-wheel", amount=20},
+  {type="item", name="iron-plate", amount=40},
+  {type="item", name="steel-plate", amount=40}
 }
 
 data.raw.recipe["fluid-wagon"].ingredients = {
-  {"iron-gear-wheel", 20},
-  {"steel-plate", 32},
-  {"pipe", 16},
-  {"storage-tank", 1}
+  {type="item", name="iron-gear-wheel", amount=20},
+  {type="item", name="steel-plate", amount=32},
+  {type="item", name="pipe", amount=16},
+  {type="item", name="storage-tank", amount=1}
 }
 
 data.raw["cargo-wagon"]["cargo-wagon"].inventory_size = 50  -- was 40, will become 5 later on

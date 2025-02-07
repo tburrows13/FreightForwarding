@@ -19,8 +19,8 @@ data:extend{
     energy_required = 14,
     ingredients =
     {
-      {"rail", 1},
-      {"big-electric-pole", 1}
+      {type="item", name="rail", amount=1},
+      {type="item", name="big-electric-pole", amount=1}
     },
     result_count = 2,
     result = "ff-transport-science-pack"
