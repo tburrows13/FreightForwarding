@@ -464,12 +464,8 @@ data:extend{
 
 local concrete = table.deepcopy(data.raw["tile"]["concrete"])
 local tile_variants = {
-  main = concrete.variants.main,
-  inner_corner_mask = concrete.variants.inner_corner_mask,
-  outer_corner_mask = concrete.variants.outer_corner_mask,
-  side_mask = concrete.variants.side_mask,
-  u_transition_mask = concrete.variants.u_transition_mask,
-  o_transition_mask = concrete.variants.o_transition_mask,
+  transition = table.deepcopy(concrete.variants.transition),
+  --main = concrete.variants.main,  -- TODO 2.0 check if needed
   material_background = {
     picture = "__FreightForwarding__/graphics/dredging-platform/concrete.png",
     count = 8,
@@ -493,14 +489,13 @@ data:extend{
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
     decorative_removal_probability = 0.25,
     variants = tile_variants,
-    transitions = concrete.transitions,
-    transitions_between_transitions = concrete.transitions_between_transitions,
+    transitions = table.deepcopy(concrete.transitions),
+    transitions_between_transitions = table.deepcopy(concrete.transitions_between_transitions),
 
     walking_sound = concrete.walking_sound,
     build_sound = concrete.build_sound,
     map_color={r=63, g=61, b=59},
     scorch_mark_color = {r = 0.373, g = 0.307, b = 0.243, a = 1.000},
-    pollution_absorption_per_second = 0,
     vehicle_friction_modifier = concrete.vehicle_friction_modifier,
 
     trigger_effect = concrete.trigger_effect,
