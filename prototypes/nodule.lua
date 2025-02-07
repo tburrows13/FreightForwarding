@@ -24,7 +24,7 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ff-ferrous-nodule-washing",
+    name = "ff-ferrous-nodule-washing",  -- TODO 2.0 give unique icon
     category = "chemistry",
     enabled = false,
     energy_required = 15,

@@ -10,11 +10,10 @@ data:extend{
   {
     type = "technology",
     name = "ff-titansteel-processing",
-    icon_size = 256,
-    --icon = "__base__/graphics/technology/steel-processing.png",
     icons = {
       {
         icon = "__base__/graphics/technology/steel-processing.png",
+        icon_size = 256,
         tint = { b = 0.4, g = 0.4, r = 0.4 }
       },
     },
@@ -22,7 +21,7 @@ data:extend{
     {
       {
         type = "unlock-recipe",
-        recipe = "ff-titansteel-smelting"
+        recipe = "ff-hot-titansteel-plate"
       },
       {
         type = "unlock-recipe",
@@ -30,7 +29,7 @@ data:extend{
       },
       {
         type = "unlock-recipe",
-        recipe = "ff-titansteel-cooling"
+        recipe = "ff-titansteel-plate"
       },
       {
         type = "unlock-recipe",
@@ -60,7 +59,7 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ff-titansteel-smelting",
+    name = "ff-hot-titansteel-plate",
     category = "ff-lava-smelting",
     enabled = false,
     main_product = "ff-hot-titansteel-plate",
@@ -91,6 +90,7 @@ data:extend{
         icon_size = 64,
         scale = 0.32,
         shift = {-8, -8},
+        draw_background = true,
       },
     },
     category = "ff-lava-heating",
@@ -111,7 +111,7 @@ data:extend{
   },
   {
     type = "recipe",
-    name = "ff-titansteel-cooling",
+    name = "ff-titansteel-plate",
     category = "chemistry",
     main_product = "ff-titansteel-plate",
     enabled = false,
@@ -156,7 +156,7 @@ data:extend{
         {
           filename = "__FreightForwarding__/graphics/hot-titansteel.png",
           mipmap_count = 4,
-          scale = 0.25,
+          scale = 0.5,
           size = 64
         },
         {
@@ -165,7 +165,7 @@ data:extend{
           -- blend_mode = "additive",
           flags = { "light" },
           mipmap_count = 4,
-          scale = 0.25,
+          scale = 0.5,
           size = 64
         }
       }

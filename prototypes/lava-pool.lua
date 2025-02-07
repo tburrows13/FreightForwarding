@@ -72,9 +72,9 @@ data:extend{
     icon = "__FreightForwarding__/graphics/lava-pool/lava-pool-icon.png",
     icon_size = 64,
     flags = {"placeable-neutral"},
-    category = "basic-fluid",
-    subgroup = "raw-resource",
-    order="a-b-a",
+    category = "ff-rocket-silo",  -- Empty category, so "Mined by:" will be empty
+    subgroup = "mineable-fluids",
+    order = "b-b",
     infinite = false,
     highlight = true,
     minimum = 1,
@@ -196,7 +196,7 @@ data:extend{
     },]]
     --map_color = {1, 0.4, 0},
     crafting_categories = {"ff-lava-smelting"},
-    fixed_recipe = "ff-titansteel-smelting",
+    fixed_recipe = "ff-hot-titansteel-plate",
     show_recipe_icon = false,
     crafting_speed = 1,
     energy_source = {type = "void"},

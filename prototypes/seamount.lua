@@ -24,8 +24,8 @@ data:extend{
     icon_size = 64,
     flags = {"placeable-neutral"},
     category = "ff-seamount",
-    subgroup = "raw-resource",
-    order="a-b-a",
+    subgroup = "mineable-fluids",
+    order = "b-a",
     infinite = false,
     highlight = true,
     minimum = 100,  -- Doesn't do anything?

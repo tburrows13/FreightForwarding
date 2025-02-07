@@ -11,7 +11,7 @@ data:extend{
           {
             filename = "__FreightForwarding__/graphics/slag/hot-slag.png",
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           },
           {
@@ -20,7 +20,7 @@ data:extend{
             -- blend_mode = "additive",
             flags = { "light" },
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           }
         }
@@ -30,7 +30,7 @@ data:extend{
           {
             filename = "__FreightForwarding__/graphics/slag/hot-slag-1.png",
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           },
           {
@@ -39,7 +39,7 @@ data:extend{
             -- blend_mode = "additive",
             flags = { "light" },
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           }
         }
@@ -49,7 +49,7 @@ data:extend{
           {
             filename = "__FreightForwarding__/graphics/slag/hot-slag-2.png",
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           },
           {
@@ -58,7 +58,7 @@ data:extend{
             -- blend_mode = "additive",
             flags = { "light" },
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           }
         }
@@ -68,7 +68,7 @@ data:extend{
           {
             filename = "__FreightForwarding__/graphics/slag/hot-slag-3.png",
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           },
           {
@@ -77,7 +77,7 @@ data:extend{
             -- blend_mode = "additive",
             flags = { "light" },
             mipmap_count = 4,
-            scale = 0.25,
+            scale = 0.5,
             size = 64
           }
         }
@@ -101,13 +101,15 @@ data:extend{
       },
       {
         icon = "__base__/graphics/icons/iron-ore.png",
-        scale = 0.25,
+        scale = 0.5,
         shift = {8, 8},
+        draw_background = true,
       },
       {
         icon = "__base__/graphics/icons/stone.png",
-        scale = 0.25,
+        scale = 0.5,
         shift = {-8, 8},
+        draw_background = true,
       },
     },
     icon_size = 64,

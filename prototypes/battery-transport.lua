@@ -307,7 +307,7 @@ data:extend{ -- Battery charging interface
   },
   {
     type = "recipe",
-    name = "ff-charge-battery",
+    name = "ff-charged-battery",
     category = "battery",
     --hide_from_player_crafting = true,
     energy_required = 5,
@@ -386,7 +386,7 @@ data:extend{ -- Battery charging interface
   },
   {
     type = "recipe",
-    name = "ff-charge-battery-pack",
+    name = "ff-charged-battery-pack",
     category = "battery",
     --hide_from_player_crafting = true,
     energy_required = 12.5,
@@ -424,7 +424,7 @@ data:extend{ -- Battery charging interface
       },
       {
         type = "unlock-recipe",
-        recipe = "ff-charge-battery"
+        recipe = "ff-charged-battery"
       },
     },
     prerequisites = {"electric-energy-accumulators"},
@@ -454,7 +454,7 @@ data:extend{ -- Battery charging interface
       },
       {
         type = "unlock-recipe",
-        recipe = "ff-charge-battery-pack"
+        recipe = "ff-charged-battery-pack"
       },
     },
     prerequisites = {"ff-battery-charging", "utility-science-pack", "ff-cobalt-processing"},

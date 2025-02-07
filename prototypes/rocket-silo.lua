@@ -16,6 +16,7 @@ local rocket_silo_dummy = table.deepcopy(rocket_silo)
 rocket_silo_dummy.name = "ff-rocket-silo-dummy"
 rocket_silo_dummy.localised_name = {"entity-name.rocket-silo"}
 rocket_silo_dummy.localised_description = rocket_silo.localised_description or {"entity-description.rocket-silo"}
+rocket_silo_dummy.hidden = true
 rocket_silo_dummy.type = "mining-drill"
 rocket_silo_dummy.collision_mask = {layers = {}}
 rocket_silo_dummy.vector_to_place_result = {0, 0}
@@ -68,8 +69,8 @@ data:extend{
     icon_size = 64,
     flags = {"placeable-neutral"},
     category = "ff-rocket-silo",
-    subgroup = "raw-resource",
-    order="a-b-c",
+    subgroup = "mineable-fluids",
+    order = "b-c",
     infinite = false,
     highlight = true,
     minimum = 100,  -- Doesn't do anything?

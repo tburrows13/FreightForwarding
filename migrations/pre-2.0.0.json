@@ -1,0 +1,9 @@
+{
+  "recipe":
+  [
+    ["ff-charge-battery", "ff-charged-battery"],
+    ["ff-charge-battery-pack", "ff-charged-battery-pack"],
+    ["ff-titansteel-cooling", "ff-titansteel-plate"],
+    ["ff-titansteel-smelting", "ff-hot-titansteel-plate"]
+  ]
+}
