@@ -24,7 +24,7 @@ require "__FreightForwarding__.prototypes.endgame"
 --require "__FreightForwarding__.prototypes.map-gen"
 --require "__FreightForwarding__.prototypes.map-gen-presets"
 require "__FreightForwarding__.prototypes.recipe"
-require "__FreightForwarding__.prototypes.tips-and-tricks"
+--require "__FreightForwarding__.prototypes.tips-and-tricks"
 require "__FreightForwarding__.simulations.menu"
 
 local radar = data.raw["radar"]["radar"]

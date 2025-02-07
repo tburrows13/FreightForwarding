@@ -91,7 +91,7 @@ data:extend{
       result = "ff-lava-pool-dummy",
     },
     --walking_sound = sounds.oil,
-    collision_mask = {lava_pool_layer, lava_pool_water_tile_layer},
+    collision_mask = {layers={lava_pool_layer=true, lava_pool_water_tile_layer=true}},
     collision_box = {{-2, -2}, {2, 2}},
     --selection_box = {{-2, -2}, {2, 2}},
     stage_counts = {0},
