@@ -68,7 +68,7 @@ data:extend{
     {
       {"satellite", 1},
       {"low-density-structure", 50},
-      {"rocket-control-unit", 50},
+      --{"rocket-control-unit", 50},
       {"nuclear-fuel", 10}
     },
     result = "ff-interstellar-communicator",
