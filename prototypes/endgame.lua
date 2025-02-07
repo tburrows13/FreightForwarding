@@ -4,7 +4,7 @@ data:extend{
   {
     type = "technology",
     name = "ff-interstellar-communication",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     icon = "__FreightForwarding__/graphics/item/interstellar-communicator.png",
     effects =
     {
@@ -34,7 +34,7 @@ data:extend{
     type = "item",
     name = "ff-interstellar-communicator",
     icon = "__FreightForwarding__/graphics/item/interstellar-communicator.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures = {
       layers = {
         {

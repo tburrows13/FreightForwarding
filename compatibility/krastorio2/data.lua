@@ -17,7 +17,6 @@ data:extend({
       {
         icon = "__FreightForwarding__/graphics/item/cobalt-ore.png",
         icon_size = 64,
-        icon_mipmaps = 1,
         scale = 1.25,
       }
     },
@@ -51,7 +50,6 @@ local cobalt_ore = {
   icon = {
     icon = "__FreightForwarding__/graphics/item/cobalt-ore.png",
     icon_size = 64, 
-    icon_mipmaps = 1,
     scale = 1.25,
   },
 }
@@ -72,7 +70,6 @@ local cobalt_ingot = {
   icon = {
     icon = "__FreightForwarding__/graphics/item/cobalt-ingot.png",
     icon_size = 64, 
-    icon_mipmaps = 1,
     scale = 1.25,
   },
 }

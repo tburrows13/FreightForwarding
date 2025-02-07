@@ -73,7 +73,7 @@ data:extend{
     name = "ff-life-ring-splash",
     localised_name = {"entity-name.water-splash"},
     icon = "__base__/graphics/icons/fluid/water.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     flags = {"not-on-map", "placeable-off-grid"},
     hidden = true,
     subgroup = "explosions",

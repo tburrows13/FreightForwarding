@@ -52,7 +52,7 @@ data:extend{
   {
     type = "technology",
     name = "ff-advanced-railway",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icon = "__base__/graphics/technology/railway.png",
     effects =
     {

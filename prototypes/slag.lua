@@ -3,7 +3,7 @@ data:extend{
     type = "item",
     name = "ff-slag",
     icon = "__FreightForwarding__/graphics/slag/hot-slag.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures =
     {
       {
@@ -110,7 +110,7 @@ data:extend{
         shift = {-8, 8},
       },
     },
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     ingredients = {
       {type = "item", name = "ff-slag", amount = 8},
       {type = "fluid", name = "sulfuric-acid", amount = 10},

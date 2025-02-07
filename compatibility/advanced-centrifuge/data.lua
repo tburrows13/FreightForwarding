@@ -29,12 +29,10 @@ data:extend({
       {
         icon = "__base__/graphics/icons/uranium-processing.png",
         icon_size = 64,
-        icon_mipmaps = 4,
       },
       {
         icon = "__core__/graphics/icons/technology/constants/constant-mining-productivity.png",
         icon_size = 128,
-        icon_mipmaps = 3,
         scale = 0.25,
         shift = {10, -8}
       }

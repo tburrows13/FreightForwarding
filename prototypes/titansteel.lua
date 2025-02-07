@@ -10,7 +10,7 @@ data:extend{
   {
     type = "technology",
     name = "ff-titansteel-processing",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     --icon = "__base__/graphics/technology/steel-processing.png",
     icons = {
       {
@@ -83,12 +83,12 @@ data:extend{
     icons = {
       {
         icon = "__FreightForwarding__/graphics/hot-titansteel.png",
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
       },
       {
         icon = "__base__/graphics/icons/steel-plate.png",
         tint = { b = 0.32, g = 0.32, r = 0.32 },
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
         scale = 0.32,
         shift = {-8, -8},
       },
@@ -150,7 +150,7 @@ data:extend{
     type = "item",
     name = "ff-hot-titansteel-plate",
     icon = "__FreightForwarding__/graphics/hot-titansteel.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     pictures = {
       layers = {
         {
@@ -185,7 +185,7 @@ data:extend{
         tint = { b = 0.32, g = 0.32, r = 0.32 }
       },
     },
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "raw-material",
     order = "e[titansteel-plate]-c",
     stack_size = 30  -- Will be halved in stack-sizes.lua
@@ -213,7 +213,7 @@ data:extend{
     type = "item",
     name = "ff-rocket-frame",
     icon = "__FreightForwarding__/graphics/item/rocket-frame.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "intermediate-product",
     order = "p[rocket-frame]",
     stack_size = 10

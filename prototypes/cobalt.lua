@@ -3,7 +3,7 @@ data:extend{
     type = "item",
     name = "ff-cobalt-ore",
     icon = "__FreightForwarding__/graphics/item/cobalt-ore.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "raw-resource",
     order = "h[cobalt]-a[cobalt-ore]",
     stack_size = 30,
@@ -12,7 +12,7 @@ data:extend{
     type = "item",
     name = "ff-cobalt-concentrate",
     icon = "__FreightForwarding__/graphics/item/cobalt-concentrate.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "raw-resource",
     order = "h[cobalt]-b[cobalt-concentrate]",
     stack_size = 50,
@@ -23,11 +23,11 @@ data:extend{
     icons = {
       {
         icon = "__FreightForwarding__/graphics/item/cobalt-concentrate.png",
-        icon_size = 64, icon_mipmaps = 1,
+        icon_size = 64,
       },
       {
         icon = "__base__/graphics/icons/explosives.png",
-        icon_size = 64, icon_mipmaps = 4,
+        icon_size = 64,
         scale = 0.33,
       },
     },
@@ -40,7 +40,7 @@ data:extend{
     type = "item",
     name = "ff-cobalt-ingot",
     icon = "__FreightForwarding__/graphics/item/cobalt-ingot.png",
-    icon_size = 64, icon_mipmaps = 1,
+    icon_size = 64,
     subgroup = "raw-material",
     order = "e[cobalt-ingot]",
     stack_size = 100,
@@ -49,7 +49,7 @@ data:extend{
     type = "fluid",
     name = "ff-tailings-water",
     icon = "__FreightForwarding__/graphics/item/tailings-water.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "fluid",
     default_temperature = 15,
     base_color = {r=0.1, g=0.2, b=0.3},  -- TODO
@@ -110,13 +110,11 @@ data:extend{
     {
       {
         icon = "__base__/graphics/icons/fluid/water.png",
-        icon_mipmaps = 4,
       },
       {
         icon = "__FreightForwarding__/graphics/item/tailings-water.png",
         scale = 0.25,
         shift = {-8, -8},
-        icon_mipmaps = 4,
       },
     },
     icon_size = 64,
@@ -150,7 +148,6 @@ data:extend{
         icon = "__FreightForwarding__/graphics/item/tailings-water.png",
         scale = 0.25,
         shift = {-8, -8},
-        icon_mipmaps = 4,
       },
       {
         icon = "__bzlead__/graphics/icons/lead-ore.png",
@@ -163,7 +160,7 @@ data:extend{
         shift = {8, 8},
       },
     },
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     energy_required = 36,
     ingredients = {
       {type = "fluid", name = "ff-tailings-water", amount = 100, catalyst_amount = 100},
@@ -179,7 +176,7 @@ data:extend{
     type = "technology",
     name = "ff-cobalt-processing",
     icon = "__FreightForwarding__/graphics/cobalt-ingot-technology.png",
-    icon_size = 100, icon_mipmaps = 1,
+    icon_size = 100,
     order = "a",
     prerequisites = {"utility-science-pack", "ff-dredging", "explosives"},
     unit = {

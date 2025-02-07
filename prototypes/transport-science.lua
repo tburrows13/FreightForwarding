@@ -4,7 +4,7 @@ data:extend{
     name = "ff-transport-science-pack",
     localised_description = {"item-description.science-pack"},
     icon = "__FreightForwarding__/graphics/transport-science-pack-item.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "science-pack",
     order = "b[logistic-science-pack]-a[transport-science-pack]",
     stack_size = 100,
@@ -30,7 +30,7 @@ data:extend{
     name = "ff-transport-science-pack",
     localised_name = {"technology-name.ff-transport-science-pack"},
     localised_description = {"technology-description.ff-transport-science-pack"},
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icon = "__FreightForwarding__/graphics/transport-science-pack-technology.png",
     prerequisites = {"railway", "electric-energy-distribution-1"},
     effects =
@@ -79,6 +79,5 @@ local oil_processing = data.raw.technology["oil-processing"]
 deep_sea_oil.hidden = true
 oil_processing.icon = deep_sea_oil.icon
 oil_processing.icon_size = deep_sea_oil.icon_size
-oil_processing.icon_mipmaps = deep_sea_oil.icon_mipmaps
 
 table.insert(oil_processing.effects, 2, {type = "unlock-recipe", recipe = "oil_rig"})

@@ -352,7 +352,7 @@ data:extend{ -- Battery charging interface
     type = "item",
     name = "ff-battery-pack",
     icon = "__FreightForwarding__/graphics/charging-station/battery-pack.png",
-    icon_size = 64, icon_mipmaps = 4,
+    icon_size = 64,
     subgroup = "raw-material",
     order = "h[battery]-b",
     stack_size = 200
@@ -410,7 +410,7 @@ data:extend{ -- Battery charging interface
   {
     type = "technology",
     name = "ff-battery-charging",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
     effects =
     {
@@ -444,7 +444,7 @@ data:extend{ -- Battery charging interface
   {
     type = "technology",
     name = "ff-battery-pack",
-    icon_size = 128, icon_mipmaps = 1,
+    icon_size = 128,
     icon = "__FreightForwarding__/graphics/charging-station/battery-pack-tech.png",
     effects =
     {
