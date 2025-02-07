@@ -17,7 +17,7 @@ rocket_silo_dummy.name = "ff-rocket-silo-dummy"
 rocket_silo_dummy.localised_name = {"entity-name.rocket-silo"}
 rocket_silo_dummy.localised_description = rocket_silo.localised_description or {"entity-description.rocket-silo"}
 rocket_silo_dummy.type = "mining-drill"
-rocket_silo_dummy.collision_mask = {}
+rocket_silo_dummy.collision_mask = {layers = {}}
 rocket_silo_dummy.vector_to_place_result = {0, 0}
 rocket_silo_dummy.mining_speed = 1
 rocket_silo_dummy.resource_categories = { "ff-rocket-silo" }
@@ -98,7 +98,7 @@ data:extend{
     --collision_box = {{-3.8, -3.2}, {3.8, 3.8}},  -- TODO use smaller collision box, but only if ff-rocket-silo-dummy collides with player
     collision_box = rocket_silo.collision_box,
     selection_box = rocket_silo.selection_box,
-    collision_mask = {"resource-layer", "doodad-layer", "player-layer"},
+    collision_mask = {layers = {resource=true, doodad=true, player=true}},
     stage_counts = {0},
     stages =
     {

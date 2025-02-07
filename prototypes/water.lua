@@ -16,12 +16,12 @@ local shallow_water = data.raw.tile["water-shallow"]
 shallow_water.walking_speed_modifier = 0.7  -- Default 0.8
 shallow_water.vehicle_friction_modifier = 32  -- Default 1
 
-shallow_water.collision_mask = {
-  "water-tile",
-  "floor-layer",
-  "resource-layer",
-  "doodad-layer",  -- Stops decoratives spawning on shallow water
-}
+shallow_water.collision_mask = {layers = {
+  water_tile=true,
+  floor=true,
+  resource=true,
+  doodad=true -- Stops decoratives spawning on shallow water
+}}
 
 -- Allow player to swim in water
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
@@ -30,11 +30,12 @@ local deep_water = data.raw.tile["deepwater"]
 water.walking_speed_modifier = 0.25
 deep_water.walking_speed_modifier = 0.25
 
+--[[ TODO 2.0 collision
 for _, water_tile in pairs{water, deep_water} do
   local mask = collision_mask_util.get_mask(water_tile)
   collision_mask_util.remove_layer(mask, "player-layer")
   water_tile.collision_mask = mask
-end
+end]]
 
 data:extend{
   {

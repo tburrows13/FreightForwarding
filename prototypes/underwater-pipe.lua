@@ -39,7 +39,7 @@ end
 local pipe = table.deepcopy(data.raw.pipe.pipe)
 pipe.name = "ff-underwater-pipe"
 pipe.minable = {mining_time = 0.1, result = "ff-underwater-pipe"}
-pipe.collision_mask = {}  -- Replacement ground-tile layer added in data-final-fixes
+pipe.collision_mask = {layers = {}}  -- Replacement ground-tile layer added in data-final-fixes
 pipe.icons = {
   {icon="__base__/graphics/terrain/water/water-o.png", icon_size=32},
   {icon=pipe.icon, icon_size=pipe.icon_size, tint=transparent},

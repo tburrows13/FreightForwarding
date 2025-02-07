@@ -84,7 +84,7 @@ data:extend({
         percent = 40,
       }
     },
-    collision_mask = { "ground-tile", "object-layer", "train-layer" },
+    collision_mask = {layers = {}},
     collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
     selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
     damaged_trigger_effect = hit_effects.entity(),

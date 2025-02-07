@@ -80,7 +80,7 @@ data:extend{
     collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     --collision_mask = table.deepcopy(data.raw["pipe"]["storage-tank"].collision_mask),
-    collision_mask = {"ground-tile", "object-layer"},  -- Fixed in data-final-fixes
+    collision_mask = {layers={ground_tile=true, object=true}},  -- Fixed in data-final-fixes
     circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
     circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
     circuit_wire_max_distance = 20,

@@ -101,7 +101,7 @@ data:extend{
     dying_explosion = "pumpjack-explosion",
     collision_box = {{ -1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{ -2, -2}, {2, 2}},
-    collision_mask = {"object-layer", "train-layer"},
+    collision_mask = {layers = {object=true, train=true}},
     damaged_trigger_effect = hit_effects.entity(),
     drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},  -- TODO update
     energy_source =
@@ -486,7 +486,7 @@ data:extend{
     name = "ff-dredging-platform",
     order = "a[artificial]-b[tier-2]-a[concrete]",
     needs_correction = false,
-    collision_mask = {"ground-tile"},  -- Gets added to later
+    collision_mask = {layers = {ground=true}}, -- Gets added to later
     walking_speed_modifier = 1.4,
     layer = 61,
     transition_overlay_layer_offset = 2, -- need to render border overlay on top of hazard-concrete
@@ -511,7 +511,7 @@ radar.name = "ff-dredger-radar"
 radar.flags = {"hidden", "not-on-map", "not-blueprintable", "not-deconstructable", "placeable-off-grid"}
 radar.selectable_in_game = false
 radar.allow_copy_paste = false
-radar.collision_mask = {}
+radar.collision_mask = {layers={}}
 radar.collision_box = nil
 radar.selection_box = nil
 radar.fast_replaceable_group = nil

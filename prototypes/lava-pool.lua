@@ -11,6 +11,7 @@ local empty_sprite = {
   variation_count = 1,
 }
 
+--[[ TODO 2.0 collision
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 local lava_pool_layer = collision_mask_util.get_first_unused_layer()
@@ -37,7 +38,7 @@ for _, prototype in pairs(data.raw.tile) do
     prototype.collision_mask = collision_mask
   end
 end
-
+]]
 
 data:extend{
   {

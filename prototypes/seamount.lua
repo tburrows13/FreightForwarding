@@ -51,7 +51,7 @@ data:extend{
     tile_height = 4, tile_width = 4,
     collision_box = {{-1.8, -1.8}, {1.8, 1.8}},
     selection_box = {{-2, -2}, {2, 2}},
-    collision_mask = {"ground-tile", "resource-layer"},  -- Gets overwritten in data-final-fixes
+    collision_mask = {layers={ground=true, resource=true}},  -- Gets overwritten in data-final-fixes
     stage_counts = {0},
     stages =
     {

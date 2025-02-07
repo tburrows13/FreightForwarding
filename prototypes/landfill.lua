@@ -29,6 +29,8 @@ Vanilla collision masks:
 
 ]]
 
+do return end -- TODO 2.0 collision
+
 local collision_mask_util = require "__core__.lualib.collision-mask-util"
 
 non_deep_water_mask = collision_mask_util.get_first_unused_layer()
