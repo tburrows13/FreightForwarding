@@ -319,7 +319,7 @@ end
 
 ---@param event EventData.on_object_destroyed
 local function on_scanner_destroyed(event)
-  if not event.useful_id then return end
+  if event.type ~= defines.target_type.entity then return end
 
   storage.scanner_data = storage.scanner_data or {}
   storage.scanner_data[event.useful_id] = nil
