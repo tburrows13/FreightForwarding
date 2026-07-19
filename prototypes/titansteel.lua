@@ -1,11 +1,11 @@
-data:extend{
+data:extend {
   {
     type = "recipe-category",
-    name = "ff-lava-smelting",  -- Big lava pool
+    name = "ff-lava-smelting" -- Big lava pool
   },
   {
     type = "recipe-category",
-    name = "ff-lava-heating",  -- Small lava pool
+    name = "ff-lava-heating" -- Small lava pool
   },
   {
     type = "technology",
@@ -15,10 +15,9 @@ data:extend{
         icon = "__base__/graphics/technology/steel-processing.png",
         icon_size = 256,
         tint = { b = 0.4, g = 0.4, r = 0.4 }
-      },
+      }
     },
-    effects =
-    {
+    effects = {
       {
         type = "unlock-recipe",
         recipe = "ff-hot-titansteel-plate"
@@ -40,18 +39,16 @@ data:extend{
         recipe = "ff-water-condensing"
       }
     },
-    prerequisites = {"production-science-pack", "utility-science-pack", "ff-cobalt-processing"},
-    unit =
-    {
+    prerequisites = { "production-science-pack", "utility-science-pack", "ff-cobalt-processing" },
+    unit = {
       count = 1000,
 
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        {"utility-science-pack", 1}
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "production-science-pack", 1 },
+        { "utility-science-pack", 1 }
       },
       time = 60
     },
@@ -60,21 +57,21 @@ data:extend{
   {
     type = "recipe",
     name = "ff-hot-titansteel-plate",
-    category = "ff-lava-smelting",
+    categories = { "ff-lava-smelting" },
     enabled = false,
     main_product = "ff-hot-titansteel-plate",
     ingredients = {
-      {type = "item", name = "steel-plate", amount = 1},
-      {type = "item", name = "titanium-plate", amount = 1},
-      {type = "item", name = "ff-cobalt-ingot", amount = 1},
+      { type = "item", name = "steel-plate", amount = 1 },
+      { type = "item", name = "titanium-plate", amount = 1 },
+      { type = "item", name = "ff-cobalt-ingot", amount = 1 }
     },
     results = {
-      {type = "item", name = "ff-hot-titansteel-plate", amount = 1},
-      {type = "item", name = "ff-slag", amount = 15},
+      { type = "item", name = "ff-hot-titansteel-plate", amount = 1 },
+      { type = "item", name = "ff-slag", amount = 15 }
     },
     energy_required = 15,
     always_show_made_in = true,
-    order = "e[titansteel-plate]-a",
+    order = "e[titansteel-plate]-a"
   },
   {
     type = "recipe",
@@ -82,69 +79,69 @@ data:extend{
     icons = {
       {
         icon = "__FreightForwarding__/graphics/hot-titansteel.png",
-        icon_size = 64,
+        icon_size = 64
       },
       {
         icon = "__base__/graphics/icons/steel-plate.png",
         tint = { b = 0.32, g = 0.32, r = 0.32 },
         icon_size = 64,
         scale = 0.32,
-        shift = {-8, -8},
-        draw_background = true,
-      },
+        shift = { -8, -8 },
+        draw_background = true
+      }
     },
-    category = "ff-lava-heating",
+    categories = { "ff-lava-heating" },
     enabled = false,
     main_product = "ff-hot-titansteel-plate",
     ingredients = {
-      {type = "item", name = "ff-titansteel-plate", amount = 1},
+      { type = "item", name = "ff-titansteel-plate", amount = 1 }
     },
     results = {
-      {type = "item", name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99},
-      {type = "item", name = "ff-slag", amount = 3},
+      { type = "item", name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99 },
+      { type = "item", name = "ff-slag", amount = 3 }
     },
     energy_required = 3,
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    order = "e[titansteel-plate]-b",
+    order = "e[titansteel-plate]-b"
   },
   {
     type = "recipe",
     name = "ff-titansteel-plate",
-    category = "chemistry",
+    categories = { "chemistry" },
     main_product = "ff-titansteel-plate",
     enabled = false,
     ingredients = {
-      {type = "item", name = "ff-hot-titansteel-plate", amount = 1},
-      {type = "fluid", name = "water", amount = 400},
+      { type = "item", name = "ff-hot-titansteel-plate", amount = 1 },
+      { type = "fluid", name = "water", amount = 400 }
     },
     results = {
-      {type = "item", name = "ff-titansteel-plate", amount = 1},
-      {type = "fluid", name = "steam", amount = 400, temperature = 500},
+      { type = "item", name = "ff-titansteel-plate", amount = 1 },
+      { type = "fluid", name = "steam", amount = 400, temperature = 500 }
     },
-    energy_required = 10,  -- 3 lava pools : 2 chemical plants
+    energy_required = 10 -- 3 lava pools : 2 chemical plants
   },
   {
     type = "recipe",
     name = "ff-water-condensing",
-    localised_name = {"recipe-name.ff-water-condensing"},
-    category = "chemistry",
+    localised_name = { "recipe-name.ff-water-condensing" },
+    categories = { "chemistry" },
     subgroup = "fluid-recipes",
     order = "g[steam]",
     main_product = "water",
     enabled = false,
     ingredients = {
-      {type = "fluid", name = "water", amount = 50},
-      {type = "fluid", name = "steam", amount = 150},
+      { type = "fluid", name = "water", amount = 50 },
+      { type = "fluid", name = "steam", amount = 150 }
     },
     results = {
-      {type = "fluid", name = "water", amount = 190},
+      { type = "fluid", name = "water", amount = 190 }
     },
     energy_required = 6,
     allow_decomposition = false,
     show_amount_in_title = false,
-    always_show_products = true,
+    always_show_products = true
   },
   {
     type = "item",
@@ -173,7 +170,7 @@ data:extend{
     subgroup = "raw-material",
     order = "e[titansteel-plate]-a",
     stack_size = 1,
-    ic_create_container = false,
+    ic_create_container = false
   },
   {
     type = "item",
@@ -183,31 +180,30 @@ data:extend{
       {
         icon = "__base__/graphics/icons/steel-plate.png",
         tint = { b = 0.32, g = 0.32, r = 0.32 }
-      },
+      }
     },
     icon_size = 64,
     subgroup = "raw-material",
     order = "e[titansteel-plate]-c",
-    stack_size = 30  -- Will be halved in stack-sizes.lua
+    stack_size = 30 -- Will be halved in stack-sizes.lua
   },
   {
     type = "recipe",
     name = "ff-rocket-frame",
-    category = "crafting-with-fluid",
+    categories = { "crafting-with-fluid" },
     energy_required = 15,
     enabled = false,
-    ingredients =
-    {
-      {type="item", name="low-density-structure", amount=1},
-      {type="item", name="ff-titansteel-plate", amount=1},
-      {type = "fluid", name = "lubricant", amount = 200},
+    ingredients = {
+      { type = "item", name = "low-density-structure", amount = 1 },
+      { type = "item", name = "ff-titansteel-plate", amount = 1 },
+      { type = "fluid", name = "lubricant", amount = 200 }
     },
     results = {
-      {type = "item", name = "ff-rocket-frame", amount = 1},
-      {type = "fluid", name = "lubricant", amount = 180},
+      { type = "item", name = "ff-rocket-frame", amount = 1 },
+      { type = "fluid", name = "lubricant", amount = 180 }
     },
     main_product = "ff-rocket-frame",
-    allow_productivity = true,
+    allow_productivity = true
   },
   {
     type = "item",
@@ -217,7 +213,7 @@ data:extend{
     subgroup = "intermediate-product",
     order = "p[rocket-frame]",
     stack_size = 10
-  },
+  }
 }
 
 x_util.add_unlock("rocket-silo", "ff-rocket-frame")

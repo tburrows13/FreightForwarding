@@ -1,4 +1,4 @@
-data:extend{
+data:extend {
   {
     type = "item",
     name = "ff-ferrous-nodule",
@@ -7,39 +7,39 @@ data:extend{
     subgroup = "raw-resource",
     order = "w[nodule]-a[ferrous]",
     stack_size = 1,
-    ic_create_container = false,
+    ic_create_container = false
   },
   {
     type = "recipe",
     name = "ff-ferrous-nodule",
-    category = "ff-dredging",
+    categories = { "ff-dredging" },
     enabled = false,
     energy_required = 50,
     ingredients = {},
     results = {
-      {type = "item", name = "ff-ferrous-nodule", amount_min = 100, amount_max = 200}
+      { type = "item", name = "ff-ferrous-nodule", amount_min = 100, amount_max = 200 }
     },
     show_amount_in_title = false,
-    always_show_products = true,
+    always_show_products = true
   },
   {
     type = "recipe",
-    name = "ff-ferrous-nodule-washing",  -- TODO 2.0 give unique icon
-    category = "chemistry",
+    name = "ff-ferrous-nodule-washing", -- TODO 2.0 give unique icon
+    categories = { "chemistry" },
     enabled = false,
     energy_required = 15,
     allow_decomposition = false,
     main_product = "iron-ore",
     ingredients = {
-      {type = "item", name = "ff-ferrous-nodule", amount = 18},
-      {type = "fluid", name = "sulfuric-acid", amount = 15},
+      { type = "item", name = "ff-ferrous-nodule", amount = 18 },
+      { type = "fluid", name = "sulfuric-acid", amount = 15 }
     },
     results = {
-      {type = "item", name = "iron-ore", amount_min = 40, amount_max = 50},
-      {type = "item", name = "copper-ore", amount_min = 0, amount_max = 8},
-      {type = "item", name = "stone", amount_min = 0, amount_max = 4},
-      {type = "item", name = "ff-ferrous-nodule", amount_min = 0, amount_max = 6},
-    },
+      { type = "item", name = "iron-ore", amount_min = 40, amount_max = 50 },
+      { type = "item", name = "copper-ore", amount_min = 0, amount_max = 8 },
+      { type = "item", name = "stone", amount_min = 0, amount_max = 4 },
+      { type = "item", name = "ff-ferrous-nodule", amount_min = 0, amount_max = 6 }
+    }
   },
   {
     type = "item",
@@ -49,39 +49,39 @@ data:extend{
     subgroup = "raw-resource",
     order = "w[nodule]-b[cupric]",
     stack_size = 1,
-    ic_create_container = false,
+    ic_create_container = false
   },
   {
     type = "recipe",
     name = "ff-cupric-nodule",
-    category = "ff-dredging",
+    categories = { "ff-dredging" },
     enabled = false,
     energy_required = 50,
     ingredients = {},
     results = {
-      {type = "item", name = "ff-cupric-nodule", amount_min = 100, amount_max = 200}
+      { type = "item", name = "ff-cupric-nodule", amount_min = 100, amount_max = 200 }
     },
     show_amount_in_title = false,
-    always_show_products = true,
+    always_show_products = true
   },
   {
     type = "recipe",
     name = "ff-cupric-nodule-washing",
-    category = "chemistry",
+    categories = { "chemistry" },
     enabled = false,
     energy_required = 15,
     allow_decomposition = false,
     main_product = "copper-ore",
     ingredients = {
-      {type = "item", name = "ff-cupric-nodule", amount = 18},
-      {type = "fluid", name = "sulfuric-acid", amount = 15},
+      { type = "item", name = "ff-cupric-nodule", amount = 18 },
+      { type = "fluid", name = "sulfuric-acid", amount = 15 }
     },
     results = {
-      {type = "item", name = "copper-ore", amount_min = 40, amount_max = 50},
-      {type = "item", name = "iron-ore", amount_min = 0, amount_max = 8},
-      {type = "item", name = "stone", amount_min = 0, amount_max = 4},
-      {type = "item", name = "ff-cupric-nodule", amount_min = 0, amount_max = 6},
-    },
+      { type = "item", name = "copper-ore", amount_min = 40, amount_max = 50 },
+      { type = "item", name = "iron-ore", amount_min = 0, amount_max = 8 },
+      { type = "item", name = "stone", amount_min = 0, amount_max = 4 },
+      { type = "item", name = "ff-cupric-nodule", amount_min = 0, amount_max = 6 }
+    }
   },
   {
     type = "item",
@@ -91,39 +91,39 @@ data:extend{
     subgroup = "raw-resource",
     order = "w[nodule]-c[cobalt-crust]",
     stack_size = 1,
-    ic_create_container = false,
+    ic_create_container = false
   },
   {
     type = "recipe",
     name = "ff-cobalt-crust",
-    category = "ff-dredging",
+    categories = { "ff-dredging" },
     enabled = false,
     energy_required = 75,
     ingredients = {},
     results = {
-      {type = "item", name = "ff-cobalt-crust", amount_min = 50, amount_max = 150}
+      { type = "item", name = "ff-cobalt-crust", amount_min = 50, amount_max = 150 }
     },
     show_amount_in_title = false,
-    always_show_products = true,
+    always_show_products = true
   },
   {
     type = "recipe",
     name = "ff-cobalt-crust-washing",
-    category = "chemistry",
+    categories = { "chemistry" },
     enabled = false,
     energy_required = 15,
     allow_decomposition = false,
     main_product = "ff-cobalt-ore",
     ingredients = {
-      {type = "item", name = "ff-cobalt-crust", amount = 15},
-      {type = "fluid", name = "sulfuric-acid", amount = 30},
+      { type = "item", name = "ff-cobalt-crust", amount = 15 },
+      { type = "fluid", name = "sulfuric-acid", amount = 30 }
     },
     results = {
-      {type = "item", name = "ff-cobalt-ore", amount_min = 40, amount_max = 50},
-      {type = "item", name = "iron-ore", amount_min = 0, amount_max = 8},
-      {type = "item", name = "copper-ore", amount_min = 0, amount_max = 8},
-      {type = "item", name = "stone", amount_min = 0, amount_max = 4},
-      {type = "item", name = "ff-cobalt-crust", amount_min = 0, amount_max = 10},
-    },
-  },
+      { type = "item", name = "ff-cobalt-ore", amount_min = 40, amount_max = 50 },
+      { type = "item", name = "iron-ore", amount_min = 0, amount_max = 8 },
+      { type = "item", name = "copper-ore", amount_min = 0, amount_max = 8 },
+      { type = "item", name = "stone", amount_min = 0, amount_max = 4 },
+      { type = "item", name = "ff-cobalt-crust", amount_min = 0, amount_max = 10 }
+    }
+  }
 }

@@ -5,7 +5,7 @@ local sounds = require "__base__.prototypes.entity.sounds"
 local function space_accumulator_picture(tint, repeat_count, discharging_graphics)
   local filename = "__FreightForwarding__/graphics/charging-station/space_charging_station.png"
   local hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station.png"
-  if discharging_graphics then 
+  if discharging_graphics then
     filename = "__FreightForwarding__/graphics/charging-station/space_discharging_station.png"
     hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_discharging_station.png"
   end
@@ -59,95 +59,103 @@ end
 
 local function space_accumulator_charge(discharging_graphics)
   return {
-      layers = {space_accumulator_picture({
-          r = 1,
-          g = 1,
-          b = 1,
-          a = 1
-      }, 30, discharging_graphics), {
-          filename = "__FreightForwarding__/graphics/charging-station/space_charging_station_lightning.png",
+    layers = {
+      space_accumulator_picture({
+        r = 1,
+        g = 1,
+        b = 1,
+        a = 1
+      }, 30, discharging_graphics),
+      {
+        filename = "__FreightForwarding__/graphics/charging-station/space_charging_station_lightning.png",
+        priority = "high",
+        width = 64,
+        height = 96,
+        line_length = 6,
+        frame_count = 30,
+        draw_as_glow = true,
+        shift = util.by_pixel(0, -16),
+        scale = 1,
+        animation_speed = 3,
+        hr_version = {
+          filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station_lightning.png",
           priority = "high",
-          width = 64,
-          height = 96,
+          width = 128,
+          height = 192,
           line_length = 6,
           frame_count = 30,
           draw_as_glow = true,
           shift = util.by_pixel(0, -16),
-          scale = 1,
-          animation_speed = 3,
-          hr_version = {
-              filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station_lightning.png",
-              priority = "high",
-              width = 128,
-              height = 192,
-              line_length = 6,
-              frame_count = 30,
-              draw_as_glow = true,
-              shift = util.by_pixel(0, -16),
-              scale = 0.5,
-              animation_speed = 3
-          }
-      }}
+          scale = 0.5,
+          animation_speed = 3
+        }
+      }
+    }
   }
 end
 
-data:extend{ -- Battery charging interface
+data:extend { -- Battery charging interface
   {
     type = "furnace",
     name = "ff-charging-station",
     icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
     icon_size = 128,
-    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    flags = { "placeable-neutral", "placeable-player", "player-creation" },
     minable = {
-        mining_time = 0.1,
-        result = "ff-charging-station"
+      mining_time = 0.1,
+      result = "ff-charging-station"
     },
     max_health = 150,
-    resistances = {{
+    resistances = {
+      {
         type = "fire",
         percent = 70
-    }},
+      }
+    },
     corpse = "accumulator-remnants",
     dying_explosion = "accumulator-explosion",
-    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
-    selection_box = {{-1, -1}, {1, 1}},
+    collision_box = { { -0.9, -0.9 }, { 0.9, 0.9 } },
+    selection_box = { { -1, -1 }, { 1, 1 } },
     damaged_trigger_effect = hit_effects.entity(),
-    drawing_box = {{-1, -1.5}, {1, 1}},
+    drawing_box = { { -1, -1.5 }, { 1, 1 } },
     energy_source = {
-        type = "electric",
-        buffer_capacity = "20MJ",
-        usage_priority = "primary-input",
-        input_flow_limit = "10MW",
-        output_flow_limit = "0kW",
-        drain = "0W"
+      type = "electric",
+      buffer_capacity = "20MJ",
+      usage_priority = "primary-input",
+      input_flow_limit = "10MW",
+      output_flow_limit = "0kW",
+      drain = "0W"
     },
     fast_replaceable_group = "assembling-machine",
     always_draw_idle_animation = true,
     idle_animation = space_accumulator_picture(),
-    working_visualisations = {{
+    working_visualisations = {
+      {
         effect = "flicker",
         fadeout = true,
         light = {
-            intensity = 0.2,
-            size = 9.9,
-            shift = {0.0, 0.0},
-            color = {
-                r = 0.25,
-                g = 0.25,
-                b = 0.8
-            }
+          intensity = 0.2,
+          size = 9.9,
+          shift = { 0.0, 0.0 },
+          color = {
+            r = 0.25,
+            g = 0.25,
+            b = 0.8
+          }
         }
-    }, {
+      },
+      {
         effect = "flicker",
         fadeout = true,
         draw_as_light = true,
         animation = space_accumulator_charge()
-    }},
+      }
+    },
 
     water_reflection = accumulator_reflection(),
 
     energy_usage = "800kW",
-    crafting_categories = {"battery"},
+    crafting_categories = { "battery" },
     crafting_speed = 1,
     source_inventory_size = 1,
     result_inventory_size = 1,
@@ -157,19 +165,19 @@ data:extend{ -- Battery charging interface
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     working_sound = {
-        sound = {
-            filename = "__FreightForwarding__/sound/space-charging-sound.ogg",
-            volume = 0.35
-        },
-        idle_sound = {
-            filename = "__base__/sound/accumulator-idle.ogg",
-            volume = 0.3
-        },
-        -- persistent = true,
-        max_sounds_per_type = 3,
-        audible_distance_modifier = 0.5,
-        fade_in_ticks = 4,
-        fade_out_ticks = 20
+      sound = {
+        filename = "__FreightForwarding__/sound/space-charging-sound.ogg",
+        volume = 0.35
+      },
+      idle_sound = {
+        filename = "__base__/sound/accumulator-idle.ogg",
+        volume = 0.3
+      },
+      -- persistent = true,
+      max_sounds_per_type = 3,
+      audible_distance_modifier = 0.5,
+      fade_in_ticks = 4,
+      fade_out_ticks = 20
     }
   },
   {
@@ -177,39 +185,41 @@ data:extend{ -- Battery charging interface
     name = "ff-discharging-station",
     icon = "__FreightForwarding__/graphics/charging-station/space-train-discharging-station.png",
     icon_size = 128,
-    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    flags = { "placeable-neutral", "placeable-player", "player-creation" },
     minable = {
-        mining_time = 0.1,
-        result = "ff-discharging-station"
+      mining_time = 0.1,
+      result = "ff-discharging-station"
     },
     max_health = 150,
-    resistances = {{
+    resistances = {
+      {
         type = "fire",
         percent = 70
-    }},
+      }
+    },
     corpse = "accumulator-remnants",
     dying_explosion = "accumulator-explosion",
-    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
-    selection_box = {{-1, -1}, {1, 1}},
+    collision_box = { { -0.9, -0.9 }, { 0.9, 0.9 } },
+    selection_box = { { -1, -1 }, { 1, 1 } },
     damaged_trigger_effect = hit_effects.entity(),
-    drawing_box = {{-1, -1.5}, {1, 1}},
+    drawing_box = { { -1, -1.5 }, { 1, 1 } },
     energy_source = {
       type = "electric",
       usage_priority = "secondary-output",
-      drain = "0kW",
+      drain = "0kW"
     },
     max_power_output = "4MW",
     burner = {
       emissions_per_minute = { pollution = 0 },
-      fuel_categories = {"battery"},
+      fuel_categories = { "battery" },
       fuel_inventory_size = 1,
       burnt_inventory_size = 1,
       type = "burner",
       light_flicker = {
-          minimum_intensity = 0,
-          maximum_intensity = 0,
+        minimum_intensity = 0,
+        maximum_intensity = 0
       },
-      ff_no_double_inventory_size = true,
+      ff_no_double_inventory_size = true
     },
 
     fast_replaceable_group = "assembling-machine",
@@ -221,19 +231,19 @@ data:extend{ -- Battery charging interface
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     working_sound = {
-        sound = {
-            filename = "__FreightForwarding__/sound/space-charging-sound.ogg",
-            volume = 0.35
-        },
-        idle_sound = {
-            filename = "__base__/sound/accumulator-idle.ogg",
-            volume = 0.3
-        },
-        -- persistent = true,
-        max_sounds_per_type = 3,
-        audible_distance_modifier = 0.5,
-        fade_in_ticks = 4,
-        fade_out_ticks = 20
+      sound = {
+        filename = "__FreightForwarding__/sound/space-charging-sound.ogg",
+        volume = 0.35
+      },
+      idle_sound = {
+        filename = "__base__/sound/accumulator-idle.ogg",
+        volume = 0.3
+      },
+      -- persistent = true,
+      max_sounds_per_type = 3,
+      audible_distance_modifier = 0.5,
+      fade_in_ticks = 4,
+      fade_out_ticks = 20
     }
   },
   {
@@ -244,7 +254,7 @@ data:extend{ -- Battery charging interface
     subgroup = "production-machine",
     order = "h[train-system]",
     place_result = "ff-charging-station",
-    stack_size = 10,
+    stack_size = 10
   },
   {
     type = "item",
@@ -254,7 +264,7 @@ data:extend{ -- Battery charging interface
     subgroup = "production-machine",
     order = "h[train-system]",
     place_result = "ff-discharging-station",
-    stack_size = 10,
+    stack_size = 10
   },
   {
     type = "recipe",
@@ -262,11 +272,11 @@ data:extend{ -- Battery charging interface
     energy_required = 10,
     enabled = false,
     ingredients = {
-      {type="item", name="steel-plate", amount=15},
-      {type="item", name="advanced-circuit", amount=5},
-      {type="item", name="copper-cable", amount=20}
+      { type = "item", name = "steel-plate", amount = 15 },
+      { type = "item", name = "advanced-circuit", amount = 5 },
+      { type = "item", name = "copper-cable", amount = 20 }
     },
-    results = {{type="item", name="ff-charging-station", amount=1}},
+    results = { { type = "item", name = "ff-charging-station", amount = 1 } }
   },
   {
     type = "recipe",
@@ -274,16 +284,16 @@ data:extend{ -- Battery charging interface
     energy_required = 10,
     enabled = false,
     ingredients = {
-      {type="item", name="steel-plate", amount=15},
-      {type="item", name="advanced-circuit", amount=5},
-      {type="item", name="copper-cable", amount=20}
+      { type = "item", name = "steel-plate", amount = 15 },
+      { type = "item", name = "advanced-circuit", amount = 5 },
+      { type = "item", name = "copper-cable", amount = 20 }
     },
-    results = {{type="item", name="ff-discharging-station", amount=1}},
+    results = { { type = "item", name = "ff-discharging-station", amount = 1 } }
   },
   {
     type = "item",
     name = "ff-charged-battery",
-    icons = {{icon = "__base__/graphics/icons/battery.png", tint = {r = 0.3, g = 0.5, b = 0.9, a = 0.8}}},
+    icons = { { icon = "__base__/graphics/icons/battery.png", tint = { r = 0.3, g = 0.5, b = 0.9, a = 0.8 } } },
     icon_size = 64,
     --[[pictures = {
         layers = {{
@@ -303,12 +313,12 @@ data:extend{ -- Battery charging interface
     burnt_result = "battery",
     subgroup = "raw-material",
     order = "h[battery]-c",
-    stack_size = 200  -- Will be halved in stack-sizes.lua
+    stack_size = 200 -- Will be halved in stack-sizes.lua
   },
   {
     type = "recipe",
     name = "ff-charged-battery",
-    category = "battery",
+    categories = { "battery" },
     --hide_from_player_crafting = true,
     energy_required = 5,
     enabled = false,
@@ -316,36 +326,36 @@ data:extend{ -- Battery charging interface
     --icon_size = 128,
     subgroup = "raw-material",
     allow_as_intermediate = false,
-    ingredients = {{type="item", name="battery", amount=1}},
-    results = {{
-      type = "item",
-      name = "ff-charged-battery",
-      probability = 0.98,
-      amount = 1
-    }},
+    ingredients = { { type = "item", name = "battery", amount = 1 } },
+    results = {
+      {
+        type = "item",
+        name = "ff-charged-battery",
+        probability = 0.98,
+        amount = 1
+      }
+    },
     always_show_made_in = true,
     show_amount_in_title = false,
-    always_show_products = true,
+    always_show_products = true
   },
   {
     type = "recipe",
     name = "ff-battery-pack",
-    category = "chemistry",
+    categories = { "chemistry" },
     energy_required = 5,
     enabled = false,
-    ingredients =
-    {
-      {type="item", name="battery", amount=3},
-      {type="item", name="advanced-circuit", amount=1},
-      {type="item", name="ff-cobalt-ingot", amount=1},
+    ingredients = {
+      { type = "item", name = "battery", amount = 3 },
+      { type = "item", name = "advanced-circuit", amount = 1 },
+      { type = "item", name = "ff-cobalt-ingot", amount = 1 }
     },
-    results = {{type="item", name="ff-battery-pack", amount=1}},
-    crafting_machine_tint =
-    {
-      primary = {r = 0.965, g = 0.482, b = 0.338, a = 1.000}, -- #f67a56ff
-      secondary = {r = 0.831, g = 0.560, b = 0.222, a = 1.000}, -- #d38e38ff
-      tertiary = {r = 0.728, g = 0.818, b = 0.443, a = 1.000}, -- #b9d070ff
-      quaternary = {r = 0.939, g = 0.763, b = 0.191, a = 1.000}, -- #efc230ff
+    results = { { type = "item", name = "ff-battery-pack", amount = 1 } },
+    crafting_machine_tint = {
+      primary = { r = 0.965, g = 0.482, b = 0.338, a = 1.000 },   -- #f67a56ff
+      secondary = { r = 0.831, g = 0.560, b = 0.222, a = 1.000 }, -- #d38e38ff
+      tertiary = { r = 0.728, g = 0.818, b = 0.443, a = 1.000 },  -- #b9d070ff
+      quaternary = { r = 0.939, g = 0.763, b = 0.191, a = 1.000 } -- #efc230ff
     }
   },
   {
@@ -360,7 +370,17 @@ data:extend{ -- Battery charging interface
   {
     type = "item",
     name = "ff-charged-battery-pack",
-    icons = {{icon = "__FreightForwarding__/graphics/charging-station/battery-pack.png", tint = {r = 0.3, g = 0.5, b = 0.9, a = 0.8}}},
+    icons = {
+      {
+        icon = "__FreightForwarding__/graphics/charging-station/battery-pack.png",
+        tint = {
+          r = 0.3,
+          g = 0.5,
+          b = 0.9,
+          a = 0.8
+        }
+      }
+    },
     icon_size = 64,
     --[[pictures = {
         layers = {{
@@ -382,12 +402,12 @@ data:extend{ -- Battery charging interface
     fuel_top_speed_multiplier = 1.5,
     subgroup = "raw-material",
     order = "h[battery]-d",
-    stack_size = 200  -- Will be halved in stack-sizes.lua
+    stack_size = 200 -- Will be halved in stack-sizes.lua
   },
   {
     type = "recipe",
     name = "ff-charged-battery-pack",
-    category = "battery",
+    categories = { "battery" },
     --hide_from_player_crafting = true,
     energy_required = 12.5,
     enabled = false,
@@ -395,25 +415,26 @@ data:extend{ -- Battery charging interface
     --icon_size = 128,
     subgroup = "raw-material",
     allow_as_intermediate = false,
-    ingredients = {{type="item", name="ff-battery-pack", amount=1}},
-    results = {{
-      type = "item",
-      name = "ff-charged-battery-pack",
-      probability = 0.995,
-      amount = 1
-    }},
+    ingredients = { { type = "item", name = "ff-battery-pack", amount = 1 } },
+    results = {
+      {
+        type = "item",
+        name = "ff-charged-battery-pack",
+        probability = 0.995,
+        amount = 1
+      }
+    },
     always_show_made_in = true,
     show_amount_in_title = false,
     always_show_products = true,
-    allow_productivity = true,
+    allow_productivity = true
   },
   {
     type = "technology",
     name = "ff-battery-charging",
     icon_size = 128,
     icon = "__FreightForwarding__/graphics/charging-station/space-train-charging-station.png",
-    effects =
-    {
+    effects = {
       {
         type = "unlock-recipe",
         recipe = "ff-charging-station"
@@ -425,17 +446,15 @@ data:extend{ -- Battery charging interface
       {
         type = "unlock-recipe",
         recipe = "ff-charged-battery"
-      },
+      }
     },
-    prerequisites = {"electric-energy-accumulators"},
-    unit =
-    {
+    prerequisites = { "electric-energy-accumulators" },
+    unit = {
       count = 150,
 
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 }
       },
       time = 60
     },
@@ -446,8 +465,7 @@ data:extend{ -- Battery charging interface
     name = "ff-battery-pack",
     icon_size = 128,
     icon = "__FreightForwarding__/graphics/charging-station/battery-pack-tech.png",
-    effects =
-    {
+    effects = {
       {
         type = "unlock-recipe",
         recipe = "ff-battery-pack"
@@ -455,28 +473,25 @@ data:extend{ -- Battery charging interface
       {
         type = "unlock-recipe",
         recipe = "ff-charged-battery-pack"
-      },
+      }
     },
-    prerequisites = {"ff-battery-charging", "utility-science-pack", "ff-cobalt-processing"},
-    unit =
-    {
+    prerequisites = { "ff-battery-charging", "utility-science-pack", "ff-cobalt-processing" },
+    unit = {
       count = 300,
 
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"utility-science-pack", 1}
+      ingredients = {
+        { "automation-science-pack", 1 },
+        { "logistic-science-pack", 1 },
+        { "chemical-science-pack", 1 },
+        { "utility-science-pack", 1 }
       },
       time = 60
     },
     order = "a"
-  },
+  }
 }
 
-data:extend(
-{
+data:extend({
   {
     type = "fuel-category",
     name = "battery"
