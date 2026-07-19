@@ -97,7 +97,7 @@ data:extend {
       { type = "item", name = "ff-titansteel-plate", amount = 1 }
     },
     results = {
-      { type = "item", name = "ff-hot-titansteel-plate", amount = 1, probability = 0.99 },
+      { type = "item", name = "ff-hot-titansteel-plate", amount = 1, independent_probability = 0.99 },
       { type = "item", name = "ff-slag", amount = 3 }
     },
     energy_required = 3,

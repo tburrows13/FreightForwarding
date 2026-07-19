@@ -331,7 +331,7 @@ data:extend { -- Battery charging interface
       {
         type = "item",
         name = "ff-charged-battery",
-        probability = 0.98,
+        independent_probability = 0.98,
         amount = 1
       }
     },
@@ -420,7 +420,7 @@ data:extend { -- Battery charging interface
       {
         type = "item",
         name = "ff-charged-battery-pack",
-        probability = 0.995,
+        independent_probability = 0.995,
         amount = 1
       }
     },

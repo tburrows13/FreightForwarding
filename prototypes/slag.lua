@@ -116,8 +116,8 @@ data:extend {
     },
     results = {
       { type = "item", name = "ff-slag", amount_min = 0, amount_max = 4 },
-      { type = "item", name = "stone", amount = 1, probability = 0.25 },
-      { type = "item", name = "iron-ore", amount = 1, probability = 0.25 }
+      { type = "item", name = "stone", amount = 1, independent_probability = 0.25 },
+      { type = "item", name = "iron-ore", amount = 1, independent_probability = 0.25 }
     },
     subgroup = "raw-material",
     order = "e[titansteel-plate]-d",
