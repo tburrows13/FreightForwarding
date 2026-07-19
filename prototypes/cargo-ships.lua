@@ -10,4 +10,4 @@ if mods["cargo-ships-floating-electric-pole"] then
 end
 
 -- Speed up small boat
-data.raw["car"]["indep-boat"].friction = data.raw["car"]["indep-boat"].friction * 0.75
+data.raw["car"]["indep-boat"].friction_force = data.raw["car"]["indep-boat"].friction_force * 0.75
