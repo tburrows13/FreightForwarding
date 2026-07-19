@@ -10,6 +10,7 @@
     "base",
     "IntermodalContainers",
     "cargo-ships",
+    "cargo-ships-oil-rig",
     "Mini_Trains",
     "SpidertronPatrols >= 2.4.3",
     "lex-aircraft",
