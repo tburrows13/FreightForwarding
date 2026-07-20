@@ -134,37 +134,19 @@ data:extend{
         {
           filename = "__base__/graphics/entity/pumpjack/pumpjack-base.png",
           priority = "extra-high",
-          width = 131,
-          height = 137,
-          shift = util.by_pixel(-2.5, -4.5),
-          scale = 1.3,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
-            priority = "extra-high",
-            width = 261,
-            height = 273,
-            shift = util.by_pixel(-2.25, -4.75),
-            scale = 0.5 * 1.3
-          }
+          width = 261,
+          height = 273,
+          shift = util.by_pixel(-2.25, -4.75),
+          scale = 0.5 * 1.3
         },
         {
           filename = "__base__/graphics/entity/pumpjack/pumpjack-base-shadow.png",
           priority = "extra-high",
-          width = 110,
-          height = 111,
+          width = 220,
+          height = 220,
           draw_as_shadow = true,
           shift = util.by_pixel(6, 0.5),
-          scale = 1.3,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
-            width = 220,
-            height = 220,
-            scale = 0.5 * 1.3,
-            draw_as_shadow = true,
-            shift = util.by_pixel(6, 0.5)
-          }
+          scale = 0.5 * 1.3
         }
       }
     },
@@ -178,24 +160,12 @@ data:extend{
             priority = "high",
             filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead.png",
             line_length = 8,
-            width = 104,
-            height = 102,
+            width = 206,
+            height = 202,
             frame_count = 40,
             shift = util.by_pixel(-4, -24),
             animation_speed = 0.5,
-            scale = 1.3,
-            hr_version =
-            {
-              priority = "high",
-              filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead.png",
-              animation_speed = 0.5,
-              scale = 0.5 * 1.3,
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            }
+            scale = 0.5 * 1.3
           },
           {
             priority = "high",
@@ -203,24 +173,11 @@ data:extend{
             animation_speed = 0.5,
             draw_as_shadow = true,
             line_length = 8,
-            width = 155,
-            height = 41,
+            width = 309,
+            height = 82,
             frame_count = 40,
-            shift = util.by_pixel(17.5, 14.5),
-            scale = 1.3,
-            hr_version =
-            {
-              priority = "high",
-              filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
-              animation_speed = 0.5,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5 * 1.3,
-              shift = util.by_pixel(17.75, 14.5)
-            }
+            shift = util.by_pixel(17.75, 14.5),
+            scale = 0.5 * 1.3
           }
         }
       }
@@ -294,37 +251,19 @@ data:extend{
         {
           filename = "__base__/graphics/entity/pumpjack/pumpjack-base.png",
           priority = "extra-high",
-          width = 131,
-          height = 137,
-          shift = util.by_pixel(-2.5, -4.5),
-          scale = 1.3,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
-            priority = "extra-high",
-            width = 261,
-            height = 273,
-            shift = util.by_pixel(-2.25, -4.75),
-            scale = 0.5 * 1.3
-          }
+          width = 261,
+          height = 273,
+          shift = util.by_pixel(-2.25, -4.75),
+          scale = 0.5 * 1.3
         },
         {
           filename = "__base__/graphics/entity/pumpjack/pumpjack-base-shadow.png",
           priority = "extra-high",
-          width = 110,
-          height = 111,
+          width = 220,
+          height = 220,
           draw_as_shadow = true,
           shift = util.by_pixel(6, 0.5),
-          scale = 1.3,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
-            width = 220,
-            height = 220,
-            scale = 0.5 * 1.3,
-            draw_as_shadow = true,
-            shift = util.by_pixel(6, 0.5)
-          }
+          scale = 0.5 * 1.3
         }
       }
     },
@@ -338,24 +277,12 @@ data:extend{
             priority = "high",
             filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead.png",
             line_length = 8,
-            width = 104,
-            height = 102,
+            width = 206,
+            height = 202,
             frame_count = 40,
             shift = util.by_pixel(-4, -24),
             animation_speed = 0.5,
-            scale = 1.3,
-            hr_version =
-            {
-              priority = "high",
-              filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead.png",
-              animation_speed = 0.5,
-              scale = 0.5 * 1.3,
-              line_length = 8,
-              width = 206,
-              height = 202,
-              frame_count = 40,
-              shift = util.by_pixel(-4, -24)
-            }
+            scale = 0.5 * 1.3
           },
           {
             priority = "high",
@@ -363,24 +290,11 @@ data:extend{
             animation_speed = 0.5,
             draw_as_shadow = true,
             line_length = 8,
-            width = 155,
-            height = 41,
+            width = 309,
+            height = 82,
             frame_count = 40,
-            shift = util.by_pixel(17.5, 14.5),
-            scale = 1.3,
-            hr_version =
-            {
-              priority = "high",
-              filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
-              animation_speed = 0.5,
-              draw_as_shadow = true,
-              line_length = 8,
-              width = 309,
-              height = 82,
-              frame_count = 40,
-              scale = 0.5 * 1.3,
-              shift = util.by_pixel(17.75, 14.5)
-            }
+            shift = util.by_pixel(17.75, 14.5),
+            scale = 0.5 * 1.3
           }
         }
       }
@@ -469,11 +383,7 @@ local tile_variants = {
   material_background = {
     picture = "__FreightForwarding__/graphics/dredging-platform/concrete.png",
     count = 8,
-    hr_version = {
-      picture = "__FreightForwarding__/graphics/dredging-platform/hr-concrete.png",
-      count = 8,
-      scale = 0.5
-    }
+    scale = 0.5
   }
 }
 

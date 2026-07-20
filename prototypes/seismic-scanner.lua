@@ -91,42 +91,23 @@ data:extend{
       layers =
       {
         {
-          filename = "__FreightForwarding__/graphics/seismic-scanner/hr-hole.png",
+          filename = "__FreightForwarding__/graphics/seismic-scanner/hole.png",
           priority = "extra-high",
           width = 322,
           height = 300,
           scale = 0.5 * 3/4,
           variation_count = 1,
-          shift = {0.25, -0.5},
-          hr_version = {
-            filename = "__FreightForwarding__/graphics/seismic-scanner/hr-hole.png",
-            priority = "extra-high",
-            width = 322,
-            height = 300,
-            scale = 0.5 * 3/4,
-            variation_count = 1,
-            shift = {0.25, -0.5},
-          }
+          shift = {0.25, -0.5}
         },
         {
-          filename = "__FreightForwarding__/graphics/seismic-scanner/hr-hole-front.png",
+          filename = "__FreightForwarding__/graphics/seismic-scanner/hole-front.png",
           priority = "extra-high",
           animation_speed = 0.5,
           width = 322,
           height = 300,
           scale = 0.5 * 3/4,
           direction_count = 1,
-          shift = {0.25, -0.5},
-          hr_version = {
-            filename = "__FreightForwarding__/graphics/seismic-scanner/hr-hole-front.png",
-            priority = "extra-high",
-            animation_speed = 0.5,
-            width = 322,
-            height = 300,
-            scale = 0.5 * 3/4,
-            direction_count = 1,
-            shift = {0.25, -0.5},
-          }
+          shift = {0.25, -0.5}
         },
       },
     },
@@ -135,7 +116,7 @@ data:extend{
     {
       layers = {
         {
-          filename = "__FreightForwarding__/graphics/seismic-scanner/hr-center.png",
+          filename = "__FreightForwarding__/graphics/seismic-scanner/center.png",
           priority = "high",
           animation_speed = 0.5,
           line_length = 8,
@@ -147,21 +128,10 @@ data:extend{
           width = 139,
           height = 246,
           scale = 0.5 * 1.5,
-          shift = {-0.1 + shift.x, 0 + shift.y},
-          hr_version = {
-            filename = "__FreightForwarding__/graphics/seismic-scanner/hr-center.png",
-            priority = "high",
-            line_length = 8,
-            animation_speed = 0.5,
-            direction_count = 64,
-            width = 139,
-            height = 246,
-            scale = 0.5 * 1.5,
-            shift = {-0.1 + shift.x, 0 + shift.y},
-          }
+          shift = {-0.1 + shift.x, 0 + shift.y}
         },
         {
-          filename = "__FreightForwarding__/graphics/seismic-scanner/hr-center-shadow.png",
+          filename = "__FreightForwarding__/graphics/seismic-scanner/center-shadow.png",
           draw_as_shadow = true,
           priority = "high",
           line_length = 8,
@@ -173,18 +143,7 @@ data:extend{
           width = 163,
           height = 123,
           scale = 0.5 * 1.4,
-          shift = {1.5 + shift.x, 0 + shift.y},
-          hr_version = {
-            filename = "__FreightForwarding__/graphics/seismic-scanner/hr-center-shadow.png",
-            draw_as_shadow = true,
-            priority = "high",
-            line_length = 8,
-            direction_count = 64,
-            width = 163,
-            height = 123,
-            scale = 0.5 * 1.4,
-            shift = {1.5 + shift.x, 0 + shift.y},
-          }
+          shift = {1.5 + shift.x, 0 + shift.y}
         },
       }
     },

@@ -26,9 +26,6 @@ local function underwater_hint(sprites, tint, depth)
           underwater_hint(sprite.layers, tint, depth)
       else
           sprite.tint = tint
-          if sprite.hr_version then
-              sprite.hr_version.tint = tint
-          end
           sprite.shift = sprite.shift or {0,0}
           sprite.shift[2] = sprite.shift[2] + depth
       end

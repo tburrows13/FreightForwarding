@@ -3,55 +3,33 @@ local hit_effects = require "__base__.prototypes.entity.hit-effects"
 local sounds = require "__base__.prototypes.entity.sounds"
 
 local function space_accumulator_picture(tint, repeat_count, discharging_graphics)
-  local filename = "__FreightForwarding__/graphics/charging-station/space_charging_station.png"
-  local hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station.png"
+  local filename = "space_charging_station.png"
   if discharging_graphics then
-    filename = "__FreightForwarding__/graphics/charging-station/space_discharging_station.png"
-    hr_filename = "__FreightForwarding__/graphics/charging-station/hr_space_discharging_station.png"
+    filename = "space_discharging_station.png"
   end
+
   return {
     layers = {
       {
-        filename = filename,
+        filename = "__FreightForwarding__/graphics/charging-station/" .. filename,
         priority = "high",
-        width = 64,
-        height = 96,
+        width = 128,
+        height = 192,
         repeat_count = repeat_count,
         shift = util.by_pixel(0, -16),
         tint = tint,
         animation_speed = 0.5,
-        scale = 1,
-        hr_version = {
-          filename = hr_filename,
-          priority = "high",
-          width = 128,
-          height = 192,
-          repeat_count = repeat_count,
-          shift = util.by_pixel(0, -16),
-          tint = tint,
-          animation_speed = 0.5,
-          scale = 0.5
-        }
+        scale = 0.5
       },
       {
         filename = "__FreightForwarding__/graphics/charging-station/space_charging_station_shadow.png",
         priority = "high",
-        width = 144,
-        height = 45,
+        width = 285,
+        height = 91,
         repeat_count = repeat_count,
         shift = util.by_pixel(32, 11),
         draw_as_shadow = true,
-        scale = 1,
-        hr_version = {
-          filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station_shadow.png",
-          priority = "high",
-          width = 285,
-          height = 91,
-          repeat_count = repeat_count,
-          shift = util.by_pixel(32, 11),
-          draw_as_shadow = true,
-          scale = 0.5
-        }
+        scale = 0.5
       }
     }
   }
@@ -69,26 +47,14 @@ local function space_accumulator_charge(discharging_graphics)
       {
         filename = "__FreightForwarding__/graphics/charging-station/space_charging_station_lightning.png",
         priority = "high",
-        width = 64,
-        height = 96,
+        width = 128,
+        height = 192,
         line_length = 6,
         frame_count = 30,
         draw_as_glow = true,
         shift = util.by_pixel(0, -16),
-        scale = 1,
-        animation_speed = 3,
-        hr_version = {
-          filename = "__FreightForwarding__/graphics/charging-station/hr_space_charging_station_lightning.png",
-          priority = "high",
-          width = 128,
-          height = 192,
-          line_length = 6,
-          frame_count = 30,
-          draw_as_glow = true,
-          shift = util.by_pixel(0, -16),
-          scale = 0.5,
-          animation_speed = 3
-        }
+        scale = 0.5,
+        animation_speed = 3
       }
     }
   }
@@ -127,32 +93,33 @@ data:extend { -- Battery charging interface
       drain = "0W"
     },
     fast_replaceable_group = "assembling-machine",
-    always_draw_idle_animation = true,
-    idle_animation = space_accumulator_picture(),
-    working_visualisations = {
-      {
-        effect = "flicker",
-        fadeout = true,
-        light = {
-          intensity = 0.2,
-          size = 9.9,
-          shift = { 0.0, 0.0 },
-          color = {
-            r = 0.25,
-            g = 0.25,
-            b = 0.8
+    graphics_set = {
+      always_draw_idle_animation = true,
+      idle_animation = space_accumulator_picture(),
+      working_visualisations = {
+        {
+          effect = "flicker",
+          fadeout = true,
+          light = {
+            intensity = 0.2,
+            size = 9.9,
+            shift = { 0.0, 0.0 },
+            color = {
+              r = 0.25,
+              g = 0.25,
+              b = 0.8
+            }
           }
+        },
+        {
+          effect = "flicker",
+          fadeout = true,
+          draw_as_light = true,
+          animation = space_accumulator_charge()
         }
       },
-      {
-        effect = "flicker",
-        fadeout = true,
-        draw_as_light = true,
-        animation = space_accumulator_charge()
-      }
+      water_reflection = accumulator_reflection()
     },
-
-    water_reflection = accumulator_reflection(),
 
     energy_usage = "800kW",
     crafting_categories = { "battery" },
@@ -223,10 +190,11 @@ data:extend { -- Battery charging interface
     },
 
     fast_replaceable_group = "assembling-machine",
+
     idle_animation = space_accumulator_picture(nil, 30, true),
     animation = space_accumulator_charge(true),
-
     water_reflection = accumulator_reflection(),
+
     vehicle_impact_sound = sounds.generic_impact,
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
