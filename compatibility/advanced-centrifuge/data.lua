@@ -7,10 +7,14 @@ if not mods["advanced-centrifuge"] then return end
 
 local function k2_byproducts(index)
   local byproducts = {
-    [1] = { type = "item", name = "iron-ore", probability = 0.25, amount = 5 },
-    [2] = { type = "item", name = "stone", probability = 0.5, amount = 5 }
+    [1] = { type = "item", name = "iron-ore", independent_probability = 0.25, amount = 5 },
+    [2] = { type = "item", name = "stone", independent_probability = 0.5, amount = 5 }
   }
-  if mods["Krastorio2"] then return byproducts[index] else return nil end
+  if mods["Krastorio2"] then
+    return byproducts[index]
+  else
+    return nil
+  end
 end
 
 data:extend({
@@ -21,41 +25,46 @@ data:extend({
   {
     type = "recipe",
     name = "ff-advanced-uranium-processing",
-    energy_required = 60, --was 12
+    energy_required = 60,                                                   -- was 12
     enabled = false,
-    category = "advanced-centrifuging",
-    ingredients = {{type="item", name="uranium-ore", amount=46}}, -- was 10
+    categories = { "advanced-centrifuging" },
+    ingredients = { { type = "item", name = "uranium-ore", amount = 46 } }, -- was 10
     icons = {
       {
         icon = "__base__/graphics/icons/uranium-processing.png",
-        icon_size = 64,
+        icon_size = 64
       },
       {
         icon = "__core__/graphics/icons/technology/constants/constant-mining-productivity.png",
         icon_size = 128,
         scale = 0.25,
-        shift = {10, -8}
+        shift = { 10, -8 }
       }
     },
     subgroup = "raw-material",
-    order = "k[uranium-processing]-2", -- k ordering so it shows up after explosives which is j ordering
-    results =
-    {
+    order = "k[uranium-processing]-2",                                      -- k ordering so it shows up after explosives which is j ordering
+    results = {
       {
+        amount = 1,
         name = "uranium-235",
-        probability = 0.007,
-        amount_min = 4,
-        amount_max = 8
+        shared_probability = {
+          max = 0.007,
+          min = 0
+        },
+        type = "item"
       },
       {
+        amount = 1,
         name = "uranium-238",
-        probability = 0.993,
-        amount_min = 1,
-        amount_max = 9
+        shared_probability = {
+          max = 1,
+          min = 0.007
+        },
+        type = "item"
       },
       k2_byproducts(1),
-      k2_byproducts(2),
+      k2_byproducts(2)
     },
-    allow_productivity = true,
-  },
+    allow_productivity = true
+  }
 })

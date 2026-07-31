@@ -130,19 +130,7 @@ data:extend{
       height = 300,
       --repeat_count = 48,
       shift = util.by_pixel(0, 10),
-      scale = 1.1,
-      hr_version =
-      {
-        filename = "__core__/graphics/light-medium.png",
-        blend_mode = "additive",
-        draw_as_light = true,
-        tint = {a = 0.8, r = 255, g = 80, b = 0},
-        width = 300,
-        height = 300,
-        --repeat_count = 48,
-        shift = util.by_pixel(0, 10),
-        scale = 1.1,
-      }
+      scale = 1.1
     },
     integration_patch =  {
       filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
@@ -151,18 +139,8 @@ data:extend{
       height = 512,
       --line_length = 8,
       --shift = util.by_pixel(0, 2),
-      scale = 0.275,
       --draw_as_glow = true,
-      hr_version =
-      {
-        filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
-        priority = "high",
-        width = 512,
-        height = 512,
-        --line_length = 8,
-        --shift = util.by_pixel(0, 2),
-        scale = 0.275,
-      },
+      scale = 0.275
     },
     --always_draw_idle_animation = true,
     --[[idle_animation =
@@ -178,19 +156,7 @@ data:extend{
           --line_length = 8,
           --shift = util.by_pixel(0, 2),
           scale = 0.275,
-          animation_speed = 0.25,
-          hr_version =
-          {
-            filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
-            priority = "high",
-            width = 512,
-            height = 512,
-            frame_count = 10,
-            --line_length = 8,
-            --shift = util.by_pixel(0, 2),
-            scale = 0.275,
-            animation_speed = 0.25,
-          }
+          animation_speed = 0.25
         },
       }
     },]]
@@ -242,19 +208,7 @@ data:extend{
     --shift = util.by_pixel(0, 2),
     scale = 0.275,
     animation_speed = 0.2,
-    draw_as_glow = true,
-    hr_version =
-    {
-      filename = "__FreightForwarding__/graphics/lava-pool/lava-pool.png",
-      priority = "high",
-      width = 512,
-      height = 512,
-      frame_count = 10,
-      --line_length = 8,
-      --shift = util.by_pixel(0, 2),
-      scale = 0.275,
-      animation_speed = 0.2,
-    },
+    draw_as_glow = true
   },
   {
     type = "assembling-machine",
@@ -274,20 +228,7 @@ data:extend{
       height = 300,
       --repeat_count = 48,
       scale = 0.55,
-      shift = util.by_pixel(0, 6),
-      hr_version =
-      {
-        filename = "__core__/graphics/light-medium.png",
-        blend_mode = "additive",
-        draw_as_light = true,
-        tint = {a = 0.8, r = 255, g = 80, b = 0},
-        width = 300,
-        height = 300,
-        --repeat_count = 48,
-        --shift = util.by_pixel(-1, 44),
-        scale = 0.55,
-        shift = util.by_pixel(0, 6),
-      }
+      shift = util.by_pixel(0, 6)
     },
     integration_patch =  {
       filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
@@ -296,18 +237,8 @@ data:extend{
       height = 128,
         --line_length = 8,
       --shift = util.by_pixel(0, 2),
-      scale = 0.6,
       --draw_as_glow = true,
-      hr_version =
-      {
-        filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
-        priority = "high",
-        width = 128,
-        height = 128,
-            --line_length = 8,
-        --shift = util.by_pixel(0, 2),
-        scale = 0.6,
-      },
+      scale = 0.6
     },
     --map_color = {1, 0.4, 0},
     crafting_categories = {"ff-lava-heating"},
@@ -357,19 +288,7 @@ data:extend{
     --shift = util.by_pixel(0, 2),
     scale = 0.6,
     animation_speed = 0.2,
-    draw_as_glow = true,
-    hr_version =
-    {
-      filename = "__FreightForwarding__/graphics/lava-pool/small-lava-pool.png",
-      priority = "high",
-      width = 128,
-      height = 128,
-      frame_count = 10,
-      --line_length = 8,
-      --shift = util.by_pixel(0, 2),
-      scale = 0.6,
-      animation_speed = 0.2,
-    },
+    draw_as_glow = true
   },
   --[[{
     type = "loader-1x1",

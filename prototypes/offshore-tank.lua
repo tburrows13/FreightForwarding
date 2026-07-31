@@ -5,19 +5,19 @@ local ei_tank_1 = {
   south = {
     layers = {
       {
-        filename =  "__FreightForwarding__/graphics/pipe-covers/data_south_covers.png",
+        filename = "__FreightForwarding__/graphics/pipe-covers/data_south_covers.png",
         width = 512,
         height = 512,
         -- shift = {0,-2.15},
         scale = 0.35,
-        shift = util.by_pixel(0, -96), 
+        shift = util.by_pixel(0, -96)
       },
       {
         filename = "__FreightForwarding__/graphics/pipe-covers/south_basic_covers.png",
         priority = "high",
         width = 55,
         height = 50,
-        shift = {0.01, -0.58},
+        shift = { 0.01, -0.58 },
         scale = 0.5
       }
     }
@@ -28,7 +28,7 @@ local ei_tank_1 = {
     width = 512,
     height = 512,
     scale = 0.35,
-    shift = util.by_pixel(96, 0),        
+    shift = util.by_pixel(96, 0)
   },
   east = {
     filename = "__FreightForwarding__/graphics/pipe-covers/big_east_covers.png",
@@ -36,11 +36,11 @@ local ei_tank_1 = {
     width = 512,
     height = 512,
     scale = 0.35,
-    shift = util.by_pixel(-96, 0),
+    shift = util.by_pixel(-96, 0)
   }
 }
 
-data:extend{
+data:extend {
   {
     name = "ff-offshore-storage-tank",
     type = "item",
@@ -54,16 +54,15 @@ data:extend{
   {
     name = "ff-offshore-storage-tank",
     type = "recipe",
-    category = "crafting",
+    categories = { "crafting" },
     energy_required = 2,
-    ingredients =
-    {
-      {type="item", name="iron-plate", amount=25},
-      {type="item", name="steel-plate", amount=40},
-      {type="item", name="storage-tank", amount=2},
+    ingredients = {
+      { type = "item", name = "iron-plate", amount = 25 },
+      { type = "item", name = "steel-plate", amount = 40 },
+      { type = "item", name = "storage-tank", amount = 2 }
     },
-    results = {{type="item", name="ff-offshore-storage-tank", amount=1}},
-    enabled = false,
+    results = { { type = "item", name = "ff-offshore-storage-tank", amount = 1 } },
+    enabled = false
     --always_show_made_in = true,
     --main_product = "ff-offshore-storage-tank",
   },
@@ -72,52 +71,48 @@ data:extend{
     type = "storage-tank",
     icon = "__FreightForwarding__/graphics/item/offshore-tank.png",
     icon_size = 64,
-    flags = {"placeable-neutral", "player-creation"},
-    minable = {mining_time = 0.5, result = "ff-offshore-storage-tank"},
+    flags = { "placeable-neutral", "player-creation" },
+    minable = { mining_time = 0.5, result = "ff-offshore-storage-tank" },
     max_health = 500,
     corpse = "big-remnants",
-    collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
-    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    collision_box = { { -2.4, -2.4 }, { 2.4, 2.4 } },
+    selection_box = { { -2.5, -2.5 }, { 2.5, 2.5 } },
     --collision_mask = table.deepcopy(data.raw["pipe"]["storage-tank"].collision_mask),
-    collision_mask = {layers={ground_tile=true, object=true}},  -- Fixed in data-final-fixes
+    collision_mask = { layers = { ground_tile = true, object = true } }, -- Fixed in data-final-fixes
     circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
     circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
     circuit_wire_max_distance = 20,
     flow_length_in_ticks = 1,
     map_color = data.raw["storage-tank"]["storage-tank"].map_color,
-    window_bounding_box = {{0,0},{1,1}},
+    window_bounding_box = { { 0, 0 }, { 1, 1 } },
     fluid_box = {
       volume = 100000,
       pipe_covers = pipecoverspictures(),
       pipe_picture = ei_tank_1,
-      pipe_connections =
-      {
-        { flow_direction = "input-output", direction = defines.direction.north, position = {0, -2} },
-        { flow_direction = "input-output", direction = defines.direction.south, position = {0, 2} },
-        { flow_direction = "input-output", direction = defines.direction.west, position = {-2, 0} },
-        { flow_direction = "input-output", direction = defines.direction.east, position = {2, 0} },
+      pipe_connections = {
+        { flow_direction = "input-output", direction = defines.direction.north, position = { 0, -2 } },
+        { flow_direction = "input-output", direction = defines.direction.south, position = { 0, 2 } },
+        { flow_direction = "input-output", direction = defines.direction.west, position = { -2, 0 } },
+        { flow_direction = "input-output", direction = defines.direction.east, position = { 2, 0 } }
       },
-      production_type = "input-output",
+      production_type = "input-output"
     },
     pictures = {
       picture = {
         filename = "__FreightForwarding__/graphics/offshore-tank.png",
-        size = {512, 512},
-        shift = {0, 0},
-        scale = 0.35*2,
+        size = { 512, 512 },
+        shift = { 0, 0 },
+        scale = 0.35 * 2
       },
       window_background = util.empty_sprite(),
       fluid_background = util.empty_sprite(),
       flow_sprite = util.empty_sprite(),
-      gas_flow = util.empty_sprite(),
+      gas_flow = util.empty_sprite()
     }
   }
 }
 
-
-table.insert(data.raw["technology"]["tank_ship"].effects, 3,
-  {
-    type = "unlock-recipe",
-    recipe = "ff-offshore-storage-tank"
-  }
-)
+table.insert(data.raw["technology"]["tank_ship"].effects, 3, {
+  type = "unlock-recipe",
+  recipe = "ff-offshore-storage-tank"
+})

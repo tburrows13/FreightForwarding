@@ -64,18 +64,7 @@ data:extend{
         frame_count = 1,
         variation_count = 1,
         scale = 0.6,
-        tint = {a=0.3, r=0.2,g=0.2,b=0.2},
-        hr_version =
-        {
-          filename = "__FreightForwarding__/graphics/seamount.png",
-          priority = "extra-high",
-          width = 200,
-          height = 200,
-          frame_count = 1,
-          variation_count = 1,
-          tint = {a=0.3, r=0.2,g=0.2,b=0.2},
-          scale = 0.6
-        }
+        tint = {a=0.3, r=0.2,g=0.2,b=0.2}
       }
     },
     map_color = {0, 0.6, 0.4},
